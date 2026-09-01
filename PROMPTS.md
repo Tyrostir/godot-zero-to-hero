@@ -189,3 +189,39 @@ This is the **third** time the learner has stated the practical-first requiremen
 | ToDos open | 16 (T-002, T-003 blocking) |
 | Repo on GitHub | ✅ https://github.com/Tyrostir/godot-zero-to-hero — created and pushed (`6219e4b`) |
 | Next | Learner approves `PLAN.md`; author writes chapter 0.1 |
+
+---
+
+## PROMPT#4
+
+**Date:** 2026-09-01 · **Session:** 001
+
+### Prompt (verbatim — answers to three questions put to the learner)
+
+```text
+Build machine:  Linux
+ADR-024 paths:  Yes — author all three fully
+Next turn:      Review the plan first
+```
+
+### Response
+
+Three decisions, all recorded before any chapter exists.
+
+**1. Linux build machine** → [D-001](docs/meta/Doubts.md) resolved, [ADR-004](docs/meta/Decisions.md#adr-004) revised. This was the project's hardest blocker. Consequences applied immediately: Setup 04 now leads with the command-line Android SDK route (~1 GB) rather than Android Studio (~8 GB); a ⭐ **`udev` rule** section was added, because without it `adb` reports `no permissions` and the reflex fix — running `adb` as root — then fights the user-owned adb server; OpenJDK comes from distribution packages. Windows and macOS steps stay for other readers.
+
+**2. Three learning paths, all authored in full** → [ADR-024](docs/meta/Decisions.md#adr-024) moved from ⏳ Pending to ✅ Active. This **overrides my own recommendation**, which was to use ⭐/🔬 markers instead. The recommendation optimised for authoring cost; the learner is optimising for the course standing on its own for readers who are not them — the same reasoning behind their QNX decision, and consistency across the two courses is itself worth something.
+
+The important consequence was a **latent contradiction between ADR-002 and ADR-024** that had to be resolved now rather than at chapter 20: ADR-002 mandates ≥50% build and ≤30% theory, while ADR-024 adds 🐣 boxes and a 🏃 summary that are neither. Resolved explicitly — **the ratios are measured on the Path B reading**, the chapter minus 🐣 boxes and the 🏃 summary. Path material adds; it never displaces the build. Written into both ADRs, the chapter template, `PLAN.md §1b` and `Practicals.md`.
+
+**3. Plan review before chapters** → [T-013](docs/meta/ToDos.md) (Chapter 0.1) marked ⏸️, blocked on [T-002](docs/meta/ToDos.md). `CourseState`, `CompactContext` and `CLAUDE-MEMORY` all record the hold. This is the right call rather than a delay: the plan commits to 215 chapters at ~1.5–2× authoring cost each, so an amendment now costs one edit and the same amendment at chapter 40 costs forty.
+
+### Standing instructions extracted
+
+12. Build machine is **Linux** → [ADR-004](docs/meta/Decisions.md#adr-004)
+13. **Author 🐣 A and 🏃 C in full in every chapter**, learner walks 🚶 B → [ADR-024](docs/meta/Decisions.md#adr-024)
+14. **Do not write chapters until the plan review returns**
+
+### Artefacts changed
+
+`docs/meta/Decisions.md` (ADR-024 rewritten and activated; ADR-004 amended) · `docs/meta/DecisionsLog.md` (three entries) · `docs/meta/Doubts.md` (D-001 resolved, D-004 added) · `docs/PLAN.md` (new §1b *Three paths, one document*; §5.1 Linux) · `docs/chapters/README.md` (Fast-Track Summary in the template, path system, Paths column) · `docs/TableOfContents.md` (path legend) · `docs/Practicals.md` (path/practical interaction) · `docs/guides/Setup_04_Android_And_Device.md` (Linux-first, ⭐ udev rule) · `docs/guides/Setup_01_Prerequisites.md` · `docs/meta/{CourseState,CompactContext,ToDos}.md` · `docs/internal/CLAUDE-MEMORY.md`

@@ -22,8 +22,8 @@ update_trigger: "End of every working session, and after every chapter is publis
 | **Course** | Godot Zero to Hero — 3D Android game development with Godot 4 (.NET/C#) and Blender |
 | **Repository** | ✅ [`https://github.com/Tyrostir/godot-zero-to-hero`](https://github.com/Tyrostir/godot-zero-to-hero) — created and pushed 2026-09-01 |
 | **Local path (authoring)** | `/root/claude/godot-zero-to-hero` (Termux) |
-| **Local path (building)** | ⏳ **undecided** — see [D-001](Doubts.md) |
-| **Learner** | Tyrostir |
+| **Local path (building)** | ✅ **A Linux desktop** ([D-001](Doubts.md) resolved 2026-09-01) |
+| **Learner** | Tyrostir — path 🚶 **B, Self-Learner** (A and C authored in full, [ADR-024](Decisions.md#adr-024)) |
 | **Current phase** | **Phase 1 — planning and scaffolding** |
 | **Plan status** | ⏳ **Awaiting your approval** |
 | **Chapters published** | **0 / 215** |
@@ -34,7 +34,7 @@ update_trigger: "End of every working session, and after every chapter is publis
 | **Blender installed?** | ❌ Not yet — [Setup 03](../guides/Setup_03_Blender.md) |
 | **Phone connected?** | ❌ Not yet — [Setup 04](../guides/Setup_04_Android_And_Device.md) |
 | **P00 on device?** | ❌ Not yet — the Module 0 milestone |
-| **Blocked on** | 🔴 **Two things:** `PLAN.md` approval ([T-002](ToDos.md)), and the build machine is undecided ([D-001](Doubts.md)) |
+| **Blocked on** | 🔴 **`PLAN.md` approval** ([T-002](ToDos.md)) — you asked to review it before any chapter is written |
 | **Last session** | 2026-09-01 (Session 001) |
 
 ### Progress bar
@@ -62,8 +62,8 @@ OVERALL                            [                    ]   0 %   (0/215)
 
 | Who | Action |
 |-----|--------|
-| 👤 **You — do next** | 1. **Approve or amend [`../PLAN.md`](../PLAN.md)** — nothing is written until you do. 2. **Decide the build machine** ([D-001](Doubts.md)) — this blocks all of Module 0. 3. Answer [ADR-024](Decisions.md#adr-024) — do you want three learning paths? 4. Record your phone's specs ([D-003](Doubts.md)). |
-| 🤖 **Me — next turn** | **Chapter 0.1** once the plan is approved. If you'd rather see a sample first, ask for **chapter 1.4** — it's the most representative of the Build→Why→Break→Practical→Check shape. |
+| 👤 **You — do next** | ⭐ **1. Review [`../PLAN.md`](../PLAN.md)** and come back with amendments — you asked for this before any chapter is written. Read §1 (philosophy), §1b (the three paths), §3 (the 11 projects) and §5 (honest constraints). 2. Skim [`../TableOfContents.md`](../TableOfContents.md) for anything missing or mis-sequenced. 3. Record your phone's specs ([D-003](Doubts.md)). |
+| 🤖 **Me — next turn** | ⏸️ **Holding for your plan review.** On your word: **Chapter 0.1**, written for all three paths, one chapter per turn. |
 
 ---
 
@@ -72,7 +72,7 @@ OVERALL                            [                    ]   0 %   (0/215)
 | Phase | What | Status |
 |-------|------|--------|
 | **0 — Inception** | Environment inspected, conventions adopted, repo scaffolded, **GitHub repo created and pushed** | ✅ Done (Session 001) |
-| **1 — Planning** | PLAN, TableOfContents, projects, guides, meta docs | ✅ Drafted · ⏳ awaiting approval |
+| **1 — Planning** | PLAN, TableOfContents, projects, guides, meta docs | ✅ Drafted · ⏳ **awaiting your review** |
 | **2 — Setup** | Learner installs the toolchain; `[UNVERIFIED]` markers cleared; P00 ships | ⬜ Not started |
 | **3 — Writing chapters** | One chapter per turn, Modules 0→10 | ⬜ Not started |
 | **4 — Capstone** | P10 built and released | ⬜ Not started |

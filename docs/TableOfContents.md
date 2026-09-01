@@ -10,7 +10,11 @@ update_trigger: "Whenever a chapter, project or exercise is added, renamed or re
 
 # Table of Contents
 
-Legend: **[A]** Godot/C# chapter · **[B]** Blender chapter · **[P]** Project milestone · **[X]** Exercise set · **[J]** Mini-jam · **[Q]** Check-yourself questions
+**Track:** **[A]** Godot/C# chapter · **[B]** Blender chapter · **[P]** Project milestone · **[X]** Exercise set · **[J]** Mini-jam · **[Q]** Check-yourself questions
+
+**Paths** ([ADR-024](meta/Decisions.md#adr-024)): 🐣 Absolute Beginner · 🚶 Self-Learner *(your path)* · 🏃 Fast-Track Pro
+
+Unless a chapter says otherwise it is **🐣🚶🏃 — all three paths**. Chapters tagged **🚶🏃** may be skipped by Path A on a first pass; **🏃** marks material Paths A and B can defer. Within a chapter, 🏃 Fast-Track Summaries, 🐣 *"New to this?"* boxes, 🔬 deep dives and ⭐ core practicals do the finer-grained routing.
 
 Every chapter ends with `[X]` and `[Q]`; they are only listed separately below where they are substantial enough to stand alone.
 
@@ -384,3 +388,4 @@ Every chapter ends with `[X]` and `[Q]`; they are only listed separately below w
 - **A6** [reference/Troubleshooting.md](reference/Troubleshooting.md) — known errors and fixes
 - **A7** [reference/cheatsheets/](reference/cheatsheets/) — Blender keys, GDShader, Godot C# API, adb
 - **A8** [reference/QuestionBank.md](reference/QuestionBank.md) — all self-check questions · answers in [reference/answers/](reference/answers/)
+- **A9** [Practicals.md](Practicals.md) — every hands-on unit in the course, counted

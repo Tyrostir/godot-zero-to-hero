@@ -174,3 +174,52 @@ update_trigger: "Every time a decision is made, revisited, superseded or reverse
 **Worth remembering.** The denial was environmental and intermittent, not a GitHub or token problem. Expect the same on other write calls; retry once, and if it is refused again, hand it to the learner rather than working around it.
 
 ---
+
+## 2026-09-01 — Session 001 (continued)
+
+### 🆕 DECIDED — ADR-024: three learning paths, all authored in full
+
+**Context.** Raised in this session as a ⏳ Pending ADR with an explicit recommendation **against** — the argument being that this course's Build/Why split already provides the fast-track/deep-dive separation structurally, at roughly a tenth of the cost.
+
+**Decision: the learner chose all three paths, authored in full.** 🐣 Absolute Beginner · 🚶 Self-Learner (their own path) · 🏃 Fast-Track Pro. The same choice they made on `qnx-zero-to-hero` (its ADR-008).
+
+**Why the recommendation was overridden, and why that's right.** The recommendation optimised for authoring cost. The learner is optimising for the course standing on its own for readers who are not them — the same reasoning that produced the QNX decision. Consistency across their two courses is itself worth something: one mental model serves both.
+
+**Rejected.** The ⭐/🔬-markers-only alternative.
+
+**Consequences.**
+- The mandatory chapter template gains a **🏃 Fast-Track Summary** section immediately after the Goal.
+- 🐣 *"New to this?"* boxes sit inline, collapsed, at the point of confusion.
+- Chapter front matter and indexes carry `🐣🚶🏃` tags.
+- **[ADR-002](Decisions.md#adr-002)'s ratios are clarified**: the ≥50% build / ≤30% theory measurement applies to the **Path B reading** — the chapter minus 🐣 boxes and the 🏃 summary. Path material adds; it never displaces the build. Without this clarification the two ADRs would have quietly contradicted each other by chapter 20.
+- Roughly 1.5–2× authoring effort per chapter, accepted knowingly.
+
+**Timing note.** This was asked and answered **before a single chapter existed**, which is exactly why it was raised in Session 001 — hazard H-07 was that a later "yes" would require retrofitting every written chapter. Nothing needs retrofitting.
+
+---
+
+### 🔄 REVISED — ADR-004: the build machine is a Linux desktop
+
+**Context.** [D-001](Doubts.md) had been the hardest blocker in the project: no chapter of Module 0 could be completed without knowing the machine.
+
+**Answer: Linux.**
+
+**Consequences, immediate.**
+- Setup 04 now leads with the **command-line Android SDK** route (~1 GB) and marks Android Studio (~8 GB) as the alternative for other readers.
+- A **`udev` rule section** was added to Setup 04. Without it `adb` reports `no permissions` or shows nothing, and the reflex fix — running `adb` as root — then fights the user-owned adb server. Worth its own ⭐ step.
+- OpenJDK comes from the distribution's packages rather than a downloaded Temurin bundle.
+- Setup 01's OS row now names Linux as the learner's choice.
+
+**Not changed.** Windows and macOS instructions stay in the guides. They cost little and the course is meant to stand alone for other readers ([ADR-024](Decisions.md#adr-024) reasoning applies here too).
+
+---
+
+### ❓ DEFERRED — Chapter writing, at the learner's request
+
+**Context.** Asked whether to begin at chapter 0.1, write a sample chapter first, or hold for a plan review.
+
+**The learner chose to review the plan first.** No chapter is written until they return with amendments or an approval. `CourseState`, `CompactContext` and `ToDos` all record the hold, and [T-013](ToDos.md) (Chapter 0.1) is marked ⏸️ blocked on [T-002](ToDos.md).
+
+**Why this is the right call and not a delay.** The plan commits to 215 chapters at ~1.5–2× authoring cost each. An amendment made now costs one edit; the same amendment made at chapter 40 costs forty.
+
+---

@@ -25,6 +25,7 @@ Concretely, every chapter has this shape:
 | Section | What it is | Typical size |
 |---|---|---|
 | **Goal** | One sentence: what will exist at the end that did not exist at the start. | 1 line |
+| 🏃 **Fast-Track Summary** | The whole chapter in ~10 bullets plus the finished code. Path C reads only this and the cheat sheet. | short |
 | **Build** | Step-by-step doing. Code, clicks, keystrokes. This is 60–70% of the chapter. | the bulk |
 | **Why it works** | The theory — but *only* the theory this build needed. Delivered after you've felt the need for it. | 20% |
 | **Break it** | A deliberate sabotage + the error message it produces, so you learn the failure mode. | short |
@@ -43,6 +44,26 @@ You asked to learn *everything from scratch* and to *go professional grade*. Tho
 3. **Pass 3 — Professional.** You learn the production concerns: performance on a mid-range Android chip, memory, tooling, data-driving it, testing it.
 
 You'll see this pattern on the character controller, on lighting, on the save system, on Blender modelling, and on shaders.
+
+---
+
+## 1b. Three paths, one document
+
+Every chapter is written for three readers at once, all three authored in full ([ADR-024](meta/Decisions.md#adr-024)) — the same choice you made on `qnx-zero-to-hero`, for the same reason: a future reader should be able to enter at any depth.
+
+| Path | Who it's for | What they read | What they build |
+|------|--------------|----------------|-----------------|
+| 🐣 **A — Absolute Beginner** | New to programming *and* new to 3D | Everything, plus 🐣 *"New to this?"* boxes explaining the concepts a first-timer won't have | Complete code listings, never "add the obvious". CC0 placeholder art where Path B models its own |
+| 🚶 **B — Self-Learner** | Comfortable coding, new to games and to Blender | The full chapter — every build step, every theory debrief, every practical | Everything. Models, rigs and animates their own art. Writes every shader by hand |
+| 🏃 **C — Fast-Track Pro** | Experienced developer or artist, time-poor | The 🏃 Fast-Track Summary, the Build steps, the cheat sheet. Skips theory they already know | ⭐ core practicals only |
+
+**Your path is 🚶 B.** Paths A and C are authored alongside it so the course stands on its own for anyone who finds it.
+
+**How it looks on the page.** Not three documents — one document with markers. A 🏃 summary near the top; collapsed 🐣 boxes inline at the point of confusion; 🔬 optional deep dives; ⭐ on the practicals everyone does. Chapter headings carry `🐣🚶🏃` tags, or `🚶🏃` where Path A should skip.
+
+> ⚠️ **This does not dilute the practical-first mandate.** The ≥50% build / ≤30% theory ratio is measured on the **Path B reading** — the chapter minus 🐣 boxes and the 🏃 summary. Path material *adds*; it never displaces the build.
+
+**The cost, stated plainly:** roughly 1.5–2× the authoring effort per chapter, and longer chapters. You chose this knowingly over the cheaper markers-only alternative.
 
 ---
 
@@ -123,7 +144,9 @@ Between modules there are also **Mini-Jams** — 2-to-4-hour constrained builds 
 These are real limitations of the toolchain and of your setup. Knowing them now saves you a week later.
 
 **5.1 — You cannot do this course on the phone alone.**
-This Termux session is a good place to write, plan, and manage git. It is not where the game gets built. Godot's C#/.NET tooling needs a desktop .NET SDK, and the Android *editor* build of Godot does **not** support C# at all. You need a desktop or laptop (Windows, Linux or macOS) for the actual work. Your Android phone is the **target device**, and it is essential — you will deploy to it constantly.
+This Termux session is a good place to write, plan, and manage git. It is not where the game gets built. Godot's C#/.NET tooling needs a desktop .NET SDK, and the Android *editor* build of Godot does **not** support C# at all. Your Android phone is the **target device**, and it is essential — you will deploy to it constantly.
+
+**Your build machine is a Linux desktop** (confirmed, [D-001](meta/Doubts.md)). That settles the setup route: the lean command-line Android SDK rather than the ~8 GB Android Studio install, OpenJDK from your distribution's packages, and a `udev` rule so `adb` sees the phone without `sudo`. The guides lead with Linux; Windows and macOS steps remain for other readers.
 
 **5.2 — C# on Android in Godot is supported, but it is the less-travelled path.**
 Godot's .NET Android export works (4.2+ introduced it, later 4.x releases hardened it), but you will occasionally hit rough edges that a GDScript user would not: longer export times, larger APKs, and fewer StackOverflow answers. This course chooses C# anyway because you asked for it and because it is the better skill to own — but expect to read the official docs and Godot's GitHub issues sometimes. `reference/Troubleshooting.md` collects the known ones.

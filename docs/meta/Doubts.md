@@ -61,7 +61,6 @@ The `Guess` field matters more than it looks. Recording a wrong hypothesis and l
 
 | ID | Date | Ch. | Question (one line) | Status | Notes |
 |---|---|---|---|---|---|
-| D-001 | 2026-09-01 | 0.1 | Which desktop machine will I actually use for Godot + Blender, and does it meet the requirements? | OPEN | Must be answered before Module 0 can start. See PLAN.md §5.1 |
 | D-002 | 2026-09-01 | 0.2 | Which exact Godot 4.x .NET version, and does that version's Android C# export have known issues? | OPEN | Record answer in the [Setup 01 version log](../guides/Setup_01_Prerequisites.md#3-your-version-log) |
 | D-003 | 2026-09-01 | 0.5 | What is my test phone's GPU, RAM, Android version and Vulkan support? | OPEN | Determines Mobile vs Compatibility renderer in ch 4.13 |
 
@@ -73,7 +72,8 @@ The `Guess` field matters more than it looks. Recording a wrong hypothesis and l
 
 | ID | Ch. | Question | Answer, in my own words | Resolved on |
 |---|---|---|---|---|
-| — | — | *(empty — your first resolved doubt goes here)* | | |
+| D-001 | 0.1 | Which desktop machine will I build on? | **A Linux desktop.** That settles the whole setup route: the lean command-line Android SDK (~1 GB) instead of Android Studio (~8 GB); OpenJDK 17 from the distribution's packages; and a `udev` rule for `adb` so the phone is visible without `sudo`. Recorded as an amendment to [ADR-004](Decisions.md#adr-004). | 2026-09-01 |
+| D-004 | 0.1 | Should the course be written for one path or three? | **Three, all authored in full** — 🐣 Absolute Beginner, 🚶 Self-Learner (mine), 🏃 Fast-Track Pro. Same choice I made on the QNX course, for the same reason: a future reader should be able to enter at any depth. Costs ~1.5–2× the authoring effort per chapter, accepted knowingly. [ADR-024](Decisions.md#adr-024). | 2026-09-01 |
 
 ---
 

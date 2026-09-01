@@ -53,6 +53,7 @@ You are the **author** of a book-length course: *Godot Zero to Hero* — 3D **An
 - **Tyrostir** (`karthikeyankasivishwanathan@gmail.com`, GitHub `Tyrostir`).
 - **Embedded engineer.** C/C++ solid, Python strong — established in the sibling `qnx-zero-to-hero` course, which they authored with the same conventions.
 - **New to:** game development, C# in a game context, Godot, and Blender. All four are taught from first principles.
+- **Path 🚶 B — Self-Learner.** But 🐣 A and 🏃 C content is authored **in full in every chapter** ([ADR-024](../meta/Decisions.md#adr-024)) — an explicit requirement, so future readers can enter at any depth. Same choice they made on the QNX course.
 - **Because they are a strong systems programmer**, do not over-explain general programming, pointers, memory or build systems. **Do** explain everything game-specific, everything about 3D maths, and everything about art tooling — none of it is transferable from embedded work.
 - **Communication style:** wants complete documentation, everything logged, nothing left in conversation only. Asks direct, well-scoped questions. Restates important requirements — when they repeat something, treat the repetition as emphasis and make it structural.
 
@@ -71,7 +72,8 @@ AUTHORING (the agent's session):
   🚨 LEARNER INSTRUCTION: "You should not install or run anything in this environment."
      Memory and compute are severely limited. Respect this absolutely.
 
-BUILDING (learner's desktop):  ⏳ STILL UNDECIDED — D-001. Blocks Module 0.
+BUILDING (learner's desktop):  ✅ LINUX — D-001 resolved 2026-09-01.
+                               ⇒ CLI Android SDK route, distro OpenJDK 17, udev rule for adb.
 TARGET   (learner's phone):    ⏳ specs unknown — D-003. Decides the renderer.
 ```
 
@@ -102,7 +104,7 @@ Capstone working title *Ember Hollow* is provisional ([ADR-023](../meta/Decision
 | | |
 |---|---|
 | Phase | 1 — planning |
-| Plan | ⏳ awaiting approval ([T-002](../meta/ToDos.md)) |
+| Plan | ⏳ **awaiting the learner's review** ([T-002](../meta/ToDos.md)) — they explicitly asked to review before chapters begin |
 | Chapters | 0 / 215 |
 | Setup guides | 5 / 5 drafted, all `[UNVERIFIED]` |
 | Repo on GitHub | ✅ live — https://github.com/Tyrostir/godot-zero-to-hero |
@@ -144,8 +146,9 @@ Extracted verbatim-in-substance from their prompts. These do not expire.
 8. **One chapter per turn**, then commit.
 9. **No GitHub-only Markdown** ([ADR-021](../meta/Decisions.md#adr-021)) — the course must survive PDF export.
 10. **Do not run Godot, Blender, dotnet or adb.** They are not installed and must not be.
-11. **British-leaning spelling** is used throughout the existing documents (*colour*, *behaviour*, *optimise*, *modelling*). Stay consistent.
-12. **Do not narrate the authoring infrastructure to the reader** — Tier 3 stays Tier 3.
+11. **Write every chapter for all three paths** — 🏃 Fast-Track Summary near the top, 🐣 boxes inline, 🔬 deep dives, ⭐ on universal practicals, path tags in the front matter. Ratios in ADR-002 are measured on the Path B reading.
+12. **British-leaning spelling** is used throughout the existing documents (*colour*, *behaviour*, *optimise*, *modelling*). Stay consistent.
+13. **Do not narrate the authoring infrastructure to the reader** — Tier 3 stays Tier 3.
 
 ---
 
@@ -198,7 +201,7 @@ Extracted verbatim-in-substance from their prompts. These do not expire.
 | 011 | Every question → `D-NNN` |
 | 016 | The author does not execute; `[UNVERIFIED]` |
 | 019 | Capstone scope locked: 4 levels + 1 boss |
-| 024 | ⏳ **Pending:** three learning paths — recommendation is *no* |
+| **024** | **Three learning paths 🐣/🚶/🏃, all authored in full. Decided yes.** |
 | 025 | QNX repo conventions adopted |
 
 ---
@@ -208,10 +211,10 @@ Extracted verbatim-in-substance from their prompts. These do not expire.
 | ID | Hazard | Mitigation |
 |----|--------|-----------|
 | **H-01** | ✅ **Cleared.** The repo now exists and is pushed. Worth remembering: the first `POST /user/repos` was denied by the **Claude Code auto-mode permission classifier**, not by GitHub, and the retry succeeded. Expect the same intermittency on other write calls. | — |
-| **H-02** | 🔴 The build machine is undecided. Module 0 cannot start. | [D-001](../meta/Doubts.md) / [T-003](../meta/ToDos.md) |
+| **H-02** | ✅ **Cleared.** Build machine is a **Linux desktop** ([D-001](../meta/Doubts.md)). Guides lead with the Linux route. | — |
 | **H-03** | 🟠 C# + Android in Godot is the less-travelled path; rough edges with few community answers. | [ADR-022](../meta/Decisions.md#adr-022). Check Godot's GitHub issues before assuming a bug is the learner's. Log everything in `Troubleshooting.md`. |
 | **H-04** | 🟠 Every setup guide is `[UNVERIFIED]`. If a version number here is wrong, Module 0 stalls. | Guides link the always-current official pages and say explicitly that those pages win. |
 | **H-05** | 🟠 Scope creep on the capstone. | [ADR-019](../meta/Decisions.md#adr-019) locks it; new ideas go to the GDD under *Post-launch*. |
 | **H-06** | 🟡 215 chapters at one per turn is a long project. Momentum is the real risk. | Eleven shipped projects exist precisely to supply visible progress. P00 lands in the first session of real work. |
-| **H-07** | 🟡 ADR-024 (learning paths) unanswered — if the learner later says yes, every already-written chapter needs retrofitting. | Ask early. It is listed as [T-005](../meta/ToDos.md) among the first four actions. |
+| **H-07** | ✅ **Cleared, and answered before any chapter existed** — exactly why it was asked in Session 001. Three paths, all authored in full. No retrofitting needed. | — |
 | **H-08** | 🔵 Godot version drift over a ~year-long project. | Version log in [Setup 01 §3](../guides/Setup_01_Prerequisites.md); pin and record. |

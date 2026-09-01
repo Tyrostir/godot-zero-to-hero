@@ -27,6 +27,8 @@ update_trigger: "When a practical, drill, challenge, jam or project is added or 
 **Total distinct hands-on units: ~704.**
 **Chapters that begin with theory: 0.** That is a hard rule, not an aspiration ([ADR-002](meta/Decisions.md#adr-002)).
 
+> 🐣🚶🏃 **Paths and practicals** ([ADR-024](meta/Decisions.md#adr-024)). ⭐ practicals are done by **every** path — they are the ones without which the chapter didn't happen. Unmarked practicals are Paths A and B. 🔬 deep-dive practicals are Paths B and C. Path A gets complete code listings for every build; Path C gets the Fast-Track Summary and the ⭐ practicals only.
+
 ---
 
 ## 2. The ratio, per module

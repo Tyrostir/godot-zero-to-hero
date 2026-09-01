@@ -46,7 +46,7 @@ update_trigger: "Whenever a decision is made, changed, or superseded"
 | [ADR-021](#adr-021) | No GitHub-only Markdown syntax | Docs | ✅ |
 | [ADR-022](#adr-022) | C# on Android is knowingly the less-travelled path | Product | ✅ |
 | [ADR-023](#adr-023) | Capstone working title is *Ember Hollow* | Product | 🔄 |
-| [ADR-024](#adr-024) | Learning paths (🐣/🚶/🏃) as in the QNX course | Pedagogy | ⏳ |
+| [ADR-024](#adr-024) | **Three learning paths 🐣/🚶/🏃, all authored in full** | Pedagogy | ✅ |
 | [ADR-025](#adr-025) | Repository conventions adopted from `qnx-zero-to-hero` | Docs | ✅ |
 
 ---
@@ -109,7 +109,9 @@ The 42-chapter Blender track (`B1`–`B42`, see [`../BlenderTrack.md`](../Blende
 ### Desktop = workshop · phone = target · Termux = notebook
 **Status:** ✅ Active · **Category:** Environment
 
-All authoring happens on a desktop or laptop. The Android phone is the deployment target. The Termux session is for planning, documentation, git and conversation only.
+All authoring happens on a desktop or laptop — **confirmed 2026-09-01 as a Linux machine** ([D-001](Doubts.md)). The Android phone is the deployment target. The Termux session is for planning, documentation, git and conversation only.
+
+**Consequence of the Linux choice.** Setup guides lead with the Linux route: the command-line Android SDK (~1 GB, no Android Studio), a `udev` rule for `adb`, and the distribution's OpenJDK. Windows and macOS steps stay in the guides for other readers but are secondary.
 
 **Why.** Godot's Android editor build has **no C#/.NET support** — C# requires a desktop .NET SDK and MSBuild. This is a hard constraint of the toolchain, not a preference.
 
@@ -312,21 +314,28 @@ A placeholder so the capstone can be referred to concretely from Module 4 onward
 ---
 
 ## ADR-024
-### Learning paths (🐣 / 🚶 / 🏃)
-**Status:** ⏳ **Pending your input** · **Category:** Pedagogy
+### Three learning paths, all authored in full
+**Status:** ✅ Active *(decided 2026-09-01)* · **Category:** Pedagogy
 
-The QNX course authors three parallel paths in every chapter: 🐣 Absolute Beginner, 🚶 Self-Learner, 🏃 Fast-Track Pro.
+Every chapter is written for **three paths simultaneously**, all three authored in full — the same decision the learner made on `qnx-zero-to-hero` (its ADR-008), and for the same reason: future readers should be able to enter the course at any depth.
 
-**The question for you:** do you want the same here?
+| Path | Who | What they read | What they build |
+|------|-----|----------------|-----------------|
+| 🐣 **A — Absolute Beginner** | New to programming *and* new to 3D | Everything, plus 🐣 expansion boxes that explain the programming and 3D concepts a first-timer won't have | Complete code listings, never "add the obvious". Uses CC0 placeholder art where Path B models its own |
+| 🚶 **B — Self-Learner** | **The learner's path.** Comfortable coding, new to games and to Blender | The full chapter: every build step, every theory debrief, every practical | Everything. Models, rigs and animates their own art. Writes every shader by hand |
+| 🏃 **C — Fast-Track Pro** | Experienced developer or artist, time-poor | The 🏃 Fast-Track Summary, the Build steps, and the cheat sheet. Skips theory debriefs they already know | ⭐ core practicals only |
 
-| | If yes | If no |
-|---|---|---|
-| Benefit | Re-readable at different depths; useful to future readers | Chapters are ~40% shorter and faster to produce |
-| Cost | Roughly 1.5–2× the authoring effort per chapter | Written for exactly one reader — you |
+**How it appears in a chapter.** Not three separate documents — one document with markers:
 
-**My recommendation: no, not as three full paths.** This course's practical-first structure already provides the same benefit more cheaply — the **Build** section *is* the fast track, and the **Why it works** section *is* the depth. Instead I propose two lightweight markers: 🔬 for optional deep dives and ⭐ for must-do practicals. That gets ~80% of the value at ~10% of the cost.
+- A **🏃 Fast-Track Summary** near the top: the whole chapter in ~10 bullets plus the finished code. Path C reads only this and the cheat sheet.
+- **🐣 boxes** — collapsible *"New to this?"* expansions, inline at the point of confusion. Path B and C skip them.
+- **🔬 deep dives** — optional depth. Path A skips them.
+- **⭐ core practicals** — every path does these. Unmarked practicals are Path A and B.
+- Chapter headers carry path tags: `🐣🚶🏃` when it is for everyone, `🚶🏃` when Path A should skip it.
 
-**Awaiting your decision.** Until then chapters are written single-path with 🔬 and ⭐ markers.
+**Interaction with [ADR-002](#adr-002).** The ≥50% Build / ≤30% theory ratio is measured on the **Path B reading** — the full chapter minus 🐣 boxes and 🏃 summaries. Path markers add material; they never displace the build.
+
+**Cost, accepted knowingly.** Roughly 1.5–2× the authoring effort per chapter, and longer chapters. The learner chose this deliberately over the cheaper ⭐/🔬-markers-only alternative that was originally recommended, on the grounds that the course should serve readers other than themselves.
 
 ---
 
@@ -345,3 +354,4 @@ This repository deliberately mirrors the structure of the learner's `qnx-zero-to
 | Version | Date | Change |
 |---------|------|--------|
 | 1.0 | 2026-09-01 | Created at course inception (Session 001). ADR-001 to ADR-025. |
+| 1.1 | 2026-09-01 | ADR-024 decided: three paths, all authored in full. ADR-004 amended: build machine is **Linux**. |

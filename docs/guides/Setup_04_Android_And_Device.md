@@ -31,6 +31,8 @@ java -version    # expect 17.x
 
 ## 2. Android SDK — two routes
 
+> ✅ **You are on Linux ([D-001](../meta/Doubts.md)), so take Route B.** It is a tenth of the size and you never need to open an IDE you won't use. Route A is documented for other readers.
+
 ### Route A — Android Studio (easier, ~8 GB)
 
 Install <https://developer.android.com/studio>. Open **SDK Manager** and install:
@@ -42,7 +44,7 @@ Install <https://developer.android.com/studio>. Open **SDK Manager** and install
 
 You never need to open Android Studio again after this.
 
-### Route B — command-line tools only (leaner, ~1 GB)
+### ⭐ Route B — command-line tools only (leaner, ~1 GB) — **your route**
 
 Download *"Command line tools only"* from the bottom of <https://developer.android.com/studio>, unzip to `~/android-sdk/cmdline-tools/latest/`, then:
 
@@ -106,8 +108,32 @@ You want a line ending in `device`.
 | `<serial>  device` | ✅ Working | — |
 | `<serial>  unauthorized` | Prompt not accepted, or screen was locked | Unlock, replug, accept. If no prompt: revoke USB debugging authorisations in Developer Options and retry |
 | Empty list (Windows) | Missing OEM USB driver | Install your phone manufacturer's ADB driver |
-| Empty list (Linux) | Missing `udev` rule | Add a rule for your vendor ID, then `sudo udevadm control --reload` |
+| Empty list (Linux) | Missing `udev` rule | ⭐ **This will be you.** See §5b below |
 | `no permissions` (Linux) | Same as above | Same |
+
+### 5b. The `udev` rule (Linux) ⭐
+
+Without this, `adb` either shows nothing or reports `no permissions`, and the usual "fix" people reach for is running `adb` as root — which then fights with the user-owned adb server. Do it properly instead.
+
+Find your phone's vendor ID:
+
+```bash
+lsusb
+```
+
+Look for your phone's manufacturer; the ID is the four hex digits before the colon in `ID 18d1:4ee7`. Then:
+
+```bash
+echo 'SUBSYSTEM=="usb", ATTR{idVendor}=="18d1", MODE="0666", GROUP="plugdev"' \
+  | sudo tee /etc/udev/rules.d/51-android.rules
+sudo udevadm control --reload-rules
+sudo udevadm trigger
+sudo usermod -aG plugdev "$USER"
+```
+
+Replace `18d1` with your vendor ID. Log out and back in for the group change to apply, then replug the phone.
+
+`[UNVERIFIED]` — your phone's actual vendor ID. Paste `lsusb` output into [`toAgent/`](../../toAgent/) and this becomes concrete.
 
 ### Wireless debugging (Android 11+) — set this up now
 

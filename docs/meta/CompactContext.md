@@ -20,6 +20,8 @@ update_trigger: "End of every session — regenerate from CourseState + Decision
 - **Learner:** Tyrostir. Also the author of `qnx-zero-to-hero` (same conventions, same account).
 - **Background:** embedded engineer — **C/C++ solid, Python strong** (per the QNX course record). **New to game development, to C# in a game context, to Godot, and to Blender.** Teach all four from first principles.
 - **Wants:** everything from scratch, nothing assumed, every step spelled out, **practicals before theory**, many intermediate projects, every question logged with its answer.
+- **Path:** 🚶 **B — Self-Learner**. But 🐣 A and 🏃 C content must be written **in full in every chapter** — explicit learner requirement ([ADR-024](Decisions.md#adr-024)), so future readers can enter by any path.
+- **Build machine:** ✅ **Linux desktop** ([D-001](Doubts.md)).
 - **Cadence:** **one chapter per turn**, committed and pushed ([ADR-017](Decisions.md#adr-017)).
 
 ## WHAT
@@ -40,9 +42,9 @@ update_trigger: "End of every session — regenerate from CourseState + Decision
 | Setup guides | **5 / 5 drafted** — all `[UNVERIFIED]`, none run |
 | Projects shipped | **0 / 11** |
 | Toolchain installed | ❌ nothing yet |
-| Blocker 🔴 | **Build machine undecided** ([D-001](Doubts.md)) · plan awaiting approval ([T-002](ToDos.md)) |
+| Blocker 🔴 | **`PLAN.md` review** ([T-002](ToDos.md)) — learner asked to review before chapters begin |
 | Next (me) | Chapter 0.1 — or a sample chapter 1.4 on request |
-| Next (you) | Approve PLAN · answer D-001 · answer D-003 · decide [ADR-024](Decisions.md#adr-024) |
+| Next (you) | ⭐ Review PLAN.md and TableOfContents.md · answer D-003 (phone specs) |
 
 ## THE ENVIRONMENT — read this before assuming anything
 
@@ -52,8 +54,9 @@ AUTHORING (this session):  Ubuntu in Termux on an Android phone
   Learner instruction: DO NOT install or run anything here.
   ⇒ The author CANNOT verify any tool output. See ADR-016 / [UNVERIFIED].
 
-BUILDING (learner's desktop):  ⏳ UNDECIDED — D-001 blocks Module 0
-  Needs: 8 GB+ RAM, Vulkan GPU, 40 GB disk, Win/Linux/macOS
+BUILDING (learner's desktop):  ✅ LINUX (D-001 resolved)
+  ⇒ command-line Android SDK route (~1 GB), distro OpenJDK 17, udev rule for adb
+  Needs: 8 GB+ RAM, Vulkan GPU, 40 GB disk
 
 TARGET (learner's phone):  ⏳ specs unknown — D-003
   Vulkan support decides Mobile vs Compatibility renderer (ch 4.13)
@@ -61,6 +64,7 @@ TARGET (learner's phone):  ⏳ specs unknown — D-003
 
 ## THE FIVE RULES THAT SHAPE EVERY CHAPTER
 
+0. **[ADR-024] Three paths, all authored in full.** 🐣 A (extra scaffolding, complete listings) · 🚶 B (the learner's, full chapter) · 🏃 C (Fast-Track Summary + build + cheat sheet). One document, path markers. Ratios below are measured on the Path B reading.
 1. **[ADR-002] Practical-first, enforced numerically.** Build section comes first and is ≥50% of a chapter; theory follows and is ≤30%. No chapter opens with theory. Every chapter ends with something runnable.
 2. **[ADR-010] Mobile-first.** The mobile-safe technique is the default taught; the desktop one is an aside. Baked before real-time. Atlas before per-object.
 3. **[ADR-016] `[UNVERIFIED]` everything unrun.** Never invent an error message, a menu path, or a version number. Mark it, and let the learner clear it via `toAgent/`.
@@ -119,8 +123,7 @@ P10 Ember Hollow     M10  4 levels + boss, released to itch.io + Play internal t
 | ID | What | Owner |
 |---|---|---|
 | [T-002](ToDos.md) | 🔴 Approve `PLAN.md` — nothing is written until this lands | 👤 |
-| [D-001](Doubts.md) | 🔴 Which desktop machine builds this? Blocks all of Module 0 | 👤 |
+| [T-002](ToDos.md) | 🔴 `PLAN.md` review — chapters are held until this lands | 👤 |
 | [D-002](Doubts.md) | 🟠 Exact Godot .NET version + its Android C# issues | 👤 |
 | [D-003](Doubts.md) | 🟠 Phone GPU/RAM/Android/Vulkan — decides the renderer | 👤 |
-| [ADR-024](Decisions.md#adr-024) | 🟡 Three learning paths, yes or no? Recommendation: no | 👤 |
 | [T-013](ToDos.md) | 🟡 Chapter 0.1 — blocked on the approval above | 🤖 |

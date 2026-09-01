@@ -16,9 +16,9 @@ The course itself. Chapters are published in order and appear here as they are w
 
 *None yet — Session 001 produced the plan and scaffolding. Chapter 0.1 begins once [`../PLAN.md`](../PLAN.md) is approved ([T-002](../meta/ToDos.md)).*
 
-| # | Chapter | Track | Time | Status |
-|---|---------|-------|------|--------|
-| — | — | — | — | — |
+| # | Chapter | Track | Paths | Time | Status |
+|---|---------|-------|-------|------|--------|
+| — | — | — | — | — | — |
 
 > 📑 Full chapter list: **[`../TableOfContents.md`](../TableOfContents.md)**
 > 📍 Current progress: **[`../meta/CourseState.md`](../meta/CourseState.md)**
@@ -46,9 +46,10 @@ Enforced by [**ADR-002 — the Practical-First Mandate**](../meta/Decisions.md#a
 
 | # | Section | Rule | Share |
 |---|---------|------|-------|
-| — | YAML front matter | chapter number, module, track, time, prerequisites, status | — |
+| — | YAML front matter | chapter number, module, track, **paths**, time, prerequisites, status | — |
 | 1 | `# Chapter NN — Title` | one H1 | — |
 | 2 | 🎯 **Goal** | **One sentence**: what will exist at the end that does not exist now | 1 line |
+| 2b | 🏃 **Fast-Track Summary** | The whole chapter in ~10 bullets plus the finished code. **Path C reads only this and the cheat sheet.** | short |
 | 3 | 🧭 **Before you start** | Prerequisites, and what you should already have running | short |
 | 4 | 🔨 **Build** | **Step-by-step doing. Must be the first substantive section.** Every step is a click, a keystroke or a line of code. | **≥ 50%** |
 | 5 | ▶️ **Run it** | What you should see. Screenshot or expected output. **The chapter must end in something runnable.** | short |
@@ -62,6 +63,23 @@ Enforced by [**ADR-002 — the Practical-First Mandate**](../meta/Decisions.md#a
 | 13 | 💾 **Commit** | The exact commit message to use | 1 line |
 | 14 | ➡️ **What's next** | | 1 line |
 | 15 | 📝 **Chapter changelog** | | table |
+
+### Path markers ([ADR-024](../meta/Decisions.md#adr-024))
+
+Every chapter serves three paths from one document:
+
+| Path | Who | Reads |
+|------|-----|-------|
+| 🐣 **A — Absolute Beginner** | New to programming *and* new to 3D | Everything, plus 🐣 *"New to this?"* expansion boxes. Complete code listings, never "add the obvious" |
+| 🚶 **B — Self-Learner** | Comfortable coding, new to games and Blender | The full chapter. **This is the learner's path** |
+| 🏃 **C — Fast-Track Pro** | Experienced, time-poor | 🏃 Fast-Track Summary + Build steps + cheat sheet. Skips theory debriefs. ⭐ practicals only |
+
+- Chapter front matter and the index below carry tags: `🐣🚶🏃` for everyone, `🚶🏃` where Path A should skip.
+- **🐣 boxes** sit inline, at the point of confusion — collapsed, so B and C read past them.
+- **🔬 deep dives** are optional depth; Path A skips them.
+- **⭐ practicals** are done by every path.
+
+> ⚠️ **The ratios in ADR-002 are measured on the Path B reading** — the full chapter minus 🐣 boxes and the 🏃 summary. Path material *adds*; it never displaces the build.
 
 ### The four hard rules
 
