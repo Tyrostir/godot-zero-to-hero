@@ -20,7 +20,7 @@ update_trigger: "End of every working session, and after every chapter is publis
 | Field | Value |
 |-------|-------|
 | **Course** | Godot Zero to Hero — 3D Android game development with Godot 4 (.NET/C#) and Blender |
-| **Repository** | `https://github.com/Tyrostir/godot-zero-to-hero` — ⛔ **not yet created**, see [T-001](ToDos.md) |
+| **Repository** | ✅ [`https://github.com/Tyrostir/godot-zero-to-hero`](https://github.com/Tyrostir/godot-zero-to-hero) — created and pushed 2026-09-01 |
 | **Local path (authoring)** | `/root/claude/godot-zero-to-hero` (Termux) |
 | **Local path (building)** | ⏳ **undecided** — see [D-001](Doubts.md) |
 | **Learner** | Tyrostir |
@@ -34,7 +34,7 @@ update_trigger: "End of every working session, and after every chapter is publis
 | **Blender installed?** | ❌ Not yet — [Setup 03](../guides/Setup_03_Blender.md) |
 | **Phone connected?** | ❌ Not yet — [Setup 04](../guides/Setup_04_Android_And_Device.md) |
 | **P00 on device?** | ❌ Not yet — the Module 0 milestone |
-| **Blocked on** | 🔴 **Two things:** the repo cannot be created (permission), and the build machine is undecided ([D-001](Doubts.md)) |
+| **Blocked on** | 🔴 **Two things:** `PLAN.md` approval ([T-002](ToDos.md)), and the build machine is undecided ([D-001](Doubts.md)) |
 | **Last session** | 2026-09-01 (Session 001) |
 
 ### Progress bar
@@ -62,7 +62,7 @@ OVERALL                            [                    ]   0 %   (0/215)
 
 | Who | Action |
 |-----|--------|
-| 👤 **You — do next** | 1. **Approve or amend [`../PLAN.md`](../PLAN.md)** — nothing is written until you do. 2. **Decide the build machine** ([D-001](Doubts.md)) — this blocks all of Module 0. 3. **Approve the repo-creation call** ([T-001](ToDos.md)). 4. Answer [ADR-024](Decisions.md#adr-024) — do you want three learning paths? |
+| 👤 **You — do next** | 1. **Approve or amend [`../PLAN.md`](../PLAN.md)** — nothing is written until you do. 2. **Decide the build machine** ([D-001](Doubts.md)) — this blocks all of Module 0. 3. Answer [ADR-024](Decisions.md#adr-024) — do you want three learning paths? 4. Record your phone's specs ([D-003](Doubts.md)). |
 | 🤖 **Me — next turn** | **Chapter 0.1** once the plan is approved. If you'd rather see a sample first, ask for **chapter 1.4** — it's the most representative of the Build→Why→Break→Practical→Check shape. |
 
 ---
@@ -71,7 +71,7 @@ OVERALL                            [                    ]   0 %   (0/215)
 
 | Phase | What | Status |
 |-------|------|--------|
-| **0 — Inception** | Environment inspected, conventions adopted, repo scaffolded | ✅ Done (Session 001) |
+| **0 — Inception** | Environment inspected, conventions adopted, repo scaffolded, **GitHub repo created and pushed** | ✅ Done (Session 001) |
 | **1 — Planning** | PLAN, TableOfContents, projects, guides, meta docs | ✅ Drafted · ⏳ awaiting approval |
 | **2 — Setup** | Learner installs the toolchain; `[UNVERIFIED]` markers cleared; P00 ships | ⬜ Not started |
 | **3 — Writing chapters** | One chapter per turn, Modules 0→10 | ⬜ Not started |
@@ -84,6 +84,7 @@ OVERALL                            [                    ]   0 %   (0/215)
 | # | Milestone | Target | Actual |
 |---|-----------|--------|--------|
 | M0 | Plan approved | | |
+| M0.5 | Repo live on GitHub | 2026-09-01 | ✅ 2026-09-01 |
 | M1 | ⭐ **P00 spinning cube on the phone** | | |
 | M2 | P01 Marble Runner shipped | | |
 | M3 | P02 Foundry Kit in-engine (first art you made) | | |
@@ -218,7 +219,7 @@ Re-rate every two modules. 1 = never done it · 2 = can follow a tutorial · 3 =
 
 | Date | Hours | Chapters covered | Shipped/committed | Energy 1–5 | Note to future me |
 |---|---|---|---|---|---|
-| 2026-09-01 | — | Session 001 — course inception: plan, ToC, 25 ADRs, 5 setup guides, 11 project briefs, meta + internal scaffolding | local `git init`, no remote yet | — | Approve PLAN.md, decide the build machine (D-001), approve repo creation (T-001) |
+| 2026-09-01 | — | Session 001 — course inception: plan, ToC, 25 ADRs, 5 setup guides, 11 project briefs, meta + internal scaffolding | ✅ pushed to GitHub, commit `6219e4b` | — | Approve PLAN.md, decide the build machine (D-001), approve repo creation (T-001) |
 
 ---
 

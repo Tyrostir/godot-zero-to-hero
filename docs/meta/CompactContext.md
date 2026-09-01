@@ -26,7 +26,7 @@ update_trigger: "End of every session — regenerate from CourseState + Decision
 
 - **Course:** *Godot Zero to Hero* — 3D **Android** game development with **Godot 4 (.NET / C#)** and **Blender**.
 - **Shape:** 12 modules · **215 chapters** (173 Godot + 42 Blender) · **11 projects** · 4 mini-jams · ~400–450 h.
-- **Repo:** `https://github.com/Tyrostir/godot-zero-to-hero` — ⛔ **not created yet** ([T-001](ToDos.md)).
+- **Repo:** ✅ [`https://github.com/Tyrostir/godot-zero-to-hero`](https://github.com/Tyrostir/godot-zero-to-hero) — live, pushed 2026-09-01.
 - **Authoring path:** `/root/claude/godot-zero-to-hero` (Termux).
 - **Deliverable:** a Markdown course + 11 Godot projects + a released Android game (*Ember Hollow*, working title).
 
@@ -40,9 +40,9 @@ update_trigger: "End of every session — regenerate from CourseState + Decision
 | Setup guides | **5 / 5 drafted** — all `[UNVERIFIED]`, none run |
 | Projects shipped | **0 / 11** |
 | Toolchain installed | ❌ nothing yet |
-| Blocker 🔴 | (1) repo creation denied by permission classifier · (2) **build machine undecided** ([D-001](Doubts.md)) |
+| Blocker 🔴 | **Build machine undecided** ([D-001](Doubts.md)) · plan awaiting approval ([T-002](ToDos.md)) |
 | Next (me) | Chapter 0.1 — or a sample chapter 1.4 on request |
-| Next (you) | Approve PLAN · answer D-001 · approve T-001 · decide [ADR-024](Decisions.md#adr-024) |
+| Next (you) | Approve PLAN · answer D-001 · answer D-003 · decide [ADR-024](Decisions.md#adr-024) |
 
 ## THE ENVIRONMENT — read this before assuming anything
 
@@ -118,9 +118,9 @@ P10 Ember Hollow     M10  4 levels + boss, released to itch.io + Play internal t
 
 | ID | What | Owner |
 |---|---|---|
-| [T-001](ToDos.md) | 🔴 Create the GitHub repo — POST blocked by the permission classifier | 🤝 |
+| [T-002](ToDos.md) | 🔴 Approve `PLAN.md` — nothing is written until this lands | 👤 |
 | [D-001](Doubts.md) | 🔴 Which desktop machine builds this? Blocks all of Module 0 | 👤 |
 | [D-002](Doubts.md) | 🟠 Exact Godot .NET version + its Android C# issues | 👤 |
 | [D-003](Doubts.md) | 🟠 Phone GPU/RAM/Android/Vulkan — decides the renderer | 👤 |
 | [ADR-024](Decisions.md#adr-024) | 🟡 Three learning paths, yes or no? Recommendation: no | 👤 |
-| — | 🟡 PLAN.md approval — nothing is written until this lands | 👤 |
+| [T-013](ToDos.md) | 🟡 Chapter 0.1 — blocked on the approval above | 🤖 |

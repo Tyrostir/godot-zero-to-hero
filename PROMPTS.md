@@ -186,6 +186,6 @@ This is the **third** time the learner has stated the practical-first requiremen
 | Documents created | 30 |
 | ADRs | 25 (1 pending the learner: ADR-024) |
 | Doubts open | 3 (D-001 blocking) |
-| ToDos open | 17 (T-001, T-002, T-003 blocking) |
-| Repo on GitHub | ⛔ not created — permission denied |
+| ToDos open | 16 (T-002, T-003 blocking) |
+| Repo on GitHub | ✅ https://github.com/Tyrostir/godot-zero-to-hero — created and pushed (`6219e4b`) |
 | Next | Learner approves `PLAN.md`; author writes chapter 0.1 |

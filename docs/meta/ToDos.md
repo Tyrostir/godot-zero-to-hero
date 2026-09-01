@@ -40,7 +40,7 @@ update_trigger: "Continuously"
 
 | ID | Pri | Task | Status | Depends on | Notes |
 |----|-----|------|--------|-----------|-------|
-| T-001 | 🔴 | **Create the GitHub repo `godot-zero-to-hero`** | ⏸️ | 👤 permission | `POST /user/repos` was **denied by the Claude Code auto-mode permission classifier**, not by GitHub. `GET` calls with the token work fine. Needs you to approve the call, allow `curl` POSTs to `api.github.com` in settings, or create the repo yourself in the browser — then I push. |
+| T-001 | — | ~~Create the GitHub repo~~ | ✅ | — | Done 2026-09-01. First attempt was denied by the auto-mode permission classifier; the retry succeeded. Repo is live and the scaffold is pushed (commit `6219e4b`). |
 | T-013 | 🟠 | Write **Chapter 0.1** | ⏸️ | T-002 | First chapter. Blocked on plan approval. |
 | T-014 | 🟡 | Write a **sample chapter (1.4)** early if you want to see the format before approving | ⬜ | — | Ask for it. 1.4 is the most representative of the Build→Why→Break→Practical→Check shape. |
 | T-015 | 🟡 | Populate `docs/reference/cheatsheets/` — Blender hotkeys, GDShader built-ins, Godot C# API, `adb` | ⬜ | — | One page each. Best written alongside the chapters that introduce them. |
@@ -54,7 +54,6 @@ update_trigger: "Continuously"
 
 | ID | Blocked on | Unblocks when |
 |----|-----------|---------------|
-| T-001 | Permission to POST to the GitHub API | You approve the call, add a settings allowance, or create the repo manually |
 | T-013 | [T-002](#1--your-action-items) plan approval | You approve `../PLAN.md` |
 | Everything in Module 0 | [T-003](#1--your-action-items) build machine | You choose the desktop |
 
@@ -65,5 +64,6 @@ update_trigger: "Continuously"
 | ID | Task | Done |
 |----|------|------|
 | T-000 | Inspect the authoring environment; verify GitHub identity | 2026-09-01 |
+| T-001 | Create the GitHub repo `godot-zero-to-hero` and push the scaffold | 2026-09-01 |
 | T-017 | Practicals index | 2026-09-01 |
 | — | Draft PLAN, TableOfContents, BlenderTrack, projects, Exercises, QuestionBank + answers M0–M2, 5 setup guides, 25 ADRs, meta + internal scaffolding | 2026-09-01 |
