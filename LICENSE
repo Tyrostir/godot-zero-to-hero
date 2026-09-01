@@ -1,0 +1,53 @@
+Godot Zero to Hero
+==================
+
+This repository contains two kinds of material, under two licences.
+See docs/meta/Decisions.md, ADR-018.
+
+
+1. COURSE CONTENT  —  CC BY-SA 4.0
+----------------------------------
+All prose, documentation, diagrams, course structure and teaching material
+(everything in docs/, README.md, and the text of projects/README.md) is
+licensed under the Creative Commons Attribution-ShareAlike 4.0 International
+licence.
+
+    https://creativecommons.org/licenses/by-sa/4.0/
+
+You are free to share and adapt it, for any purpose including commercially,
+provided you give appropriate credit and distribute your contributions under
+the same licence.
+
+
+2. PROJECT CODE  —  MIT
+-----------------------
+All source code in projects/ (C# scripts, shaders, scene files and project
+configuration) is licensed under the MIT Licence.
+
+Copyright (c) 2026 Tyrostir
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+3. THIRD-PARTY ASSETS  —  their own licences
+--------------------------------------------
+Every third-party asset used in this course keeps its own licence, recorded
+per-asset in docs/reference/AssetLicenses.md. Nothing in this file overrides
+those terms. Assets under CC-BY-NC or CC-BY-ND are not used at all
+(ADR-008).

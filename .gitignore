@@ -1,0 +1,71 @@
+# ── Godot 4 ───────────────────────────────────────────────
+.godot/
+/android/
+*.translation
+
+# Exported builds
+build/
+builds/
+export/
+exports/
+*.apk
+*.aab
+*.pck
+*.zip
+
+# ── .NET / C# ─────────────────────────────────────────────
+.mono/
+bin/
+obj/
+*.user
+*.userprefs
+*.suo
+*.swp
+*.sln.DotSettings.user
+[Dd]ebug/
+[Rr]elease/
+
+# ── Secrets — NEVER commit these ──────────────────────────
+# Losing a release keystore means the Play listing can never be updated.
+# Committing one means anyone can sign as you. Back it up OUT of git.
+*.keystore
+*.jks
+*.p12
+*.pepk
+export_presets.cfg          # contains keystore paths and sometimes passwords
+*.env
+secrets.*
+
+# ── Blender ───────────────────────────────────────────────
+*.blend1
+*.blend2
+*.blend@
+/blender_render/
+/cache_fluid/
+/cache_smoke/
+/cache_cloth/
+
+# ── OS / editor cruft ─────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+!.vscode/extensions.json
+.idea/
+*.log
+
+# ── Big raw downloads ─────────────────────────────────────
+# Raw archives stay local; only extracted, game-ready files are tracked.
+assets-staging/**/*.zip
+assets-staging/**/*.7z
+assets-staging/**/*.rar
+assets-staging/**/*.tar.gz
+
+# ── Scratch ───────────────────────────────────────────────
+/scratch/
+/tmp/
+
+# ── NOT ignored, deliberately ─────────────────────────────
+# *.import      — carries your import settings. Losing these re-imports
+#                 everything with defaults. Always commit them.
+# *.tres/*.res  — your resources. Always commit them.
