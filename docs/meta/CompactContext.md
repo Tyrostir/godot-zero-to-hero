@@ -27,7 +27,7 @@ update_trigger: "End of every session — regenerate from CourseState + Decision
 ## WHAT
 
 - **Course:** *Godot Zero to Hero* — 3D **Android** game development with **Godot 4 (.NET / C#)** and **Blender**.
-- **Shape:** 12 modules · **290 chapters** (173 Godot + 48 Blender + 37 exercise/project/jam/check units) · **11 projects** · 4 mini-jams · ~430–480 h.
+- **Shape:** 12 modules · **290 chapters** (54 Blender · 28 🧰 library-adoption · 34 🎬 presentation) · **11 projects** · 4 mini-jams · ~470–530 h.
 - **Repo:** ✅ [`https://github.com/Tyrostir/godot-zero-to-hero`](https://github.com/Tyrostir/godot-zero-to-hero) — live, pushed 2026-09-01.
 - **Authoring path:** `/root/claude/godot-zero-to-hero` (Termux).
 - **Deliverable:** a Markdown course + 11 Godot projects + a released Android game (*Ember Hollow*, working title).
