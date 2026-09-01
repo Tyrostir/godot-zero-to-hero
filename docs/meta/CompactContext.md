@@ -27,7 +27,7 @@ update_trigger: "End of every session — regenerate from CourseState + Decision
 ## WHAT
 
 - **Course:** *Godot Zero to Hero* — 3D **Android** game development with **Godot 4 (.NET / C#)** and **Blender**.
-- **Shape:** 12 modules · **290 chapters** (54 Blender · 28 🧰 library-adoption · 34 🎬 presentation) · **11 projects** · 4 mini-jams · ~470–530 h.
+- **Shape:** 12 modules · **292 chapters** (54 Blender · 30 🧰 library-adoption · 34 🎬 presentation) · **11 projects** · 4 mini-jams · ~470–530 h.
 - **Repo:** ✅ [`https://github.com/Tyrostir/godot-zero-to-hero`](https://github.com/Tyrostir/godot-zero-to-hero) — live, pushed 2026-09-01.
 - **Authoring path:** `/root/claude/godot-zero-to-hero` (Termux).
 - **Deliverable:** a Markdown course + 11 Godot projects + a released Android game (*Ember Hollow*, working title).
@@ -38,7 +38,7 @@ update_trigger: "End of every session — regenerate from CourseState + Decision
 |---|---|
 | Phase | **1 — planning** |
 | Plan | ⏳ **Awaiting approval** |
-| Chapters published | **0 / 290** |
+| Chapters published | **0 / 292** |
 | Setup guides | **5 / 5 drafted** — all `[UNVERIFIED]`, none run |
 | Projects shipped | **0 / 11** |
 | Toolchain installed | ❌ nothing yet |
@@ -65,7 +65,7 @@ TARGET (learner's phone):  ⏳ specs unknown — D-003
 ## THE FIVE RULES THAT SHAPE EVERY CHAPTER
 
 0. **[ADR-024] Three paths, all authored in full.** 🐣 A (extra scaffolding, complete listings) · 🚶 B (the learner's, full chapter) · 🏃 C (Fast-Track Summary + build + cheat sheet). One document, path markers. Ratios below are measured on the Path B reading.
-0a. **[ADR-028] Build it once by hand, then adopt the library.** 28 🧰 `N.Mb` adoption chapters: hand-build → read the library's source → **decide and record why**. Never library-first. **[ADR-029]** Free toolchain catalogued in [`../Toolchain.md`](../Toolchain.md); six evaluation questions taught in 0.10. ⚠️ Most Godot addons are GDScript — prefer **Chickensoft** (C#-first), wrap the rest behind a C# interface (9.6b), use **NuGet** (0.11). **[ADR-030]** "AAA" = budget/headcount, not achievable solo, and saying so is more useful than agreeing; **professional/industry-grade craft** is the real target and is taught in full.
+0a. **[ADR-028] Build it once by hand, then adopt the library.** 28 🧰 `N.Mb` adoption chapters: hand-build → read the library's source → **decide and record why**. Never library-first. **[ADR-029]** Free toolchain catalogued in [`../Toolchain.md`](../Toolchain.md); six evaluation questions taught in 0.10. ⚠️ Most Godot addons are GDScript — C# loses **ergonomics, not access**. Prefer **Chickensoft** (C#-first), wrap the rest behind a C# interface (9.6b), use **NuGet** (0.11). **[ADR-031] Polyglot by design:** C# primary · GDScript for `@tool` scripts and addon glue · C++/GDExtension only after profiling. Boundaries live in one file (0.10b, 9.1b). **[ADR-030]** "AAA" = budget/headcount, not achievable solo, and saying so is more useful than agreeing; **professional/industry-grade craft** is the real target and is taught in full.
 0b. **[ADR-026] The Presentation Spine.** Story, first-page animation, end-page animation, music, ambience and the walkthrough ship with **every project from P01**, not just Module 7. Title screen is built four times: 1.35 → 3.12 → 5.22 → 7.16–7.18. **[ADR-027]** Narration is recorded by the learner with gear they own (6.8–6.14), and **subtitles are mandatory**.
 1. **[ADR-002] Practical-first, enforced numerically.** Build section comes first and is ≥50% of a chapter; theory follows and is ≤30%. No chapter opens with theory. Every chapter ends with something runnable.
 2. **[ADR-010] Mobile-first.** The mobile-safe technique is the default taught; the desktop one is an aside. Baked before real-time. Atlas before per-object.

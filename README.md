@@ -4,7 +4,7 @@
 
 This is not a book you read and then start. From Module 0 you have a `.apk` running on your own phone, and every chapter after that adds a real feature to a real game.
 
-> 🏋️ **290 chapter builds · ~580 chapter practicals · 44 standalone drills · 34 presentation deliverables · 28 library adoptions · 11 projects · 4 mini-jams.**
+> 🏋️ **292 chapter builds · ~580 chapter practicals · 44 standalone drills · 34 presentation deliverables · 28 library adoptions · 11 projects · 4 mini-jams.**
 > **Chapters that begin with theory: 0.** That is enforced, not aspirational — see [ADR-002](docs/meta/Decisions.md#adr-002) and the audit in [docs/Practicals.md](docs/Practicals.md).
 
 ---

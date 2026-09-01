@@ -76,6 +76,7 @@ Some entries below have a **"In my own words"** line. That is yours to fill in, 
 | [D-005](#d-005) | 2026-09-02 | Design/Narrative | Is story, narration, walkthrough, first/end-page animation and music planned across **all** projects? | ✅ |
 | [D-006](#d-006) | 2026-09-02 | Course logistics | Will you keep documenting my `/btw` questions **and your answers**? | ✅ |
 | [D-007](#d-007) | 2026-09-02 | Course logistics | Which free Blender and Godot libraries exist, can we adopt them, and can I reach AAA? | ✅ |
+| [D-008](#d-008) | 2026-09-02 | Godot/C# | Would GDScript or C++ give more free libraries? And can one game use all three languages? | ✅ |
 
 ---
 
@@ -349,6 +350,84 @@ New document [`../Toolchain.md`](../Toolchain.md). Three ADRs added. ToC gained 
 
 ---
 
+## D-008
+
+**Date:** 2026-09-02 · **Context:** Immediately after the toolchain audit ([D-007](#d-007)) · **Category:** Godot/C# · **Status:** ✅ Answered
+
+### Question *(verbatim)*
+> 1. So do you mean, if we make this course for gdscript or C++ instead of having only c#, then we will be having more number of publicly available free libraries/plugin we can adopt to our course?
+> 2. Also is it possible to develop (at anytime) a single game with scripts written in all three languages (C++, C# and GDScript - optionally if developer finds useful), just asking? Like multi-language development for one game goal approach?
+
+### Short answer
+**1.** Partly — and I need to correct something I implied. **GDScript has far more Godot *addons*; C# has vastly more *general-purpose* libraries via NuGet; C++ has the most performance headroom.** Three different answers, not a ranking. Crucially, **choosing C# does not lose you the GDScript addons** — they are nodes, you call them. You lose *ergonomics*, not *access*.
+**2.** **Yes, and it is normal practice.** Godot's .NET build runs GDScript and C# side by side, and a C++ GDExtension class registers as an engine type both languages can use. Now recorded as [ADR-031](Decisions.md#adr-031) with two new chapters.
+
+### Full answer
+
+**Part 1 — "more libraries" has three answers.**
+
+| | GDScript | C# | C++ (GDExtension) |
+|---|---|---|---|
+| **Godot addons** (Asset Library, editor plugins) | 🥇 **Overwhelmingly the most** — the Asset Library is a few thousand entries, mostly GDScript | 🥉 Almost none written *in* C# | 🥈 Few, but the heavyweights: Terrain3D, Voxel Tools, LimboAI, Debug Draw 3D |
+| **General-purpose libraries** | 🥉 **None.** No package manager, no ecosystem | 🥇 **NuGet — hundreds of thousands of packages** | 🥈 The whole C++ world, but each is real integration work |
+| **Editor `@tool` scripts** | 🥇 Best integration, no build step | 🥈 Works, slower loop | 🥉 Overkill |
+| **Static typing / refactoring** | 🥉 | 🥇 | 🥇 |
+| **Raw performance** | 🥉 | 🥈 | 🥇 |
+| **Android maturity** | 🥇 Longest-travelled, smallest APK | 🥉 Newer, larger APK (ships the .NET runtime) | 🥈 Mature, compile per ABI |
+
+**⚠️ The correction.** [ADR-029](Decisions.md#adr-029) said most Godot addons are GDScript and that this costs you. True — but easy to read as *"C# can't use them."* **It can.** They are nodes and scripts; you instantiate them and call them from C#. What you lose is type safety and autocomplete **at the seam**. The distinction matters: the first reading would justify switching languages, and the second one does not. [ADR-031](Decisions.md#adr-031) records the correction.
+
+**So the real trade is:** GDScript trades away a general-purpose ecosystem for the most convenient access to Godot-specific addons. C# trades away addon ergonomics for NuGet, static typing and a transferable skill. C++ trades away iteration speed for performance.
+
+**Would I switch the course?** No — and this is genuinely the last cheap moment to, since zero chapters are written, so it is worth stating the case honestly rather than just defending the earlier decision.
+
+*What switching to GDScript would gain:* frictionless addon use, faster iteration (no build step), smaller APKs, and the better-travelled Android path — [ADR-022](Decisions.md#adr-022) is a real cost you are paying.
+*What it would lose:* NuGet, static typing and IDE refactoring across a 292-chapter project, and the transferable skill you asked for in your first prompt. Given [ADR-030](Decisions.md#adr-030) — professional/industry-grade craft is the goal — typing and testability matter more here than addon convenience, and the addon gap is bounded and now mitigated. **Say the word if you disagree; the cost of changing rises steeply from chapter one.**
+
+**Part 2 — yes, all three in one game.**
+
+Godot's .NET build runs **GDScript and C# in the same project simultaneously**, and a **GDExtension (C++) class registers as an engine class visible to both**. Terrain3D is the everyday proof: written in C++, used from GDScript and C# alike. This mirrors the rest of the industry — Unreal pairs C++ with Blueprints, Unity pairs C# with native plugins.
+
+*How they talk:*
+
+| Direction | Mechanism | Cost |
+|---|---|---|
+| C# ↔ GDScript | Signals, `Call()`, `Get()`/`Set()`, `GetNode<T>()` | Variant marshalling per call; **no compile-time checking** |
+| C# ↔ C++ (GDExtension) | The C++ class *is* an engine type | Cheap and **fully typed** — why GDExtension addons have the best C# story |
+| GDScript ↔ C++ | Same | Cheap |
+
+*The four real costs, which the course teaches rather than hides:*
+
+1. **Marshalling at the boundary.** Fine at low frequency, bad in a per-frame loop. Cross a boundary **once per frame, never once per entity per frame**.
+2. **Two of everything** — idioms, debuggers, conventions. For a solo developer, a genuine tax.
+3. **C++ means compiling per Android ABI** (arm64-v8a, armeabi-v7a, x86_64…). A real chore and a build-server problem.
+4. **Lost type safety exactly at the seams**, which is where bugs hide.
+
+⚠️ **Cross-language *inheritance* is not supported** — GDScript cannot extend a C# class or vice versa. `[UNVERIFIED]` for your exact version; the advice holds either way: **compose at the boundary, never inherit across it.**
+
+*The heuristic now baked into the course* ([ADR-031](Decisions.md#adr-031)):
+
+| Language | For | Not for |
+|---|---|---|
+| **C#** *(primary)* | Gameplay systems, architecture, data, saves, tests | Quick editor scripts |
+| **GDScript** *(secondary)* | `@tool` editor scripts, UI glue, **consuming and patching addons** | Core architecture |
+| **C++ / GDExtension** *(last resort)* | A **measured** hot path, or wrapping a native library | Anything before profiling |
+
+**The rule that makes it safe:** every boundary lives in **one place** — one wrapper file per GDScript addon exposing a clean C# interface; one GDExtension module with a narrow documented API.
+
+**Practical consequence for you.** When you find a GDScript-only addon you want, you have three options in increasing cost: use it from C# and accept the friction · wrap it behind a C# interface (usually an hour) · read it and reimplement the 200 lines you actually need. The [ADR-028](Decisions.md#adr-028) evaluation makes that a deliberate choice rather than a default.
+
+### Related
+[ADR-031](Decisions.md#adr-031) · [ADR-029](Decisions.md#adr-029) · [ADR-022](Decisions.md#adr-022) · [`../Toolchain.md` §4b–§4c](../Toolchain.md) · [PLAN §3c](../PLAN.md)
+
+### Action taken
+[ADR-031](Decisions.md#adr-031) added. `Toolchain.md` gained §4b (the three-way language comparison) and §4c (using all three in one game). Two chapters added — **0.10b** *GDScript, C# and C++ in one project* and **9.1b** *Polyglot architecture: where the boundary goes*; **11.4** and **11.5** expanded. Course 290 → 292.
+
+### In my own words
+*(yours to fill in)*
+
+---
+
 ## ⏸️ Parked
 
 *Questions consciously postponed, with a named chapter to revisit them at.*
@@ -374,5 +453,6 @@ Every ~20 doubts, come back and look for patterns. If four of your questions wer
 | Version | Date | Change |
 |---------|------|--------|
 | 1.0 | 2026-09-01 | Created at course inception. Table format. |
+| 2.2 | 2026-09-02 | D-008 added — language ecosystems compared, and multi-language development confirmed. |
 | 2.1 | 2026-09-02 | D-007 added — free Blender/Godot libraries, the build-then-adopt pattern, and an honest answer on "AAA". |
 | 2.0 | 2026-09-02 | Rebuilt in the full entry format (Context / Question verbatim / Short answer / Full answer / Related / Action taken) after [D-006](#d-006) found the old format had nowhere to record the author's answer. D-005 back-filled; all six entries given full answers. |

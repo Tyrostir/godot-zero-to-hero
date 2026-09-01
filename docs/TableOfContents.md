@@ -37,6 +37,7 @@ Every chapter ends with `[X]` and `[Q]`; they are only listed separately below w
 
 **0B — Standing on other people's shoulders, deliberately**
 - **0.10 [A]** The Asset Library, and **how to evaluate a dependency** — licence, maintenance, C# viability, mobile cost, abandonment risk, and "could I write this in a day?"
+- **0.10b [A]** **GDScript, C# and C++ in one project** — what each language is actually best at, why this course chose C#, and the honest trade you made. Which one has "more libraries" — and why the question has three different answers
 - **0.11 [A]** **NuGet** — the entire .NET package ecosystem, which GDScript users do not have. And why every package ships inside your APK
 - **0.12 [A]** 🔬 GodotEnv — managing Godot versions and addons from the command line
 
@@ -386,6 +387,7 @@ Every chapter ends with `[X]` and `[Q]`; they are only listed separately below w
 ### Project 09 — *Systems Refactor*
 
 - **9.1 [A]** C# in Godot: the marshalling boundary, and what crossing it costs
+- **9.1b [A]** **Polyglot architecture** — adding GDScript and C++ to a C# project: where the boundary goes, what crossing it costs per frame, and why you compose across languages rather than inherit
 - **9.2 [A]** Garbage collection on mobile: allocations per frame, `struct` vs `class`, spans, pooling
 - **9.2b [A]** **Code standards** — `.editorconfig`, .NET analyzers, `dotnet format`, XML doc comments, and a build that fails on a warning
 - **9.3 [A]** Composition over inheritance in a node tree: component nodes done right
@@ -452,8 +454,8 @@ Every chapter ends with `[X]` and `[Q]`; they are only listed separately below w
 - **11.1 [A]** Multiplayer: the high-level multiplayer API, authority, and why mobile makes it hard
 - **11.2 [A]** Procedural generation: rooms, mazes, and seeded randomness
 - **11.3 [B]** Geometry Nodes at depth: scatter systems, procedural props, exporting the result
-- **11.4 [A]** GDExtension and native code, when C# isn't enough
-- **11.5 [A]** Porting: desktop, web, and what changes
+- **11.4 [A]** **GDExtension and native code** — writing a C++ module that both GDScript and C# can use, compiling it per Android ABI, and the profiling evidence that should precede all of it
+- **11.5 [A]** Porting: desktop, web, and what changes — including the platforms where **C# support lags GDScript**, and how to check before you promise one
 - **11.6 [A]** Turning the codebase into a reusable template for your next game
 - **11.7 [A]** 🔬 USD, OpenColorIO and the wider industry pipeline — what the tools you would meet in a studio look like
 

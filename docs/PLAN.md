@@ -129,7 +129,9 @@ Twenty-eight **adoption chapters** (numbered `N.Mb`, marked 🧰) do this: **Rig
 
 **Step 3 is mandatory.** "A tutorial used it" is not a rationale. Chapter **0.10** teaches the six evaluation questions — licence, maintenance, **does it work from C#**, mobile cost measured on device, abandonment risk, and could you write it in a day — and you apply them every time thereafter. Choosing and rejecting dependencies is a larger part of professional work than writing code is.
 
-⚠️ **One honest consequence of choosing C#**: most Godot addons are GDScript, and using them from C# costs you type safety and ergonomics. Three answers, all taught — prefer C#-native/GDExtension libraries (the **Chickensoft** ecosystem is the key find), wrap GDScript addons behind a C# interface (9.6b), and use **NuGet**, which GDScript users don't have (0.11).
+⚠️ **One honest consequence of choosing C#**: most Godot addons are GDScript, and using them from C# costs you type safety and ergonomics — **but not access**. They are nodes; you instantiate and call them. Three answers, all taught: prefer C#-native or GDExtension libraries (the **Chickensoft** ecosystem is the key find), wrap GDScript addons behind a C# interface (9.6b), and use **NuGet**, which GDScript users don't have (0.11).
+
+**And you are not restricted to one language** ([ADR-031](meta/Decisions.md#adr-031)). Godot's .NET build runs **GDScript and C# side by side**, and a **C++ GDExtension class registers as an engine type both can use**. The course teaches this deliberately: **C# primary** for systems and architecture, **GDScript secondary** for `@tool` editor scripts and addon glue, **C++ last resort** for a hot path you have measured. Every boundary lives in one wrapper file. Chapters **0.10b** and **9.1b**.
 
 > 📎 Full catalogue, licences and caveats: **[Toolchain.md](Toolchain.md)**.
 

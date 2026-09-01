@@ -366,3 +366,41 @@ Audited the plan for library coverage. It named a handful of *tools* in `Resourc
 
 **New:** `docs/Toolchain.md`.
 **Updated:** `docs/TableOfContents.md` (+32 chapters, `b`-suffix convention, 🧰 marker) · `docs/meta/Decisions.md` (ADR-028/029/030) · `docs/meta/DecisionsLog.md` · `docs/meta/Doubts.md` ([D-007](docs/meta/Doubts.md#d-007)) · `docs/PLAN.md` (§3c build-then-adopt, §3d industry grade, pacing) · `docs/Practicals.md` · `docs/meta/CourseState.md` (regenerated) · `docs/meta/CompactContext.md` · `docs/meta/ToDos.md` (T-023) · `docs/internal/CLAUDE-MEMORY.md` · `README.md`.
+
+---
+
+## PROMPT#8
+
+**Date:** 2026-09-02 · **Session:** 002
+
+### Prompt (verbatim)
+
+```text
+1. So do you mean, if we make this course for gdscript or C++ instead of having only c#, then we
+will be having more number of publicly available free libraries/plugin we can adopt to our course?
+2. Also is it possible to develop (at anytime) a single game with scripts written in all three
+languages (C++, C# and GDScript - optionally if developer finds useful), just asking? Like
+multi-language development for one game goal approach?
+```
+
+### Response
+
+**Question 1 caught a real imprecision in my previous answer, and I corrected it rather than defending it.**
+
+[ADR-029](docs/meta/Decisions.md#adr-029) said most Godot addons are GDScript and that this costs C# users. True — but phrased so it reads as *"C# cannot use those addons."* **It can.** They are nodes; you instantiate and call them. What is lost is **ergonomics**, not **access**. That distinction is load-bearing: the first reading is an argument for rewriting the whole course in GDScript, and the second one isn't. Left uncorrected it would have quietly undermined [ADR-001](docs/meta/Decisions.md#adr-001) every time a GDScript addon came up.
+
+Also reframed "which has more libraries" as **three answers rather than a ranking**: Godot addons → GDScript by a wide margin; general-purpose libraries → C# by an enormous margin (NuGet vs no package ecosystem at all); performance and engine extension → C++.
+
+**I then treated it as a genuine decision point rather than a rhetorical one.** Zero chapters are written, so this was the last cheap moment to switch languages, and I laid out the case both ways: GDScript would gain frictionless addons, no build step, smaller APKs and the better-travelled Android path ([ADR-022](docs/meta/Decisions.md#adr-022) is a real cost being paid); it would lose NuGet, static typing and refactoring across 292 chapters, and the transferable skill requested in PROMPT#1. Recommendation: stay with C#. Told the learner plainly that the cost of changing rises steeply from chapter one.
+
+**Question 2: yes, and it is normal practice.** Godot's .NET build runs GDScript and C# side by side, and a C++ GDExtension class registers as an engine type **both** languages can use — Terrain3D is the everyday proof. This mirrors Unreal (C++ + Blueprints) and Unity (C# + native plugins).
+
+Recorded as **[ADR-031 — polyglot by design](docs/meta/Decisions.md#adr-031)**: C# primary · GDScript secondary for `@tool` scripts and addon glue · C++ last resort for a *measured* hot path. The four costs are taught rather than hidden — Variant marshalling at every C#↔GDScript call (cross a boundary once per frame, never once per entity per frame), two idioms and two debuggers, compiling per Android ABI, and lost type safety exactly at the seams where bugs hide. Cross-language *inheritance* is not supported, flagged `[UNVERIFIED]`, with advice that holds regardless: **compose at the boundary, never inherit across it.**
+
+### Standing instructions extracted
+
+21. **C# primary, GDScript for tooling and addon glue, C++ only after profiling; every boundary in one wrapper file** → [ADR-031](docs/meta/Decisions.md#adr-031)
+
+### Artefacts changed
+
+`docs/meta/Decisions.md` (ADR-031; ADR-029 correction) · `docs/meta/DecisionsLog.md` · `docs/meta/Doubts.md` ([D-008](docs/meta/Doubts.md#d-008)) · `docs/Toolchain.md` (§4b language comparison, §4c multi-language development) · `docs/TableOfContents.md` (0.10b, 9.1b; 11.4 and 11.5 expanded) · `docs/PLAN.md` §3c · `docs/meta/CourseState.md` (regenerated, 292) · `docs/meta/CompactContext.md` · `docs/internal/CLAUDE-MEMORY.md` · `docs/Practicals.md` · `README.md`.

@@ -26,7 +26,7 @@ update_trigger: "End of every working session, and after every chapter is publis
 | **Learner** | Tyrostir — path 🚶 **B, Self-Learner** (A and C authored in full, [ADR-024](Decisions.md#adr-024)) |
 | **Current phase** | **Phase 1 — planning and scaffolding** |
 | **Plan status** | ⏳ **Awaiting your approval** |
-| **Chapters published** | **0 / 290** |
+| **Chapters published** | **0 / 292** |
 | **Setup guides published** | **5 / 5** — all carry `[UNVERIFIED]` markers, none run yet |
 | **Projects shipped** | **0 / 11** |
 | **Blender chapters published** | **0 / 54** |
@@ -40,7 +40,7 @@ update_trigger: "End of every working session, and after every chapter is publis
 ### Progress bar
 
 ```text
-Module  0  Toolchain & First APK    [                    ]   0 %   (0/13)
+Module  0  Toolchain & First APK    [                    ]   0 %   (0/14)
 Module  1  Godot Foundations        [                    ]   0 %   (0/43)
 Module  2  Blender I: Pipeline      [                    ]   0 %   (0/29)
 Module  3  Characters I             [                    ]   0 %   (0/28)
@@ -49,11 +49,11 @@ Module  5  Shaders & VFX            [                    ]   0 %   (0/26)
 Module  6  Audio, Narration & Feel  [                    ]   0 %   (0/21)
 Module  7  Story & Cinematics       [                    ]   0 %   (0/31)
 Module  8  Characters II            [                    ]   0 %   (0/17)
-Module  9  Architecture & Perf      [                    ]   0 %   (0/19)
+Module  9  Architecture & Perf      [                    ]   0 %   (0/20)
 Module 10  Capstone & Release       [                    ]   0 %   (0/29)
 Module 11  Beyond (optional)        [                    ]   0 %   (0/7)
 ────────────────────────────────────────────────────────────────────────
-OVERALL                             [                    ]   0 %   (0/290)
+OVERALL                             [                    ]   0 %   (0/292)
 ```
 
 ---
@@ -103,8 +103,8 @@ Tick as you go. `[ ]` not started · `[~]` in progress · `[x]` done · `[!]` do
 ### Module 0 — Toolchain & Your First APK
 
 [ ] 0.1 · [ ] 0.2 · [ ] 0.3 · [ ] 0.4 · [ ] 0.5 · [ ] 0.6
-[ ] 0.7 · [ ] 0.8 **ship** ⭐ · [ ] 0.9 · [ ] 0.10 · [ ] 0.11 · [ ] 0.12
-[ ] 0.13 self-check
+[ ] 0.7 · [ ] 0.8 **ship** ⭐ · [ ] 0.9 · [ ] 0.10 · [ ] 0.10b 🧰 · [ ] 0.11
+[ ] 0.12 · [ ] 0.13 self-check
 
 ### Module 1 — Godot Foundations · P01 Marble Runner
 
@@ -173,10 +173,10 @@ Tick as you go. `[ ]` not started · `[~]` in progress · `[x]` done · `[!]` do
 
 ### Module 9 — Architecture, Performance & Tooling · P09 Systems Refactor
 
-[ ] 9.1 · [ ] 9.2 · [ ] 9.2b 🧰 · [ ] 9.3 · [ ] 9.4 · [ ] 9.4b 🧰
-[ ] 9.5 · [ ] 9.6 · [ ] 9.7 · [ ] 9.6b 🧰 · [ ] 9.7b 🧰 · [ ] 9.8
-[ ] 9.9 · [ ] 9.10 · [ ] 9.9b 🧰 · [ ] 9.11 · [ ] 9.11b 🧰 · [ ] 9.12 **ship** ⭐
-[ ] 9.13 self-check
+[ ] 9.1 · [ ] 9.1b 🧰 · [ ] 9.2 · [ ] 9.2b 🧰 · [ ] 9.3 · [ ] 9.4
+[ ] 9.4b 🧰 · [ ] 9.5 · [ ] 9.6 · [ ] 9.7 · [ ] 9.6b 🧰 · [ ] 9.7b 🧰
+[ ] 9.8 · [ ] 9.9 · [ ] 9.10 · [ ] 9.9b 🧰 · [ ] 9.11 · [ ] 9.11b 🧰
+[ ] 9.12 **ship** ⭐ · [ ] 9.13 self-check
 
 ### Module 10 — Capstone & Release · P10 Ember Hollow
 

@@ -329,3 +329,23 @@ New document [`../Toolchain.md`](../Toolchain.md): every library with licence, m
 **Cost.** 32 chapters, **258 → 290**; pacing ~430–480 h → **~470–530 h**. Module 9 grew most (13 → 19), which is correct — that is where professional practice concentrates.
 
 ---
+
+### 🆕 DECIDED — ADR-031: Polyglot by design, and a correction to ADR-029
+
+**Context.** The learner asked two questions: whether GDScript or C++ would have given more free libraries, and whether one game can mix all three languages.
+
+**🔄 The correction, which matters more than the new decision.** [ADR-029](Decisions.md#adr-029) stated that most Godot addons are GDScript and that this costs C# users. True — but phrased in a way that reads as *"C# cannot use those addons."* **It can.** They are nodes and scripts; you instantiate and call them from C#. What is lost is **ergonomics** — type safety and autocomplete at the seam — not **access**.
+
+The distinction is load-bearing: the first reading is an argument for switching the entire course to GDScript, and the second one is not. Left uncorrected it would have quietly undermined [ADR-001](Decisions.md#adr-001) every time the learner met a GDScript addon.
+
+**"Which language has more libraries" has three answers, not one.** Godot addons → GDScript, by a wide margin. General-purpose libraries → C#, by an enormous margin (NuGet has hundreds of thousands of packages; GDScript has no package ecosystem at all). Performance and engine extension → C++.
+
+**Decision.** Godot's .NET build runs GDScript and C# side by side, and a GDExtension C++ class registers as an engine type both can use. Treat this as a designed feature: **C# primary** (systems, architecture, data, tests) · **GDScript secondary** (`@tool` scripts, UI glue, consuming and patching addons) · **C++ last resort** (a *measured* hot path, or wrapping a native library). Every boundary lives in one wrapper file.
+
+**Rejected — switching the course to GDScript.** Considered seriously rather than dismissed, because zero chapters are written and this was the last cheap moment to change. GDScript would gain frictionless addons, no build step, smaller APKs and the better-travelled Android path ([ADR-022](Decisions.md#adr-022) is a genuine cost being paid). It would lose NuGet, static typing and IDE refactoring across a 292-chapter project, and the transferable skill requested in the learner's first prompt. Given [ADR-030](Decisions.md#adr-030), typing and testability outweigh addon convenience — and the addon gap is bounded and now mitigated. **The learner was told explicitly that the cost of changing rises steeply from chapter one.**
+
+**Consequences.** Two chapters added — **0.10b** (*GDScript, C# and C++ in one project*) and **9.1b** (*Polyglot architecture: where the boundary goes*); **11.4** and **11.5** expanded, the latter to flag that C# support lags GDScript on some export platforms. `Toolchain.md` gained §4b and §4c. Course 290 → **292**.
+
+**Recorded as `[UNVERIFIED]`:** cross-language script *inheritance* is not supported (GDScript cannot extend a C# class or vice versa). The practical guidance — compose at the boundary, never inherit across it — holds regardless of version.
+
+---

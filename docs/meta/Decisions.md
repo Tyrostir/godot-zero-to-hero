@@ -53,6 +53,7 @@ update_trigger: "Whenever a decision is made, changed, or superseded"
 | [ADR-028](#adr-028) | **Build it once by hand, then adopt the library** — the `b`-chapter pattern | Pedagogy | ✅ |
 | [ADR-029](#adr-029) | The approved free toolchain, and dependency-evaluation as a taught skill | Tooling | ✅ |
 | [ADR-030](#adr-030) | What "industry grade" means here — and the honest limit of "AAA" | Product | ✅ |
+| [ADR-031](#adr-031) | **Polyglot by design** — C# primary, GDScript for tooling and addon glue, C++ only after profiling | Product | ✅ |
 
 ---
 
@@ -483,6 +484,36 @@ The learner's stated goal is to be able to develop *"AAA standard — profession
 
 ---
 
+## ADR-031
+### Polyglot by design — C# primary, GDScript secondary, C++ last resort
+**Status:** ✅ Active *(decided 2026-09-02)* · **Category:** Product
+
+Godot's .NET build runs **GDScript and C# side by side in one project**, and a **GDExtension (C++) class registers as an engine type both languages can use**. This course treats that as a feature to be used deliberately, not an accident to be ignored.
+
+| Language | Role | Use it for | Not for |
+|---|---|---|---|
+| **C#** | **Primary** | Gameplay systems, architecture, data, save/load, tests — anything typed and refactorable | Quick editor scripts |
+| **GDScript** | **Secondary** | `@tool` editor scripts, small UI glue, **consuming and patching community addons** | Core architecture |
+| **C++ / GDExtension** | **Last resort** | A hot path you have **measured**, or wrapping a native library | Anything before profiling |
+
+**The rule that makes it safe:** every boundary lives in **one place** — one wrapper file per GDScript addon exposing a clean C# interface; one GDExtension module with a narrow documented API. Taught in **9.1b** and **9.6b**.
+
+**The correction this ADR records.** [ADR-029](#adr-029) said most Godot addons are GDScript and that this costs C# users. That is true but was easy to misread as *"C# loses access to those addons."* **It does not.** They are nodes; you instantiate and call them. What is lost is **ergonomics** — type safety and autocomplete at the seam — not access. The distinction matters because the first reading would justify switching languages, and the second one does not.
+
+**Which language has "more libraries" — three different answers, not a ranking:**
+
+- **Godot addons:** GDScript, by a wide margin — the Asset Library is mostly GDScript.
+- **General-purpose libraries:** C#, by an enormous margin — NuGet has hundreds of thousands of packages; GDScript has no package ecosystem at all.
+- **Performance and engine extension:** C++.
+
+**The four costs of mixing, taught rather than hidden:** Variant marshalling at every C#↔GDScript call (cross a boundary once per frame, never once per entity per frame) · two idioms and two debuggers · C++ means compiling per Android ABI · lost type safety exactly at the seams where bugs hide.
+
+**Cross-language *inheritance* is not supported** — GDScript cannot extend a C# class or vice versa. `[UNVERIFIED]` for the current version; the practical guidance holds regardless: **compose at the boundary, never inherit across it.**
+
+**Why C# stays primary.** It was requested ([ADR-001](#adr-001)); it is the more transferable skill; NuGet is a larger ecosystem than the Asset Library; and static typing pays for itself across a 292-chapter project. The addon gap is real but bounded, and this ADR is the mitigation.
+
+---
+
 ## 📝 Changelog
 
 | Version | Date | Change |
@@ -492,3 +523,4 @@ The learner's stated goal is to be able to develop *"AAA standard — profession
 | 1.2 | 2026-09-02 | ADR-026 (Presentation Spine) and ADR-027 (narration, mandatory subtitles) added after a plan-review audit. Course grows 215 → 258 chapters. |
 | 1.3 | 2026-09-02 | ADR-011 amended: **both** the question and the author's full answer are logged in `Doubts.md`, unprompted, every turn. Prompted by [D-006](Doubts.md#d-006). |
 | 1.4 | 2026-09-02 | ADR-028 (build-then-adopt), ADR-029 (the free toolchain), ADR-030 (what "industry grade" honestly means). Course grows 258 → 290 chapters; new `Toolchain.md`. Prompted by [D-007](Doubts.md#d-007). |
+| 1.5 | 2026-09-02 | ADR-031 (polyglot by design). Corrects a misreadable claim in ADR-029: C# loses addon *ergonomics*, not addon *access*. Chapters 0.10b and 9.1b added → 292. Prompted by [D-008](Doubts.md#d-008). |

@@ -18,13 +18,13 @@ update_trigger: "When a practical, drill, challenge, jam or project is added or 
 
 | Kind | Marker | What it is | Where it lives | Count |
 |------|--------|-----------|----------------|-------|
-| **Chapter Build** | 🔨 | The mandatory first section of *every* chapter. You are building within the first screen of text. | Inside each chapter | **290** |
+| **Chapter Build** | 🔨 | The mandatory first section of *every* chapter. You are building within the first screen of text. | Inside each chapter | **292** |
 | **Chapter Practical** | 🏋️ | 1–3 drills at the end of each chapter that *change* what you just built | Inside each chapter | **~580** |
 | **Standalone Drill / Challenge / Autopsy** | 🔁 / 🧗 / 🔍 | Repeatable skill-builders, unscaffolded challenges, and analyses of existing work | [`Exercises.md`](Exercises.md) | **44** |
 | **Project** | 🚢 | A complete, playable, deployed-to-phone milestone | [`../projects/README.md`](../projects/README.md) | **11** |
 | **Mini-Jam** | ⏱️ | Timeboxed, constrained, *no help given* | [`../projects/README.md#mini-jams`](../projects/README.md#mini-jams) | **4** |
 | **Presentation deliverable** | 🎬 | A title screen, ending screen, music pass, narration or walkthrough shipped with a project | [`PresentationSpine.md`](PresentationSpine.md) | **34** |
-| **Library adoption** | 🧰 | Install a free library, read its source, measure it on device, and record a decision | [`Toolchain.md`](Toolchain.md) | **28** |
+| **Library adoption** | 🧰 | Install a free library, read its source, measure it on device, and record a decision | [`Toolchain.md`](Toolchain.md) | **30** |
 
 **Total distinct hands-on units: ~963.**
 **Chapters that begin with theory: 0.** That is a hard rule, not an aspiration ([ADR-002](meta/Decisions.md#adr-002)).
@@ -39,7 +39,7 @@ Every chapter is ≥50% doing and ≤30% theory, by mandate. Here is what that p
 
 | Module | Chapters | Builds | Chapter practicals | Standalone | 🎬 Present. | 🧰 Adopt | Project | Jam |
 |--------|---------|--------|--------------------|-----------|------------|---------|---------|-----|
-| 0 — Toolchain | 13 | 13 | ~20 | 2 | — | 2 | 🚢 **P00 Hello Phone** | — |
+| 0 — Toolchain | 14 | 14 | ~22 | 2 | — | 3 | 🚢 **P00 Hello Phone** | — |
 | 1 — Godot Foundations | 43 | 43 | ~86 | 6 | 5 | 2 | 🚢 **P01 Marble Runner** | ⏱️ MJ1 |
 | 2 — Blender I | 29 | 29 | ~58 | 6 | 2 | 3 | 🚢 **P02 Foundry Kit** | — |
 | 3 — Characters I | 28 | 28 | ~56 | 5 | 3 | 2 | 🚢 **P03 Playground** | ⏱️ MJ2 |
@@ -48,10 +48,10 @@ Every chapter is ≥50% doing and ≤30% theory, by mandate. Here is what that p
 | 6 — Audio, Narration & Feel | 21 | 21 | ~42 | 4 | 6 | 1 | 🚢 **P06 Feel Pass** | — |
 | 7 — Story & Cinematics | 31 | 31 | ~62 | 5 | 6 | 4 | 🚢 **P07 The Slice** | ⏱️ MJ4 |
 | 8 — Characters II | 17 | 17 | ~34 | 4 | 2 | 1 | 🚢 **P08 Warden** | — |
-| 9 — Architecture | 19 | 19 | ~38 | 2 | 2 | 5 | 🚢 **P09 Refactor** | — |
+| 9 — Architecture | 20 | 20 | ~40 | 2 | 2 | 6 | 🚢 **P09 Refactor** | — |
 | 10 — Capstone | 29 | 29 | ~48 | 2 | 2 | 3 | 🚢 **P10 Ember Hollow** | — |
 | 11 — Beyond | 7 | 7 | ~14 | — | — | 1 | — | — |
-| **Total** | **290** | **290** | **~580** | **44** | **34** | **28** | **11** | **4** |
+| **Total** | **292** | **292** | **~584** | **44** | **34** | **30** | **11** | **4** |
 
 ---
 

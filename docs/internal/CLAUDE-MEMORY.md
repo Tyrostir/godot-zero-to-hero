@@ -38,9 +38,9 @@ update_trigger: "End of every session, and immediately after any decision or lea
 
 You are the **author** of a book-length course: *Godot Zero to Hero* — 3D **Android** game development with **Godot 4 (.NET / C#)** and **Blender**. The **learner** owns the repo and does all hands-on work. **You write Markdown; you do not run software.**
 
-**Shape:** 12 modules · **290 chapters** (incl. 54 Blender and 28 🧰 library-adoption chapters) · **11 projects** · 4 mini-jams · ~470–530 hours.
+**Shape:** 12 modules · **292 chapters** (incl. 54 Blender and 30 🧰 library-adoption chapters) · **11 projects** · 4 mini-jams · ~470–530 hours.
 
-**Progress: Phase 1. 0/290 chapters. Plan drafted, awaiting the learner's review. Nothing installed yet.**
+**Progress: Phase 1. 0/292 chapters. Plan drafted, awaiting the learner's review. Nothing installed yet.**
 
 **Cadence: one chapter per turn**, committed and pushed, with `docs/meta/` updated each time.
 
@@ -107,7 +107,7 @@ Capstone working title *Ember Hollow* is provisional ([ADR-023](../meta/Decision
 |---|---|
 | Phase | 1 — planning |
 | Plan | ⏳ **awaiting the learner's review** ([T-002](../meta/ToDos.md)) — they explicitly asked to review before chapters begin |
-| Chapters | 0 / 290 |
+| Chapters | 0 / 292 |
 | Setup guides | 5 / 5 drafted, all `[UNVERIFIED]` |
 | Repo on GitHub | ✅ live — https://github.com/Tyrostir/godot-zero-to-hero |
 | Git | branch `main`, pushed, commit `6219e4b` |
@@ -221,6 +221,7 @@ Extracted verbatim-in-substance from their prompts. These do not expire.
 | **028** | **Build it once by hand, then adopt the library — 28 🧰 `N.Mb` chapters** |
 | **029** | **The free toolchain; dependency evaluation is a taught skill** |
 | **030** | **"AAA" = budget/headcount, not achievable solo — say so; industry-grade craft is the target** |
+| **031** | **Polyglot: C# primary · GDScript for tooling/addon glue · C++ only after profiling. C# loses addon *ergonomics*, not *access*** |
 
 ---
 
@@ -233,6 +234,6 @@ Extracted verbatim-in-substance from their prompts. These do not expire.
 | **H-03** | 🟠 C# + Android in Godot is the less-travelled path; rough edges with few community answers. | [ADR-022](../meta/Decisions.md#adr-022). Check Godot's GitHub issues before assuming a bug is the learner's. Log everything in `Troubleshooting.md`. |
 | **H-04** | 🟠 Every setup guide is `[UNVERIFIED]`. If a version number here is wrong, Module 0 stalls. | Guides link the always-current official pages and say explicitly that those pages win. |
 | **H-05** | 🟠 Scope creep on the capstone. | [ADR-019](../meta/Decisions.md#adr-019) locks it; new ideas go to the GDD under *Post-launch*. |
-| **H-06** | 🟡 290 chapters at one per turn is a long project. Momentum is the real risk. | Eleven shipped projects supply visible progress, and [ADR-026](../meta/Decisions.md#adr-026) is a direct mitigation: every project now has a title screen, an ending and music, so each one *feels* like a game rather than a tech demo. P00 lands in the first session of real work. |
+| **H-06** | 🟡 292 chapters at one per turn is a long project. Momentum is the real risk. | Eleven shipped projects supply visible progress, and [ADR-026](../meta/Decisions.md#adr-026) is a direct mitigation: every project now has a title screen, an ending and music, so each one *feels* like a game rather than a tech demo. P00 lands in the first session of real work. |
 | **H-07** | ✅ **Cleared, and answered before any chapter existed** — exactly why it was asked in Session 001. Three paths, all authored in full. No retrofitting needed. | — |
 | **H-08** | 🔵 Godot version drift over a ~year-long project. | Version log in [Setup 01 §3](../guides/Setup_01_Prerequisites.md); pin and record. |
