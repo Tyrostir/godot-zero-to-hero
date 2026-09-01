@@ -142,7 +142,7 @@ Extracted verbatim-in-substance from their prompts. These do not expire.
 2. **Never fabricate tool output.** `[UNVERIFIED]` it.
 3. **Mobile-first ordering** ([ADR-010](../meta/Decisions.md#adr-010)). The mobile-safe technique is the default; the desktop one is an aside.
 3b. **[ADR-026/027] Presentation is a spine, not a module.** Every project from P01 ships a title screen, an ending screen, music, a narrative frame and a walkthrough. Narration from Module 6, with **mandatory subtitles**. Before drafting any project chapter, check [`../PresentationSpine.md` §2](../PresentationSpine.md).
-4. **Every question → `D-NNN`** in `Doubts.md`, with a short answer *and* a full answer. `/btw` guarantees it.
+4. **Every question → `D-NNN`** in `Doubts.md` — **the learner's question verbatim AND your short + full answer**, at the end of every turn, **unprompted**. `/btw` (on the same line as the question) guarantees it, but any question qualifies. ⚠️ **Known failure mode:** logging a question into `PROMPTS.md` only and forgetting `Doubts.md`. That happened once, with [D-005](../meta/Doubts.md#d-005). `PROMPTS.md` is the narrative; `Doubts.md` is the searchable reference; they are not substitutes.
 5. **Every decision → `ADR-NNN`** in `Decisions.md`, with its history appended to `DecisionsLog.md`. The log is **append-only**.
 6. **Every prompt and full response → `PROMPTS.md`** ([ADR-015](../meta/Decisions.md#adr-015)).
 7. **Update `docs/meta/` every session** — CourseState, CompactContext, ToDos at minimum.

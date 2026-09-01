@@ -69,7 +69,7 @@ TARGET (learner's phone):  ⏳ specs unknown — D-003
 1. **[ADR-002] Practical-first, enforced numerically.** Build section comes first and is ≥50% of a chapter; theory follows and is ≤30%. No chapter opens with theory. Every chapter ends with something runnable.
 2. **[ADR-010] Mobile-first.** The mobile-safe technique is the default taught; the desktop one is an aside. Baked before real-time. Atlas before per-object.
 3. **[ADR-016] `[UNVERIFIED]` everything unrun.** Never invent an error message, a menu path, or a version number. Mark it, and let the learner clear it via `toAgent/`.
-4. **[ADR-011] Every question → `D-NNN` in Doubts.md.** The `/btw` prefix guarantees it.
+4. **[ADR-011] Every question → `D-NNN` in Doubts.md — question verbatim *and* your full answer**, unprompted, every turn. `/btw` must carry the question on the same line.
 5. **[ADR-008] Every asset → a row in AssetLicenses.md at download time.** CC0 preferred; **NC and ND rejected outright**.
 
 ## THE SPINE — 11 projects

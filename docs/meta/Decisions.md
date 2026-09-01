@@ -33,7 +33,7 @@ update_trigger: "Whenever a decision is made, changed, or superseded"
 | [ADR-008](#adr-008) | Free assets only; every asset logged at **download time** | Legal | ✅ |
 | [ADR-009](#adr-009) | **glTF 2.0** is the only Blender→Godot transfer format | Pipeline | ✅ |
 | [ADR-010](#adr-010) | **Mobile-first**: the mobile-safe technique is always taught first | Product | ✅ |
-| [ADR-011](#adr-011) | Every question becomes a permanent `D-NNN` artefact; `/btw` convention | Process | ✅ |
+| [ADR-011](#adr-011) | Every question → a permanent `D-NNN` artefact — **question and answer**; `/btw` convention | Process | ✅ |
 | [ADR-012](#adr-012) | `TableOfContents.md` is canonical; `TableOfContext.md` is an alias | Docs | ✅ |
 | [ADR-013](#adr-013) | Mermaid for all diagrams | Docs | ✅ |
 | [ADR-014](#adr-014) | Documents are organised in **three tiers**; `docs/internal/` is Tier 3 | Docs | ✅ |
@@ -186,14 +186,35 @@ Wherever a technique has a desktop version and a mobile version, the **mobile ve
 ---
 
 ## ADR-011
-### Every question becomes a permanent `D-NNN` artefact
-**Status:** ✅ Active · **Category:** Process
+### Every question becomes a permanent `D-NNN` artefact — question **and** answer
+**Status:** ✅ Active *(amended 2026-09-02)* · **Category:** Process
 
-No question is ever answered only in conversation. Every question — at any time, about anything, however small — gets a dated entry in [`Doubts.md`](Doubts.md) with a short answer and a full answer.
+No question is ever answered only in conversation. Every question — at any time, about anything, however small — gets a dated entry in [`Doubts.md`](Doubts.md).
 
-**The `/btw` convention.** Prefix any aside with `/btw` and it becomes a `D-NNN` entry, no matter how small or tangential.
+**Both halves are logged, every time, unprompted:**
+
+| | What | Field |
+|---|------|-------|
+| 📥 | **The learner's question, verbatim** — wording, typos and all | `### Question (verbatim)` |
+| 📤 | **The author's short answer** — 2–3 sentences, enough to unblock | `### Short answer` |
+| 📤 | **The author's full answer** — as deep as the question deserves | `### Full answer` |
+| ⚙️ | Any chapter edit, ADR or ToDo that resulted | `### Action taken` |
+
+**This is the author's job, not the learner's**, and it happens at the end of every turn whether or not the learner asks for it.
+
+**The `/btw` convention.** Prefix any aside with `/btw` — **on the same line as the question** — and it becomes a `D-NNN` entry, no matter how small or tangential. A bare `/btw` is swallowed by the command handler and never reaches the author.
+
+**Which log gets what.** One prompt may produce zero, one, or several `D-NNN` entries.
+
+| File | Records |
+|------|---------|
+| [`Doubts.md`](Doubts.md) | Reusable **technical answers**, indexed and searchable |
+| [`../../PROMPTS.md`](../../PROMPTS.md) | The **narrative** — what was asked and said, verbatim, in order |
+| [`DecisionsLog.md`](DecisionsLog.md) | **Decisions**, with rationale and rejected alternatives |
 
 **Why.** Adopted from the QNX course, where it worked. Questions asked in passing are exactly the ones answered in conversation and then lost.
+
+**Why amended.** The original wording said only "every question gets an entry", which the author satisfied narrowly — logging questions *put to* the learner (D-001 to D-004) while a question the learner asked *of* the author ([D-005](Doubts.md#d-005)) went into `PROMPTS.md` and never into `Doubts.md`. The root cause was structural: `Doubts.md` v1.0 had a column for the learner's own-words answer and **no field for the author's**. Format rebuilt in v2.0; wording tightened here. See [D-006](Doubts.md#d-006).
 
 ---
 
@@ -390,3 +411,4 @@ Narration and voice get eleven chapters (6.8–6.14, 7.6, 7.11, 8.2, 10.18), tau
 | 1.0 | 2026-09-01 | Created at course inception (Session 001). ADR-001 to ADR-025. |
 | 1.1 | 2026-09-01 | ADR-024 decided: three paths, all authored in full. ADR-004 amended: build machine is **Linux**. |
 | 1.2 | 2026-09-02 | ADR-026 (Presentation Spine) and ADR-027 (narration, mandatory subtitles) added after a plan-review audit. Course grows 215 → 258 chapters. |
+| 1.3 | 2026-09-02 | ADR-011 amended: **both** the question and the author's full answer are logged in `Doubts.md`, unprompted, every turn. Prompted by [D-006](Doubts.md#d-006). |

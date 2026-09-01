@@ -273,3 +273,52 @@ Rejected the cheaper fix — adding narration chapters to Module 7 and leaving t
 **New:** `docs/PresentationSpine.md`.
 **Rewritten:** `docs/TableOfContents.md` (43 chapters added across modules 1–10; MJ3/MJ4 formalised) · `docs/meta/CourseState.md` (tracker, progress bar and counts regenerated from the ToC) · `projects/README.md` (34 presentation done-criteria).
 **Updated:** `docs/meta/Decisions.md` (ADR-026, ADR-027) · `docs/meta/DecisionsLog.md` (audit findings + two decisions) · `docs/PLAN.md` (new §3b, Module 6/7 syllabus, pacing table) · `docs/Practicals.md` (counts, per-module table, spiral) · `docs/reference/Glossary.md` (+18 audio/narrative terms) · `docs/meta/CompactContext.md` · `docs/meta/ToDos.md` (T-019, T-020, T-021) · `docs/internal/CLAUDE-MEMORY.md` (operating rule 3b) · `README.md`.
+
+---
+
+## PROMPT#6
+
+**Date:** 2026-09-02 · **Session:** 002
+
+### Prompt (verbatim)
+
+```text
+/btw
+Usage: /btw <your question>
+/btw
+Usage: /btw <your question>
+/btw
+Usage: /btw <your question>
+
+can you keep documenting my btw questions and your answer also ? I already asked one btw question and
+you answered, please document that also.
+```
+
+### Response
+
+Two separate things here, one mechanical and one a genuine miss on my part.
+
+**Mechanical.** All three `/btw` invocations came through empty — the command handler printed its usage hint and no question text reached me. `/btw` needs the question on the same line: `/btw why is the APK 60 MB when the game is one cube?`. Documented in `Doubts.md`'s `/btw` section with a ⚠️.
+
+**The miss.** Checked rather than assumed. Your PROMPT#5 question about story/narration/walkthrough coverage was logged in **`PROMPTS.md`** (narrative) and **`DecisionsLog.md`** (the two ADRs it produced) — but **never as a `D-NNN` entry** in `Doubts.md`, which is where a reusable technical answer belongs. Verified with a grep before answering.
+
+**The root cause was structural, not disciplinary.** `Doubts.md` v1.0 was a thin table: open items were `ID | Date | Ch. | Question | Status | Notes`, and resolved ones `ID | Ch. | Question | Answer, in my own words | Resolved on`. That last column was designed for **you** to restate an answer in your own words — a genuinely good exercise — but it left **no field for my answer at all**. So my answers had nowhere to go and drifted into `PROMPTS.md`. A format that makes the right thing hard is a format bug.
+
+Also worth naming: I satisfied [ADR-011](docs/meta/Decisions.md#adr-011) *narrowly*. D-001 to D-004 are all questions **I put to you**. The first question **you put to me** is the one that fell through. That asymmetry is exactly what the amended wording now closes.
+
+**Fixed:**
+
+1. **`Doubts.md` rebuilt to v2.0** in the full `qnx-zero-to-hero` entry format — Context, Category, **Question verbatim**, **Short answer**, **Full answer**, Related, Status, **Action taken**. Your "In my own words" line survives as an optional extra on answered entries, because restating an answer unprompted is still the best test of whether you have it.
+2. **[D-005](docs/meta/Doubts.md#d-005) back-filled** — the story/narration/walkthrough question, with the full answer.
+3. **[D-006](docs/meta/Doubts.md#d-006) added** — this question, with the `/btw` usage note and the three-log distinction.
+4. **All six entries given full answers**, including the two still-open ones (D-002 Godot version, D-003 phone specs) — previously one-line notes.
+5. **[ADR-011](docs/meta/Decisions.md#adr-011) amended** to state explicitly that **both halves** are logged — your question verbatim *and* my short + full answer — **at the end of every turn, unprompted**, and that this is my job rather than something you have to ask for.
+6. **`CLAUDE-MEMORY.md` operating rule 4 rewritten** with the known failure mode named outright, so a future session doesn't repeat it.
+
+### Standing instructions extracted
+
+17. **Log every question with both halves — verbatim question and full answer — in `Doubts.md`, unprompted, every turn.** `PROMPTS.md` is not a substitute → [ADR-011](docs/meta/Decisions.md#adr-011)
+
+### Artefacts changed
+
+`docs/meta/Doubts.md` (rewritten, v1.0 → v2.0) · `docs/meta/Decisions.md` (ADR-011 amended) · `docs/internal/CLAUDE-MEMORY.md` (operating rule 4) · `docs/meta/CompactContext.md` · `docs/meta/ToDos.md` (T-022)

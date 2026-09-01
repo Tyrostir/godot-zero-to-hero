@@ -46,6 +46,7 @@ update_trigger: "Continuously"
 | T-015 | 🟡 | Populate `docs/reference/cheatsheets/` — Blender hotkeys, GDShader built-ins, Godot C# API, `adb` | ⬜ | — | One page each. Best written alongside the chapters that introduce them. |
 | T-016 | 🟡 | Fill `docs/reference/answers/module-03.md` … `module-10.md` | ⬜ | module progress | Written as each module is reached ([ADR-007](Decisions.md#adr-007)). |
 | T-017 | 🔵 | Add a **Practicals Index** — every hands-on unit in one table | ✅ | — | Done: [`../Practicals.md`](../Practicals.md) |
+| T-022 | — | ~~Rebuild `Doubts.md` so the author's answers have somewhere to live~~ | ✅ | — | Done 2026-09-02. v1.0 had a column for *your* own-words answer and no field for mine, so my answers drifted into `PROMPTS.md`. v2.0 uses the full QNX entry format; [D-005](Doubts.md#d-005) back-filled; [ADR-011](Decisions.md#adr-011) amended. |
 | T-021 | 🟠 | ~~Audit the plan for story / narration / screens / walkthrough coverage~~ | ✅ | — | Done 2026-09-02. Found three real gaps; fixed with [ADR-026](Decisions.md#adr-026), [ADR-027](Decisions.md#adr-027) and [`../PresentationSpine.md`](../PresentationSpine.md). 43 chapters added. |
 | T-018 | 🔵 | Consider a PDF export toolchain, as in the QNX course | ⬜ | — | Only worth it once several modules exist. `tools/pdf/` would mirror QNX. |
 | T-019 | 🟡 | Source or write the **music** for P01 — one seamless loop | ⬜ | T-002 | Chapter 1.37 walks it. CC0 first; composing your own is a Module 6 option. |
