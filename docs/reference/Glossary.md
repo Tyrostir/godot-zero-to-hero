@@ -149,6 +149,22 @@ update_trigger: "First use of any new term in a chapter"
 **Adaptive music** — music that responds to game state, usually by layering.
 **Scope** — how much game you have committed to making. The thing that kills projects.
 **GDD** — game design document.
+**First-page animation** — the animated title/opening screen. Built four times in this course, at increasing sophistication.
+**End-page animation** — the results, completion or ending screen. A game that stops dead feels broken.
+**Cold open** — starting in the middle of something, before any title card. Earns attention before spending it.
+**Attract mode** — what a game shows when nobody is playing it.
+**Narration** — spoken voice-over addressed to the player, distinct from character dialogue.
+**Bark** — a short, situational character vocalisation: a grunt, a warning shout, an effort sound.
+**Ducking** — automatically lowering one audio bus (music) while another (voice) is playing, usually via side-chain compression.
+**Side-chain** — driving one audio effect from a different signal, e.g. compressing music using the narration track as the trigger.
+**Proximity effect** — the bass boost you get from speaking close to a directional microphone. The main reason home recordings sound muddy.
+**Plosive** — the burst of air on a "p" or "b" that overloads a microphone. Fixed with distance, angle, or a pop filter.
+**Noise floor** — the constant background hiss of a recording. Low is good; noise reduction cannot rescue a bad one.
+**Stinger** — a short musical phrase marking an event.
+**Loop point** — the sample position where a music track wraps. A badly chosen one produces an audible click or a lurch.
+**Walkthrough** — in this course, two things: the *designed* walkthrough (a level that teaches without prompts) and the *written* walkthrough (a player-facing guide, chapter 10.20).
+**Onboarding** — the first five minutes, in which the player learns what the game is and whether they want to continue.
+**Caption vs subtitle** — subtitles transcribe speech; captions also convey non-speech audio ("[distant machinery]"). Ship captions.
 
 ## Android & shipping
 

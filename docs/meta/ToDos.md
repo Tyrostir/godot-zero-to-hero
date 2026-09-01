@@ -22,7 +22,7 @@ update_trigger: "Continuously"
 
 | ID | Pri | Task | Status | Depends on | Notes |
 |----|-----|------|--------|-----------|-------|
-| T-002 | 🔴 | ⭐ **Review [`../PLAN.md`](../PLAN.md) and come back with amendments** | ⬜ | — | **You asked for this before any chapter is written.** Read §1 (philosophy), **§1b (the three paths — new)**, §3 (the 11 projects) and §5 (honest constraints). Also skim [`../TableOfContents.md`](../TableOfContents.md) for anything missing or mis-sequenced. |
+| T-002 | 🔴 | ⭐ **Review [`../PLAN.md`](../PLAN.md) and come back with amendments** | ⬜ | — | **You asked for this before any chapter is written.** Read §1 (philosophy), **§1b (the three paths)**, **§3b (the Presentation Spine — new)**, §3 (the 11 projects) and §5 (honest constraints). Also skim [`../TableOfContents.md`](../TableOfContents.md) and [`../PresentationSpine.md`](../PresentationSpine.md). |
 | T-003 | — | ~~Decide the build machine~~ | ✅ | — | Done 2026-09-01: **Linux**. Guides now lead with the Linux route. [D-001](Doubts.md) resolved. |
 | T-004 | 🟠 | **Record your phone's specs** — model, Android version, chipset/GPU, RAM, Vulkan support, notch? | ⬜ | — | Answers [D-003](Doubts.md). Decides Mobile vs Compatibility renderer in ch 4.13, and your whole performance budget. |
 | T-005 | — | ~~Decide ADR-024 — learning paths~~ | ✅ | — | Done 2026-09-01: **yes, all three authored in full.** Chapter template and PLAN §1b updated. |
@@ -46,7 +46,10 @@ update_trigger: "Continuously"
 | T-015 | 🟡 | Populate `docs/reference/cheatsheets/` — Blender hotkeys, GDShader built-ins, Godot C# API, `adb` | ⬜ | — | One page each. Best written alongside the chapters that introduce them. |
 | T-016 | 🟡 | Fill `docs/reference/answers/module-03.md` … `module-10.md` | ⬜ | module progress | Written as each module is reached ([ADR-007](Decisions.md#adr-007)). |
 | T-017 | 🔵 | Add a **Practicals Index** — every hands-on unit in one table | ✅ | — | Done: [`../Practicals.md`](../Practicals.md) |
+| T-021 | 🟠 | ~~Audit the plan for story / narration / screens / walkthrough coverage~~ | ✅ | — | Done 2026-09-02. Found three real gaps; fixed with [ADR-026](Decisions.md#adr-026), [ADR-027](Decisions.md#adr-027) and [`../PresentationSpine.md`](../PresentationSpine.md). 43 chapters added. |
 | T-018 | 🔵 | Consider a PDF export toolchain, as in the QNX course | ⬜ | — | Only worth it once several modules exist. `tools/pdf/` would mirror QNX. |
+| T-019 | 🟡 | Source or write the **music** for P01 — one seamless loop | ⬜ | T-002 | Chapter 1.37 walks it. CC0 first; composing your own is a Module 6 option. |
+| T-020 | 🟡 | Decide whether *you* narrate *Ember Hollow*, or it uses TTS, or it has no narrator | ⬜ | — | Not urgent, but it shapes chapter 7.6. Chapters 6.9 and 6.13 give you both paths before you have to choose. |
 
 ---
 

@@ -223,3 +223,61 @@ update_trigger: "Every time a decision is made, revisited, superseded or reverse
 **Why this is the right call and not a delay.** The plan commits to 215 chapters at ~1.5–2× authoring cost each. An amendment made now costs one edit; the same amendment made at chapter 40 costs forty.
 
 ---
+
+## 2026-09-02 — Session 002 (Plan-review audit)
+
+### 🔍 VERIFIED — Audit of story, narration, screens and walkthrough coverage
+
+**Context.** The learner asked directly whether story development, storytelling, narration, the game walkthrough, first-page and end-page animation, and audio for background music **and narration** were planned *"on all the projects wherever applicable"* — and asked for the plan to be reviewed one more time rather than reassured.
+
+**Method.** The Table of Contents was read against that list, item by item, rather than answered from memory.
+
+**Findings — what was already there.**
+
+| Requested | Status before the audit |
+|---|---|
+| Story development, premise/theme/logline, character arc | ✅ Module 7 (7.1–7.7) |
+| Environmental storytelling, ludonarrative harmony | ✅ 7.4–7.5 |
+| Intro/splash animation, main menu animation, first-play opening | ✅ 7.14–7.16 |
+| Ending sequence, credits roll | ✅ 7.18–7.19 |
+| Cutscenes, camera language, Blender-rendered cinematics | ✅ 7.12–7.13, 7.20–7.21 |
+| Background music, adaptive layers | ✅ 6.6 |
+
+**Findings — three genuine gaps.**
+
+1. **Narration was entirely absent.** No writing for the ear, no recording, no cleaning, no ducking, no subtitles, no TTS. The word "narration" appeared nowhere in the plan. This was a straightforward miss against an explicit request in the learner's very first prompt.
+2. **All of it was quarantined in Modules 6 and 7.** Projects P01–P05 shipped with no title screen, no ending screen and no music. This contradicted the learner's *"on all the projects wherever applicable"* — and, more seriously, **contradicted [ADR-002](Decisions.md#adr-002)**: a learner would reach roughly hour 180 before building a first title screen, and would then have to learn timing, camera language, sound design and pacing simultaneously, at full difficulty, with no practice. That is exactly the theory-then-practice failure the course exists to avoid.
+3. **"Walkthrough" was unaddressed in both of its senses** — the *designed* walkthrough (a level that teaches without prompts) and the *written* walkthrough (a player-facing guide). Neither existed.
+
+**Why the audit was worth doing rather than answering "yes, it's covered".** Two of the three gaps were invisible from the module titles. Module 7 is called *Story, Narrative & Cinematics* and Module 6 is called *Audio & Game Feel*; a glance at those names would have produced a confident and wrong "yes".
+
+---
+
+### 🆕 DECIDED — ADR-026: The Presentation Spine
+
+**Decision.** Presentation runs through **every project from P01 onward**, escalating in passes, rather than living in Modules 6–7. From P01, a project is not shipped without an animated first page, an ending screen, at least one music loop, ambience where the piece has a place, a narrative frame, and a walkthrough that teaches without a wall of text. These are **done-criteria**, not suggestions.
+
+**Rejected.** Leaving it in Module 7 and simply adding narration chapters there. That would have fixed gap 1 while leaving gaps 2 and 3 — and would have left the pedagogy broken.
+
+**Consequences.**
+- **43 chapters added; the course grows 215 → 258.** Modules 1 (+4), 2 (+1), 3 (+2), 4 (+4), 5 (+2), 6 (+8), 7 (+4), 8 (+1), 9 (+1), 10 (+2), plus MJ3/MJ4 formalised into the ToC.
+- Module 6 renamed **Audio, Narration & Game Feel**.
+- A new document, [`../PresentationSpine.md`](../PresentationSpine.md), maps every project's presentation deliverables and the three-pass escalation.
+- `projects/README.md` gains 34 new done-criteria, marked 🎬 🏁 🎵 📖 🚶 🔊.
+- Pacing rises from ~400–450 h to ~430–480 h.
+
+**Why the cost is worth it.** The added chapters are short and distributed rather than lumped. Their real value is that every intermediate project now feels like a *game* rather than a tech demo — which is the strongest available defence against the thing that actually ends long courses, which is not difficulty but loss of interest.
+
+---
+
+### 🆕 DECIDED — ADR-027: Narration recorded by the learner; subtitles mandatory
+
+**Decision.** Eleven chapters on narration and voice (6.8–6.14, 7.6, 7.11, 8.2, 10.18), taught practical-first — record first, theorise after.
+
+**No purchase required.** Chapter 6.9 is built around a phone's voice recorder and a wardrobe of soft furnishings. Making a bad take and fixing it is the fastest route to understanding proximity effect, plosives and noise floor. Microphone guidance is offered for later, never assumed.
+
+**Text-to-speech is treated as a legitimate choice** (6.13), with an honest account of when it is right and of the licensing trap in commercial use — rather than as a fallback for people who "can't" record.
+
+**Subtitles are mandatory, not a stretch goal.** Any narration shipped carries synchronised captions and a toggle. A phone gets played on mute, on a bus, by someone who is deaf, and by someone at 4% battery; all four are the same requirement. Designing the cue track for captions from the start produces a better system than retrofitting accessibility later.
+
+---

@@ -26,10 +26,10 @@ update_trigger: "End of every working session, and after every chapter is publis
 | **Learner** | Tyrostir — path 🚶 **B, Self-Learner** (A and C authored in full, [ADR-024](Decisions.md#adr-024)) |
 | **Current phase** | **Phase 1 — planning and scaffolding** |
 | **Plan status** | ⏳ **Awaiting your approval** |
-| **Chapters published** | **0 / 215** |
+| **Chapters published** | **0 / 258** |
 | **Setup guides published** | **5 / 5** — all carry `[UNVERIFIED]` markers, none run yet |
 | **Projects shipped** | **0 / 11** |
-| **Blender chapters published** | **0 / 42** |
+| **Blender chapters published** | **0 / 48** |
 | **Godot installed?** | ❌ Not yet — [Setup 02](../guides/Setup_02_Godot_And_DotNet.md) |
 | **Blender installed?** | ❌ Not yet — [Setup 03](../guides/Setup_03_Blender.md) |
 | **Phone connected?** | ❌ Not yet — [Setup 04](../guides/Setup_04_Android_And_Device.md) |
@@ -40,20 +40,20 @@ update_trigger: "End of every working session, and after every chapter is publis
 ### Progress bar
 
 ```text
-Module  0  Toolchain & First APK   [                    ]   0 %   (0/10)
-Module  1  Godot Foundations       [                    ]   0 %   (0/37)
-Module  2  Blender I: Pipeline     [                    ]   0 %   (0/21)
-Module  3  Characters I            [                    ]   0 %   (0/24)
-Module  4  Worlds & Performance    [                    ]   0 %   (0/20)
-Module  5  Shaders & VFX           [                    ]   0 %   (0/23)
-Module  6  Audio & Game Feel       [                    ]   0 %   (0/12)
-Module  7  Story & Cinematics      [                    ]   0 %   (0/23)
-Module  8  Characters II           [                    ]   0 %   (0/15)
-Module  9  Architecture & Perf     [                    ]   0 %   (0/12)
-Module 10  Capstone & Release      [                    ]   0 %   (0/22)
-Module 11  Beyond (optional)       [                    ]   0 %   (0/6)
+Module  0  Toolchain & First APK    [                    ]   0 %   (0/10)
+Module  1  Godot Foundations        [                    ]   0 %   (0/41)
+Module  2  Blender I: Pipeline      [                    ]   0 %   (0/26)
+Module  3  Characters I             [                    ]   0 %   (0/26)
+Module  4  Worlds & Performance     [                    ]   0 %   (0/24)
+Module  5  Shaders & VFX            [                    ]   0 %   (0/25)
+Module  6  Audio, Narration & Feel  [                    ]   0 %   (0/20)
+Module  7  Story & Cinematics       [                    ]   0 %   (0/27)
+Module  8  Characters II            [                    ]   0 %   (0/16)
+Module  9  Architecture & Perf      [                    ]   0 %   (0/13)
+Module 10  Capstone & Release       [                    ]   0 %   (0/24)
+Module 11  Beyond (optional)        [                    ]   0 %   (0/6)
 ────────────────────────────────────────────────────────────────────────
-OVERALL                            [                    ]   0 %   (0/215)
+OVERALL                             [                    ]   0 %   (0/258)
 ```
 
 ---
@@ -102,83 +102,83 @@ Tick as you go. `[ ]` not started · `[~]` in progress · `[x]` done · `[!]` do
 
 ### Module 0 — Toolchain & Your First APK
 
-- [ ] 0.1 Machines and their roles
-- [ ] 0.2 Godot 4 .NET + .NET SDK installed
-- [ ] 0.3 Blender installed and configured
-- [ ] 0.4 JDK + Android SDK + debug keystore
-- [ ] 0.5 Phone connected, `adb devices` sees it
-- [ ] 0.6 Editor tour
-- [ ] 0.7 Git, `.gitignore`, LFS, first commit
-- [ ] 0.8 **P00 — Hello Phone running on device** ⭐
-- [ ] 0.9 Reading errors: output, debugger, logcat
-- [ ] 0.10 Module 0 self-check
+[ ] 0.1 · [ ] 0.2 · [ ] 0.3 · [ ] 0.4 · [ ] 0.5 · [ ] 0.6
+[ ] 0.7 · [ ] 0.8 **ship** ⭐ · [ ] 0.9 · [ ] 0.10 self-check
 
 ### Module 1 — Godot Foundations · P01 Marble Runner
 
-**1A Engine model** — [ ] 1.1 · [ ] 1.2 · [ ] 1.3 · [ ] 1.4 · [ ] 1.5 · [ ] 1.6
-**1B Space & motion** — [ ] 1.7 · [ ] 1.8 · [ ] 1.9 · [ ] 1.10 (X)
-**1C Physics** — [ ] 1.11 · [ ] 1.12 · [ ] 1.13 · [ ] 1.14 · [ ] 1.15
-**1D Input** — [ ] 1.16 · [ ] 1.17 · [ ] 1.18 · [ ] 1.19 · [ ] 1.20 · [ ] 1.21 (X)
-**1E Camera** — [ ] 1.22 · [ ] 1.23 · [ ] 1.24
-**1F Messaging** — [ ] 1.25 · [ ] 1.26 · [ ] 1.27
-**1G UI** — [ ] 1.28 · [ ] 1.29 · [ ] 1.30 · [ ] 1.31
-**1H Persistence** — [ ] 1.32 · [ ] 1.33 · [ ] 1.34
-- [ ] 1.35 **P01 ship** ⭐ · [ ] 1.36 Mini-Jam 1 · [ ] 1.37 Self-check
+[ ] 1.1 · [ ] 1.2 · [ ] 1.3 · [ ] 1.4 · [ ] 1.5 · [ ] 1.6
+[ ] 1.7 · [ ] 1.8 · [ ] 1.9 · [ ] 1.10 (X) · [ ] 1.11 · [ ] 1.12
+[ ] 1.13 · [ ] 1.14 · [ ] 1.15 · [ ] 1.16 · [ ] 1.17 · [ ] 1.18
+[ ] 1.19 · [ ] 1.20 · [ ] 1.21 (X) · [ ] 1.22 · [ ] 1.23 · [ ] 1.24
+[ ] 1.25 · [ ] 1.26 · [ ] 1.27 · [ ] 1.28 · [ ] 1.29 · [ ] 1.30
+[ ] 1.31 · [ ] 1.32 · [ ] 1.33 · [ ] 1.34 · [ ] 1.35 · [ ] 1.36
+[ ] 1.37 · [ ] 1.38 · [ ] 1.39 **ship** ⭐ · [ ] 1.40 jam · [ ] 1.41 self-check
 
-### Module 2 — Blender I · P02 Foundry Kit
+### Module 2 — Blender I: Props & the Asset Pipeline · P02 Foundry Kit
 
-**Fluency** — [ ] B1 · [ ] B2 · [ ] B3 · [ ] B4 · [ ] X2.1
-**Modelling** — [ ] B5 · [ ] B6 · [ ] B7 · [ ] B8 · [ ] B9 · [ ] X2.2
-**Surfacing** — [ ] B10 · [ ] B11 · [ ] B12 · [ ] B13 · [ ] B14 · [ ] B15 · [ ] B16
-**Pipeline** — [ ] B17 · [ ] B18 · [ ] B19 · [ ] 2.20 · [ ] 2.21
-- [ ] 2.22 **P02 ship** ⭐ · [ ] 2.23 Self-check
+[ ] B1 · [ ] B2 · [ ] B3 · [ ] B4 · [ ] X2.1 (X) · [ ] B5
+[ ] B6 · [ ] B7 · [ ] B8 · [ ] B9 · [ ] X2.2 (X) · [ ] B10
+[ ] B11 · [ ] B12 · [ ] B13 · [ ] B14 · [ ] B15 · [ ] B16
+[ ] B17 · [ ] B18 · [ ] B19 · [ ] 2.20 · [ ] 2.21 · [ ] 2.22
+[ ] 2.23 **ship** ⭐ · [ ] 2.24 self-check
 
-### Module 3 — Characters I · P03 Playground
+### Module 3 — Characters I: Rig & Animate · P03 Third-Person Playground
 
-**Rigging** — [ ] B20 · [ ] B21 · [ ] B22 · [ ] B23 · [ ] B24
-**Animation** — [ ] B25 · [ ] B26 · [ ] B27 · [ ] B28 · [ ] B29 · [ ] B30
-**Playback** — [ ] 3.1 · [ ] 3.2 · [ ] 3.3 · [ ] 3.4 · [ ] 3.5
-**Control** — [ ] 3.6 · [ ] 3.7 · [ ] 3.8 · [ ] 3.9 · [ ] 3.10 (X)
-- [ ] 3.11 **P03 ship** ⭐ · [ ] 3.12 Mini-Jam 2 · [ ] 3.13 Self-check
+[ ] B20 · [ ] B21 · [ ] B22 · [ ] B23 · [ ] B24 · [ ] B25
+[ ] B26 · [ ] B27 · [ ] B28 · [ ] B29 · [ ] B30 · [ ] 3.1
+[ ] 3.2 · [ ] 3.3 · [ ] 3.4 · [ ] 3.5 · [ ] 3.6 · [ ] 3.7
+[ ] 3.8 · [ ] 3.9 · [ ] 3.10 (X) · [ ] 3.11 · [ ] 3.12 · [ ] 3.13 **ship** ⭐
+[ ] 3.14 jam · [ ] 3.15 self-check
 
-### Module 4 — Worlds, Lighting & Performance · P04 Level 1
+### Module 4 — Worlds, Lighting & Mobile Performance · P04 Hollow, Level 1
 
-**Design** — [ ] 4.1 · [ ] 4.2 · [ ] 4.3 · [ ] 4.4 · [ ] 4.5 (X)
-**Light** — [ ] 4.6 · [ ] 4.7 · [ ] 4.8 · [ ] 4.9 · [ ] 4.10 · [ ] 4.11
-**Speed** — [ ] 4.12 · [ ] 4.13 · [ ] 4.14 · [ ] 4.15 · [ ] 4.16 · [ ] 4.17 · [ ] 4.18 (X)
-- [ ] 4.19 **P04 ship** ⭐ · [ ] 4.20 Self-check
+[ ] 4.1 · [ ] 4.2 · [ ] 4.3 · [ ] 4.4 · [ ] 4.5 (X) · [ ] 4.6
+[ ] 4.7 · [ ] 4.8 · [ ] 4.9 · [ ] 4.10 · [ ] 4.11 · [ ] 4.12
+[ ] 4.13 · [ ] 4.14 · [ ] 4.15 · [ ] 4.16 · [ ] 4.17 · [ ] 4.18 (X)
+[ ] 4.19 · [ ] 4.20 · [ ] 4.21 · [ ] 4.22 · [ ] 4.23 **ship** ⭐ · [ ] 4.24 self-check
 
 ### Module 5 — Shaders & VFX · P05 VFX Lab
 
-**Shaders** — [ ] 5.1 · [ ] 5.2 · [ ] 5.3 · [ ] 5.4 · [ ] 5.5 · [ ] 5.6 · [ ] 5.7 · [ ] 5.8 · [ ] 5.9 · [ ] 5.10 · [ ] 5.11 · [ ] 5.12
-**Particles & FX** — [ ] 5.13 · [ ] 5.14 · [ ] 5.15 · [ ] 5.16 (B) · [ ] 5.17 (B) · [ ] 5.18 · [ ] 5.19 · [ ] 5.20 · [ ] 5.21 (X)
-- [ ] 5.22 **P05 ship** ⭐ · [ ] 5.23 Self-check
+[ ] 5.1 · [ ] 5.2 · [ ] 5.3 · [ ] 5.4 · [ ] 5.5 · [ ] 5.6
+[ ] 5.7 · [ ] 5.8 · [ ] 5.9 · [ ] 5.10 · [ ] 5.11 · [ ] 5.12
+[ ] 5.13 · [ ] 5.14 · [ ] 5.15 · [ ] 5.16 · [ ] 5.17 · [ ] 5.18
+[ ] 5.19 · [ ] 5.20 · [ ] 5.21 (X) · [ ] 5.22 · [ ] 5.23 **ship** ⭐ · [ ] 5.24 jam
+[ ] 5.25 self-check
 
 ### Module 6 — Audio & Game Feel · P06 Feel Pass
 
-[ ] 6.1 · [ ] 6.2 · [ ] 6.3 · [ ] 6.4 · [ ] 6.5 · [ ] 6.6 · [ ] 6.7 · [ ] 6.8 · [ ] 6.9 · [ ] 6.10 (X) · [ ] 6.11 **ship** ⭐ · [ ] 6.12 Self-check
+[ ] 6.1 · [ ] 6.2 · [ ] 6.3 · [ ] 6.4 · [ ] 6.5 · [ ] 6.6
+[ ] 6.7 · [ ] 6.8 · [ ] 6.9 · [ ] 6.10 · [ ] 6.11 · [ ] 6.12
+[ ] 6.13 · [ ] 6.14 (X) · [ ] 6.15 · [ ] 6.16 · [ ] 6.17 · [ ] 6.18 (X)
+[ ] 6.19 **ship** ⭐ · [ ] 6.20 self-check
 
-### Module 7 — Story & Cinematics · P07 The Slice
+### Module 7 — Story, Narrative & Cinematics · P07 The Slice
 
-**Writing** — [ ] 7.1 · [ ] 7.2 · [ ] 7.3 · [ ] 7.4 · [ ] 7.5 · [ ] 7.6 · [ ] 7.7 (X)
-**Systems** — [ ] 7.8 · [ ] 7.9 · [ ] 7.10 · [ ] 7.11
-**Cinematics** — [ ] 7.12 · [ ] 7.13 · [ ] 7.14 · [ ] 7.15 · [ ] 7.16 · [ ] 7.17 · [ ] 7.18 · [ ] 7.19 · [ ] 7.20 (B) · [ ] 7.21 (B)
-- [ ] 7.22 **P07 ship** ⭐ · [ ] 7.23 Self-check
+[ ] 7.1 · [ ] 7.2 · [ ] 7.3 · [ ] 7.4 · [ ] 7.5 · [ ] 7.6
+[ ] 7.7 · [ ] 7.8 (X) · [ ] 7.9 · [ ] 7.10 · [ ] 7.11 · [ ] 7.12
+[ ] 7.13 · [ ] 7.14 · [ ] 7.15 · [ ] 7.16 · [ ] 7.17 · [ ] 7.18
+[ ] 7.19 · [ ] 7.20 · [ ] 7.21 · [ ] 7.22 · [ ] 7.23 · [ ] 7.24
+[ ] 7.25 **ship** ⭐ · [ ] 7.26 jam · [ ] 7.27 self-check
 
-### Module 8 — Characters II · P08 Warden
+### Module 8 — Characters II: Build Your Own · P08 Warden
 
-[ ] B31 · [ ] B32 · [ ] B33 · [ ] B34 · [ ] B35 · [ ] B36 · [ ] B37 · [ ] B38 · [ ] B39 · [ ] B40 · [ ] B41 · [ ] B42 · [ ] 8.1 · [ ] 8.2 **ship** ⭐ · [ ] 8.3 Self-check
+[ ] B31 · [ ] B32 · [ ] B33 · [ ] B34 · [ ] B35 · [ ] B36
+[ ] B37 · [ ] B38 · [ ] B39 · [ ] B40 · [ ] B41 · [ ] B42
+[ ] 8.1 · [ ] 8.2 · [ ] 8.3 **ship** ⭐ · [ ] 8.4 self-check
 
-### Module 9 — Architecture & Performance · P09 Refactor
+### Module 9 — Architecture, Performance & Tooling · P09 Systems Refactor
 
-[ ] 9.1 · [ ] 9.2 · [ ] 9.3 · [ ] 9.4 · [ ] 9.5 · [ ] 9.6 · [ ] 9.7 · [ ] 9.8 · [ ] 9.9 · [ ] 9.10 · [ ] 9.11 **ship** ⭐ · [ ] 9.12 Self-check
+[ ] 9.1 · [ ] 9.2 · [ ] 9.3 · [ ] 9.4 · [ ] 9.5 · [ ] 9.6
+[ ] 9.7 · [ ] 9.8 · [ ] 9.9 · [ ] 9.10 · [ ] 9.11 · [ ] 9.12 **ship** ⭐
+[ ] 9.13 self-check
 
-### Module 10 — Capstone · P10 Ember Hollow
+### Module 10 — Capstone & Release · P10 Ember Hollow
 
-**Production** — [ ] 10.1 · [ ] 10.2 · [ ] 10.3 · [ ] 10.4
-**Content** — [ ] 10.5 · [ ] 10.6 · [ ] 10.7 · [ ] 10.8 · [ ] 10.9 · [ ] 10.10
-**Polish & release** — [ ] 10.11 · [ ] 10.12 · [ ] 10.13 · [ ] 10.14 · [ ] 10.15 · [ ] 10.16 · [ ] 10.17 · [ ] 10.18 · [ ] 10.19 · [ ] 10.20
-- [ ] 10.21 **RELEASED** 🏆 · [ ] 10.22 Self-check
+[ ] 10.1 · [ ] 10.2 · [ ] 10.3 · [ ] 10.4 · [ ] 10.5 · [ ] 10.6
+[ ] 10.7 · [ ] 10.8 · [ ] 10.9 · [ ] 10.10 · [ ] 10.11 · [ ] 10.12
+[ ] 10.13 · [ ] 10.14 · [ ] 10.15 · [ ] 10.16 · [ ] 10.17 · [ ] 10.18
+[ ] 10.19 · [ ] 10.20 · [ ] 10.21 · [ ] 10.22 · [ ] 10.23 **RELEASED** 🏆 · [ ] 10.24 self-check
 
 ### Module 11 — Beyond (optional)
 

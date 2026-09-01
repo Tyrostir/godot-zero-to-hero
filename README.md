@@ -4,7 +4,7 @@
 
 This is not a book you read and then start. From Module 0 you have a `.apk` running on your own phone, and every chapter after that adds a real feature to a real game.
 
-> 🏋️ **215 chapter builds · ~430 chapter practicals · 44 standalone drills · 11 projects · 4 mini-jams.**
+> 🏋️ **258 chapter builds · ~515 chapter practicals · 44 standalone drills · 34 presentation deliverables · 11 projects · 4 mini-jams.**
 > **Chapters that begin with theory: 0.** That is enforced, not aspirational — see [ADR-002](docs/meta/Decisions.md#adr-002) and the audit in [docs/Practicals.md](docs/Practicals.md).
 
 ---
@@ -50,6 +50,7 @@ godot-zero-to-hero/
 │   ├── TableOfContents.md          every chapter, numbered   (alias: TableOfContext.md)
 │   ├── BlenderTrack.md             the Blender curriculum, B1–B42
 │   ├── Practicals.md               every hands-on unit, counted
+│   ├── PresentationSpine.md        story, screens, music, narration — per project
 │   ├── Exercises.md                standalone drills, challenges, autopsies
 │   ├── GameDesignDocument.md       the capstone GDD (filled in during Module 7)
 │   │
@@ -107,13 +108,13 @@ Nothing you build is throwaway. The capstone is assembled from the ten projects 
 | | Project | After | You end up with |
 |---|---|---|---|
 | **P00** | Hello Phone | M0 | A signed APK you made, on your phone — day one |
-| **P01** | Marble Runner | M1 | A finished 3-level game: physics, touch, camera, UI, saves |
+| **P01** | Marble Runner | M1 | A finished 3-level game: physics, touch, camera, UI, saves, **title screen, ending screen, music** |
 | **P02** | Foundry Kit | M2 | 14 modular assets **you** modelled, unwrapped, textured, baked |
 | **P03** | Playground | M3 | A character that walks, runs, jumps and lands properly |
 | **P04** | Hollow, Level 1 | M4 | A real lit level at 60fps on your actual phone |
 | **P05** | VFX Lab | M5 | Six shaders you wrote by hand, plus Blender-baked effects |
-| **P06** | Feel Pass | M6 | Proof of what sound and timing do to a game |
-| **P07** | The Slice | M7 | Splash → intro → menu → level → dialogue → ending → credits |
+| **P06** | Feel Pass | M6 | Proof of what sound and timing do to a game — **plus your own recorded, mixed, subtitled narration** |
+| **P07** | The Slice | M7 | Splash → narrated cold open → menu → level → dialogue → guided walkthrough → narrated ending → credits |
 | **P08** | Warden | M8 | **Your own character** — sculpt to animation, all yours |
 | **P09** | Systems Refactor | M9 | Code you'd be happy to hand to a team |
 | **P10** | 🏆 Ember Hollow | M10 | **A released Android game** |

@@ -14,6 +14,10 @@ Eleven projects. Each is playable, each ships to your phone, and each one feeds 
 
 Every project has a **Done when** list. Those are not suggestions. A project is done when every box is ticked on your actual device, not in the editor.
 
+> 🎬 **The Presentation Spine** ([ADR-026](../docs/meta/Decisions.md#adr-026)). From **P01 onward**, no project is done without an **animated first page**, an **ending/results screen**, **background music**, **ambience** where the piece has a place, a **narrative frame** (even one line), and a **walkthrough** that teaches without a wall of text. Narration joins from Module 6. These appear as 🎬 🏁 🎵 📖 🚶 🔊 items in the lists below.
+>
+> Full mapping and rationale: [`../docs/PresentationSpine.md`](../docs/PresentationSpine.md).
+
 ---
 
 ## P00 — *Hello Phone*
@@ -51,6 +55,11 @@ Every project has a **Done when** list. Those are not suggestions. A project is 
 - [ ] Pause menu works, including resume/restart/quit
 - [ ] UI is readable and correctly inset on your phone, including any notch
 - [ ] Three levels, each beatable, each with a different idea in it
+- [ ] 🎬 **Animated title screen** — text and buttons tween in; timing feels deliberate, not accidental *(1.35)*
+- [ ] 🏁 **Results screen** — time, collectibles, and a payoff beat before the numbers land *(1.36)*
+- [ ] 🎵 **One music loop** that loops seamlessly, plus at least three SFX *(1.37)*
+- [ ] 📖 **A one-line premise on the title card** — and you can say how it changes the way Level 1 reads *(1.38)*
+- [ ] 🚶 Level 1 teaches the controls **by shape alone**, with no text
 
 **Stretch:** ghost replay of your best run; a moving-platform level; a level built from a `GridMap`.
 
@@ -81,6 +90,8 @@ Every project has a **Done when** list. Those are not suggestions. A project is 
 - [ ] Imported into Godot as a `MeshLibrary`
 - [ ] A Marble Runner level rebuilt with the kit, still running at full framerate on the phone
 - [ ] Under 12k triangles total, measured and written down
+- [ ] 📖 **Each prop implies a place** — you can say what the crate's scratches, the barrel's stains and the lamp's design tell a player about who worked here *(2.22)*
+- [ ] 🎬 Marble Runner's title screen re-skinned with **your own art**
 
 ---
 
@@ -102,6 +113,9 @@ Every project has a **Done when** list. Those are not suggestions. A project is 
 - [ ] `SpringArm3D` camera never clips into geometry
 - [ ] State machine is C# classes, not a `switch` statement
 - [ ] Runs at target framerate on the phone with touch controls
+- [ ] 📖 **Character identity** — the idle pose and walk say something specific about who this is; you can state it in one sentence *(3.11)*
+- [ ] 🎬 **Title screen, pass 2** — a live 3D character idling behind the UI, slow camera drift *(3.12)*
+- [ ] 🔊 Footsteps, landings and cloth audible and matched to the animation
 
 ---
 
@@ -121,6 +135,11 @@ Every project has a **Done when** list. Those are not suggestions. A project is 
 - [ ] **60fps sustained on device**, measured over 5 minutes of play (not 30 seconds — watch for thermal throttle)
 - [ ] Draw calls, triangles and texture memory measured and recorded in the journal
 - [ ] A written optimisation log: what you changed, and the frame time before and after each change
+- [ ] 📖 **Environmental storytelling** — the landmark carries a story beat; you can say what the ruins imply without writing a word of text *(4.19)*
+- [ ] 🎬 **Level flythrough** — an in-engine `Path3D` camera move, used as the menu backdrop *(4.20)*
+- [ ] 🚶 ⭐ **The walkthrough is designed in** — a first-time player reaches the end without a tutorial prompt. Verified by watching someone do it *(4.21)*
+- [ ] 🔊 **Ambience bed** — the level sounds like a place, not like a scene *(4.22)*
+- [ ] 🏁 Level-complete sequence with a beat of pause before the UI appears
 
 ---
 
@@ -139,6 +158,7 @@ Every project has a **Done when** list. Those are not suggestions. A project is 
 - [ ] Total GPU cost of the impact effect measured and under budget
 - [ ] Shader compilation stutter identified and prewarmed away
 - [ ] The whole lab scene runs on the phone without dropping frames
+- [ ] 🎬 **Title screen, pass 3** — driven by your own shaders: dissolve-in title, animated background *(5.22)*
 
 ---
 
@@ -156,6 +176,11 @@ Every project has a **Done when** list. Those are not suggestions. A project is 
 - [ ] Screenshake uses a noise function, is subtle, and can be disabled in settings
 - [ ] Landing, impact and pickup all have hitstop or a camera response
 - [ ] Haptics on key events, and an off switch
+- [ ] 🎵 **Music that doesn't wear out** — variation, dynamic range, and at least one deliberate silence *(6.7)*
+- [ ] 🔊 ⭐ **Your first recorded narration** — written for the ear, recorded on equipment you already own, cleaned without over-processing *(6.8–6.10)*
+- [ ] 🔊 **Narration bus with side-chain ducking** — voice is intelligible over music **on a phone speaker**, tested *(6.11)*
+- [ ] 🔊 **Synchronised subtitles** for every narrated line, with a toggle *(6.12)*
+- [ ] 🎬 Title and end screens get their audio and juice pass
 - [ ] **A side-by-side recording of before and after, with a written list of what changed**
 
 ---
@@ -175,6 +200,11 @@ Every project has a **Done when** list. Those are not suggestions. A project is 
 - [ ] Scene transitions load in a thread; no frozen frames
 - [ ] Ending sequence with proper pacing
 - [ ] Credits roll generated from `../docs/reference/AssetLicenses.md` — every asset properly attributed
+- [ ] 🔊 ⭐ **Narration system** — cue-driven VO, synced subtitles, automatic ducking, and a skip that doesn't break state *(7.11)*
+- [ ] 🎬 **Narrated cold open** — the opening earns attention before it spends any *(7.18)*
+- [ ] 🚶 ⭐ **Guided walkthrough** — the first five minutes taught with narration, camera and level, not a text wall *(7.19)*
+- [ ] 🏁 **Narrated ending** with proper pacing, into credits over an end-credits theme *(7.21–7.22)*
+- [ ] 🎵 The main menu has **its own theme**, distinct from gameplay music *(7.17)*
 - [ ] Whole flow played end-to-end on the phone by someone who is not you, without you speaking
 
 ---
@@ -200,6 +230,8 @@ Every project has a **Done when** list. Those are not suggestions. A project is 
 - [ ] All eight animations hand-keyed (Mixamo may be reference, not the deliverable)
 - [ ] Exported and running in the P03 controller, on the phone
 - [ ] Under 20k triangles, measured
+- [ ] 🔊 **Vocal identity** — barks, efforts and grunts recorded and processed by you; the Warden sounds like a specific creature *(8.2)*
+- [ ] 🎬 The title screen character is now **yours**
 
 ---
 
@@ -217,6 +249,8 @@ Every project has a **Done when** list. Those are not suggestions. A project is 
 - [ ] Unit tests cover the save system, the dialogue parser and the state machine
 - [ ] At least one `[Tool]` script that validates a level and reports problems in the editor
 - [ ] A repeatable on-device performance test you can run after any change
+- [ ] 📖 **Narrative content is data** — dialogue, narration cues and screen definitions are `Resource`s a writer could edit without touching code *(9.5)*
+- [ ] 🔊 Separate **music / SFX / narration** volume sliders, plus a **subtitle toggle** *(9.8)*
 
 ---
 
@@ -237,7 +271,9 @@ Every project has a **Done when** list. Those are not suggestions. A project is 
 - [ ] Holds target framerate on your lowest-spec test device
 - [ ] APK/AAB signed with a release keystore (backed up in two places — losing it means you can never update the app)
 - [ ] GitHub Actions builds a signed APK on every tagged release
-- [ ] Trailer and screenshots captured
+- [ ] 🎬 **Trailer** — a 60-second script, narrated, with a deliberate opening shot *(10.18–10.19)*
+- [ ] 🚶 **Player-facing walkthrough document** written — and every place it was hard to explain has been fixed in the design *(10.20)*
+- [ ] Screenshots captured
 - [ ] Published on itch.io with a real store page
 - [ ] Uploaded to Play Console internal testing, with a privacy policy
 - [ ] `../docs/reference/AssetLicenses.md` complete and matching the in-game credits

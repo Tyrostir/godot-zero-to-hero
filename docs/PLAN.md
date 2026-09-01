@@ -105,6 +105,18 @@ Eleven projects. Each one is playable and each one is shipped to your phone. The
 
 Full briefs and done-criteria: **[projects/README.md](../projects/README.md)**.
 
+### 3b. The Presentation Spine — every project is a *game*, not a tech demo
+
+Story, the opening screen, the ending screen, music, ambience and the walkthrough are **not a module you reach eventually**. They run through every project from P01 onward, escalating in three passes ([ADR-026](meta/Decisions.md#adr-026)).
+
+**From P01, a project is not shipped without:** an animated first page · an ending/results screen · at least one music loop · ambience where the piece has a place · a narrative frame, even one line · and a walkthrough that teaches without a wall of text.
+
+You build your first title screen in **Module 1** (chapter 1.35), not Module 7. It is crude — that is the point. You rebuild it with a live 3D character in Module 3, with your own shaders in Module 5, and finally as a directed, scored, narrated opening in Module 7.
+
+**Narration** gets eleven chapters of its own from Module 6, recorded by you with equipment you already own, with **mandatory synchronised subtitles** ([ADR-027](meta/Decisions.md#adr-027)).
+
+> 📎 Full project-by-project mapping: **[PresentationSpine.md](PresentationSpine.md)**.
+
 Between modules there are also **Mini-Jams** — 2-to-4-hour constrained builds ("make a game where the only verb is *falling*") to force synthesis without hand-holding.
 
 ---
@@ -125,9 +137,9 @@ Between modules there are also **Mini-Jams** — 2-to-4-hour constrained builds 
 
 **Module 5 — Shaders & VFX (P05 VFX Lab).** A mental model of the render pipeline. GDShader: spatial shaders, vertex and fragment stages, built-ins. Practical shaders you will actually ship: dissolve, force field, stylised water, wind-swayed foliage, toon ramp, triplanar. Driving shader params from C#. `GPUParticles3D`, process materials, sub-emitters, trails. Baking Blender smoke/fire simulations into flipbook sheets. Decals. Screen-space post effects. Shader compilation stutter and how to prewarm.
 
-**Module 6 — Audio & Game Feel (P06 Feel Pass).** `AudioStreamPlayer3D`, buses, effects, attenuation. Free audio sources and their licences. Adaptive music: loops, stingers, layers. Game feel: tweening, easing curves, screenshake done tastefully, hitstop, camera kick, controller/handheld haptics.
+**Module 6 — Audio, Narration & Game Feel (P06 Feel Pass).** `AudioStreamPlayer3D`, buses, effects, attenuation. Free audio sources and their licences. Editing in Audacity. Footsteps by surface. Adaptive music: loops, stingers, layers — and music that doesn't wear out. **Then narration, in full: writing for the ear; recording with a phone and a wardrobe; cleaning a take without over-processing it; the narration bus and side-chain ducking; synchronised subtitles; text-to-speech and its licensing.** Then game feel: tweening, easing curves, screenshake done tastefully, hitstop, camera kick, haptics.
 
-**Module 7 — Story, Narrative & Cinematics (P07 The Slice).** Premise, theme, logline. Character arc. Environmental storytelling. Ludonarrative harmony — and dissonance. Writing the GDD and the narrative bible. A data-driven dialogue system in C# with choices, portraits and a typewriter effect. Cutscenes with `AnimationPlayer` timelines, camera cuts and `Path3D` dollies. The splash/intro animation. The main-menu animation. Loading screens that don't lie. The ending sequence. An auto-generated credits roll fed by your licence ledger. Localisation.
+**Module 7 — Story, Narrative & Cinematics (P07 The Slice).** Premise, theme, logline. Character arc. Environmental storytelling. Ludonarrative harmony — and dissonance. **Directing narration: who speaks, to whom, in what tense, and when silence is stronger.** Writing the GDD and the narrative bible. A data-driven dialogue system in C# with choices, portraits and a typewriter effect. **A narration system: cue-driven VO with synchronised subtitles, automatic music ducking, and a skip that doesn't break state.** Cutscenes with `AnimationPlayer` timelines, camera cuts and `Path3D` dollies. The splash/intro animation. The main-menu animation with its own theme. The narrated cold open. **The guided walkthrough — teaching the first five minutes with narration, camera and level rather than a wall of text.** Loading screens that don't lie. The narrated ending sequence. An auto-generated credits roll over an end-credits theme. Localisation, including what localising *audio* actually costs.
 
 **Module 8 — Characters II: Your Own (P08 Warden).** `B9–B15` at depth. Concept and blockout. Sculpting. Retopology by hand. High-to-low baking. Hand-painted and procedural texturing. A production rig with IK, pole targets, and custom bone shapes. Facial basics. A hand-keyed animation set: idle, walk, run, jump, attack, hit, death. Export and retarget into the P03 controller.
 
@@ -169,18 +181,18 @@ There is no calendar here — you set the pace. But for calibration:
 | Module | Rough effort | Cumulative |
 |---|---|---|
 | 0 | 4–8 h | 8 h |
-| 1 | 20–30 h | 38 h |
-| 2 | 25–35 h | 73 h |
-| 3 | 30–40 h | 113 h |
-| 4 | 25–35 h | 148 h |
-| 5 | 25–35 h | 183 h |
-| 6 | 12–18 h | 201 h |
-| 7 | 25–35 h | 236 h |
-| 8 | 40–60 h | 296 h |
-| 9 | 20–30 h | 326 h |
-| 10 | 60–120 h | 446 h |
+| 1 | 24–34 h | 42 h |
+| 2 | 26–36 h | 78 h |
+| 3 | 32–42 h | 120 h |
+| 4 | 28–38 h | 158 h |
+| 5 | 26–36 h | 194 h |
+| 6 | 20–28 h | 222 h |
+| 7 | 30–40 h | 262 h |
+| 8 | 42–62 h | 324 h |
+| 9 | 21–31 h | 355 h |
+| 10 | 62–124 h | 479 h |
 
-Roughly **400–450 hours** to a released game. At 10 h/week that is a year; at 20 h/week, six months. Both are normal. Track your actual hours in `meta/Journal.md` — after Module 2 you will be able to estimate your own speed, which is itself a professional skill.
+Roughly **430–480 hours** to a released game. At 10 h/week that is a year; at 20 h/week, six months. Both are normal. Track your actual hours in `meta/Journal.md` — after Module 2 you will be able to estimate your own speed, which is itself a professional skill.
 
 **Rhythm that works:** one chapter per session, ending on a green build and a commit. Never stop mid-chapter on a broken build — future-you will not remember what you were mid-thought about.
 

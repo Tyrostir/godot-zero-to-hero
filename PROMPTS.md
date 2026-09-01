@@ -225,3 +225,51 @@ The important consequence was a **latent contradiction between ADR-002 and ADR-0
 ### Artefacts changed
 
 `docs/meta/Decisions.md` (ADR-024 rewritten and activated; ADR-004 amended) · `docs/meta/DecisionsLog.md` (three entries) · `docs/meta/Doubts.md` (D-001 resolved, D-004 added) · `docs/PLAN.md` (new §1b *Three paths, one document*; §5.1 Linux) · `docs/chapters/README.md` (Fast-Track Summary in the template, path system, Paths column) · `docs/TableOfContents.md` (path legend) · `docs/Practicals.md` (path/practical interaction) · `docs/guides/Setup_04_Android_And_Device.md` (Linux-first, ⭐ udev rule) · `docs/guides/Setup_01_Prerequisites.md` · `docs/meta/{CourseState,CompactContext,ToDos}.md` · `docs/internal/CLAUDE-MEMORY.md`
+
+---
+
+## PROMPT#5
+
+**Date:** 2026-09-02 · **Session:** 002
+
+### Prompt (verbatim)
+
+```text
+I hope you have planned story development, story telling, narrating game, game walk-through, first
+page animation scene, end page animation scene, with audio for background music and narration on all
+the projects wherever applicable. If not, review and ensure it one more time in the plan. Remember I
+want to LEARN by DOING (with required theory wherever it makes sense).
+```
+
+### Response
+
+Audited the Table of Contents against the list item by item rather than answering from memory — which mattered, because two of the three gaps were invisible from the module titles. *Story, Narrative & Cinematics* and *Audio & Game Feel* both sound like they cover this; a glance would have produced a confident, wrong "yes, it's all covered".
+
+**Already present:** story development, premise/theme/logline, character arc, environmental storytelling, ludonarrative harmony, splash/intro animation, main menu animation, first-play opening, ending sequence, credits roll, cutscenes, camera language, Blender-rendered cinematics, background music and adaptive layers.
+
+**Three real gaps found:**
+
+1. **Narration was entirely absent.** The word appeared nowhere in the plan. No writing for the ear, no recording, no cleaning, no ducking, no subtitles, no TTS. A straightforward miss against an explicit request in the learner's very first prompt.
+2. **Everything was quarantined in Modules 6–7.** P01–P05 shipped with no title screen, no ending screen and no music. This contradicted *"on all the projects wherever applicable"* — and worse, contradicted [ADR-002](docs/meta/Decisions.md#adr-002): the learner would reach roughly **hour 180** before building a first title screen, then have to learn timing, camera language, sound design and pacing **all at once, at full difficulty, with no practice**. That is precisely the theory-then-practice failure this course exists to avoid, hiding inside a plan that claims to avoid it.
+3. **"Walkthrough" was unaddressed in both senses** — the *designed* walkthrough (a level that teaches without prompts) and the *written* walkthrough (a player-facing guide).
+
+**Fixed with two new decisions.**
+
+**[ADR-026 — The Presentation Spine](docs/meta/Decisions.md#adr-026).** Presentation runs through **every project from P01**, escalating in passes. From P01 a project is not shipped without an animated first page, an ending screen, music, ambience, a narrative frame and a walkthrough — as **done-criteria**, not suggestions. You build a title screen **four times**: crude tween (1.35) → live 3D character (3.12) → your own shaders (5.22) → directed, scored, narrated opening (7.16–7.18). Same escalation for the ending, music, and the walkthrough.
+
+**[ADR-027 — Narration](docs/meta/Decisions.md#adr-027).** Eleven chapters, practical-first: record before theorising. Built around a phone and a wardrobe of soft furnishings — **no purchase required**. TTS treated as a legitimate option with its licensing trap stated. **Subtitles mandatory**, because a phone gets played on mute, on a bus, by someone who is deaf, and by someone at 4% battery, and all four are the same requirement.
+
+Rejected the cheaper fix — adding narration chapters to Module 7 and leaving the rest alone. That would have closed gap 1 and left the pedagogy broken.
+
+**Cost, stated plainly:** 43 chapters added, **215 → 258**; pacing ~400–450 h → **~430–480 h**. Accepted because the chapters are short and distributed, and because every intermediate project now feels like a *game* rather than a tech demo — the strongest defence against the thing that actually ends long courses, which is not difficulty but loss of interest.
+
+### Standing instructions extracted
+
+15. **Presentation is a spine, not a module** — every project from P01 ships story, screens, music and a walkthrough → [ADR-026](docs/meta/Decisions.md#adr-026)
+16. **Narration is taught and recorded by the learner; subtitles are mandatory** → [ADR-027](docs/meta/Decisions.md#adr-027)
+
+### Artefacts changed
+
+**New:** `docs/PresentationSpine.md`.
+**Rewritten:** `docs/TableOfContents.md` (43 chapters added across modules 1–10; MJ3/MJ4 formalised) · `docs/meta/CourseState.md` (tracker, progress bar and counts regenerated from the ToC) · `projects/README.md` (34 presentation done-criteria).
+**Updated:** `docs/meta/Decisions.md` (ADR-026, ADR-027) · `docs/meta/DecisionsLog.md` (audit findings + two decisions) · `docs/PLAN.md` (new §3b, Module 6/7 syllabus, pacing table) · `docs/Practicals.md` (counts, per-module table, spiral) · `docs/reference/Glossary.md` (+18 audio/narrative terms) · `docs/meta/CompactContext.md` · `docs/meta/ToDos.md` (T-019, T-020, T-021) · `docs/internal/CLAUDE-MEMORY.md` (operating rule 3b) · `README.md`.

@@ -18,13 +18,14 @@ update_trigger: "When a practical, drill, challenge, jam or project is added or 
 
 | Kind | Marker | What it is | Where it lives | Count |
 |------|--------|-----------|----------------|-------|
-| **Chapter Build** | 🔨 | The mandatory first section of *every* chapter. You are building within the first screen of text. | Inside each chapter | **215** |
-| **Chapter Practical** | 🏋️ | 1–3 drills at the end of each chapter that *change* what you just built | Inside each chapter | **~430** |
+| **Chapter Build** | 🔨 | The mandatory first section of *every* chapter. You are building within the first screen of text. | Inside each chapter | **258** |
+| **Chapter Practical** | 🏋️ | 1–3 drills at the end of each chapter that *change* what you just built | Inside each chapter | **~515** |
 | **Standalone Drill / Challenge / Autopsy** | 🔁 / 🧗 / 🔍 | Repeatable skill-builders, unscaffolded challenges, and analyses of existing work | [`Exercises.md`](Exercises.md) | **44** |
 | **Project** | 🚢 | A complete, playable, deployed-to-phone milestone | [`../projects/README.md`](../projects/README.md) | **11** |
 | **Mini-Jam** | ⏱️ | Timeboxed, constrained, *no help given* | [`../projects/README.md#mini-jams`](../projects/README.md#mini-jams) | **4** |
+| **Presentation deliverable** | 🎬 | A title screen, ending screen, music pass, narration or walkthrough shipped with a project | [`PresentationSpine.md`](PresentationSpine.md) | **34** |
 
-**Total distinct hands-on units: ~704.**
+**Total distinct hands-on units: ~866.**
 **Chapters that begin with theory: 0.** That is a hard rule, not an aspiration ([ADR-002](meta/Decisions.md#adr-002)).
 
 > 🐣🚶🏃 **Paths and practicals** ([ADR-024](meta/Decisions.md#adr-024)). ⭐ practicals are done by **every** path — they are the ones without which the chapter didn't happen. Unmarked practicals are Paths A and B. 🔬 deep-dive practicals are Paths B and C. Path A gets complete code listings for every build; Path C gets the Fast-Track Summary and the ⭐ practicals only.
@@ -35,21 +36,21 @@ update_trigger: "When a practical, drill, challenge, jam or project is added or 
 
 Every chapter is ≥50% doing and ≤30% theory, by mandate. Here is what that produces:
 
-| Module | Chapters | Builds | Chapter practicals | Standalone | Project | Jam |
-|--------|---------|--------|--------------------|-----------|---------|-----|
-| 0 — Toolchain | 10 | 10 | ~14 | 2 | 🚢 **P00 Hello Phone** | — |
-| 1 — Godot Foundations | 37 | 37 | ~74 | 6 | 🚢 **P01 Marble Runner** | ⏱️ MJ1 |
-| 2 — Blender I | 21 | 21 | ~48 | 6 | 🚢 **P02 Foundry Kit** | — |
-| 3 — Characters I | 24 | 24 | ~50 | 5 | 🚢 **P03 Playground** | ⏱️ MJ2 |
-| 4 — Worlds & Performance | 20 | 20 | ~40 | 5 | 🚢 **P04 Level 1** | — |
-| 5 — Shaders & VFX | 23 | 23 | ~46 | 5 | 🚢 **P05 VFX Lab** | ⏱️ MJ3 |
-| 6 — Audio & Feel | 12 | 12 | ~24 | 4 | 🚢 **P06 Feel Pass** | — |
-| 7 — Story & Cinematics | 23 | 23 | ~40 | 5 | 🚢 **P07 The Slice** | ⏱️ MJ4 |
-| 8 — Characters II | 15 | 15 | ~30 | 4 | 🚢 **P08 Warden** | — |
-| 9 — Architecture | 12 | 12 | ~24 | 2 | 🚢 **P09 Refactor** | — |
-| 10 — Capstone | 22 | 22 | ~36 | 2 | 🚢 **P10 Ember Hollow** | — |
-| 11 — Beyond | 6 | 6 | ~12 | — | — | — |
-| **Total** | **215** | **215** | **~430** | **44** | **11** | **4** |
+| Module | Chapters | Builds | Chapter practicals | Standalone | 🎬 Presentation | Project | Jam |
+|--------|---------|--------|--------------------|-----------|----------------|---------|-----|
+| 0 — Toolchain | 10 | 10 | ~14 | 2 | — | 🚢 **P00 Hello Phone** | — |
+| 1 — Godot Foundations | 41 | 41 | ~82 | 6 | 5 | 🚢 **P01 Marble Runner** | ⏱️ MJ1 |
+| 2 — Blender I | 26 | 26 | ~52 | 6 | 2 | 🚢 **P02 Foundry Kit** | — |
+| 3 — Characters I | 26 | 26 | ~52 | 5 | 3 | 🚢 **P03 Playground** | ⏱️ MJ2 |
+| 4 — Worlds & Performance | 24 | 24 | ~48 | 5 | 5 | 🚢 **P04 Level 1** | — |
+| 5 — Shaders & VFX | 25 | 25 | ~50 | 5 | 1 | 🚢 **P05 VFX Lab** | ⏱️ MJ3 |
+| 6 — Audio, Narration & Feel | 20 | 20 | ~40 | 4 | 6 | 🚢 **P06 Feel Pass** | — |
+| 7 — Story & Cinematics | 27 | 27 | ~54 | 5 | 6 | 🚢 **P07 The Slice** | ⏱️ MJ4 |
+| 8 — Characters II | 16 | 16 | ~32 | 4 | 2 | 🚢 **P08 Warden** | — |
+| 9 — Architecture | 13 | 13 | ~26 | 2 | 2 | 🚢 **P09 Refactor** | — |
+| 10 — Capstone | 24 | 24 | ~40 | 2 | 2 | 🚢 **P10 Ember Hollow** | — |
+| 11 — Beyond | 6 | 6 | ~12 | — | — | — | — |
+| **Total** | **258** | **258** | **~515** | **44** | **34** | **11** | **4** |
 
 ---
 
@@ -60,12 +61,12 @@ This is the honest test of a practical course — not "what did you cover", but 
 | After | You physically possess |
 |---|---|
 | **Module 0** | A signed APK, made by you, installed on your own phone |
-| **Module 1** | A finished 3-level 3D game with touch controls, HUD, pause, save and level select |
+| **Module 1** | A finished 3-level 3D game with touch controls, HUD, pause, save, level select — **an animated title screen, a results screen and music** |
 | **Module 2** | A 14-piece art kit **you modelled, unwrapped, textured and baked** — one atlas, under 12k triangles |
-| **Module 3** | A character that walks, runs, jumps and lands, driven by a state machine you wrote |
-| **Module 4** | A real, lit, art-passed level holding 60fps on your actual phone, with a written optimisation log |
+| **Module 3** | A character that walks, runs, jumps and lands, driven by a state machine you wrote — **idling on your title screen** |
+| **Module 4** | A real, lit, art-passed level holding 60fps on your actual phone, an ambience bed, a menu flythrough, and **a level a stranger can finish with no tutorial prompt** |
 | **Module 5** | Six shaders you wrote by hand, four particle effects, and a smoke flipbook you simulated in Blender |
-| **Module 6** | A before/after recording proving what sound and timing do to a game |
+| **Module 6** | A before/after recording proving what sound and timing do to a game — **and your own recorded, mixed, subtitled narration** |
 | **Module 7** | An unbroken flow from splash screen to credits, with a dialogue system a designer could edit |
 | **Module 8** | **Your own character** — sculpted, retopologised, UV'd, baked, textured, rigged, animated, in-game |
 | **Module 9** | A codebase with zero per-frame allocations, unit tests, graphics tiers and an editor validation tool |
@@ -111,7 +112,12 @@ Practical-first only works if you meet things more than once. Every major topic 
 | Lighting | One directional light (0.8) | Shadows, environment, GI options (4.6–4.8) | Baked lightmaps within a measured mobile budget (4.9, 4.12) |
 | Materials | Default `StandardMaterial3D` (1.2) | PBR maps authored in Blender (B13–B16) | One atlas, packed channels, batched draw calls (B12, 4.15) |
 | Character art | A CC0 placeholder (P03) | Retargeted Mixamo on a borrowed rig (B29) | Your own sculpt→retopo→rig→animate (P08) |
-| Saving | JSON to `user://` (1.33) | Versioned with migration (9.6) | Tested, corruption-tolerant, device-verified (C1.2, 9.8) |
+| Saving | JSON to `user://` (1.33) | Versioned with migration (9.7) | Tested, corruption-tolerant, device-verified (C1.2, 9.9) |
+| 🎬 Title screen | Tween + `AnimationPlayer` (1.35) | Live 3D character, camera drift (3.12); your own shaders (5.22) | Directed, scored, narrated opening (7.16–7.18) |
+| 🏁 Ending | A results card (1.36) | End card with a stinger (P06) | Narrated payoff into credits over a theme (7.21–7.22) |
+| 🎵 Music | One loop, three SFX (1.37) | Adaptive layers, ambience (4.22, 6.6–6.7) | Full mix, ducking, per-bus volume, subtitles (6.11, 9.8) |
+| 🔊 Narration | — | Record, clean, duck, caption (6.8–6.12) | Cue-driven system, directed, localised (7.6, 7.11, 7.13) |
+| 🚶 Walkthrough | Teach by level shape (4.21) | Directed onboarding with narration (7.19) | A written player guide, and the design fixes it forces (10.20) |
 | UI | Anchored labels (1.28) | Themes and containers (1.30) | Safe area, scaling, accessibility (1.29, 10.13) |
 
 **Never all three at once.** Meeting the naive version first is what makes the correct version *make sense* rather than *be memorised*.

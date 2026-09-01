@@ -48,6 +48,8 @@ update_trigger: "Whenever a decision is made, changed, or superseded"
 | [ADR-023](#adr-023) | Capstone working title is *Ember Hollow* | Product | 🔄 |
 | [ADR-024](#adr-024) | **Three learning paths 🐣/🚶/🏃, all authored in full** | Pedagogy | ✅ |
 | [ADR-025](#adr-025) | Repository conventions adopted from `qnx-zero-to-hero` | Docs | ✅ |
+| [ADR-026](#adr-026) | **The Presentation Spine** — story, screens, music and walkthrough in *every* project | Pedagogy | ✅ |
+| [ADR-027](#adr-027) | Narration is taught and recorded by the learner; **subtitles are mandatory** | Product | ✅ |
 
 ---
 
@@ -349,9 +351,42 @@ This repository deliberately mirrors the structure of the learner's `qnx-zero-to
 
 ---
 
+## ADR-026
+### The Presentation Spine — story, screens, music and walkthrough in every project
+**Status:** ✅ Active *(decided 2026-09-02)* · **Category:** Pedagogy
+
+Presentation — the **first-page animation, the end-page animation, background music, ambience, a narrative frame and a walkthrough** — is not a module. It is a **spine running through every project from P01 onward**, escalating in three passes.
+
+Full mapping, project by project: [`../PresentationSpine.md`](../PresentationSpine.md).
+
+**From P01 onward, a project is not shipped without:** an animated opening screen · an ending/results screen · at least one music loop · ambience where the piece has a place · a narrative frame, even one line · and a walkthrough that teaches without a wall of text. These are **done-criteria in [`../../projects/README.md`](../../projects/README.md)**, not suggestions.
+
+**Why this changed.** The plan as first drafted quarantined all of it in Modules 6–7. That was wrong on two counts. First, it contradicted the learner's actual request — *"on all the projects wherever applicable"*. Second, and worse, it contradicted [ADR-002](#adr-002): a learner would spend roughly 180 hours before making their first title screen, then have to learn timing, camera language, sound design and pacing **all at once, at full difficulty, with no practice**. That is precisely the theory-then-practice failure this course exists to avoid.
+
+**The escalation.** You build a title screen four times: crude tween (1.35) → live 3D character (3.12) → your own shaders (5.22) → directed, scored, narrated opening (7.16–7.18). Same for the ending (1.36 → 7.21), music (1.37 → 6.7 → 7.17) and the walkthrough (level shape 4.21 → directed onboarding 7.19 → a written guide 10.20).
+
+**Cost.** 42 additional chapters (215 → 258). Accepted: they are almost all short, they are distributed rather than lumped, and they make every intermediate project feel like a *game* rather than a tech demo — which is itself the strongest defence against the thing that actually kills courses, which is losing interest.
+
+---
+
+## ADR-027
+### Narration is recorded by the learner; subtitles are mandatory
+**Status:** ✅ Active *(decided 2026-09-02)* · **Category:** Product
+
+Narration and voice get eleven chapters (6.8–6.14, 7.6, 7.11, 8.2, 10.18), taught practical-first: **record before theorising**.
+
+**No purchase is required.** Chapter 6.9 is built around a phone's voice recorder and a wardrobe of soft furnishings as an improvised booth. The fastest way to learn what makes a voice track bad is to make a bad one and fix it. Microphone guidance is offered for later, never assumed.
+
+**Text-to-speech is treated as legitimate** (6.13), not as a fallback for people who "can't" record — with an honest account of when it's the right choice and the licensing trap in commercial use.
+
+**Subtitles are mandatory.** Any narration shipped must carry synchronised captions and a toggle ([`9.8`](../TableOfContents.md)). A phone gets played on mute, on a bus, by someone who is deaf, and by someone at 4% battery — all four are the same requirement, and treating it as an accessibility afterthought produces a worse system than designing the cue track for captions from the start.
+
+---
+
 ## 📝 Changelog
 
 | Version | Date | Change |
 |---------|------|--------|
 | 1.0 | 2026-09-01 | Created at course inception (Session 001). ADR-001 to ADR-025. |
 | 1.1 | 2026-09-01 | ADR-024 decided: three paths, all authored in full. ADR-004 amended: build machine is **Linux**. |
+| 1.2 | 2026-09-02 | ADR-026 (Presentation Spine) and ADR-027 (narration, mandatory subtitles) added after a plan-review audit. Course grows 215 → 258 chapters. |

@@ -38,9 +38,9 @@ update_trigger: "End of every session, and immediately after any decision or lea
 
 You are the **author** of a book-length course: *Godot Zero to Hero* — 3D **Android** game development with **Godot 4 (.NET / C#)** and **Blender**. The **learner** owns the repo and does all hands-on work. **You write Markdown; you do not run software.**
 
-**Shape:** 12 modules · **215 chapters** (173 Godot + 42 Blender, interleaved) · **11 projects** · 4 mini-jams · ~400–450 hours.
+**Shape:** 12 modules · **258 chapters** (173 Godot + 48 Blender, interleaved) · **11 projects** · 4 mini-jams · ~430–480 hours.
 
-**Progress: Phase 1. 0/215 chapters. Plan drafted, awaiting approval. Nothing installed yet.**
+**Progress: Phase 1. 0/258 chapters. Plan drafted, awaiting the learner's review. Nothing installed yet.**
 
 **Cadence: one chapter per turn**, committed and pushed, with `docs/meta/` updated each time.
 
@@ -84,7 +84,9 @@ TARGET   (learner's phone):    ⏳ specs unknown — D-003. Decides the renderer
 ## 4. What is being built
 
 **Track A — Godot/C#:** Modules 0–11, 173 chapters.
-**Track B — Blender:** `B1`–`B42`, braided in at the point the game needs each asset ([ADR-003](../meta/Decisions.md#adr-003)). Covers modelling, sculpting, retopology, UV, texturing, shading, baking, rigging, animation, simulation, rendering, compositing and geometry nodes — every one attached to a shipped asset.
+**Track B — Blender:** `B1`–`B42` plus 6 Blender chapters embedded in other modules, braided in at the point the game needs each asset ([ADR-003](../meta/Decisions.md#adr-003)).
+
+**The Presentation Spine ([ADR-026](../meta/Decisions.md#adr-026)) — do not forget this one.** Story, first-page animation, end-page animation, music, ambience and the walkthrough ship with **every project from P01**, escalating in passes; they are **not** confined to Module 7. Narration ([ADR-027](../meta/Decisions.md#adr-027)) is recorded by the learner with equipment they already own, and **subtitles are mandatory**. Full mapping: [`../PresentationSpine.md`](../PresentationSpine.md). Covers modelling, sculpting, retopology, UV, texturing, shading, baking, rigging, animation, simulation, rendering, compositing and geometry nodes — every one attached to a shipped asset.
 
 **The project spine (nothing is throwaway — P10 is assembled from P00–P09):**
 
@@ -105,7 +107,7 @@ Capstone working title *Ember Hollow* is provisional ([ADR-023](../meta/Decision
 |---|---|
 | Phase | 1 — planning |
 | Plan | ⏳ **awaiting the learner's review** ([T-002](../meta/ToDos.md)) — they explicitly asked to review before chapters begin |
-| Chapters | 0 / 215 |
+| Chapters | 0 / 258 |
 | Setup guides | 5 / 5 drafted, all `[UNVERIFIED]` |
 | Repo on GitHub | ✅ live — https://github.com/Tyrostir/godot-zero-to-hero |
 | Git | branch `main`, pushed, commit `6219e4b` |
@@ -139,6 +141,7 @@ Extracted verbatim-in-substance from their prompts. These do not expire.
 1. **Practical-first is structural, not stylistic.** Follow the mandatory template in [`../chapters/README.md`](../chapters/README.md). Build first, ≥50%. Theory after, ≤30%. Never open a chapter with theory.
 2. **Never fabricate tool output.** `[UNVERIFIED]` it.
 3. **Mobile-first ordering** ([ADR-010](../meta/Decisions.md#adr-010)). The mobile-safe technique is the default; the desktop one is an aside.
+3b. **[ADR-026/027] Presentation is a spine, not a module.** Every project from P01 ships a title screen, an ending screen, music, a narrative frame and a walkthrough. Narration from Module 6, with **mandatory subtitles**. Before drafting any project chapter, check [`../PresentationSpine.md` §2](../PresentationSpine.md).
 4. **Every question → `D-NNN`** in `Doubts.md`, with a short answer *and* a full answer. `/btw` guarantees it.
 5. **Every decision → `ADR-NNN`** in `Decisions.md`, with its history appended to `DecisionsLog.md`. The log is **append-only**.
 6. **Every prompt and full response → `PROMPTS.md`** ([ADR-015](../meta/Decisions.md#adr-015)).
@@ -203,6 +206,8 @@ Extracted verbatim-in-substance from their prompts. These do not expire.
 | 019 | Capstone scope locked: 4 levels + 1 boss |
 | **024** | **Three learning paths 🐣/🚶/🏃, all authored in full. Decided yes.** |
 | 025 | QNX repo conventions adopted |
+| **026** | **Presentation Spine — story/screens/music/walkthrough in every project, not just Module 7** |
+| **027** | **Narration recorded by the learner; subtitles mandatory** |
 
 ---
 
@@ -215,6 +220,6 @@ Extracted verbatim-in-substance from their prompts. These do not expire.
 | **H-03** | 🟠 C# + Android in Godot is the less-travelled path; rough edges with few community answers. | [ADR-022](../meta/Decisions.md#adr-022). Check Godot's GitHub issues before assuming a bug is the learner's. Log everything in `Troubleshooting.md`. |
 | **H-04** | 🟠 Every setup guide is `[UNVERIFIED]`. If a version number here is wrong, Module 0 stalls. | Guides link the always-current official pages and say explicitly that those pages win. |
 | **H-05** | 🟠 Scope creep on the capstone. | [ADR-019](../meta/Decisions.md#adr-019) locks it; new ideas go to the GDD under *Post-launch*. |
-| **H-06** | 🟡 215 chapters at one per turn is a long project. Momentum is the real risk. | Eleven shipped projects exist precisely to supply visible progress. P00 lands in the first session of real work. |
+| **H-06** | 🟡 258 chapters at one per turn is a long project. Momentum is the real risk. | Eleven shipped projects supply visible progress, and [ADR-026](../meta/Decisions.md#adr-026) is a direct mitigation: every project now has a title screen, an ending and music, so each one *feels* like a game rather than a tech demo. P00 lands in the first session of real work. |
 | **H-07** | ✅ **Cleared, and answered before any chapter existed** — exactly why it was asked in Session 001. Three paths, all authored in full. No retrofitting needed. | — |
 | **H-08** | 🔵 Godot version drift over a ~year-long project. | Version log in [Setup 01 §3](../guides/Setup_01_Prerequisites.md); pin and record. |

@@ -90,9 +90,15 @@ Every chapter ends with `[X]` and `[Q]`; they are only listed separately below w
 - **1.33 [A]** Saving to `user://`: JSON, `FileAccess`, and where that file lives on Android
 - **1.34 [A]** Level select, best times, and persistent state
 
-- **1.35 [P] Project 01 ship** — Marble Runner v1.0 on your phone, 3 levels, times saved
-- **1.36 [J] Mini-Jam 1** — 3 hours: a game whose only verb is *falling*
-- **1.37 [Q]** Module 1 self-check (28 questions)
+**1I — Presentation: the first screen, the last screen, and sound** 🐣🚶🏃
+- **1.35 [A]** Your **first-page animation**: a title screen built with `Tween` and `AnimationPlayer` — pass 1, naive
+- **1.36 [A]** Your **end-page animation**: a results screen that reports the run and pays it off
+- **1.37 [A]** One music loop and three sounds — the minimum audio that stops a game feeling like a prototype
+- **1.38 [A]** Telling the story in one line: a premise on the title card, and how it changes the way the level reads
+
+- **1.39 [P] Project 01 ship** — Marble Runner v1.0 on your phone: 3 levels, times saved, **title screen, end screen and music**
+- **1.40 [J] Mini-Jam 1** — 3 hours: a game whose only verb is *falling*
+- **1.41 [Q]** Module 1 self-check (28 questions)
 
 ---
 
@@ -131,8 +137,10 @@ Every chapter ends with `[X]` and `[Q]`; they are only listed separately below w
 - **2.20 [A]** Materials in Godot: `StandardMaterial3D`, overrides, and shared material discipline
 - **2.21 [A]** `MeshLibrary` and `GridMap`: turning your kit into a level-building tool
 
-- **2.22 [P] Project 02 ship** — the Foundry Kit, in-engine, replacing Marble Runner's grey boxes
-- **2.23 [Q]** Module 2 self-check
+- **2.22 [B]** **Environmental storytelling in a prop**: making a crate imply a place, a history and an owner
+
+- **2.23 [P] Project 02 ship** — the Foundry Kit, in-engine, replacing Marble Runner's grey boxes
+- **2.24 [Q]** Module 2 self-check
 
 ---
 
@@ -169,9 +177,13 @@ Every chapter ends with `[X]` and `[Q]`; they are only listed separately below w
 - **3.9 [A]** Camera-relative movement, and turning the character toward motion
 - **3.10 [X]** Add a dodge-roll state with i-frames, from scratch
 
-- **3.11 [P] Project 03 ship** — playground with slopes, stairs, gaps, ledges; character handles all
-- **3.12 [J] Mini-Jam 2** — 4 hours: a one-room game about reaching a high ledge
-- **3.13 [Q]** Module 3 self-check
+**3E — Presentation: the character carries the story**
+- **3.11 [A]** Character identity without words: what an idle pose, a silhouette and a walk cycle say about who this is
+- **3.12 [A]** **First-page animation, pass 2** — a title screen with a live 3D character idling in it
+
+- **3.13 [P] Project 03 ship** — playground with slopes, stairs, gaps, ledges; character handles all
+- **3.14 [J] Mini-Jam 2** — 4 hours: a one-room game about reaching a high ledge
+- **3.15 [Q]** Module 3 self-check
 
 ---
 
@@ -203,8 +215,14 @@ Every chapter ends with `[X]` and `[Q]`; they are only listed separately below w
 - **4.17 [A]** Profiling on the device: the remote debugger, monitors, frame time budgets
 - **4.18 [X]** Optimisation drill: take a 22fps scene to 60fps and document every change
 
-- **4.19 [P] Project 04 ship** — Level 1, art-passed and lit, 60fps measured on device
-- **4.20 [Q]** Module 4 self-check
+**4D — Presentation: the level tells the story**
+- **4.19 [A]** **Environmental storytelling in a level** — the landmark as a story beat, and what the ruins imply
+- **4.20 [A]** The **level flythrough**: an in-engine `Path3D` camera move, used as the menu backdrop
+- **4.21 [A]** **The walkthrough, designed in** — teaching the player without a tutorial prompt: sightlines, affordance, and the critical path as narration
+- **4.22 [A]** Ambience: the sound of a place, and why silence reads as "unfinished"
+
+- **4.23 [P] Project 04 ship** — Level 1, art-passed, lit and **ambient**, 60fps measured on device
+- **4.24 [Q]** Module 4 self-check
 
 ---
 
@@ -237,8 +255,11 @@ Every chapter ends with `[X]` and `[Q]`; they are only listed separately below w
 - **5.20 [A]** Full-screen post effects on a `CanvasLayer` — vignette, damage flash, colour grade
 - **5.21 [X]** Author an impact effect: particles + decal + shader + screen effect, under 0.5ms
 
-- **5.22 [P] Project 05 ship** — VFX Lab, plus impact FX wired into the Playground
-- **5.23 [Q]** Module 5 self-check
+- **5.22 [A]** **First-page animation, pass 3** — a title screen driven by your own shaders: dissolve-in text, animated background
+
+- **5.23 [P] Project 05 ship** — VFX Lab, plus impact FX wired into the Playground
+- **5.24 [J] Mini-Jam 3** — 3 hours: a scene where nothing moves except shaders
+- **5.25 [Q]** Module 5 self-check
 
 ---
 
@@ -252,11 +273,24 @@ Every chapter ends with `[X]` and `[Q]`; they are only listed separately below w
 - **6.4 [A]** Editing SFX in Audacity: trim, normalise, fade, pitch variation, loop points
 - **6.5 [A]** Footsteps that respond to surface material
 - **6.6 [A]** Adaptive music: loops, stingers, and layered intensity
-- **6.7 [A]** Game feel I — tweens, easing curves, anticipation and follow-through in UI
-- **6.8 [A]** Game feel II — screenshake with a noise function (not random jitter), camera kick, hitstop
-- **6.9 [A]** Haptics on Android: `Input.VibrateHandheld`, and restraint
-- **6.10 [X]** A/B drill: record the level before and after the feel pass; write down what changed and why
-- **6.11 [P] Project 06 ship** · **6.12 [Q]** Module 6 self-check
+- **6.7 [A]** **Background music that doesn't wear out** — loop points, variation, dynamic range, and the courage to use silence
+
+**6B — Narration and voice** 🐣🚶🏃
+- **6.8 [A]** **Writing for the ear**: a narration script is not a paragraph — pacing, breath, sentence length, and what to cut
+- **6.9 [A]** **Recording narration with what you already own** — a phone, a wardrobe full of clothes, and Audacity
+- **6.10 [A]** Cleaning a voice track: noise reduction, de-essing, compression, levelling — without making it sound processed
+- **6.11 [A]** **The narration bus**: side-chain ducking music under voice, and a mix that survives a phone speaker
+- **6.12 [A]** **Subtitles and captions, synchronised** — the cue system, and why this is not optional
+- **6.13 [A]** Text-to-speech as a legitimate option: when it's right, which engines are free to use commercially, and the licensing trap
+- **6.14 [X]** Drill: narrate your Level 1 opening three ways — plain, over-directed, and silent. Pick one and defend it
+
+**6C — Feel**
+- **6.15 [A]** Game feel I — tweens, easing curves, anticipation and follow-through in UI
+- **6.16 [A]** Game feel II — screenshake with a noise function (not random jitter), camera kick, hitstop
+- **6.17 [A]** Haptics on Android: `Input.VibrateHandheld`, and restraint
+- **6.18 [X]** A/B drill: record the level before and after the feel pass; write down what changed and why
+
+- **6.19 [P] Project 06 ship** · **6.20 [Q]** Module 6 self-check
 
 ---
 
@@ -270,29 +304,33 @@ Every chapter ends with `[X]` and `[Q]`; they are only listed separately below w
 - **7.3 [A]** Structure for games: beats, gates, and why three-act structure needs adapting
 - **7.4 [A]** Environmental storytelling: telling the story with the level, not with text
 - **7.5 [A]** Ludonarrative harmony — making the verbs mean the theme
-- **7.6 [A]** Writing the Game Design Document and the narrative bible
-- **7.7 [X]** Write *Ember Hollow*'s premise, theme, logline, arc and three-beat outline
+- **7.6 [A]** **Directing narration**: who is speaking, to whom, in what tense, from what distance — and when silence is stronger
+- **7.7 [A]** Writing the Game Design Document and the narrative bible
+- **7.8 [X]** Write *Ember Hollow*'s premise, theme, logline, arc, three-beat outline **and its opening narration**
 
 **7B — Systems for narrative**
-- **7.8 [A]** A dialogue system in C#: data-driven with custom `Resource`s, branching, conditions
-- **7.9 [A]** Typewriter text, portraits, speaker names, skip and auto-advance
-- **7.10 [A]** Flags, quest state, and a tiny event bus
-- **7.11 [A]** Localisation: CSV translations, `tr()`, font fallbacks, and text expansion
+- **7.9 [A]** A dialogue system in C#: data-driven with custom `Resource`s, branching, conditions
+- **7.10 [A]** Typewriter text, portraits, speaker names, skip and auto-advance
+- **7.11 [A]** **The narration system** — cue-driven VO, synchronised subtitles, automatic music ducking, and a skip that doesn't break state
+- **7.12 [A]** Flags, quest state, and a tiny event bus
+- **7.13 [A]** Localisation: CSV translations, `tr()`, font fallbacks, text expansion — **and what localising *audio* actually costs**
 
 **7C — Cinematics**
-- **7.12 [A]** Cutscene architecture: an `AnimationPlayer` timeline as the director
-- **7.13 [A]** Camera language: shot types, cuts, the 180° rule, `Path3D` dollies, depth of field
-- **7.14 [A]** The **splash/intro animation** — logo sting, built in Godot, skippable
-- **7.15 [A]** The **main menu animation** — an animated 3D menu scene, parallax, idle motion
-- **7.16 [A]** The **first-play opening** — cold open, title card, hand-off to gameplay
-- **7.17 [A]** Loading screens, scene transitions, and threaded loading
-- **7.18 [A]** The **ending sequence** — payoff, fade, and pacing an outro
-- **7.19 [A]** A **credits roll** generated automatically from `reference/AssetLicenses.md`
-- **7.20 [B]** Blender for cinematics: camera rigs, Cycles vs EEVEE, rendering a pre-rendered cutscene
-- **7.21 [B]** Blender compositing: the node editor, glare, colour grade, and rendering a trailer
+- **7.14 [A]** Cutscene architecture: an `AnimationPlayer` timeline as the director
+- **7.15 [A]** Camera language: shot types, cuts, the 180° rule, `Path3D` dollies, depth of field
+- **7.16 [A]** The **splash/intro animation** — logo sting, built in Godot, skippable
+- **7.17 [A]** The **main menu animation** — an animated 3D menu scene, parallax, idle motion, **its own music theme**
+- **7.18 [A]** The **first-play opening** — a narrated cold open, title card, and the hand-off to gameplay
+- **7.19 [A]** **The guided walkthrough** — teaching the first five minutes with narration, camera and level, not a wall of text
+- **7.20 [A]** Loading screens, scene transitions, and threaded loading
+- **7.21 [A]** The **ending-page animation** — narrated payoff, the last shot, and how to pace an outro
+- **7.22 [A]** A **credits roll** generated automatically from `reference/AssetLicenses.md`, over an end-credits theme
+- **7.23 [B]** Blender for cinematics: camera rigs, Cycles vs EEVEE, rendering a pre-rendered cutscene
+- **7.24 [B]** Blender compositing: the node editor, glare, colour grade, and rendering a trailer
 
-- **7.22 [P] Project 07 ship** — the full slice, played end-to-end on device
-- **7.23 [Q]** Module 7 self-check
+- **7.25 [P] Project 07 ship** — the full narrated slice, played end-to-end on device
+- **7.26 [J] Mini-Jam 4** — 4 hours: tell a complete story in 60 seconds with no words
+- **7.27 [Q]** Module 7 self-check
 
 ---
 
@@ -313,7 +351,8 @@ Every chapter ends with `[X]` and `[Q]`; they are only listed separately below w
 - **B41 [B]** Animating the full set: idle, walk, run, jump, attack, hit, death
 - **B42 [B]** Export, and retargeting onto the Module 3 controller
 - **8.1 [A]** In-engine setup: materials, LODs, attachment points, ragdoll basics
-- **8.2 [P] Project 08 ship** · **8.3 [Q]** Module 8 self-check
+- **8.2 [A]** **Vocal identity** — the Warden's barks, efforts and grunts, recorded and processed by you
+- **8.3 [P] Project 08 ship** · **8.4 [Q]** Module 8 self-check
 
 ---
 
@@ -324,13 +363,14 @@ Every chapter ends with `[X]` and `[Q]`; they are only listed separately below w
 - **9.2 [A]** Garbage collection on mobile: allocations per frame, `struct` vs `class`, spans, pooling
 - **9.3 [A]** Composition over inheritance in a node tree: component nodes done right
 - **9.4 [A]** Data-driven design with custom `Resource` classes, and an inspector that designers can use
-- **9.5 [A]** An event bus, and when a signal is better than a reference
-- **9.6 [A]** A versioned save system with migration, and where saves live on Android
-- **9.7 [A]** A settings screen with real graphics tiers, auto-detected from device capability
-- **9.8 [A]** Unit testing game logic: pure C# tests, and GdUnit4 for scene-level tests
-- **9.9 [A]** Editor tooling: `[Tool]` scripts, custom docks, and a level-validation button
-- **9.10 [A]** Profiling on device, `adb logcat`, and building a repeatable performance test
-- **9.11 [P] Project 09 ship** · **9.12 [Q]** Module 9 self-check
+- **9.5 [A]** **Data-driving narrative content**: dialogue, narration cues and screen definitions as `Resource`s a writer could edit
+- **9.6 [A]** An event bus, and when a signal is better than a reference
+- **9.7 [A]** A versioned save system with migration, and where saves live on Android
+- **9.8 [A]** A settings screen with real graphics tiers, auto-detected from device capability — **plus separate music / SFX / narration volume, and a subtitle toggle**
+- **9.9 [A]** Unit testing game logic: pure C# tests, and GdUnit4 for scene-level tests
+- **9.10 [A]** Editor tooling: `[Tool]` scripts, custom docks, and a level-validation button
+- **9.11 [A]** Profiling on device, `adb logcat`, and building a repeatable performance test
+- **9.12 [P] Project 09 ship** · **9.13 [Q]** Module 9 self-check
 
 ---
 
@@ -359,11 +399,13 @@ Every chapter ends with `[X]` and `[Q]`; they are only listed separately below w
 - **10.15 [A]** Icons, adaptive icons, splash screen, app name, versioning
 - **10.16 [A]** App size: what's in your PCK, and how to shrink it
 - **10.17 [A]** CI: a GitHub Actions workflow that builds a signed APK on every tag
-- **10.18 [A]** Capturing a trailer and screenshots (Godot + Blender compositing)
-- **10.19 [A]** itch.io release; Play Console internal testing; store listing; privacy policy
-- **10.20 [A]** Post-launch: crash reports, patching, and reading feedback without being destroyed by it
-- **10.21 [P] Project 10 ship** — *Ember Hollow* released
-- **10.22 [Q]** Module 10 self-check
+- **10.18 [A]** **Trailer craft**: a 60-second script, the narration, the cut, and the shot you open on
+- **10.19 [A]** Capturing footage and screenshots (Godot, `scrcpy`, OBS, Blender compositing)
+- **10.20 [A]** **The player-facing walkthrough** — writing a guide to your own game, and what doing so reveals about its design
+- **10.21 [A]** itch.io release; Play Console internal testing; store listing; privacy policy
+- **10.22 [A]** Post-launch: crash reports, patching, and reading feedback without being destroyed by it
+- **10.23 [P] Project 10 ship** — *Ember Hollow* released
+- **10.24 [Q]** Module 10 self-check
 
 ---
 
