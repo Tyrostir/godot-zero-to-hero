@@ -38,9 +38,9 @@ update_trigger: "End of every session, and immediately after any decision or lea
 
 You are the **author** of a book-length course: *Godot Zero to Hero* — 3D **Android** game development with **Godot 4 (.NET / C#)** and **Blender**. The **learner** owns the repo and does all hands-on work. **You write Markdown; you do not run software.**
 
-**Shape:** 12 modules · **258 chapters** (173 Godot + 48 Blender, interleaved) · **11 projects** · 4 mini-jams · ~430–480 hours.
+**Shape:** 12 modules · **290 chapters** (incl. 54 Blender and 28 🧰 library-adoption chapters) · **11 projects** · 4 mini-jams · ~470–530 hours.
 
-**Progress: Phase 1. 0/258 chapters. Plan drafted, awaiting the learner's review. Nothing installed yet.**
+**Progress: Phase 1. 0/290 chapters. Plan drafted, awaiting the learner's review. Nothing installed yet.**
 
 **Cadence: one chapter per turn**, committed and pushed, with `docs/meta/` updated each time.
 
@@ -107,7 +107,7 @@ Capstone working title *Ember Hollow* is provisional ([ADR-023](../meta/Decision
 |---|---|
 | Phase | 1 — planning |
 | Plan | ⏳ **awaiting the learner's review** ([T-002](../meta/ToDos.md)) — they explicitly asked to review before chapters begin |
-| Chapters | 0 / 258 |
+| Chapters | 0 / 290 |
 | Setup guides | 5 / 5 drafted, all `[UNVERIFIED]` |
 | Repo on GitHub | ✅ live — https://github.com/Tyrostir/godot-zero-to-hero |
 | Git | branch `main`, pushed, commit `6219e4b` |
@@ -141,6 +141,7 @@ Extracted verbatim-in-substance from their prompts. These do not expire.
 1. **Practical-first is structural, not stylistic.** Follow the mandatory template in [`../chapters/README.md`](../chapters/README.md). Build first, ≥50%. Theory after, ≤30%. Never open a chapter with theory.
 2. **Never fabricate tool output.** `[UNVERIFIED]` it.
 3. **Mobile-first ordering** ([ADR-010](../meta/Decisions.md#adr-010)). The mobile-safe technique is the default; the desktop one is an aside.
+3a. **[ADR-028/029] Build it once by hand, then adopt the library.** 28 `N.Mb` chapters, marked 🧰. Never teach a library before the learner has hand-built the thing it replaces, and **always require a recorded decision** — "a tutorial used it" is not a rationale. Catalogue, licences and caveats: [`../Toolchain.md`](../Toolchain.md). ⚠️ **Most Godot addons are GDScript**; from C# that costs type safety. Prefer **Chickensoft** (C#-first: LogicBlocks, AutoInject, GodotNodeInterfaces, SaveFileBuilder, GodotTest), wrap the rest behind a C# interface, and remember **NuGet** is available.
 3b. **[ADR-026/027] Presentation is a spine, not a module.** Every project from P01 ships a title screen, an ending screen, music, a narrative frame and a walkthrough. Narration from Module 6, with **mandatory subtitles**. Before drafting any project chapter, check [`../PresentationSpine.md` §2](../PresentationSpine.md).
 4. **Every question → `D-NNN`** in `Doubts.md` — **the learner's question verbatim AND your short + full answer**, at the end of every turn, **unprompted**. `/btw` (on the same line as the question) guarantees it, but any question qualifies. ⚠️ **Known failure mode:** logging a question into `PROMPTS.md` only and forgetting `Doubts.md`. That happened once, with [D-005](../meta/Doubts.md#d-005). `PROMPTS.md` is the narrative; `Doubts.md` is the searchable reference; they are not substitutes.
 5. **Every decision → `ADR-NNN`** in `Decisions.md`, with its history appended to `DecisionsLog.md`. The log is **append-only**.
@@ -185,6 +186,15 @@ Extracted verbatim-in-substance from their prompts. These do not expire.
 - Package name must be reverse-domain with at least one dot.
 - `adb logcat | grep -i godot` is the learner's debugging lifeline on device.
 
+**Free toolchain — the load-bearing ones**
+- **Blender built-ins to enable:** Rigify (⭐ the free industry rig system), Node Wrangler, LoopTools, Bool Tool, 3D-Print Toolbox (its mesh checker finds non-manifold geometry), A.N.T. Landscape, Cell Fracture. Built-in *systems*: Asset Browser, Geometry Nodes, Grease Pencil (storyboarding), Mantaflow, QuadriFlow, VSE, Compositor, OpenColorIO/AgX.
+- **Blender external free:** TexTools (texel density), RetopoFlow (GPL, free on GitHub), Poly Haven / ambientCG / BlenderKit addons, MACHIN3tools, Camera Shakify, Blender Kitsu.
+- **Standalone free:** Instant Meshes, Material Maker (MIT, exports Godot shaders), Krita/GIMP/Inkscape, FFmpeg, ImageMagick, Cascadeur (free tier), Ardour, OBS, scrcpy.
+- **Godot C#-first (⭐ the key find):** **Chickensoft** — LogicBlocks, AutoInject, GodotNodeInterfaces, SaveFileBuilder, GodotTest, GodotEnv. MIT.
+- **Godot addons:** Phantom Camera, Terrain3D (GDExtension → good C#), Proton Scatter, Beehave / LimboAI, Godot State Charts, Dialogue Manager (documented C#), Dialogic 2, Sky3D, Debug Draw 3D, Panku Console, Input Helper, GdUnit4 (C#), godot-ci.
+- **NuGet:** System.Text.Json, MemoryPack, Serilog, FluentAssertions.
+- **Rejected:** FMOD/Wwise (awareness only, 6.2b), all paid Blender addons, GPL addons in shipped code, anything abandoned since Godot 4.0.
+
 **Licences** — CC0 preferred; CC-BY fine with attribution; **CC-BY-NC and CC-BY-ND rejected outright** ([ADR-008](../meta/Decisions.md#adr-008)).
 
 ---
@@ -208,6 +218,9 @@ Extracted verbatim-in-substance from their prompts. These do not expire.
 | 025 | QNX repo conventions adopted |
 | **026** | **Presentation Spine — story/screens/music/walkthrough in every project, not just Module 7** |
 | **027** | **Narration recorded by the learner; subtitles mandatory** |
+| **028** | **Build it once by hand, then adopt the library — 28 🧰 `N.Mb` chapters** |
+| **029** | **The free toolchain; dependency evaluation is a taught skill** |
+| **030** | **"AAA" = budget/headcount, not achievable solo — say so; industry-grade craft is the target** |
 
 ---
 
@@ -220,6 +233,6 @@ Extracted verbatim-in-substance from their prompts. These do not expire.
 | **H-03** | 🟠 C# + Android in Godot is the less-travelled path; rough edges with few community answers. | [ADR-022](../meta/Decisions.md#adr-022). Check Godot's GitHub issues before assuming a bug is the learner's. Log everything in `Troubleshooting.md`. |
 | **H-04** | 🟠 Every setup guide is `[UNVERIFIED]`. If a version number here is wrong, Module 0 stalls. | Guides link the always-current official pages and say explicitly that those pages win. |
 | **H-05** | 🟠 Scope creep on the capstone. | [ADR-019](../meta/Decisions.md#adr-019) locks it; new ideas go to the GDD under *Post-launch*. |
-| **H-06** | 🟡 258 chapters at one per turn is a long project. Momentum is the real risk. | Eleven shipped projects supply visible progress, and [ADR-026](../meta/Decisions.md#adr-026) is a direct mitigation: every project now has a title screen, an ending and music, so each one *feels* like a game rather than a tech demo. P00 lands in the first session of real work. |
+| **H-06** | 🟡 290 chapters at one per turn is a long project. Momentum is the real risk. | Eleven shipped projects supply visible progress, and [ADR-026](../meta/Decisions.md#adr-026) is a direct mitigation: every project now has a title screen, an ending and music, so each one *feels* like a game rather than a tech demo. P00 lands in the first session of real work. |
 | **H-07** | ✅ **Cleared, and answered before any chapter existed** — exactly why it was asked in Session 001. Three paths, all authored in full. No retrofitting needed. | — |
 | **H-08** | 🔵 Godot version drift over a ~year-long project. | Version log in [Setup 01 §3](../guides/Setup_01_Prerequisites.md); pin and record. |

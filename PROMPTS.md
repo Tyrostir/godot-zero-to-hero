@@ -322,3 +322,47 @@ Also worth naming: I satisfied [ADR-011](docs/meta/Decisions.md#adr-011) *narrow
 ### Artefacts changed
 
 `docs/meta/Doubts.md` (rewritten, v1.0 → v2.0) · `docs/meta/Decisions.md` (ADR-011 amended) · `docs/internal/CLAUDE-MEMORY.md` (operating rule 4) · `docs/meta/CompactContext.md` · `docs/meta/ToDos.md` (T-022)
+
+---
+
+## PROMPT#7
+
+**Date:** 2026-09-02 · **Session:** 002
+
+### Prompt (verbatim)
+
+```text
+There are some publicly available famous free useful blender libraries to generate various assets and
+for multiple purposes. Do you aware of them? Similarly Is there any such famous free useful libraries
+for Godot for multiple purposes as long as you know? Can you list them and Can you adopt those in our
+course applicable/useful/gives meaning? REMEMBER: LEARNING BY DOING rule while adopting. Restructure
+the course accodingly (without compromizing the qualirty). At the end I want to be able to develope
+AAA standard - professional - industry grade games. Plan accordingly.
+```
+
+### Response
+
+Audited the plan for library coverage. It named a handful of *tools* in `ResourcesMeta.md` and **almost no libraries** — not one Blender addon beyond Node Wrangler, not one Godot addon, and no dependency-evaluation teaching at all. For a course aiming at professional capability that is a significant hole, because **choosing and rejecting dependencies is a larger part of professional work than writing code is**.
+
+**The most consequential find is specific to this course:** ⭐ **Chickensoft** — maintained, MIT, **C#-first** Godot libraries (LogicBlocks, AutoInject, GodotNodeInterfaces, SaveFileBuilder, GodotTest, GodotEnv). Every public "best Godot addons" list is written for GDScript users, and most Godot addons *are* GDScript. From C# they work but cost type safety exactly where it matters, so a C# learner following those lists writes `Call("do_thing")` forever. This is a direct consequence of [ADR-022](docs/meta/Decisions.md#adr-022) that had never been acknowledged.
+
+**The design problem** was that adopting libraries naively destroys [ADR-002](docs/meta/Decisions.md#adr-002), while refusing them produces a slow developer with worse habits. Resolved by **[ADR-028](docs/meta/Decisions.md#adr-028)**: **hand-build → compare (read the source) → decide and record why**, as 28 chapters numbered `N.Mb`, marked 🧰. Rigify *after* hand-rigging a biped. Phantom Camera *after* writing a follow camera. LogicBlocks *after* your own FSM has silently got hierarchical states wrong. Step 3 is mandatory; "a tutorial used it" is explicitly not a rationale.
+
+**[ADR-029](docs/meta/Decisions.md#adr-029)** and the new [`docs/Toolchain.md`](docs/Toolchain.md) catalogue everything with licence, maintenance caveat, C# viability and mobile cost — plus the rejections, which are as informative as the adoptions.
+
+**On "AAA" I corrected the premise rather than agreeing** ([ADR-030](docs/meta/Decisions.md#adr-030)). AAA describes **budget and headcount, not quality** — 100–300 people, $50–200 M, three to five years — so it is not a solo outcome. Agreeing would have been easier and would have set the learner up to measure a finished game against an impossible bar and conclude they'd failed. The distinction also has practical teeth: it is *why* ADR-019 locks scope and ADR-010 refuses photoreal fidelity, and both are what make the game shippable.
+
+**Professional / industry-grade craft is achievable and is now targeted in full.** Nine missing practices added: industry milestones (10.1b), Kitsu production tracking (10.3b), code standards with warnings-as-errors (9.2b), structured logging (9.11b), unit-testable scene code (9.9b), storyboarding and previz (7.2b), colour management (7.24b), **the post-mortem** (10.11b), and a **portfolio and breakdown reel** (10.20b).
+
+**Cost:** 32 chapters, **258 → 290**; ~430–480 h → **~470–530 h**. Module 9 grew most (13 → 19), which is right — that's where professional practice concentrates.
+
+### Standing instructions extracted
+
+18. **Never teach a library before the learner has hand-built what it replaces**, and always require a recorded decision → [ADR-028](docs/meta/Decisions.md#adr-028)
+19. **Free tools only**; name the paid industry default, teach the free equivalent → [ADR-029](docs/meta/Decisions.md#adr-029)
+20. **Target industry-grade craft, and be honest that AAA is a scale claim, not a skill claim** → [ADR-030](docs/meta/Decisions.md#adr-030)
+
+### Artefacts changed
+
+**New:** `docs/Toolchain.md`.
+**Updated:** `docs/TableOfContents.md` (+32 chapters, `b`-suffix convention, 🧰 marker) · `docs/meta/Decisions.md` (ADR-028/029/030) · `docs/meta/DecisionsLog.md` · `docs/meta/Doubts.md` ([D-007](docs/meta/Doubts.md#d-007)) · `docs/PLAN.md` (§3c build-then-adopt, §3d industry grade, pacing) · `docs/Practicals.md` · `docs/meta/CourseState.md` (regenerated) · `docs/meta/CompactContext.md` · `docs/meta/ToDos.md` (T-023) · `docs/internal/CLAUDE-MEMORY.md` · `README.md`.

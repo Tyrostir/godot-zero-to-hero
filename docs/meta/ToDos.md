@@ -50,6 +50,7 @@ update_trigger: "Continuously"
 | T-021 | 🟠 | ~~Audit the plan for story / narration / screens / walkthrough coverage~~ | ✅ | — | Done 2026-09-02. Found three real gaps; fixed with [ADR-026](Decisions.md#adr-026), [ADR-027](Decisions.md#adr-027) and [`../PresentationSpine.md`](../PresentationSpine.md). 43 chapters added. |
 | T-018 | 🔵 | Consider a PDF export toolchain, as in the QNX course | ⬜ | — | Only worth it once several modules exist. `tools/pdf/` would mirror QNX. |
 | T-019 | 🟡 | Source or write the **music** for P01 — one seamless loop | ⬜ | T-002 | Chapter 1.37 walks it. CC0 first; composing your own is a Module 6 option. |
+| T-023 | 🟡 | At each 🧰 adoption chapter, **record the evaluation result** in [`DecisionsLog.md`](DecisionsLog.md) as a dated 🔍 VERIFIED entry | ⬜ | per chapter | Licence, last commit, C# ergonomics, measured mobile cost. Over the course this builds an evidence-based picture of the Godot **C#** ecosystem, which barely exists in public. |
 | T-020 | 🟡 | Decide whether *you* narrate *Ember Hollow*, or it uses TTS, or it has no narrator | ⬜ | — | Not urgent, but it shapes chapter 7.6. Chapters 6.9 and 6.13 give you both paths before you have to choose. |
 
 ---

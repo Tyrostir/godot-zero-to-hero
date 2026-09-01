@@ -75,6 +75,7 @@ Some entries below have a **"In my own words"** line. That is yours to fill in, 
 | [D-004](#d-004) | 2026-09-01 | Course logistics | One learning path, or three? | ✅ |
 | [D-005](#d-005) | 2026-09-02 | Design/Narrative | Is story, narration, walkthrough, first/end-page animation and music planned across **all** projects? | ✅ |
 | [D-006](#d-006) | 2026-09-02 | Course logistics | Will you keep documenting my `/btw` questions **and your answers**? | ✅ |
+| [D-007](#d-007) | 2026-09-02 | Course logistics | Which free Blender and Godot libraries exist, can we adopt them, and can I reach AAA? | ✅ |
 
 ---
 
@@ -283,6 +284,71 @@ This file rewritten to v2.0 in the full entry format. [ADR-011](Decisions.md#adr
 
 ---
 
+## D-007
+
+**Date:** 2026-09-02 · **Context:** Plan review, after the Presentation Spine was added · **Category:** Course logistics · **Status:** ✅ Answered
+
+### Question *(verbatim)*
+> There are some publicly available famous free useful blender libraries to generate various assets and for multiple purposes. Do you aware of them? Similarly Is there any such famous free useful libraries for Godot for multiple purposes as long as you know? Can you list them and Can you adopt those in our course applicable/useful/gives meaning? REMEMBER: LEARNING BY DOING rule while adopting. Restructure the course accodingly (without compromizing the qualirty). At the end I want to be able to develope AAA standard - professional - industry grade games. Plan accordingly.
+
+### Short answer
+Yes to all of it — with one correction. The free ecosystem is large and the plan was ignoring it; it is now catalogued in **[`../Toolchain.md`](../Toolchain.md)** and adopted through **28 new 🧰 chapters** that always follow *hand-build → read the source → decide and record why*. The correction: **"AAA" describes budget and headcount, not quality**, and is not achievable solo — but **professional / industry-grade craft** is, and the course now targets it explicitly.
+
+### Full answer
+
+**1 — The libraries.** Catalogued in full, with licences, caveats and the exact chapter that adopts each: [`../Toolchain.md`](../Toolchain.md). The headline items:
+
+*Blender built-ins that most people never enable* — **Rigify** (the free industry-standard rig generator, and the direct answer to paid Auto-Rig Pro), Node Wrangler, LoopTools, Bool Tool, **3D-Print Toolbox** (its mesh checker is the fastest way to find the non-manifold geometry that breaks bakes), A.N.T. Landscape, Cell Fracture. And the built-in *systems* that are libraries in all but name: the **Asset Browser** (how studios actually manage a kit), **Geometry Nodes**, **Grease Pencil** (storyboarding — real previz practice), Mantaflow, QuadriFlow, the VSE and Compositor, and **OpenColorIO/AgX** colour management.
+
+*External free Blender addons* — **TexTools** (texel density as a number rather than by eye), **RetopoFlow** (GPL, free from GitHub), the Poly Haven / ambientCG / BlenderKit browsers, MACHIN3tools, Camera Shakify, Blender Kitsu.
+
+*Free standalone tools* — Instant Meshes, **Material Maker** (MIT, and it exports Godot shaders directly), Krita/GIMP/Inkscape, **FFmpeg** and **ImageMagick** (genuine professional workhorses for flipbooks, channel packing and atlases), Cascadeur, Ardour, OBS, scrcpy.
+
+*Godot* — **Phantom Camera** (Cinemachine-style rigs), **Terrain3D**, **Proton Scatter**, **Beehave** / **LimboAI** (behaviour trees), **Godot State Charts**, **Dialogue Manager** and **Dialogic 2**, **Sky3D**, **Debug Draw 3D**, **GdUnit4**, **godot-ci**.
+
+**2 — The most consequential find, and it is specific to you.** ⭐ **Chickensoft** — a maintained, MIT-licensed, **C#-first** Godot ecosystem: LogicBlocks (hierarchical serialisable state machines), AutoInject (DI through the node tree), GodotNodeInterfaces (makes scene code genuinely unit-testable), SaveFileBuilder, GodotTest, GodotEnv.
+
+Why it matters so much here: **every "best Godot addons" list online is written for GDScript users.** Most Godot addons *are* GDScript. They work from C# — they are nodes, you call them — but you lose type safety at exactly the boundary you most want it. A C# developer following those lists spends their life writing `Call("do_thing")`. Chickensoft is the answer, and knowing it exists is worth more than any single addon.
+
+Two further responses to that same problem are now taught: **wrap any GDScript addon behind a C# interface** (9.6b — one ugly file, the rest of your codebase stays typed), and **NuGet** (0.11), which is a large compensation GDScript users simply do not have.
+
+**3 — Adopting them without breaking learn-by-doing.** This was the real design problem, and the answer is [ADR-028](Decisions.md#adr-028):
+
+> **1️⃣ Hand-build it** → you understand the problem, not an API, and can debug anything built on it.
+> **2️⃣ Compare** → install it, **read its source**, find what it does better *and worse*.
+> **3️⃣ Decide** → adopt or keep yours, and **record why** in `DecisionsLog.md`.
+
+Adoption chapters are numbered `N.Mb` and marked 🧰, so the pairing is visible and existing numbering stays stable. Rigify comes *after* you hand-rig a biped (B24b). Phantom Camera *after* you write a follow camera (1.24b). LogicBlocks *after* your own FSM has silently got hierarchical states wrong (3.7b). RetopoFlow *after* hand retopology (B34b).
+
+**Step 3 is mandatory, and "a tutorial used it" is not a rationale.** Chapter **0.10** teaches the six evaluation questions — licence · maintenance · **does it work from C#** · mobile cost *measured on device* · abandonment risk · could you write it in a day. Choosing and rejecting dependencies is a larger part of professional work than writing code is, and the Godot 3→4 break orphaned enough addons to make the point concrete.
+
+**Rejections are recorded too** ([`../Toolchain.md` §8](../Toolchain.md)): FMOD/Wwise (community integration + C# + Android is three compounding risks — awareness only, 6.2b, no install), every paid Blender addon that has a free equivalent taught here, GPL addons in shipped code, and anything abandoned since Godot 4.0.
+
+**4 — On "AAA", honestly.** You asked for *AAA standard — professional — industry grade*. Two of those three are achievable through this course. One is not, and saying so is more useful than agreeing ([ADR-030](Decisions.md#adr-030)).
+
+**AAA is a description of budget and headcount, not of quality**: 100–300 people, $50–200 M, three to five years, with marketing that often exceeds production. No course produces that and no solo developer achieves it — not for want of skill, but because it is a claim about organisational scale.
+
+**Professional and industry-grade craft is entirely achievable, and the course now targets it in full.** The gaps I found and closed: **industry milestones** (first playable, vertical slice, alpha, beta, content lock, gold — 10.1b) · **production tracking with Kitsu**, an open-source tool used in real studios (10.3b) · **code standards** — `.editorconfig`, .NET analyzers, `dotnet format`, XML doc comments, warnings-as-errors (9.2b) · **structured logging** with Serilog rather than `GD.Print` (9.11b) · **unit-testable scene code** (9.9b) · **storyboarding and previz** (7.2b) · **colour management** (7.24b) · **the post-mortem**, written honestly and published (10.11b) · and **a portfolio and breakdown reel** for studio applications (10.20b).
+
+What is deliberately *not* attempted, and why that is right: large content volume (scope kills solo projects — [ADR-019](Decisions.md#adr-019)), photoreal fidelity (wrong target for a phone — [ADR-010](Decisions.md#adr-010)), multiplayer infrastructure (an entire discipline; awareness only), and marketing at scale.
+
+**The honest summary:** at the end you will not have made a AAA game. You will have the craft, the pipeline discipline and the shipped evidence to work on one — or to make something small and excellent on your own, which is the harder and rarer achievement.
+
+**5 — Cost.** 32 chapters added, **258 → 290**. Pacing ~430–480 h → **~470–530 h**. Module 9 grew most (13 → 19) because that is where professional practice concentrates.
+
+**6 — One caveat I cannot remove.** [`[UNVERIFIED]`](../internal/VerificationRuns.md) applies to this whole document. I cannot install or run any of these libraries ([ADR-016](Decisions.md#adr-016)). Versions, current maintenance status, real C# ergonomics and actual mobile cost must be checked **by you at the point of adoption** — which is exactly the exercise in step 2 anyway, so the constraint and the pedagogy happen to point the same way.
+
+### Related
+[ADR-028](Decisions.md#adr-028) · [ADR-029](Decisions.md#adr-029) · [ADR-030](Decisions.md#adr-030) · [`../Toolchain.md`](../Toolchain.md) · [PLAN §3c, §3d](../PLAN.md) · [PROMPT#7](../../PROMPTS.md)
+
+### Action taken
+New document [`../Toolchain.md`](../Toolchain.md). Three ADRs added. ToC gained 32 chapters including 28 🧰 adoption chapters and 6 professional-practice chapters. `PLAN.md` gained §3c and §3d. `Practicals.md`, `CourseState.md`, `CompactContext.md`, `CLAUDE-MEMORY.md`, `README.md` and `ToDos.md` (T-023) updated.
+
+### In my own words
+*(yours to fill in)*
+
+---
+
 ## ⏸️ Parked
 
 *Questions consciously postponed, with a named chapter to revisit them at.*
@@ -308,4 +374,5 @@ Every ~20 doubts, come back and look for patterns. If four of your questions wer
 | Version | Date | Change |
 |---------|------|--------|
 | 1.0 | 2026-09-01 | Created at course inception. Table format. |
+| 2.1 | 2026-09-02 | D-007 added — free Blender/Godot libraries, the build-then-adopt pattern, and an honest answer on "AAA". |
 | 2.0 | 2026-09-02 | Rebuilt in the full entry format (Context / Question verbatim / Short answer / Full answer / Related / Action taken) after [D-006](#d-006) found the old format had nowhere to record the author's answer. D-005 back-filled; all six entries given full answers. |

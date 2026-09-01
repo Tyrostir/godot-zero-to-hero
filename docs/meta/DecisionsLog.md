@@ -281,3 +281,51 @@ update_trigger: "Every time a decision is made, revisited, superseded or reverse
 **Subtitles are mandatory, not a stretch goal.** Any narration shipped carries synchronised captions and a toggle. A phone gets played on mute, on a bus, by someone who is deaf, and by someone at 4% battery; all four are the same requirement. Designing the cue track for captions from the start produces a better system than retrofitting accessibility later.
 
 ---
+
+## 2026-09-02 — Session 002 (Toolchain audit)
+
+### 🔍 VERIFIED — The plan was ignoring the free ecosystem entirely
+
+**Context.** The learner asked which famous free Blender and Godot libraries exist, whether they could be adopted, and asked for the course to be restructured toward professional / industry-grade capability.
+
+**Finding.** The plan named a handful of tools in `ResourcesMeta.md` (Material Maker, Krita, Audacity, Mixamo) and **almost no libraries**. Not one Blender addon beyond Node Wrangler. Not one Godot addon. No dependency-evaluation teaching at all. For a course whose stated end goal is professional capability, that is a significant hole: **choosing and rejecting dependencies is a larger part of professional work than writing code is.**
+
+**Most consequential specific finding.** The **Chickensoft** ecosystem — maintained, MIT, **C#-first** Godot libraries. Its absence mattered more than any other because every public "best Godot addons" list is written for GDScript users, and most Godot addons *are* GDScript. From C# they work but cost type safety at exactly the boundary where it matters. A C# learner following the public lists ends up writing `Call("do_thing")` forever. This is a direct, previously unacknowledged consequence of [ADR-022](Decisions.md#adr-022).
+
+---
+
+### 🆕 DECIDED — ADR-028: Build it once by hand, then adopt the library
+
+**The design problem.** Adopting libraries naively would have destroyed [ADR-002](Decisions.md#adr-002). Refusing them would have produced a slow developer with a worse game and no professional habits.
+
+**Decision.** Three steps — **hand-build → compare (read the source) → decide and record why** — as 28 chapters numbered `N.Mb` and marked 🧰.
+
+**Rejected.** *Libraries first* (fast to a result, produces a developer helpless when the addon breaks — and in the Godot ecosystem it will: the 3→4 transition orphaned a great many). *Never use libraries* (the opposite failure). *Optional adoption* — step 3 is mandatory, and "a tutorial used it" is explicitly not a rationale.
+
+**Why the `b` suffix rather than renumbering.** `CourseState`'s tracker and progress bar are generated from the ToC, and the numbering had already been regenerated twice this session. A suffix keeps every existing reference stable *and* makes the hand-build/adopt pairing visible at a glance — it carries meaning rather than merely avoiding work.
+
+---
+
+### 🆕 DECIDED — ADR-029: The approved free toolchain
+
+New document [`../Toolchain.md`](../Toolchain.md): every library with licence, maintenance caveat, **C# viability**, mobile cost note, and its adoption chapter.
+
+**Everything stays free.** Where a paid tool is the industry default, the free equivalent is taught and the paid one named: Rigify not Auto-Rig Pro · Geometry Nodes / Proton Scatter not Scatter5 · QuadriFlow / RetopoFlow not Quad Remesher · ambientCG and Poly Haven not Quixel · Material Maker not Substance Designer.
+
+**Explicit rejections recorded**, because a rejection is as informative as an adoption: FMOD/Wwise (community integration + C# + Android compounds three risks — awareness only in 6.2b, no install), GPL addons in shipped code, and anything abandoned since Godot 4.0.
+
+---
+
+### 🆕 DECIDED — ADR-030: what "industry grade" means, and the honest limit of "AAA"
+
+**Context.** The learner asked to reach *"AAA standard — professional — industry grade."*
+
+**Decision.** Say plainly that **AAA describes budget and headcount, not quality** — 100–300 people, $50–200 M, three to five years — and is therefore not a solo outcome, while committing fully to **professional and industry-grade craft**, which is.
+
+**Why say it rather than quietly agree.** Agreeing would have been easier and would have set the learner up to measure a finished solo game against an impossible bar and conclude they had failed. The distinction also has *practical* consequences: it is why [ADR-019](Decisions.md#adr-019) locks scope and [ADR-010](Decisions.md#adr-010) refuses photoreal fidelity, and both of those are what make the game shippable.
+
+**Gaps closed to make "industry grade" true rather than aspirational.** Industry milestones (10.1b) · Kitsu production tracking (10.3b) · code standards with warnings-as-errors (9.2b) · structured logging (9.11b) · unit-testable scene code (9.9b) · storyboarding and previz (7.2b) · colour management (7.24b) · **the post-mortem** (10.11b) · **portfolio and breakdown reel** (10.20b).
+
+**Cost.** 32 chapters, **258 → 290**; pacing ~430–480 h → **~470–530 h**. Module 9 grew most (13 → 19), which is correct — that is where professional practice concentrates.
+
+---

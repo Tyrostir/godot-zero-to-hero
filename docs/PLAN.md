@@ -117,6 +117,32 @@ You build your first title screen in **Module 1** (chapter 1.35), not Module 7. 
 
 > 📎 Full project-by-project mapping: **[PresentationSpine.md](PresentationSpine.md)**.
 
+### 3c. Build it once, then adopt the library
+
+The course is built entirely on **free** tools — but it does not pretend the free ecosystem doesn't exist, and it does not teach you to reinvent everything. Every major system is met three times ([ADR-028](meta/Decisions.md#adr-028)):
+
+> **1️⃣ Hand-build it** → you understand the problem, not an API.
+> **2️⃣ Compare** with the free library that does it properly — install it, *read its source*, find what it does better and worse.
+> **3️⃣ Decide**, and write down why.
+
+Twenty-eight **adoption chapters** (numbered `N.Mb`, marked 🧰) do this: **Rigify** after you hand-rig a biped · **Phantom Camera** after you write a follow camera · **LogicBlocks** after your own state machine · **RetopoFlow** after hand retopology · **Terrain3D**, **Proton Scatter**, **Beehave/LimboAI**, **Dialogue Manager**, **GdUnit4**, **TexTools**, **FFmpeg**, **ImageMagick** and more.
+
+**Step 3 is mandatory.** "A tutorial used it" is not a rationale. Chapter **0.10** teaches the six evaluation questions — licence, maintenance, **does it work from C#**, mobile cost measured on device, abandonment risk, and could you write it in a day — and you apply them every time thereafter. Choosing and rejecting dependencies is a larger part of professional work than writing code is.
+
+⚠️ **One honest consequence of choosing C#**: most Godot addons are GDScript, and using them from C# costs you type safety and ergonomics. Three answers, all taught — prefer C#-native/GDExtension libraries (the **Chickensoft** ecosystem is the key find), wrap GDScript addons behind a C# interface (9.6b), and use **NuGet**, which GDScript users don't have (0.11).
+
+> 📎 Full catalogue, licences and caveats: **[Toolchain.md](Toolchain.md)**.
+
+### 3d. What "industry grade" means here
+
+You said you want to reach **AAA / professional / industry grade**. Two of those three are what this course targets in full. One deserves an honest word ([ADR-030](meta/Decisions.md#adr-030)).
+
+**"AAA" describes budget and headcount, not quality** — 100–300 people, $50–200 M, three to five years. No course produces that and no solo developer achieves it, because it is a statement about organisational scale rather than skill.
+
+**"Professional" and "industry grade" are entirely achievable**, and the course now teaches them explicitly: a real asset pipeline with measured budgets · production rigging · storyboards and previz · colour management · behaviour-tree AI · code standards with analyzers and warnings-as-errors · unit-testable scene code · structured logging and on-device profiling · CI that builds a signed artefact on every tag · **the milestones studios actually use** (first playable, vertical slice, alpha, beta, content lock, gold) · **production tracking with Kitsu** · structured playtesting · **a published post-mortem** · accessibility as a requirement · and **a portfolio and breakdown reel** to show a studio.
+
+At the end you will not have made a AAA game. You will have the craft, the pipeline discipline and the shipped evidence to work on one — or to make something small and excellent alone, which is the harder and rarer thing.
+
 Between modules there are also **Mini-Jams** — 2-to-4-hour constrained builds ("make a game where the only verb is *falling*") to force synthesis without hand-holding.
 
 ---
@@ -125,7 +151,7 @@ Between modules there are also **Mini-Jams** — 2-to-4-hour constrained builds 
 
 > Chapter-level detail is in **[TableOfContents.md](TableOfContents.md)**.
 
-**Module 0 — Toolchain & First APK.** Machines and their roles. Godot 4 .NET, .NET SDK, Blender, JDK, Android SDK. Git, `.gitignore`, LFS. Editor tour. **Ship P00 to your phone.**
+**Module 0 — Toolchain & First APK.** Machines and their roles. Godot 4 .NET, .NET SDK, Blender, JDK, Android SDK. Git, `.gitignore`, LFS. Editor tour. **Ship P00 to your phone.** Then: the Asset Library and **how to evaluate a dependency** (six questions), **NuGet**, and version management.
 
 **Module 1 — Godot Foundations (P01 Marble Runner).** Nodes and scenes. The scene tree. C# scripts, lifecycle, `[Export]`. 3D transforms, basis, quaternions-when-you-need-them. Physics bodies. Input: keyboard, touch, gesture, accelerometer. Camera rigs and `SpringArm3D`. Signals and C# events. UI, anchors, Android safe area. Scene switching, autoloads. Saving to `user://`.
 
@@ -180,19 +206,19 @@ There is no calendar here — you set the pace. But for calibration:
 
 | Module | Rough effort | Cumulative |
 |---|---|---|
-| 0 | 4–8 h | 8 h |
-| 1 | 24–34 h | 42 h |
-| 2 | 26–36 h | 78 h |
-| 3 | 32–42 h | 120 h |
-| 4 | 28–38 h | 158 h |
-| 5 | 26–36 h | 194 h |
-| 6 | 20–28 h | 222 h |
-| 7 | 30–40 h | 262 h |
-| 8 | 42–62 h | 324 h |
-| 9 | 21–31 h | 355 h |
-| 10 | 62–124 h | 479 h |
+| 0 | 6–10 h | 10 h |
+| 1 | 26–36 h | 46 h |
+| 2 | 29–40 h | 86 h |
+| 3 | 34–45 h | 131 h |
+| 4 | 31–42 h | 173 h |
+| 5 | 27–38 h | 211 h |
+| 6 | 21–29 h | 240 h |
+| 7 | 34–45 h | 285 h |
+| 8 | 44–65 h | 350 h |
+| 9 | 30–44 h | 394 h |
+| 10 | 70–135 h | 529 h |
 
-Roughly **430–480 hours** to a released game. At 10 h/week that is a year; at 20 h/week, six months. Both are normal. Track your actual hours in `meta/Journal.md` — after Module 2 you will be able to estimate your own speed, which is itself a professional skill.
+Roughly **470–530 hours** to a released game. At 10 h/week that is a year; at 20 h/week, six months. Both are normal. Track your actual hours in `meta/Journal.md` — after Module 2 you will be able to estimate your own speed, which is itself a professional skill.
 
 **Rhythm that works:** one chapter per session, ending on a green build and a commit. Never stop mid-chapter on a broken build — future-you will not remember what you were mid-thought about.
 

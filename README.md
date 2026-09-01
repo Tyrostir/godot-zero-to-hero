@@ -4,7 +4,7 @@
 
 This is not a book you read and then start. From Module 0 you have a `.apk` running on your own phone, and every chapter after that adds a real feature to a real game.
 
-> 🏋️ **258 chapter builds · ~515 chapter practicals · 44 standalone drills · 34 presentation deliverables · 11 projects · 4 mini-jams.**
+> 🏋️ **290 chapter builds · ~580 chapter practicals · 44 standalone drills · 34 presentation deliverables · 28 library adoptions · 11 projects · 4 mini-jams.**
 > **Chapters that begin with theory: 0.** That is enforced, not aspirational — see [ADR-002](docs/meta/Decisions.md#adr-002) and the audit in [docs/Practicals.md](docs/Practicals.md).
 
 ---
@@ -51,6 +51,7 @@ godot-zero-to-hero/
 │   ├── BlenderTrack.md             the Blender curriculum, B1–B42
 │   ├── Practicals.md               every hands-on unit, counted
 │   ├── PresentationSpine.md        story, screens, music, narration — per project
+│   ├── Toolchain.md                every free library/addon, and where we adopt it
 │   ├── Exercises.md                standalone drills, challenges, autopsies
 │   ├── GameDesignDocument.md       the capstone GDD (filled in during Module 7)
 │   │
@@ -99,6 +100,14 @@ Every chapter has the same shape, and it is enforced by [the mandatory template]
 
 **Theory is a debrief, never a gate.** And every major topic is met three times — naive, then correct, then professional — never all three at once.
 
+### Build it once, then adopt the library
+
+The course is free-tools-only, but it doesn't teach you to reinvent everything. Twenty-eight 🧰 **adoption chapters** follow this pattern ([ADR-028](docs/meta/Decisions.md#adr-028)):
+
+> **hand-build it** → **read the library's source** → **decide, and write down why**
+
+Rigify after you hand-rig a biped. Phantom Camera after you write a follow camera. LogicBlocks after your own state machine. RetopoFlow after hand retopology. Terrain3D, Proton Scatter, Beehave, Dialogue Manager, GdUnit4, TexTools, FFmpeg — all after you've felt the problem they solve. Full catalogue: **[Toolchain.md](docs/Toolchain.md)**.
+
 ---
 
 ## The project spine
@@ -131,6 +140,18 @@ Plus four **mini-jams** — timeboxed, constrained, no help given. Those are whe
 4. **Commit after every chapter.** Your git history becomes your revision notes.
 5. **Never stop mid-chapter on a broken build.** Future-you will not remember what you were mid-thought about.
 6. **If a chapter takes more than 2× its estimate, log it in [Doubts.md](docs/meta/Doubts.md) and move on.** Being stuck is data, not failure.
+
+---
+
+## On "AAA"
+
+You'll see the goal stated as *professional, industry grade* rather than AAA. That's deliberate and it's worth one paragraph ([ADR-030](docs/meta/Decisions.md#adr-030)).
+
+**AAA describes budget and headcount, not quality** — 100–300 people, $50–200 M, three to five years. No course produces that; it's a statement about organisational scale, not skill.
+
+**Professional and industry-grade craft is entirely achievable, and is what this course targets in full**: measured asset pipelines, production rigging, previz, colour management, behaviour-tree AI, code standards with warnings-as-errors, unit-testable scene code, on-device profiling, CI, the milestones studios actually use, production tracking with Kitsu, structured playtesting, a published post-mortem, accessibility as a requirement, and a portfolio reel to show a studio.
+
+At the end you won't have made a AAA game. You'll have the craft, the pipeline discipline and the shipped evidence to work on one — or to make something small and excellent alone, which is the harder and rarer thing.
 
 ---
 
