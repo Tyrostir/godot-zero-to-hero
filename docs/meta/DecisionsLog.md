@@ -349,3 +349,35 @@ The distinction is load-bearing: the first reading is an argument for switching 
 **Recorded as `[UNVERIFIED]`:** cross-language script *inheritance* is not supported (GDScript cannot extend a C# class or vice versa). The practical guidance — compose at the boundary, never inherit across it — holds regardless of version.
 
 ---
+
+### 🔄 REVISED — ADR-001: four languages, not one · 🆕 DECIDED — ADR-032: every library adopted
+
+**Context.** The learner asked for the course to be planned in **all three languages** (C++, C#, GDScript) rather than C# alone, and for **every** library and plugin explored in [D-007](Doubts.md#d-007) to be adopted — while keeping strictly to learning-by-doing.
+
+**Two design problems, and the resolutions.**
+
+**Problem 1 — teaching three languages naively triples the work and teaches none of them well.**
+
+Resolved by teaching **by role and by measurement**, never in parallel. Module 0 gains block **0B**, in which the learner builds the *same spinning cube* in GDScript (0.10), C# (0.11) and C++/GDExtension (0.13–0.14) and records build time, APK size, lines of code and iteration speed on their own hardware — then **writes the language decision table themselves in 0.17**.
+
+*Why this shape and not a comparison chapter.* Any course can assert "C++ is faster, GDScript iterates quicker". A number the learner produced on their own phone is one they believe, remember, and can defend — and they will notice when it stops being true for their hardware or Godot version. Asserting it would also have violated [ADR-002](Decisions.md#adr-002) directly: a table of language properties is theory, and theory does not open a chapter here.
+
+*Scope per language, deliberately unequal.* C# ~180 chapters (primary). GDScript **8**, each one a job where it is genuinely the better choice — `@tool` validators, an editor dock, addon consumption, and the wrapper pattern. C++ **7**, all earned, centred on **9.1e — the measured rewrite** (one profiled hot path, GDScript → C# → C++, benchmarked on the phone at each step). GDShader 12, now introduced in 0.16 rather than arriving unannounced in Module 5.
+
+*Rejected — making the languages co-primary.* Spreading ~180 gameplay chapters across three languages would teach three shallowly and none well, and would contradict [D-008](Doubts.md#d-008), where the case for C# primary was made and accepted.
+
+*Accepted honestly:* chapters 0.13–0.14 will take an afternoon and feel disproportionate. They are placed early precisely so that Module 9 can be about performance rather than about SCons.
+
+**Problem 2 — adopting ~50 libraries naively adds ~50 chapters and produces a tool catalogue.**
+
+That is the exact inversion of [ADR-002](Decisions.md#adr-002): "here is a list of addons" is not learning by doing. Resolved by **[ADR-032](Decisions.md#adr-032) — cluster by session, not by tool.** Where several small tools share a purpose they get one chapter in which **each is used once, on the learner's own asset**: B5b (five built-in Blender addons), B15b–d (asset browsers, Material Maker, the 2D toolchain), 4.2b–c (procedural generators), 1.13b–1.33b (Jolt, Input Helper, Panku Console, System.Text.Json), 9.10b–c, and others.
+
+Every cluster chapter still obeys [ADR-028](Decisions.md#adr-028) — it sits *after* the manual technique it accelerates.
+
+*Rejected:* one chapter per tool (bloat, and it inverts the course's priorities), and mentioning tools without a chapter (which is what the plan did before, and is how a "recommended tools" list becomes something nobody installs).
+
+*A useful accident:* **B31b** (MakeHuman + MB-Lab) becomes a **live case study in evaluation question #2**, because MB-Lab's maintenance has genuinely been patchy — a real example of what to do with a useful but under-maintained addon rather than a hypothetical one.
+
+**Consequences.** 41 chapters added, **292 → 333**. Module 0 restructured into 0A/0B/0C (14 → 21). Module 9 gains the C++ block 9.1c–9.1f (20 → 27). New document [`../Languages.md`](../Languages.md). `Toolchain.md` gains §7b, a coverage guarantee stating that nothing in it is listed and left unused. Pacing ~470–530 h → **~540–620 h**.
+
+---

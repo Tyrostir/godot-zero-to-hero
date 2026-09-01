@@ -10,6 +10,8 @@ update_trigger: "When a library is adopted, rejected, or its status changes"
 
 # 🧰 The Toolchain
 
+> 📎 **Companion document:** [`Languages.md`](Languages.md) — GDScript, C#, C++ and GDShader, which job goes to which, and how the course teaches all four.
+>
 > **The rule that governs this whole document ([ADR-028](meta/Decisions.md#adr-028)):**
 >
 > ### Build it once by hand. Then adopt the library. Then justify the choice.
@@ -312,6 +314,39 @@ The full adoption schedule. Every entry has a hand-built predecessor.
 | 10.6b | A hand-written AI state machine | **Beehave / LimboAI** | You know what the tree is replacing |
 | 10.17 | A hand-written CI workflow | **godot-ci** action | |
 | 6.2b | Godot's bus system | **FMOD / Wwise** — awareness only | |
+
+---
+
+## 7b. Coverage — everything here is used, nothing is merely listed
+
+**[ADR-032](meta/Decisions.md#adr-032): every library in this document has a chapter that uses it on real project content.** Nothing is recommended and left uninstalled.
+
+Where several small tools share a purpose they are **clustered into one doing-session** rather than given a chapter each — because 50 one-tool chapters would turn this course into a catalogue, which is the opposite of [ADR-002](meta/Decisions.md#adr-002).
+
+| Cluster chapter | Covers |
+|---|---|
+| **B5b** | LoopTools · Bool Tool · 3D-Print Toolbox · Extra Objects · Copy Attributes |
+| **B15b** | Poly Haven · ambientCG · BlenderKit addons |
+| **B15c** | Material Maker |
+| **B15d** | Krita · GIMP · Inkscape |
+| **4.2b** | A.N.T. Landscape · Sapling Tree Gen · Cell Fracture |
+| **4.2c** 🔬 | Blender GIS |
+| **4.4c** | HTerrain · Zylann Voxel Tools |
+| **B29b** | Rokoko Studio Live · Mixamo root-motion converters |
+| **B31b** | MakeHuman · MB-Lab *(and a live case study in evaluating an under-maintained addon)* |
+| **B34c** | Instant Meshes |
+| **B41b** | Cascadeur |
+| **5.20b** | OBS Studio · scrcpy |
+| **6.4b** | Ardour |
+| **7.19b** | Inkscape (logo/UI) · Krita (concept) |
+| **7.24c** | Blender Video Sequence Editor |
+| **0.20** | Godot Git Plugin · GodotEnv |
+| **1.13b / 1.16b / 1.31b / 1.33b** | Jolt · Input Helper · Panku Console · System.Text.Json |
+| **9.7c / 9.10b / 9.10c** | MemoryPack · MessagePack · a GDScript editor dock · the rest of Chickensoft |
+| **10.14b** | Play Games Services · Play Billing |
+| **11.3b** 🔬 | Sverchok · Animation Nodes |
+
+Each cluster chapter is a **doing** session — every tool is used once, on your own asset — and each sits *after* the manual technique it accelerates ([ADR-028](meta/Decisions.md#adr-028)).
 
 ---
 

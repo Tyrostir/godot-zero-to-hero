@@ -77,6 +77,7 @@ Some entries below have a **"In my own words"** line. That is yours to fill in, 
 | [D-006](#d-006) | 2026-09-02 | Course logistics | Will you keep documenting my `/btw` questions **and your answers**? | ✅ |
 | [D-007](#d-007) | 2026-09-02 | Course logistics | Which free Blender and Godot libraries exist, can we adopt them, and can I reach AAA? | ✅ |
 | [D-008](#d-008) | 2026-09-02 | Godot/C# | Would GDScript or C++ give more free libraries? And can one game use all three languages? | ✅ |
+| [D-009](#d-009) | 2026-09-02 | Course logistics | Restructure for all three languages and adopt **every** library we explored | ✅ |
 
 ---
 
@@ -428,6 +429,76 @@ Godot's .NET build runs **GDScript and C# in the same project simultaneously**, 
 
 ---
 
+## D-009
+
+**Date:** 2026-09-02 · **Context:** Immediately after [D-008](#d-008) · **Category:** Course logistics · **Status:** ✅ Answered
+
+### Question *(verbatim)*
+> Ok. Plan this course with all three (c++, C# and GDScript) languages not just C#. Plan wisely. And adopt ALL the libraries and ALL the plugins (we explored [for both blender and godot] just before) in the course plan. REMEMBER: STRICTLY LEARNING BY DOING APPROACH. Restructure all the course documents wisely without compromizing the quality.
+
+### Short answer
+Done — **333 chapters**, and the two hard parts were solved by design rather than by addition. Languages are taught by **building the same cube three ways and measuring it yourself** (Module 0 block 0B), so you *derive* the decision table rather than being handed it. Libraries are **clustered into doing-sessions** rather than given a chapter each, which is what stops "adopt everything" turning the course into a catalogue.
+
+### Full answer
+
+**The two design problems, and how each was solved.**
+
+*Problem 1 — teaching three languages naively triples the work and teaches none of them well.* Solved by **teaching by role and by measurement**, not in parallel. Module 0 gains a new block **0B — The four languages you will write**:
+
+| Chapter | You build | You measure |
+|---|---|---|
+| 0.10 | The cube in **GDScript** — six lines, no build step | Edit→see time |
+| 0.11 | The cube in **C#** — `partial`, class-name rule, `[Export]` | The same, now with a build |
+| **0.12** ⭐ | *(nothing new — you compare)* | Build time · APK size · LOC · iteration speed |
+| 0.13 | The cube as a **C++ GDExtension node** — `godot-cpp`, SCons | How long the toolchain honestly took |
+| 0.14 | That node **on your phone** — per-ABI builds, `.gdextension` | APK delta; does it run |
+| **0.15** ⭐ | *(the three-way comparison)* | Everything, on **your** hardware |
+| 0.16 | **GDShader** — a one-line fragment shader | That it is a different kind of thing entirely |
+| **0.17** | **The decision table — written by you, from your numbers** | Used for the next 300 chapters |
+
+Any course can assert *"C++ is faster, GDScript iterates quicker."* A number you produced on your own phone is one you believe, remember, and can defend — and you will notice when it stops being true for your hardware or Godot version. That is the difference between learning by doing and being told.
+
+⚠️ **0.13–0.14 will take an afternoon and feel disproportionate.** Deliberate. You will not touch C++ again until Module 9; doing the toolchain once now, when nothing depends on it, means Module 9 is about *performance* rather than about SCons.
+
+**Where each language actually lives** (full detail in [`../Languages.md`](../Languages.md)):
+
+- **C#** — ~180 chapters. Systems, architecture, data, saves, tests.
+- **GDScript** — **8 chapters where it is genuinely the right choice**, not token ones: `@tool` animation validator (3.2b), `@tool` level validator (4.9b), a full editor plugin with a custom dock (9.10b), consuming Panku Console from C# (1.31b), evaluating Dialogue Manager/Dialogic (7.10b) and Beehave (10.6b), and the wrapper pattern (9.6b).
+- **C++/GDExtension** — **7 chapters, all earned.** The centrepiece is **9.1e — the measured rewrite**: take one profiled hot path, implement it GDScript → C# → C++, benchmark each step **on the phone**, and decide where to stop. That chapter is what makes *"use C++ only after profiling"* a fact you have proven rather than a slogan you were given.
+- **GDShader** — Module 5's twelve chapters, now introduced in 0.16 so it is not a surprise.
+
+*Problem 2 — adopting ~50 libraries naively adds ~50 chapters and produces a tool catalogue*, which is the exact opposite of [ADR-002](Decisions.md#adr-002). Solved by **[ADR-032](Decisions.md#adr-032): cluster by session, not by tool.** Where several small tools share a purpose they get **one chapter in which each is used once, on your own asset**:
+
+| Cluster | Covers |
+|---|---|
+| **B5b** | LoopTools · Bool Tool · 3D-Print Toolbox · Extra Objects · Copy Attributes |
+| **B15b/c/d** | Poly Haven · ambientCG · BlenderKit · Material Maker · Krita · GIMP · Inkscape |
+| **4.2b/c** | A.N.T. Landscape · Sapling · Cell Fracture · Blender GIS |
+| **4.4c** | HTerrain · Zylann Voxel Tools |
+| **B29b · B31b · B34c · B41b** | Rokoko · Mixamo converters · MakeHuman · MB-Lab · Instant Meshes · Cascadeur |
+| **1.13b/1.16b/1.31b/1.33b** | Jolt · Input Helper · Panku Console · System.Text.Json |
+| **9.7c/9.10b/9.10c** | MemoryPack · MessagePack · a GDScript editor dock · the rest of Chickensoft |
+| **5.20b · 6.4b · 7.19b · 7.24c · 0.20 · 10.14b · 11.3b** | OBS · scrcpy · Ardour · Inkscape · Blender VSE · Git Plugin · GodotEnv · Play Games/Billing · Sverchok · Animation Nodes |
+
+Every cluster chapter is still a **doing** session — each tool used once on real content — and every one still sits *after* the manual technique it accelerates ([ADR-028](Decisions.md#adr-028)). MACHIN3tools after manual hard-surface work. The asset browsers after you have sourced and licence-checked by hand. Instant Meshes after hand retopology.
+
+**One genuinely useful accident:** **B31b** (MakeHuman + MB-Lab) becomes a **live case study in evaluation question #2** — MB-Lab's maintenance has been patchy, so it is a real example of deciding what to do with a useful but under-maintained addon, rather than a hypothetical one.
+
+**Cost, stated plainly.** 41 chapters added, **292 → 333**. Pacing ~470–530 h → **~540–620 h**. Modules 0 (21→ from 14), 4, 9 (27) and 2 (34) grew most. That is a long course — but it is the course you asked for, and the clustering is what stops it being a much longer and much worse one.
+
+**What I did *not* do, and why.** I did not make GDScript or C++ co-primary. Spreading ~180 gameplay chapters across three languages would have taught three languages shallowly and none well, and would have contradicted [D-008](#d-008), where the case for keeping C# primary was made and accepted. Each language is scoped to the jobs it is clearly best at, and the boundary rule — **every seam in one wrapper file** — is what keeps four languages from becoming four sets of problems.
+
+### Related
+[ADR-001](Decisions.md#adr-001) *(revised)* · [ADR-031](Decisions.md#adr-031) · [ADR-032](Decisions.md#adr-032) · [`../Languages.md`](../Languages.md) · [`../Toolchain.md` §7b](../Toolchain.md) · [PLAN §3c-2](../PLAN.md)
+
+### Action taken
+New document [`../Languages.md`](../Languages.md). [ADR-001](Decisions.md#adr-001) revised to four languages; [ADR-032](Decisions.md#adr-032) added. Module 0 restructured into blocks 0A/0B/0C (14 → 21 chapters). 41 chapters added across all modules including the Module 9 C++ block (9.1c–9.1f). `Toolchain.md` gained §7b (coverage guarantee). `PLAN.md` gained §3c-2 and a refreshed pacing table. `CourseState.md` tracker regenerated. `Practicals.md`, `README.md`, `CompactContext.md`, `CLAUDE-MEMORY.md` updated.
+
+### In my own words
+*(yours to fill in)*
+
+---
+
 ## ⏸️ Parked
 
 *Questions consciously postponed, with a named chapter to revisit them at.*
@@ -453,6 +524,7 @@ Every ~20 doubts, come back and look for patterns. If four of your questions wer
 | Version | Date | Change |
 |---------|------|--------|
 | 1.0 | 2026-09-01 | Created at course inception. Table format. |
+| 2.3 | 2026-09-02 | D-009 added — four-language restructure and full library adoption. |
 | 2.2 | 2026-09-02 | D-008 added — language ecosystems compared, and multi-language development confirmed. |
 | 2.1 | 2026-09-02 | D-007 added — free Blender/Godot libraries, the build-then-adopt pattern, and an honest answer on "AAA". |
 | 2.0 | 2026-09-02 | Rebuilt in the full entry format (Context / Question verbatim / Short answer / Full answer / Related / Action taken) after [D-006](#d-006) found the old format had nowhere to record the author's answer. D-005 back-filled; all six entries given full answers. |

@@ -404,3 +404,45 @@ Recorded as **[ADR-031 — polyglot by design](docs/meta/Decisions.md#adr-031)**
 ### Artefacts changed
 
 `docs/meta/Decisions.md` (ADR-031; ADR-029 correction) · `docs/meta/DecisionsLog.md` · `docs/meta/Doubts.md` ([D-008](docs/meta/Doubts.md#d-008)) · `docs/Toolchain.md` (§4b language comparison, §4c multi-language development) · `docs/TableOfContents.md` (0.10b, 9.1b; 11.4 and 11.5 expanded) · `docs/PLAN.md` §3c · `docs/meta/CourseState.md` (regenerated, 292) · `docs/meta/CompactContext.md` · `docs/internal/CLAUDE-MEMORY.md` · `docs/Practicals.md` · `README.md`.
+
+---
+
+## PROMPT#9
+
+**Date:** 2026-09-02 · **Session:** 002
+
+### Prompt (verbatim)
+
+```text
+Ok. Plan this course with all three (c++, C# and GDScript) languages not just C#. Plan wisely. And
+adopt ALL the libraries and ALL the plugins (we explored [for both blender and godot] just before) in
+the course plan. REMEMBER: STRICTLY LEARNING BY DOING APPROACH. Restructure all the course documents
+wisely without compromizing the quality.
+```
+
+### Response
+
+Two design problems had to be solved by *design* rather than by addition, because doing either naively would have broken [ADR-002](docs/meta/Decisions.md#adr-002).
+
+**Problem 1 — three languages taught naively triples the work and teaches none well.** Resolved by teaching **by role and by measurement**. Module 0 gains block **0B**: the learner builds the *same spinning cube* in GDScript (0.10), C# (0.11) and C++/GDExtension (0.13–0.14), records build time, APK size, lines of code and iteration speed on their own hardware, and then **writes the language decision table themselves in 0.17**.
+
+The alternative — a comparison chapter — would have violated the practical-first mandate directly: a table of language properties is theory, and theory does not open a chapter here. It would also have been less useful. Any course can assert "C++ is faster"; a number you produced on your own phone is one you believe and can defend, and you will notice when it stops being true for your hardware.
+
+Scope per language is deliberately unequal: **C# ~180** chapters (primary); **GDScript 8**, each a job where it is genuinely better (`@tool` validators, an editor dock, addon consumption, the wrapper pattern); **C++ 7**, all earned, centred on **9.1e — the measured rewrite** (one profiled hot path, GDScript → C# → C++, benchmarked on the phone at each step, decide where to stop); **GDShader 12**, now introduced in 0.16 rather than arriving unannounced in Module 5.
+
+I did **not** make them co-primary. Spreading ~180 gameplay chapters across three languages teaches three shallowly and none well, and would contradict [D-008](docs/meta/Doubts.md#d-008) where the case for C# primary was made and accepted.
+
+**Problem 2 — adopting ~50 libraries naively adds ~50 chapters and produces a tool catalogue**, the exact inversion of learning by doing. Resolved by **[ADR-032](docs/meta/Decisions.md#adr-032) — cluster by session, not by tool**: where several small tools share a purpose they get one chapter in which each is used once, on the learner's own asset. Every cluster still sits *after* the manual technique it accelerates ([ADR-028](docs/meta/Decisions.md#adr-028)).
+
+**Cost, stated plainly:** 41 chapters, **292 → 333**; pacing ~470–530 h → **~540–620 h**. Told the learner this directly rather than burying it.
+
+### Standing instructions extracted
+
+22. **Teach all four languages, scoped by role, and always by measurement rather than assertion** → [ADR-001](docs/meta/Decisions.md#adr-001) *(revised)*
+23. **Every catalogued library gets a chapter that uses it on real content — clustered, never a catalogue** → [ADR-032](docs/meta/Decisions.md#adr-032)
+
+### Artefacts changed
+
+**New:** `docs/Languages.md`.
+**Restructured:** `docs/TableOfContents.md` (Module 0 → blocks 0A/0B/0C; +41 chapters incl. the Module 9 C++ block 9.1c–9.1f) · `docs/meta/CourseState.md` (tracker and progress bar regenerated, 333).
+**Updated:** `docs/meta/Decisions.md` (ADR-001 revised; ADR-032 added) · `docs/meta/DecisionsLog.md` · `docs/meta/Doubts.md` ([D-009](docs/meta/Doubts.md#d-009)) · `docs/Toolchain.md` (§7b coverage guarantee) · `docs/PLAN.md` (§3c-2, pacing) · `docs/Practicals.md` · `docs/meta/CompactContext.md` · `docs/internal/CLAUDE-MEMORY.md` · `README.md`.

@@ -27,7 +27,8 @@ update_trigger: "End of every session — regenerate from CourseState + Decision
 ## WHAT
 
 - **Course:** *Godot Zero to Hero* — 3D **Android** game development with **Godot 4 (.NET / C#)** and **Blender**.
-- **Shape:** 12 modules · **292 chapters** (54 Blender · 30 🧰 library-adoption · 34 🎬 presentation) · **11 projects** · 4 mini-jams · ~470–530 h.
+- **Shape:** 12 modules · **333 chapters** (66 Blender · 63 🧰 adoption · 34 🎬 presentation) · **11 projects** · 4 mini-jams · ~540–620 h.
+- **Languages:** **C# primary** (~180 ch) · GDScript (8) · C++/GDExtension (7) · GDShader (12). All four taught; see [`../Languages.md`](../Languages.md).
 - **Repo:** ✅ [`https://github.com/Tyrostir/godot-zero-to-hero`](https://github.com/Tyrostir/godot-zero-to-hero) — live, pushed 2026-09-01.
 - **Authoring path:** `/root/claude/godot-zero-to-hero` (Termux).
 - **Deliverable:** a Markdown course + 11 Godot projects + a released Android game (*Ember Hollow*, working title).
@@ -38,7 +39,7 @@ update_trigger: "End of every session — regenerate from CourseState + Decision
 |---|---|
 | Phase | **1 — planning** |
 | Plan | ⏳ **Awaiting approval** |
-| Chapters published | **0 / 292** |
+| Chapters published | **0 / 333** |
 | Setup guides | **5 / 5 drafted** — all `[UNVERIFIED]`, none run |
 | Projects shipped | **0 / 11** |
 | Toolchain installed | ❌ nothing yet |
@@ -113,6 +114,7 @@ P10 Ember Hollow     M10  4 levels + boss, released to itch.io + Play internal t
 | Blender curriculum B1–B42 | [`../BlenderTrack.md`](../BlenderTrack.md) |
 | Story / screens / music / narration per project | [`../PresentationSpine.md`](../PresentationSpine.md) |
 | Free libraries, licences, adoption chapters | [`../Toolchain.md`](../Toolchain.md) |
+| The four languages and which job goes to which | [`../Languages.md`](../Languages.md) |
 | Project briefs + done-criteria | [`../../projects/README.md`](../../projects/README.md) |
 | Standalone drills | [`../Exercises.md`](../Exercises.md) |
 | Self-check Q&A | [`../reference/QuestionBank.md`](../reference/QuestionBank.md) → [`answers/`](../reference/answers/) |

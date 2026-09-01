@@ -1,10 +1,13 @@
 # Godot Zero to Hero
 
-**3D game development for Android — Godot 4 (.NET / C#) and Blender — taught entirely by building things.**
+**3D game development for Android — Godot 4 and Blender — taught entirely by building things.**
+
+**Four languages: C# (primary), GDScript, C++/GDExtension and GDShader.** Every free library and addon in the ecosystem, adopted only after you have hand-built what it replaces.
 
 This is not a book you read and then start. From Module 0 you have a `.apk` running on your own phone, and every chapter after that adds a real feature to a real game.
 
-> 🏋️ **292 chapter builds · ~580 chapter practicals · 44 standalone drills · 34 presentation deliverables · 28 library adoptions · 11 projects · 4 mini-jams.**
+> 🏋️ **333 chapter builds · ~660 chapter practicals · 44 standalone drills · 34 presentation deliverables · 63 library adoptions · 11 projects · 4 mini-jams.**
+> **Four languages** — C# (primary), GDScript, C++/GDExtension and GDShader — each taught where it earns its place.
 > **Chapters that begin with theory: 0.** That is enforced, not aspirational — see [ADR-002](docs/meta/Decisions.md#adr-002) and the audit in [docs/Practicals.md](docs/Practicals.md).
 
 ---
@@ -52,6 +55,7 @@ godot-zero-to-hero/
 │   ├── Practicals.md               every hands-on unit, counted
 │   ├── PresentationSpine.md        story, screens, music, narration — per project
 │   ├── Toolchain.md                every free library/addon, and where we adopt it
+│   ├── Languages.md                C#, GDScript, C++, GDShader — which job goes to which
 │   ├── Exercises.md                standalone drills, challenges, autopsies
 │   ├── GameDesignDocument.md       the capstone GDD (filled in during Module 7)
 │   │

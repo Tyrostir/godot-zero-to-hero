@@ -125,7 +125,7 @@ The course is built entirely on **free** tools — but it does not pretend the f
 > **2️⃣ Compare** with the free library that does it properly — install it, *read its source*, find what it does better and worse.
 > **3️⃣ Decide**, and write down why.
 
-Twenty-eight **adoption chapters** (numbered `N.Mb`, marked 🧰) do this: **Rigify** after you hand-rig a biped · **Phantom Camera** after you write a follow camera · **LogicBlocks** after your own state machine · **RetopoFlow** after hand retopology · **Terrain3D**, **Proton Scatter**, **Beehave/LimboAI**, **Dialogue Manager**, **GdUnit4**, **TexTools**, **FFmpeg**, **ImageMagick** and more.
+Sixty-three **adoption and variant chapters** (numbered `N.Mb`, `N.Mc`…, marked 🧰) do this, and **[ADR-032](meta/Decisions.md#adr-032) guarantees every library in the catalogue is actually used on real project content** — clustered into doing-sessions where several small tools share a purpose, never listed and left uninstalled: **Rigify** after you hand-rig a biped · **Phantom Camera** after you write a follow camera · **LogicBlocks** after your own state machine · **RetopoFlow** after hand retopology · **Terrain3D**, **Proton Scatter**, **Beehave/LimboAI**, **Dialogue Manager**, **GdUnit4**, **TexTools**, **FFmpeg**, **ImageMagick** and more.
 
 **Step 3 is mandatory.** "A tutorial used it" is not a rationale. Chapter **0.10** teaches the six evaluation questions — licence, maintenance, **does it work from C#**, mobile cost measured on device, abandonment risk, and could you write it in a day — and you apply them every time thereafter. Choosing and rejecting dependencies is a larger part of professional work than writing code is.
 
@@ -134,6 +134,25 @@ Twenty-eight **adoption chapters** (numbered `N.Mb`, marked 🧰) do this: **Rig
 **And you are not restricted to one language** ([ADR-031](meta/Decisions.md#adr-031)). Godot's .NET build runs **GDScript and C# side by side**, and a **C++ GDExtension class registers as an engine type both can use**. The course teaches this deliberately: **C# primary** for systems and architecture, **GDScript secondary** for `@tool` editor scripts and addon glue, **C++ last resort** for a hot path you have measured. Every boundary lives in one wrapper file. Chapters **0.10b** and **9.1b**.
 
 > 📎 Full catalogue, licences and caveats: **[Toolchain.md](Toolchain.md)**.
+
+### 3c-2. Four languages, taught by measurement
+
+Godot genuinely uses four languages, and this course teaches all four — each scoped to the jobs it is best at ([ADR-001](meta/Decisions.md#adr-001), [ADR-031](meta/Decisions.md#adr-031)).
+
+| Language | Role | Chapters | You write it for |
+|----------|------|----------|------------------|
+| **C#** | 🥇 Primary | ~180 | Gameplay systems, architecture, data, saves, tests |
+| **GDScript** | 🥈 Secondary | 8 | `@tool` editor scripts, editor plugins, addon glue, prototyping |
+| **C++** (GDExtension) | 🥉 Last resort | 7 | A hot path you have **measured**; wrapping native libraries |
+| **GDShader** | 🎨 GPU | 12 | Anything running per-vertex or per-pixel |
+
+**You are not told the differences — you measure them.** Module 0's block **0B** builds the *same spinning cube* in GDScript (0.10), C# (0.11) and C++ (0.13–0.14), on your own hardware, recording build time, APK size, lines of code and iteration speed. In **0.17 you write the language decision table yourself, from your own numbers**, and use it for the next 300 chapters.
+
+> ⚠️ **0.13–0.14 will take an afternoon and will feel disproportionate.** That's deliberate. You won't need C++ again until Module 9 — doing the toolchain once now, when nothing depends on it, means Module 9 is about *performance* rather than about SCons.
+
+**The rule that keeps four languages from becoming four sets of problems:** every boundary lives in **one wrapper file**. Chapters 9.1c and 9.6b.
+
+> 📎 Full curriculum: **[Languages.md](Languages.md)**.
 
 ### 3d. What "industry grade" means here
 
@@ -208,19 +227,19 @@ There is no calendar here — you set the pace. But for calibration:
 
 | Module | Rough effort | Cumulative |
 |---|---|---|
-| 0 | 6–10 h | 10 h |
-| 1 | 26–36 h | 46 h |
-| 2 | 29–40 h | 86 h |
-| 3 | 34–45 h | 131 h |
-| 4 | 31–42 h | 173 h |
-| 5 | 27–38 h | 211 h |
-| 6 | 21–29 h | 240 h |
-| 7 | 34–45 h | 285 h |
-| 8 | 44–65 h | 350 h |
-| 9 | 30–44 h | 394 h |
-| 10 | 70–135 h | 529 h |
+| 0 | 12–18 h | 18 h |
+| 1 | 30–42 h | 60 h |
+| 2 | 34–46 h | 106 h |
+| 3 | 36–48 h | 154 h |
+| 4 | 36–48 h | 202 h |
+| 5 | 30–42 h | 244 h |
+| 6 | 23–32 h | 276 h |
+| 7 | 36–48 h | 324 h |
+| 8 | 50–72 h | 396 h |
+| 9 | 42–60 h | 456 h |
+| 10 | 72–140 h | 596 h |
 
-Roughly **470–530 hours** to a released game. At 10 h/week that is a year; at 20 h/week, six months. Both are normal. Track your actual hours in `meta/Journal.md` — after Module 2 you will be able to estimate your own speed, which is itself a professional skill.
+Roughly **540–620 hours** to a released game. At 10 h/week that is a year; at 20 h/week, six months. Both are normal. Track your actual hours in `meta/Journal.md` — after Module 2 you will be able to estimate your own speed, which is itself a professional skill.
 
 **Rhythm that works:** one chapter per session, ending on a green build and a commit. Never stop mid-chapter on a broken build — future-you will not remember what you were mid-thought about.
 

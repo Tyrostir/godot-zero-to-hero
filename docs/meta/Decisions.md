@@ -23,7 +23,7 @@ update_trigger: "Whenever a decision is made, changed, or superseded"
 
 | ID | Decision | Category | Status |
 |----|----------|----------|--------|
-| [ADR-001](#adr-001) | Godot 4.x **.NET build** with **C#** is the engine and language | Product | ✅ |
+| [ADR-001](#adr-001) | Godot 4.x .NET build; **four languages taught — C# primary, GDScript, C++, GDShader** | Product | ✅ |
 | [ADR-002](#adr-002) | **The Practical-First Mandate** — every chapter opens with a build | Pedagogy | ✅ |
 | [ADR-003](#adr-003) | Blender is **braided into** the course, not appended to it | Pedagogy | ✅ |
 | [ADR-004](#adr-004) | Desktop = workshop · phone = target · Termux = notebook | Environment | ✅ |
@@ -54,18 +54,32 @@ update_trigger: "Whenever a decision is made, changed, or superseded"
 | [ADR-029](#adr-029) | The approved free toolchain, and dependency-evaluation as a taught skill | Tooling | ✅ |
 | [ADR-030](#adr-030) | What "industry grade" means here — and the honest limit of "AAA" | Product | ✅ |
 | [ADR-031](#adr-031) | **Polyglot by design** — C# primary, GDScript for tooling and addon glue, C++ only after profiling | Product | ✅ |
+| [ADR-032](#adr-032) | **Every library in `Toolchain.md` is adopted**, clustered so it stays learning-by-doing | Pedagogy | ✅ |
 
 ---
 
 ## ADR-001
-### Godot 4.x (.NET build) with C# is the engine and language
-**Status:** ✅ Active · **Category:** Product
+### Godot 4 (.NET build); four languages taught, C# primary
+**Status:** ✅ Active *(revised 2026-09-02)* · **Category:** Product
 
-Godot 4's `.NET` build, scripting in **C#**, targeting **Android**, in **3D**.
+Godot 4's `.NET` build, targeting **Android**, in **3D**. **Four languages are taught**, each scoped to the jobs it is genuinely best at ([ADR-031](#adr-031)):
 
-**Why.** Directly requested. C# is also the more transferable skill — it carries to Unity, to backend work, and to general software engineering in a way GDScript does not. Godot is free, open source, has no revenue share, exports to Android natively, and its 3D renderer has a dedicated Mobile path.
+| Language | Role | Chapters |
+|----------|------|----------|
+| **C#** | 🥇 Primary — systems, architecture, data, tests | ~180 |
+| **GDScript** | 🥈 Secondary — `@tool` scripts, editor plugins, addon glue, prototyping | 8 |
+| **C++** (GDExtension) | 🥉 Last resort — measured hot paths, native wrapping | 7 |
+| **GDShader** | 🎨 GPU — its own execution model | 12 |
 
-**Consequences.** See [ADR-022](#adr-022) — C# on Android is a genuinely less-travelled path and we accept that cost deliberately.
+Full curriculum: [`../Languages.md`](../Languages.md).
+
+**Why C# is primary.** Directly requested, and it is the more transferable skill — it carries to Unity, to backend work, and to general software engineering in a way GDScript does not. NuGet is also a far larger ecosystem than Godot's Asset Library, and static typing pays for itself across a 333-chapter project.
+
+**Why all four rather than C# alone.** *(revision, 2026-09-02)* Godot genuinely uses four languages, and a course that teaches one leaves the learner unable to write an editor tool, unable to read or patch the (mostly GDScript) addon ecosystem, and unable to fix a performance problem that C# cannot fix. Restricting to C# was a simplification that cost more than it saved.
+
+**How they are taught — by measurement, not assertion** ([ADR-031](#adr-031)). Module 0 block **0B** builds the *same spinning cube* in GDScript, C# and C++, on the learner's own hardware, and has them record build time, APK size, lines of code and iteration speed. **They write the decision table in 0.17 from their own numbers.** A course can assert "C++ is faster"; a number you produced yourself is one you believe and can defend — and you will notice when the received wisdom stops being true for your hardware.
+
+**Consequences.** See [ADR-022](#adr-022) — C# on Android is a less-travelled path, accepted deliberately. And [ADR-031](#adr-031) for the boundary rules that keep four languages from becoming four sets of problems.
 
 ---
 
@@ -514,6 +528,37 @@ Godot's .NET build runs **GDScript and C# side by side in one project**, and a *
 
 ---
 
+## ADR-032
+### Every library in the toolchain is adopted — clustered, so it stays learning-by-doing
+**Status:** ✅ Active *(decided 2026-09-02)* · **Category:** Pedagogy
+
+**Every** free library and addon catalogued in [`../Toolchain.md`](../Toolchain.md) now has a chapter that uses it on real project content. Nothing is listed and left unused.
+
+**The design problem this had to solve.** One chapter per library would have added ~50 chapters and turned the course into a **tool catalogue** — the exact opposite of [ADR-002](#adr-002). "Here is a list of addons" is not learning by doing.
+
+**The resolution: cluster by session, not by tool.** Where several small tools share a purpose, they get **one chapter in which each is used once, on the learner's own asset**. For example:
+
+| Cluster chapter | Covers |
+|---|---|
+| **B5b** The built-in addons, used once each | LoopTools · Bool Tool · 3D-Print Toolbox · Extra Objects · Copy Attributes |
+| **B15b** The CC0 asset browsers | Poly Haven · ambientCG · BlenderKit |
+| **B15d** The free 2D toolchain | Krita · GIMP · Inkscape |
+| **4.2b** Blender's procedural generators | A.N.T. Landscape · Sapling Tree Gen · Cell Fracture |
+| **0.20** Dev-loop tools | Godot Git Plugin · GodotEnv |
+| **B29b** Retargeting tools | Rokoko Studio Live · Mixamo root-motion converters |
+| **5.20b** Capture tools | OBS Studio · scrcpy |
+| **9.10c** The rest of Chickensoft | Collections · PowerUps |
+
+**Every cluster chapter still obeys [ADR-002](#adr-002)**: the Build section is *using* each tool on real content, not reading about it. A chapter that merely describes tools has failed and gets rewritten.
+
+**And every adoption still obeys [ADR-028](#adr-028)** — hand-build first, then adopt, then record the decision. Cluster chapters sit *after* the manual technique they accelerate: MACHIN3tools after manual hard-surface work; the asset browsers after you have sourced and licence-checked assets by hand; Instant Meshes after hand retopology.
+
+**Two rejections worth recording.** *One chapter per tool* — bloat, and it inverts the course's priorities. *Mentioning tools in passing without a chapter* — which is what the plan did before, and it is how a "recommended tools" list becomes something nobody ever actually installs.
+
+**Cost.** 41 chapters added (292 → 333) and pacing rises to roughly **540–620 h**. Accepted: the alternative is a catalogue the learner never opens.
+
+---
+
 ## 📝 Changelog
 
 | Version | Date | Change |
@@ -523,4 +568,5 @@ Godot's .NET build runs **GDScript and C# side by side in one project**, and a *
 | 1.2 | 2026-09-02 | ADR-026 (Presentation Spine) and ADR-027 (narration, mandatory subtitles) added after a plan-review audit. Course grows 215 → 258 chapters. |
 | 1.3 | 2026-09-02 | ADR-011 amended: **both** the question and the author's full answer are logged in `Doubts.md`, unprompted, every turn. Prompted by [D-006](Doubts.md#d-006). |
 | 1.4 | 2026-09-02 | ADR-028 (build-then-adopt), ADR-029 (the free toolchain), ADR-030 (what "industry grade" honestly means). Course grows 258 → 290 chapters; new `Toolchain.md`. Prompted by [D-007](Doubts.md#d-007). |
+| 1.6 | 2026-09-02 | ADR-001 revised — **four languages taught**, C# primary; Module 0 restructured into 0A/0B/0C with the "same cube three ways" measured comparison. ADR-032 — every catalogued library adopted, clustered. Course 292 → **333**. Prompted by [D-009](Doubts.md#d-009). |
 | 1.5 | 2026-09-02 | ADR-031 (polyglot by design). Corrects a misreadable claim in ADR-029: C# loses addon *ergonomics*, not addon *access*. Chapters 0.10b and 9.1b added → 292. Prompted by [D-008](Doubts.md#d-008). |

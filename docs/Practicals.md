@@ -18,15 +18,15 @@ update_trigger: "When a practical, drill, challenge, jam or project is added or 
 
 | Kind | Marker | What it is | Where it lives | Count |
 |------|--------|-----------|----------------|-------|
-| **Chapter Build** | 🔨 | The mandatory first section of *every* chapter. You are building within the first screen of text. | Inside each chapter | **292** |
-| **Chapter Practical** | 🏋️ | 1–3 drills at the end of each chapter that *change* what you just built | Inside each chapter | **~580** |
+| **Chapter Build** | 🔨 | The mandatory first section of *every* chapter. You are building within the first screen of text. | Inside each chapter | **333** |
+| **Chapter Practical** | 🏋️ | 1–3 drills at the end of each chapter that *change* what you just built | Inside each chapter | **~660** |
 | **Standalone Drill / Challenge / Autopsy** | 🔁 / 🧗 / 🔍 | Repeatable skill-builders, unscaffolded challenges, and analyses of existing work | [`Exercises.md`](Exercises.md) | **44** |
 | **Project** | 🚢 | A complete, playable, deployed-to-phone milestone | [`../projects/README.md`](../projects/README.md) | **11** |
 | **Mini-Jam** | ⏱️ | Timeboxed, constrained, *no help given* | [`../projects/README.md#mini-jams`](../projects/README.md#mini-jams) | **4** |
 | **Presentation deliverable** | 🎬 | A title screen, ending screen, music pass, narration or walkthrough shipped with a project | [`PresentationSpine.md`](PresentationSpine.md) | **34** |
-| **Library adoption** | 🧰 | Install a free library, read its source, measure it on device, and record a decision | [`Toolchain.md`](Toolchain.md) | **30** |
+| **Library adoption** | 🧰 | Install a free library, read its source, measure it on device, and record a decision | [`Toolchain.md`](Toolchain.md) | **63** |
 
-**Total distinct hands-on units: ~963.**
+**Total distinct hands-on units: ~1,110.**
 **Chapters that begin with theory: 0.** That is a hard rule, not an aspiration ([ADR-002](meta/Decisions.md#adr-002)).
 
 > 🐣🚶🏃 **Paths and practicals** ([ADR-024](meta/Decisions.md#adr-024)). ⭐ practicals are done by **every** path — they are the ones without which the chapter didn't happen. Unmarked practicals are Paths A and B. 🔬 deep-dive practicals are Paths B and C. Path A gets complete code listings for every build; Path C gets the Fast-Track Summary and the ⭐ practicals only.
