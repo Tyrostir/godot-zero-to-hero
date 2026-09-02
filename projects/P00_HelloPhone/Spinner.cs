@@ -8,6 +8,7 @@ public partial class Spinner : MeshInstance3D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+							
 		GD.Print($"Hello Phone - running on {OS.GetName()}, {Engine.GetVersionInfo()["string"]}");
 		GD.Print($"Spinning at {DegreesPerSecond}°/s.");
 		
@@ -19,6 +20,9 @@ public partial class Spinner : MeshInstance3D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+		DebugDraw3D.DrawLine(GlobalPosition,
+							 GlobalPosition - GlobalTransform.Basis.Z * 2f,
+							 Colors.Yellow);
 		RotateY(Mathf.DegToRad(DegreesPerSecond) * (float) delta);
 	}
 }
