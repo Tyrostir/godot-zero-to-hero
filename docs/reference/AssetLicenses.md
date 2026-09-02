@@ -19,7 +19,7 @@ update_trigger: "The moment any asset is downloaded — before it is used"
 Three reasons:
 
 1. **Attribution obligations are legal, and they are cheap now and expensive later.** CC-BY requires visible credit. Six months from now you will not remember which of 200 textures came from where, and "I can't prove I'm allowed to use this" is how finished games fail to ship.
-2. **Chapter 7.19 generates your in-game credits roll directly from this table.** If the ledger is complete, your credits screen is free. If it isn't, you will spend a miserable weekend reconstructing it from browser history.
+2. **Chapter 8.19 generates your in-game credits roll directly from this table.** If the ledger is complete, your credits screen is free. If it isn't, you will spend a miserable weekend reconstructing it from browser history.
 3. **It forces you to read the licence at download time**, which is the only moment you can still cheaply choose a different asset.
 
 ---
@@ -73,13 +73,13 @@ Also log what **you** made, so the credits roll is complete and so you can find 
 
 ## Pre-release audit
 
-Before P10 ships (chapter 10.19), work through this:
+Before P10 ships (chapter 11.19), work through this:
 
 - [ ] Every asset in the build has a row here
 - [ ] No row has licence `CC-BY-NC`, `CC-BY-ND`, or blank
 - [ ] Every CC-BY / OGA-BY row's attribution string appears in the in-game credits
 - [ ] Every `placeholder` is resolved
-- [ ] The generated credits roll (ch 7.19) matches this table exactly
+- [ ] The generated credits roll (ch 8.19) matches this table exactly
 - [ ] Licence texts for MIT/Apache code are in the repo
 - [ ] Fonts are licensed for embedding in an application
 - [ ] Music licences allow use in a *video* (some allow game use but not streaming/trailer use)

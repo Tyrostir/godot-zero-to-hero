@@ -41,19 +41,20 @@ update_trigger: "End of every working session, and after every chapter is publis
 
 ```text
 Module  0  Toolchain, APK & Languages [                    ]   0 %   (0/19)
-Module  1  Godot + Android Engineering [                    ]   0 %   (0/63)
-Module  2  Blender I: Pipeline       [                    ]   0 %   (0/35)
-Module  3  Characters I              [                    ]   0 %   (0/30)
-Module  4  Worlds & Performance      [                    ]   0 %   (0/29)
-Module  5  Shaders & VFX             [                    ]   0 %   (0/30)
-Module  6  Audio, Narration & Feel   [                    ]   0 %   (0/23)
-Module  7  Story & Cinematics        [                    ]   0 %   (0/32)
-Module  8  Characters II             [                    ]   0 %   (0/20)
-Module  9  Architecture, C++ & Perf  [                    ]   0 %   (0/28)
-Module 10  Capstone & Release        [                    ]   0 %   (0/32)
-Module 11  Beyond (optional)         [                    ]   0 %   (0/7)
-──────────────────────────────────────────────────────────────────────────
-OVERALL                              [                    ]   0 %   (0/348)
+Module  1  Godot Foundations          [                    ]   0 %   (0/44)
+Module  2  Android Runtime & Practice [                    ]   0 %   (0/19)
+Module  3  Blender I: Pipeline        [                    ]   0 %   (0/35)
+Module  4  Characters I               [                    ]   0 %   (0/30)
+Module  5  Worlds & Performance       [                    ]   0 %   (0/29)
+Module  6  Shaders & VFX              [                    ]   0 %   (0/30)
+Module  7  Audio, Narration & Feel    [                    ]   0 %   (0/23)
+Module  8  Story & Cinematics         [                    ]   0 %   (0/32)
+Module  9  Characters II              [                    ]   0 %   (0/20)
+Module 10  Architecture, C++ & Perf   [                    ]   0 %   (0/28)
+Module 11  Capstone & Release         [                    ]   0 %   (0/32)
+Module 12  Beyond (optional)          [                    ]   0 %   (0/7)
+────────────────────────────────────────────────────────────────────────────
+OVERALL                               [                    ]   0 %   (0/348)
 ```
 
 ---
@@ -86,13 +87,13 @@ OVERALL                              [                    ]   0 %   (0/348)
 | M0 | Plan approved | | |
 | M0.5 | Repo live on GitHub | 2026-09-01 | ✅ 2026-09-01 |
 | M1 | ⭐ **P00 spinning cube on the phone** | | |
-| M2 | P01 Marble Runner shipped | | |
-| M3 | P02 Foundry Kit in-engine (first art you made) | | |
-| M4 | P03 Character walking | | |
-| M5 | P04 Level 1 at 60fps on device | | |
-| M6 | P07 Slice playable end-to-end | | |
-| M7 | P08 Warden — your own character, in-game | | |
-| M8 | 🏆 **P10 released** | | |
+| M3 | P01 Marble Runner shipped | | |
+| M4 | P02 Foundry Kit in-engine (first art you made) | | |
+| M5 | P03 Character walking | | |
+| M6 | P04 Level 1 at 60fps on device | | |
+| M7 | P07 Slice playable end-to-end | | |
+| M8 | P08 Warden — your own character, in-game | | |
+| M9 | 🏆 **P10 released** | | |
 
 ---
 
@@ -107,7 +108,7 @@ Tick as you go. `[ ]` not started · `[~]` in progress · `[x]` done · `[!]` do
 [ ] 0.13 · [ ] 0.14 · [ ] 0.15 · [ ] 0.16 · [ ] 0.17 · [ ] 0.18
 [ ] 0.19 self-check
 
-### Module 1 — Godot Foundations · P01 Marble Runner
+### Module 1 — Godot Foundations · P01
 
 [ ] 1.1 · [ ] 1.2 · [ ] 1.3 · [ ] 1.4 · [ ] 1.4b 🧰 · [ ] 1.5
 [ ] 1.6 · [ ] 1.7 · [ ] 1.8 · [ ] 1.9 · [ ] 1.10 (X) · [ ] 1.11
@@ -115,89 +116,93 @@ Tick as you go. `[ ]` not started · `[~]` in progress · `[x]` done · `[!]` do
 [ ] 1.16 · [ ] 1.16b 🧰 · [ ] 1.17 · [ ] 1.18 · [ ] 1.19 · [ ] 1.20
 [ ] 1.21 (X) · [ ] 1.22 · [ ] 1.23 · [ ] 1.24 · [ ] 1.24b 🧰 · [ ] 1.25
 [ ] 1.25b 🧰 · [ ] 1.26 · [ ] 1.27 · [ ] 1.28 · [ ] 1.29 · [ ] 1.30
-[ ] 1.31 · [ ] 1.32 · [ ] 1.32b 🧰 · [ ] 1.33 · [ ] 1.33b 🧰 · [ ] 1.34
-[ ] 1.34b 🧰 · [ ] 1.34c 🧰 · [ ] 1.34d 🧰 · [ ] 1.34e 🧰 · [ ] 1.34f 🧰 · [ ] 1.35
-[ ] 1.36 · [ ] 1.37 · [ ] 1.40 · [ ] 1.41 · [ ] 1.42 · [ ] 1.43
-[ ] 1.44 · [ ] 1.45 · [ ] 1.46 · [ ] 1.47 · [ ] 1.48 · [ ] 1.49 (X)
-[ ] 1.50 **ship** ⭐ · [ ] 1.51 jam · [ ] 1.52 self-check
+[ ] 1.31 · [ ] 1.32 · [ ] 1.33 · [ ] 1.33b 🧰 · [ ] 1.34 · [ ] 1.35
+[ ] 1.36 · [ ] 1.37
 
-### Module 2 — Blender I: Props & the Asset Pipeline · P02 Foundry Kit
+### Module 2 — Android Runtime & Engineering Practice · P01
+
+[ ] 2.1 · [ ] 2.2 · [ ] 2.3 · [ ] 2.4 · [ ] 2.5 · [ ] 2.6
+[ ] 2.7 · [ ] 2.8 · [ ] 2.9 · [ ] 2.10 · [ ] 2.11 · [ ] 2.12
+[ ] 2.13 · [ ] 2.14 · [ ] 2.15 · [ ] 2.16 (X) · [ ] 2.17 **ship** ⭐ · [ ] 2.18 jam
+[ ] 2.19 self-check
+
+### Module 3 — Blender I: Props & the Asset Pipeline · P02
 
 [ ] B1 · [ ] B2 · [ ] B3 · [ ] B4 · [ ] X2.1 (X) · [ ] B5
-[ ] B5b 🧰 · [ ] B6 · [ ] B7 · [ ] B8 · [ ] B8b 🧰 · [ ] B9
-[ ] X2.2 (X) · [ ] B10 · [ ] B11 · [ ] B11b 🧰 · [ ] B12 · [ ] B12b 🧰
-[ ] B13 · [ ] B14 · [ ] B15 · [ ] B15b 🧰 · [ ] B15c 🧰 · [ ] B15d 🧰
-[ ] B16 · [ ] B17 · [ ] B18 · [ ] B19 · [ ] B19b 🧰 · [ ] 2.20
-[ ] 2.21 · [ ] 2.22 · [ ] 2.22b 🧰 (X) · [ ] 2.23 **ship** ⭐ · [ ] 2.24 self-check
+[ ] B5b · [ ] B6 · [ ] B7 · [ ] B8 · [ ] B8b · [ ] B9
+[ ] X2.2 (X) · [ ] B10 · [ ] B11 · [ ] B11b · [ ] B12 · [ ] B12b
+[ ] B13 · [ ] B14 · [ ] B15 · [ ] B15b · [ ] B15c · [ ] B15d
+[ ] B16 · [ ] B17 · [ ] B18 · [ ] B19 · [ ] B19b · [ ] 3.20
+[ ] 3.21 · [ ] 3.22 · [ ] 3.22b 🧰 (X) · [ ] 3.23 **ship** ⭐ · [ ] 3.24 self-check
 
-### Module 3 — Characters I: Rig & Animate · P03 Third-Person Playground
+### Module 4 — Characters I: Rig & Animate · P03
 
-[ ] B20 · [ ] B21 · [ ] B22 · [ ] B23 · [ ] B24 · [ ] B24b 🧰
-[ ] B25 · [ ] B26 · [ ] B27 · [ ] B28 · [ ] B29 · [ ] B29b 🧰
-[ ] B30 · [ ] 3.1 · [ ] 3.2 · [ ] 3.2b 🧰 · [ ] 3.3 · [ ] 3.4
-[ ] 3.5 · [ ] 3.6 · [ ] 3.7 · [ ] 3.7b 🧰 · [ ] 3.8 · [ ] 3.9
-[ ] 3.10 (X) · [ ] 3.11 · [ ] 3.12b 🧰 (X) · [ ] 3.13 **ship** ⭐ · [ ] 3.14 jam · [ ] 3.15 self-check
+[ ] B20 · [ ] B21 · [ ] B22 · [ ] B23 · [ ] B24 · [ ] B24b
+[ ] B25 · [ ] B26 · [ ] B27 · [ ] B28 · [ ] B29 · [ ] B29b
+[ ] B30 · [ ] 4.1 · [ ] 4.2 · [ ] 4.2b 🧰 · [ ] 4.3 · [ ] 4.4
+[ ] 4.5 · [ ] 4.6 · [ ] 4.7 · [ ] 4.7b 🧰 · [ ] 4.8 · [ ] 4.9
+[ ] 4.10 (X) · [ ] 4.11 · [ ] 4.12b 🧰 (X) · [ ] 4.13 **ship** ⭐ · [ ] 4.14 jam · [ ] 4.15 self-check
 
-### Module 4 — Worlds, Lighting & Mobile Performance · P04 Hollow, Level 1
+### Module 5 — Worlds, Lighting & Mobile Performance · P04
 
-[ ] 4.1 · [ ] 4.2 · [ ] 4.2b 🧰 · [ ] 4.3 · [ ] 4.4 · [ ] 4.4b 🧰
-[ ] 4.5 (X) · [ ] 4.6 · [ ] 4.7 · [ ] 4.8 · [ ] 4.9 · [ ] 4.9b 🧰
-[ ] 4.10 · [ ] 4.11 · [ ] 4.12 · [ ] 4.13 · [ ] 4.14 · [ ] 4.15
-[ ] 4.15b 🧰 · [ ] 4.16 · [ ] 4.17 · [ ] 4.18 (X) · [ ] 4.19 · [ ] 4.20
-[ ] 4.21 · [ ] 4.22 · [ ] 4.22b 🧰 (X) · [ ] 4.23 **ship** ⭐ · [ ] 4.24 self-check
+[ ] 5.1 · [ ] 5.2 · [ ] 5.2b 🧰 · [ ] 5.3 · [ ] 5.4 · [ ] 5.4b 🧰
+[ ] 5.5 (X) · [ ] 5.6 · [ ] 5.7 · [ ] 5.8 · [ ] 5.9 · [ ] 5.9b 🧰
+[ ] 5.10 · [ ] 5.11 · [ ] 5.12 · [ ] 5.13 · [ ] 5.14 · [ ] 5.15
+[ ] 5.15b 🧰 · [ ] 5.16 · [ ] 5.17 · [ ] 5.18 (X) · [ ] 5.19 · [ ] 5.20
+[ ] 5.21 · [ ] 5.22 · [ ] 5.22b 🧰 (X) · [ ] 5.23 **ship** ⭐ · [ ] 5.24 self-check
 
-### Module 5 — Shaders & VFX · P05 VFX Lab
+### Module 6 — Shaders & VFX · P05
 
-[ ] 5.1 · [ ] 5.2 · [ ] 5.3 · [ ] 5.3b 🧰 · [ ] 5.4 · [ ] 5.5
-[ ] 5.6 · [ ] 5.7 · [ ] 5.8 · [ ] 5.9 · [ ] 5.10 · [ ] 5.11
-[ ] 5.12 · [ ] 5.13 · [ ] 5.14 · [ ] 5.15 · [ ] 5.16 · [ ] 5.16b 🧰
-[ ] 5.17 · [ ] 5.18 · [ ] 5.18b 🧰 · [ ] 5.19 · [ ] 5.20 · [ ] 5.20b 🧰
-[ ] 5.21 (X) · [ ] 5.22 · [ ] 5.22b 🧰 (X) · [ ] 5.23 **ship** ⭐ · [ ] 5.24 jam · [ ] 5.25 self-check
-
-### Module 6 — Audio & Game Feel · P06 Feel Pass
-
-[ ] 6.1 · [ ] 6.2 · [ ] 6.2b 🧰 · [ ] 6.3 · [ ] 6.4 · [ ] 6.5
+[ ] 6.1 · [ ] 6.2 · [ ] 6.3 · [ ] 6.3b 🧰 · [ ] 6.4 · [ ] 6.5
 [ ] 6.6 · [ ] 6.7 · [ ] 6.8 · [ ] 6.9 · [ ] 6.10 · [ ] 6.11
-[ ] 6.12 · [ ] 6.13 · [ ] 6.13b 🧰 · [ ] 6.14 (X) · [ ] 6.15 · [ ] 6.16
-[ ] 6.17 · [ ] 6.18 (X) · [ ] 6.18b 🧰 (X) · [ ] 6.19 **ship** ⭐ · [ ] 6.20 self-check
+[ ] 6.12 · [ ] 6.13 · [ ] 6.14 · [ ] 6.15 · [ ] 6.16 · [ ] 6.16b 🧰
+[ ] 6.17 · [ ] 6.18 · [ ] 6.18b 🧰 · [ ] 6.19 · [ ] 6.20 · [ ] 6.20b 🧰
+[ ] 6.21 (X) · [ ] 6.22 · [ ] 6.22b 🧰 (X) · [ ] 6.23 **ship** ⭐ · [ ] 6.24 jam · [ ] 6.25 self-check
 
-### Module 7 — Story, Narrative & Cinematics · P07 The Slice
+### Module 7 — Audio & Game Feel · P06
 
 [ ] 7.1 · [ ] 7.2 · [ ] 7.2b 🧰 · [ ] 7.3 · [ ] 7.4 · [ ] 7.5
-[ ] 7.6 · [ ] 7.7 · [ ] 7.8 (X) · [ ] 7.9 · [ ] 7.10 · [ ] 7.10b 🧰
-[ ] 7.11 · [ ] 7.12 · [ ] 7.13 · [ ] 7.14 · [ ] 7.15 · [ ] 7.15b 🧰
-[ ] 7.16 · [ ] 7.17 · [ ] 7.18 · [ ] 7.19 · [ ] 7.20 · [ ] 7.21
-[ ] 7.22 · [ ] 7.23 · [ ] 7.24 · [ ] 7.24b 🧰 · [ ] 7.24d 🧰 (X) · [ ] 7.25 **ship** ⭐
-[ ] 7.26 jam · [ ] 7.27 self-check
+[ ] 7.6 · [ ] 7.7 · [ ] 7.8 · [ ] 7.9 · [ ] 7.10 · [ ] 7.11
+[ ] 7.12 · [ ] 7.13 · [ ] 7.13b 🧰 · [ ] 7.14 (X) · [ ] 7.15 · [ ] 7.16
+[ ] 7.17 · [ ] 7.18 (X) · [ ] 7.18b 🧰 (X) · [ ] 7.19 **ship** ⭐ · [ ] 7.20 self-check
 
-### Module 8 — Characters II: Build Your Own · P08 Warden
+### Module 8 — Story, Narrative & Cinematics · P07
 
-[ ] B31 · [ ] B31b 🧰 · [ ] B32 · [ ] B33 · [ ] B34 · [ ] B34b 🧰
-[ ] B34c 🧰 · [ ] B35 · [ ] B36 · [ ] B37 · [ ] B38 · [ ] B39
-[ ] B40 · [ ] B41 · [ ] B41b 🧰 · [ ] B42 · [ ] 8.1 · [ ] 8.2
-[ ] 8.3 **ship** ⭐ · [ ] 8.4 self-check
+[ ] 8.1 · [ ] 8.2 · [ ] 8.2b 🧰 · [ ] 8.3 · [ ] 8.4 · [ ] 8.5
+[ ] 8.6 · [ ] 8.7 · [ ] 8.8 (X) · [ ] 8.9 · [ ] 8.10 · [ ] 8.10b 🧰
+[ ] 8.11 · [ ] 8.12 · [ ] 8.13 · [ ] 8.14 · [ ] 8.15 · [ ] 8.15b 🧰
+[ ] 8.16 · [ ] 8.17 · [ ] 8.18 · [ ] 8.19 · [ ] 8.20 · [ ] 8.21
+[ ] 8.22 · [ ] 8.23 · [ ] 8.24 · [ ] 8.24b 🧰 · [ ] 8.24d 🧰 (X) · [ ] 8.25 **ship** ⭐
+[ ] 8.26 jam · [ ] 8.27 self-check
 
-### Module 9 — Architecture, Performance & Tooling · P09 Systems Refactor
+### Module 9 — Characters II: Build Your Own · P08
 
-[ ] 9.1 · [ ] 9.1b 🧰 · [ ] 9.1c 🧰 · [ ] 9.1c2 🧰 · [ ] 9.1c3 🧰 · [ ] 9.1d0 🧰
-[ ] 9.1d 🧰 · [ ] 9.1e 🧰 · [ ] 9.1f 🧰 · [ ] 9.2 · [ ] 9.2b 🧰 · [ ] 9.3
-[ ] 9.4 · [ ] 9.4b 🧰 · [ ] 9.5 · [ ] 9.6 · [ ] 9.7 · [ ] 9.6b 🧰
-[ ] 9.7b 🧰 · [ ] 9.8 · [ ] 9.9 · [ ] 9.10 · [ ] 9.9b 🧰 · [ ] 9.10b 🧰
-[ ] 9.11 · [ ] 9.11c 🧰 (X) · [ ] 9.12 **ship** ⭐ · [ ] 9.13 self-check
+[ ] B31 · [ ] B31b · [ ] B32 · [ ] B33 · [ ] B34 · [ ] B34b
+[ ] B34c · [ ] B35 · [ ] B36 · [ ] B37 · [ ] B38 · [ ] B39
+[ ] B40 · [ ] B41 · [ ] B41b · [ ] B42 · [ ] 9.1 · [ ] 9.2
+[ ] 9.3 **ship** ⭐ · [ ] 9.4 self-check
 
-### Module 10 — Capstone & Release · P10 Ember Hollow
+### Module 10 — Architecture, Performance & Tooling · P09
 
-[ ] 10.1 · [ ] 10.1b 🧰 · [ ] 10.2 · [ ] 10.3 · [ ] 10.4 · [ ] 10.5
-[ ] 10.6 · [ ] 10.6b 🧰 · [ ] 10.7 · [ ] 10.8 · [ ] 10.9 · [ ] 10.10
-[ ] 10.11 · [ ] 10.11b 🧰 · [ ] 10.12 · [ ] 10.13 · [ ] 10.14 · [ ] 10.14b 🧰
-[ ] 10.15 · [ ] 10.16 · [ ] 10.17 · [ ] 10.18 · [ ] 10.19 · [ ] 10.19b 🧰
-[ ] 10.19c 🧰 · [ ] 10.19d 🧰 · [ ] 10.20 · [ ] 10.21 · [ ] 10.22 · [ ] 10.20b 🧰
-[ ] 10.23 **RELEASED** 🏆 · [ ] 10.24 self-check
+[ ] 10.1 · [ ] 10.1b 🧰 · [ ] 10.1c 🧰 · [ ] 10.1c2 🧰 · [ ] 10.1c3 🧰 · [ ] 10.1d0 🧰
+[ ] 10.1d 🧰 · [ ] 10.1e 🧰 · [ ] 10.1f 🧰 · [ ] 10.2 · [ ] 10.2b 🧰 · [ ] 10.3
+[ ] 10.4 · [ ] 10.4b 🧰 · [ ] 10.5 · [ ] 10.6 · [ ] 10.7 · [ ] 10.6b 🧰
+[ ] 10.7b 🧰 · [ ] 10.8 · [ ] 10.9 · [ ] 10.10 · [ ] 10.9b 🧰 · [ ] 10.10b 🧰
+[ ] 10.11 · [ ] 10.11c 🧰 (X) · [ ] 10.12 **ship** ⭐ · [ ] 10.13 self-check
 
-### Module 11 — Beyond (optional)
+### Module 11 — Capstone & Release · P10
 
-[ ] 11.1 · [ ] 11.2 · [ ] 11.3 · [ ] 11.4 · [ ] 11.5 · [ ] 11.6
-[ ] 11.7
+[ ] 11.1 · [ ] 11.1b 🧰 · [ ] 11.2 · [ ] 11.3 · [ ] 11.4 · [ ] 11.5
+[ ] 11.6 · [ ] 11.6b 🧰 · [ ] 11.7 · [ ] 11.8 · [ ] 11.9 · [ ] 11.10
+[ ] 11.11 · [ ] 11.11b 🧰 · [ ] 11.12 · [ ] 11.13 · [ ] 11.14 · [ ] 11.14b 🧰
+[ ] 11.15 · [ ] 11.16 · [ ] 11.17 · [ ] 11.18 · [ ] 11.19 · [ ] 11.19b 🧰
+[ ] 11.19c 🧰 · [ ] 11.19d 🧰 · [ ] 11.20 · [ ] 11.21 · [ ] 11.22 · [ ] 11.20b 🧰
+[ ] 11.23 **RELEASED** 🏆 · [ ] 11.24 self-check
+
+### Module 12 — Beyond (optional)
+
+[ ] 12.1 · [ ] 12.2 · [ ] 12.3 · [ ] 12.4 · [ ] 12.5 · [ ] 12.6
+[ ] 12.7
 
 ---
 
@@ -205,7 +210,7 @@ Tick as you go. `[ ]` not started · `[~]` in progress · `[x]` done · `[!]` do
 
 Re-rate every two modules. 1 = never done it · 2 = can follow a tutorial · 3 = can do it unaided · 4 = can do it well and explain why · 5 = can teach it.
 
-| Skill | Start | M2 | M4 | M6 | M8 | M10 |
+| Skill | Start | M3 | M5 | M7 | M9 | M11 |
 |---|---|---|---|---|---|---|
 | C# language | | | | | | |
 | Godot scene/node model | | | | | | |

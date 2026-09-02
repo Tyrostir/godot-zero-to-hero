@@ -37,7 +37,7 @@ Read this section once, properly. It takes five minutes and saves you from a cat
 
 1. **Prefer CC0.** Nearly everything this course needs exists as CC0.
 2. **Never take CC-BY-NC or CC-BY-ND.** The moment you consider monetising — or even just accepting a donation — they become a problem, and by then they're baked into 40 scenes.
-3. **Record attribution at download time.** Chapter 7.19 builds a credits roll that reads `AssetLicenses.md` automatically. If the ledger is complete, your credits screen is free.
+3. **Record attribution at download time.** Chapter 8.19 builds a credits roll that reads `AssetLicenses.md` automatically. If the ledger is complete, your credits screen is free.
 
 ---
 
@@ -47,7 +47,7 @@ Read this section once, properly. It takes five minutes and saves you from a cat
 |---|---|---|---|
 | **[Kenney.nl](https://kenney.nl/assets)** | CC0 | Prototyping kits, UI, props, characters | The single best starting point in game dev. Thousands of assets, zero strings. Low-poly and consistent. |
 | **[Poly Haven](https://polyhaven.com/)** | CC0 | HDRIs, PBR textures, scanned models | Best-in-class HDRIs for lighting. Also has a free Blender add-on for one-click import. |
-| **[Quaternius](https://quaternius.com/)** | CC0 | Stylised low-poly characters, nature, buildings | Includes *rigged and animated* characters — excellent for Module 3 before your own character exists. |
+| **[Quaternius](https://quaternius.com/)** | CC0 | Stylised low-poly characters, nature, buildings | Includes *rigged and animated* characters — excellent for Module 4 before your own character exists. |
 | **[KayKit / Kay Lousberg](https://kaylousberg.itch.io/)** | CC0 | Cohesive dungeon/character/adventure kits | Modular, mobile-friendly, and stylistically consistent — a rare combination. |
 | **[Poly Pizza](https://poly.pizza/)** | CC0 & CC-BY (filter!) | Low-poly props, quick prototyping | Successor to the Google Poly archive. **Filter by licence** — it mixes both. |
 | **[Sketchfab](https://sketchfab.com/features/free-3d-models)** | Mixed | Almost anything | Filter to *Downloadable* + a licence you accept. Quality and topology vary wildly; expect to clean up. |
@@ -80,7 +80,7 @@ Chapters B17–B19 cover every step of this in detail. Do not skip step 4 — 90
 | **[Material Maker](https://www.materialmaker.org/)** | MIT (tool) | **Procedural material authoring, free and open source.** Node-based, exports PBR map sets, and is made by the Godot community — it even exports Godot shaders directly. This is your free replacement for Substance Designer. |
 | **[Krita](https://krita.org/)** / **[GIMP](https://www.gimp.org/)** | Free | Hand-painting textures, editing maps, packing channels. |
 
-**Mobile texture discipline** (learned properly in 4.14, but adopt it from day one):
+**Mobile texture discipline** (learned properly in 5.14, but adopt it from day one):
 
 - Download the **2K** version, not 4K or 8K. On a phone screen you cannot tell, and you will pay for it in memory and load time.
 - Prefer **1K** for anything not directly under the camera.
@@ -94,7 +94,7 @@ Chapters B17–B19 cover every step of this in detail. Do not skip step 4 — 90
 | Source | Licence | Notes |
 |---|---|---|
 | **[Mixamo](https://www.mixamo.com/)** | Free with an Adobe account | **The** free source of humanoid animation. Auto-rigs your own model, and offers thousands of mocap clips. Chapters B29–B30 cover retargeting these onto your own skeleton in Blender. Read Adobe's terms: use in your game is fine, redistributing the raw clips is not. |
-| **[Quaternius characters](https://quaternius.com/)** | CC0 | Already rigged and animated. Perfect placeholder while you build your own in Module 8. |
+| **[Quaternius characters](https://quaternius.com/)** | CC0 | Already rigged and animated. Perfect placeholder while you build your own in Module 9. |
 | **[MakeHuman](http://www.makehumancommunity.org/)** | CC0 output | Generates base human meshes with rigs. Useful as a sculpting base or proportion reference. |
 | **[Cascadeur](https://cascadeur.com/)** | Free tier | Physics-assisted keyframe animation. The free tier is generous. An alternative to hand-keying in Blender for action animation. |
 | **[Kenney character kits](https://kenney.nl/assets)** | CC0 | Blocky, cheerful, extremely mobile-friendly. |
@@ -109,7 +109,7 @@ Chapters B17–B19 cover every step of this in detail. Do not skip step 4 — 90
 | **[Kenney particle packs](https://kenney.nl/assets/particle-pack)** | CC0 | Ready-made particle sprites: smoke, sparks, magic, flares. |
 | **[OpenGameArt VFX](https://opengameart.org/)** | Mixed | Explosion sheets, magic effects, flipbooks. |
 | **[Real Time VFX](https://realtimevfx.com/)** | — | Not an asset source: a *community*. The best place to learn how effects are constructed. Read the "beginner" pinned threads. |
-| **Blender (yourself)** | Yours | Chapters 5.16–5.17: bake smoke, fire and cloth sims into flipbook sheets. Making your own VFX textures is easier than it sounds and gives you a look nobody else has. |
+| **Blender (yourself)** | Yours | Chapters 6.16–6.17: bake smoke, fire and cloth sims into flipbook sheets. Making your own VFX textures is easier than it sounds and gives you a look nobody else has. |
 | **[Shadertoy](https://www.shadertoy.com/)** | **Varies — often not reusable** | Superb for learning techniques; treat licensing as restrictive unless the author says otherwise. Learn the maths, write your own. |
 
 ---
@@ -129,7 +129,7 @@ Chapters B17–B19 cover every step of this in detail. Do not skip step 4 — 90
 
 **Tools:** [Audacity](https://www.audacityteam.org/) for editing (free), [LMMS](https://lmms.io/) or [MuseScore](https://musescore.org/) for composing, [sfxr/jfxr](https://jfxr.frozenfractal.com/) for retro-style generated SFX, [Chiptone](https://sfbgames.itch.io/chiptone) for the same in-browser.
 
-**Workflow for every SFX** (chapter 6.4): trim silence → normalise to a consistent level → fade in/out to avoid clicks → export as **`.ogg`** for music and ambience, **`.wav`** for short frequently-triggered SFX → import into Godot with loop settings checked.
+**Workflow for every SFX** (chapter 7.4): trim silence → normalise to a consistent level → fade in/out to avoid clicks → export as **`.ogg`** for music and ambience, **`.wav`** for short frequently-triggered SFX → import into Godot with loop settings checked.
 
 ---
 
@@ -177,7 +177,7 @@ Chapters B17–B19 cover every step of this in detail. Do not skip step 4 — 90
 | **[Godot Shaders](https://godotshaders.com/)** | Shader examples |
 | **[Real Time VFX](https://realtimevfx.com/)** | VFX craft |
 | **[Book of Shaders](https://thebookofshaders.com/)** | Shader fundamentals from first principles |
-| **[Game Programming Patterns](https://gameprogrammingpatterns.com/)** (free online) | Architecture, and the source of half of Module 9 |
+| **[Game Programming Patterns](https://gameprogrammingpatterns.com/)** (free online) | Architecture, and the source of half of Module 10 |
 
 ---
 
@@ -188,6 +188,6 @@ Don't hoard. But before Module 1, get these four, and log all four in the ledger
 1. **Kenney's "Prototype Textures"** — grid textures for greyboxing. You'll use them in every project.
 2. **Kenney's "UI Pack"** — so your first HUD isn't grey rectangles.
 3. **One Poly Haven HDRI** (an outdoor one, 2K) — instant decent lighting for tests.
-4. **Quaternius's animated character pack** — a rigged, animated humanoid to develop Module 3 against while your own character doesn't exist yet.
+4. **Quaternius's animated character pack** — a rigged, animated humanoid to develop Module 4 against while your own character doesn't exist yet.
 
 That is enough. Asset hoarding is a very effective way to feel productive without shipping anything.

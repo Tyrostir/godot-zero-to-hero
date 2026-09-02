@@ -45,9 +45,9 @@ Then **Save Preferences** (bottom-left menu).
 | **Node Wrangler** | Shader-editor shortcuts you will use constantly from chapter B14. `Ctrl+Shift+T` alone justifies it. |
 | **Extra Objects** (Mesh) | Useful primitives beyond the default eight |
 | **Extra Objects** (Curve) | Same, for curves |
-| **Copy Attributes Menu** | Handy in rigging (Module 3) |
+| **Copy Attributes Menu** | Handy in rigging (Module 4) |
 
-Optional but recommended once you reach Module 2:
+Optional but recommended once you reach Module 3:
 
 | Add-on | Why |
 |---|---|

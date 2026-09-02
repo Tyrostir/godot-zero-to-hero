@@ -2,15 +2,15 @@
 title: "Game Design Document — Ember Hollow (working title)"
 document_id: GDD
 version: 0.1
-status: Draft (skeleton — filled in during Module 7)
+status: Draft (skeleton — filled in during Module 8)
 created: 2026-09-01
 last_updated: 2026-09-01
-update_trigger: "Chapter 7.6, and whenever a design decision is made thereafter"
+update_trigger: "Chapter 8.6, and whenever a design decision is made thereafter"
 ---
 
 # 🎮 Game Design Document — *Ember Hollow*
 
-> **Status: a skeleton.** You fill this in during **[chapter 7.6](TableOfContents.md#module-7--story-narrative--cinematics)**, after you have built enough of the game to have opinions. Writing a GDD before you can build anything is how projects acquire ideas nobody can implement.
+> **Status: a skeleton.** You fill this in during **[chapter 8.6](TableOfContents.md#module-7--story-narrative--cinematics)**, after you have built enough of the game to have opinions. Writing a GDD before you can build anything is how projects acquire ideas nobody can implement.
 >
 > Working title per [ADR-023](meta/Decisions.md#adr-023) — you rename it in chapter 7.1.
 
@@ -55,7 +55,7 @@ update_trigger: "Chapter 7.6, and whenever a design decision is made thereafter"
 | 2 | | |
 | 3 | | |
 
-> ⚠️ **The right-hand column is the important one.** If a story beat has no corresponding player verb, it is a cutscene rather than game design. Chapter 7.5 (ludonarrative harmony) is about closing that gap.
+> ⚠️ **The right-hand column is the important one.** If a story beat has no corresponding player verb, it is a cutscene rather than game design. Chapter 8.5 (ludonarrative harmony) is about closing that gap.
 
 ---
 
@@ -166,7 +166,7 @@ Chapter 10.13. Each of these is cheap; skipping them is a choice.
 |-------|--|
 | **Store name** | |
 | **Icon concept** | |
-| **First screenshot** | *(the one that matters most — chapter 10.19)* |
+| **First screenshot** | *(the one that matters most — chapter 11.19)* |
 | **Trailer length** | ≤60 s |
 | **itch.io URL** | |
 | **Play Console package** | |
@@ -178,4 +178,4 @@ Chapter 10.13. Each of these is cheap; skipping them is a choice.
 
 | Version | Date | Change |
 |---------|------|--------|
-| 0.1 | 2026-09-01 | Skeleton created. Filled in during Module 7. |
+| 0.1 | 2026-09-01 | Skeleton created. Filled in during Module 8. |

@@ -44,7 +44,7 @@ Module 0's block **0B** is the heart of this. You do not read a comparison table
 
 > 💡 **Why measure rather than be told.** Any course can assert "C++ is faster, GDScript iterates quicker". A number you produced on your own phone is something you believe, remember, and can defend in an argument. It also means that when your hardware or Godot's version makes the received wisdom wrong, you will notice.
 
-> ⚠️ **0.13–0.14 will take an afternoon and will feel disproportionate.** That is expected and it is deliberate. You will not need C++ again until Module 9. Doing the toolchain once now, when nothing depends on it, means Module 9 is about *performance* rather than about SCons.
+> ⚠️ **0.13–0.14 will take an afternoon and will feel disproportionate.** That is expected and it is deliberate. You will not need C++ again until Module 10. Doing the toolchain once now, when nothing depends on it, means Module 10 is about *performance* rather than about SCons.
 
 ---
 
@@ -55,13 +55,13 @@ Module 0's block **0B** is the heart of this. You do not read a comparison table
 | Chapter | What you write in GDScript | Why not C# |
 |---------|---------------------------|------------|
 | **0.10** | First contact — the cube | — |
-| **3.2b** | An `@tool` animation-clip validator | Editor scripts want no build step and instant reload |
-| **4.9b** | A `@tool` level validator: lightmap UVs, missing collisions, over-budget meshes | Same, and it runs on every save |
-| **9.10b** | A full editor plugin with a custom dock | GDScript's editor integration is simply better |
+| **4.2b** | An `@tool` animation-clip validator | Editor scripts want no build step and instant reload |
+| **5.9b** | A `@tool` level validator: lightmap UVs, missing collisions, over-budget meshes | Same, and it runs on every save |
+| **10.10b** | A full editor plugin with a custom dock | GDScript's editor integration is simply better |
 | **1.31b** | Consuming **Panku Console** from C# — your first cross-language boundary | The addon is GDScript; you meet it on its terms |
-| **7.10b** | Evaluating **Dialogue Manager** / **Dialogic** | Both are GDScript addons |
-| **10.6b** | Evaluating **Beehave** | GDScript addon |
-| **9.6b** | **Wrapping** a GDScript addon behind a C# interface | The pattern that makes all the above safe |
+| **8.10b** | Evaluating **Dialogue Manager** / **Dialogic** | Both are GDScript addons |
+| **11.6b** | Evaluating **Beehave** | GDScript addon |
+| **10.6b** | **Wrapping** a GDScript addon behind a C# interface | The pattern that makes all the above safe |
 
 ### C++ / GDExtension — 7 chapters, all earned
 
@@ -69,16 +69,16 @@ Module 0's block **0B** is the heart of this. You do not read a comparison table
 |---------|----------------------|-----|
 | **0.13** | A native node with a property and a signal | First contact; both languages can see it |
 | **0.14** | Android per-ABI build, `.gdextension` wiring | Because "it compiles on desktop" is not shipping |
-| **9.1c** | A real GDExtension node used by the game | Now it does something |
-| **9.1d** | Debug vs release builds, APK size measurement | The cost side of the trade |
-| **9.1e** ⭐ | **The measured rewrite** — one hot path, GDScript → C# → C++, benchmarked on the phone at each step | This is the chapter that makes "profile first" a fact rather than a slogan |
-| **9.1f** 🔬 | Wrapping a native C++ library, and its licence question | |
-| **11.4** | GDExtension at depth | Optional |
+| **10.1c** | A real GDExtension node used by the game | Now it does something |
+| **10.1d** | Debug vs release builds, APK size measurement | The cost side of the trade |
+| **10.1e** ⭐ | **The measured rewrite** — one hot path, GDScript → C# → C++, benchmarked on the phone at each step | This is the chapter that makes "profile first" a fact rather than a slogan |
+| **10.1f** 🔬 | Wrapping a native C++ library, and its licence question | |
+| **12.4** | GDExtension at depth | Optional |
 
 You also *consume* C++ constantly without writing it: **Terrain3D**, **LimboAI**, **Debug Draw 3D** and **Zylann Voxel Tools** are all GDExtension, which is precisely why they have the best C# story.
 
-### GDShader — Module 5 in its entirety
-Twelve chapters (5.1–5.12), six shaders written by hand. Introduced in **0.16** so it is not a surprise.
+### GDShader — Module 6 in its entirety
+Twelve chapters (6.1–6.12), six shaders written by hand. Introduced in **0.16** so it is not a surprise.
 
 ### C# — everything else
 Roughly 180 chapters. Systems, architecture, gameplay, data, saves, tests, tooling.
@@ -95,7 +95,7 @@ Roughly 180 chapters. Systems, architecture, gameplay, data, saves, tests, tooli
 
 ⚠️ **Cross-language *inheritance* is not supported** — GDScript cannot extend a C# class or vice versa. `[UNVERIFIED]` for your exact version; the guidance holds either way: **compose at the boundary, never inherit across it.**
 
-**The rule that makes polyglot safe:** every boundary lives in **one place**. One wrapper file per GDScript addon exposing a clean C# interface (9.6b). One GDExtension module with a narrow, documented API (9.1c). If boundary code is scattered through your codebase, you have three languages' problems and none of their benefits.
+**The rule that makes polyglot safe:** every boundary lives in **one place**. One wrapper file per GDScript addon exposing a clean C# interface (10.6b). One GDExtension module with a narrow, documented API (10.1c). If boundary code is scattered through your codebase, you have three languages' problems and none of their benefits.
 
 ---
 

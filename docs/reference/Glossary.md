@@ -162,7 +162,7 @@ update_trigger: "First use of any new term in a chapter"
 **Noise floor** — the constant background hiss of a recording. Low is good; noise reduction cannot rescue a bad one.
 **Stinger** — a short musical phrase marking an event.
 **Loop point** — the sample position where a music track wraps. A badly chosen one produces an audible click or a lurch.
-**Walkthrough** — in this course, two things: the *designed* walkthrough (a level that teaches without prompts) and the *written* walkthrough (a player-facing guide, chapter 10.20).
+**Walkthrough** — in this course, two things: the *designed* walkthrough (a level that teaches without prompts) and the *written* walkthrough (a player-facing guide, chapter 11.20).
 **Onboarding** — the first five minutes, in which the player learns what the game is and whether they want to continue.
 **Caption vs subtitle** — subtitles transcribe speech; captions also convey non-speech audio ("[distant machinery]"). Ship captions.
 

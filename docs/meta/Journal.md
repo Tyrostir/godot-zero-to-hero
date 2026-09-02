@@ -20,7 +20,7 @@ Don't write a diary. Write **evidence**. The four columns that matter:
 
 | Column | Why it's there |
 |---|---|
-| **Hours** | After Module 2 you can estimate your own speed. That is a professional skill and you cannot acquire it without data. |
+| **Hours** | After Module 3 you can estimate your own speed. That is a professional skill and you cannot acquire it without data. |
 | **What I reached for first** | Tells you what's become automatic. |
 | **What I had to look up** | Tells you what hasn't. This column *is* your skill map. |
 | **Note to future me** | The half-finished thought. Write it — future-you never remembers. |

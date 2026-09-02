@@ -46,7 +46,7 @@ Log completions in [meta/CourseState.md](meta/CourseState.md). Record what you h
 
 ---
 
-## Module 2 — Blender & the pipeline
+## Module 3 — Blender & the pipeline
 
 **D2.1 — The primitive drill.** Model five primitives to exact given dimensions in under five minutes, transforms applied, origins placed correctly. Repeat daily for a week. This is the Blender equivalent of scales.
 
@@ -62,7 +62,7 @@ Log completions in [meta/CourseState.md](meta/CourseState.md). Record what you h
 
 ---
 
-## Module 3 — Characters
+## Module 4 — Characters
 
 **D3.1 — Pose to extremes.** Take any rigged character and pose every joint to its limit. Find three places the deformation breaks. Fix them in weight paint. Repeat with a different character.
 
@@ -76,7 +76,7 @@ Log completions in [meta/CourseState.md](meta/CourseState.md). Record what you h
 
 ---
 
-## Module 4 — Worlds & performance
+## Module 5 — Worlds & performance
 
 **D4.1 — Greybox to brief.** Given a one-paragraph level brief, greybox it in 45 minutes. Repeat with a different brief. Speed of iteration is the level designer's core skill.
 
@@ -90,7 +90,7 @@ Log completions in [meta/CourseState.md](meta/CourseState.md). Record what you h
 
 ---
 
-## Module 5 — Shaders & VFX
+## Module 6 — Shaders & VFX
 
 **D5.1 — One-uniform shaders.** Write five different visual effects that each use exactly one uniform and no textures. Constraint breeds understanding.
 
@@ -104,7 +104,7 @@ Log completions in [meta/CourseState.md](meta/CourseState.md). Record what you h
 
 ---
 
-## Module 6 — Audio & feel
+## Module 7 — Audio & feel
 
 **D6.1 — Silent playtest.** Play your game with sound off for five minutes, then with sound on. Write down every moment where the silence felt broken. Those are your missing sounds.
 
@@ -116,7 +116,7 @@ Log completions in [meta/CourseState.md](meta/CourseState.md). Record what you h
 
 ---
 
-## Module 7 — Story & cinematics
+## Module 8 — Story & cinematics
 
 **D7.1 — Logline drill.** Write loglines for five games you've played, in one sentence each, without naming the genre. Then write one for yours.
 
@@ -130,7 +130,7 @@ Log completions in [meta/CourseState.md](meta/CourseState.md). Record what you h
 
 ---
 
-## Module 8 — Your own character
+## Module 9 — Your own character
 
 **D8.1 — Silhouette thumbnails.** Twenty character silhouettes in twenty minutes, black shapes only. Pick the three most readable at thumbnail size.
 

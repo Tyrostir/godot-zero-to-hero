@@ -36,13 +36,13 @@ This is recorded as **[ADR-004](../meta/Decisions.md#adr-004)**.
 
 | Component | Minimum | Comfortable | Why |
 |---|---|---|---|
-| RAM | 8 GB | **16 GB** | Blender and Godot open simultaneously is the normal working state from Module 2 onward |
+| RAM | 8 GB | **16 GB** | Blender and Godot open simultaneously is the normal working state from Module 3 onward |
 | GPU | Vulkan-capable | Anything from the last 6 years | Godot 4's Forward+ renderer requires Vulkan; lightmap baking uses the GPU |
 | Disk | 40 GB free | 100 GB | Godot ~1 GB, Blender ~1 GB, Android SDK ~8 GB, and your own assets grow fast |
 | CPU | 4 cores | 8 cores | Lightmap baking and Blender simulation are the two things that will punish a weak CPU |
 | OS | **Linux** — your choice ([D-001](../meta/Doubts.md)) | — | Win 10+ and macOS 12+ also work; the guides lead with Linux |
 
-**The two operations that will expose a weak machine** are sculpting in Blender (Module 8) and baking lightmaps (Module 4). Everything else is comfortable on modest hardware.
+**The two operations that will expose a weak machine** are sculpting in Blender (Module 9) and baking lightmaps (Module 5). Everything else is comfortable on modest hardware.
 
 ---
 
@@ -76,7 +76,7 @@ Fill each row as you complete guides 02–05. When something in this course does
 | Has a notch / cutout? | | Decides how much ch 1.29 (safe area) matters to you |
 | Vulkan supported? | | *Vulkan Hardware Capability Viewer* on the Play Store |
 
-> 💡 **Why the device details matter.** Vulkan support decides whether you can use Godot's **Mobile** renderer or must fall back to **Compatibility** (ch 4.13). The GPU decides your realistic triangle and shader budget. Answer [D-003](../meta/Doubts.md) with this table.
+> 💡 **Why the device details matter.** Vulkan support decides whether you can use Godot's **Mobile** renderer or must fall back to **Compatibility** (ch 5.13). The GPU decides your realistic triangle and shader budget. Answer [D-003](../meta/Doubts.md) with this table.
 
 ---
 

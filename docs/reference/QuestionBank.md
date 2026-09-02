@@ -38,7 +38,7 @@ Re-take each module's questions **two weeks later**. Spaced repetition is the on
 5. What does the debug keystore do, and why does Godot need one before it can deploy?
 6. `adb devices` prints your phone with the word `unauthorized`. What happened and where's the fix?
 7. Name the six independent tools that must all work for a C# APK to reach your phone.
-8. Why does this course deploy to a real device in Module 0 rather than Module 9?
+8. Why does this course deploy to a real device in Module 0 rather than Module 10?
 
 ---
 
@@ -89,8 +89,24 @@ Re-take each module's questions **two weeks later**. Spaced repetition is the on
 
 ---
 
-## Module 2 — Blender & Pipeline
-→ answers: [answers/module-02.md](answers/module-02.md)
+## Module 2 — Android Runtime & Engineering Practice
+→ answers: [answers/module-02.md](answers/module-02.md) *(written when you reach Module 2)*
+
+1. Name four things Android can do to your running game without asking, and what each one should trigger in your code.
+2. What is `NOTIFICATION_APPLICATION_PAUSED` for, and what must happen before it returns?
+3. Why can a backgrounded Android game lose all its state, and what is the only reliable defence?
+4. List the ten steps of the chaos test, and say which one most games fail first.
+5. What is the difference between the back *button* and the back *gesture*, and why does it matter for a pause menu?
+6. Why is your own phone the wrong device to validate a release against?
+7. What is a frame budget, and how do you spend 16.67 ms across CPU, GPU, draw calls and load time?
+8. What is the correct order of operations when something feels slow — and what is the most common mistake?
+9. Why does testing start in Module 2 rather than Module 10?
+10. What does `git bisect` do, and what must be true of your commit history for it to work?
+
+---
+
+## Module 3 — Blender & Pipeline
+→ answers: [answers/module-03.md](answers/module-03.md)
 
 1. What does "1 unit" mean in Blender, and what must be true for it to match Godot?
 2. Why does an unapplied scale cause problems, and name three things it breaks.
@@ -110,8 +126,8 @@ Re-take each module's questions **two weeks later**. Spaced repetition is the on
 
 ---
 
-## Module 3 — Characters I
-→ answers: [answers/module-03.md](answers/module-03.md) *(written when you reach Module 3)*
+## Module 4 — Characters I
+→ answers: [answers/module-04.md](answers/module-04.md) *(written when you reach Module 4)*
 
 1. FK vs IK — what is each for, and why do legs usually want IK?
 2. What is bone roll and what does a wrong one cause?
@@ -126,8 +142,8 @@ Re-take each module's questions **two weeks later**. Spaced repetition is the on
 
 ---
 
-## Module 4 — Worlds, Lighting, Performance
-→ answers: [answers/module-04.md](answers/module-04.md) *(written when you reach Module 4)*
+## Module 5 — Worlds, Lighting, Performance
+→ answers: [answers/module-05.md](answers/module-05.md) *(written when you reach Module 5)*
 
 1. Why does mobile mean baked lighting, in terms of actual hardware?
 2. `LightmapGI` vs `VoxelGI` vs `SDFGI` — cost, quality, and which one ships on a phone?
@@ -142,8 +158,8 @@ Re-take each module's questions **two weeks later**. Spaced repetition is the on
 
 ---
 
-## Module 5 — Shaders & VFX
-→ answers: [answers/module-05.md](answers/module-05.md) *(written when you reach Module 5)*
+## Module 6 — Shaders & VFX
+→ answers: [answers/module-06.md](answers/module-06.md) *(written when you reach Module 6)*
 
 1. What runs in `vertex()` vs `fragment()`, and how many times does each run?
 2. What is a varying, and why can't you just use a global?
@@ -158,8 +174,8 @@ Re-take each module's questions **two weeks later**. Spaced repetition is the on
 
 ---
 
-## Module 6 — Audio & Feel
-→ answers: [answers/module-06.md](answers/module-06.md) *(written when you reach Module 6)*
+## Module 7 — Audio & Feel
+→ answers: [answers/module-07.md](answers/module-07.md) *(written when you reach Module 7)*
 
 1. Why route through buses rather than setting volume per-player?
 2. What is ducking and where would you use it in this game?
@@ -172,8 +188,8 @@ Re-take each module's questions **two weeks later**. Spaced repetition is the on
 
 ---
 
-## Module 7 — Story & Cinematics
-→ answers: [answers/module-07.md](answers/module-07.md) *(written when you reach Module 7)*
+## Module 8 — Story & Cinematics
+→ answers: [answers/module-08.md](answers/module-08.md) *(written when you reach Module 8)*
 
 1. Premise, theme and logline — what is each, in one sentence?
 2. What is ludonarrative dissonance? Give an example from a game you've played.
@@ -187,8 +203,8 @@ Re-take each module's questions **two weeks later**. Spaced repetition is the on
 
 ---
 
-## Module 8 — Characters II
-→ answers: [answers/module-08.md](answers/module-08.md) *(written when you reach Module 8)*
+## Module 9 — Characters II
+→ answers: [answers/module-09.md](answers/module-09.md) *(written when you reach Module 9)*
 
 1. Why retopologise by hand instead of using Decimate?
 2. Where must edge loops go on a character, and why exactly there?
@@ -201,8 +217,8 @@ Re-take each module's questions **two weeks later**. Spaced repetition is the on
 
 ---
 
-## Module 9 — Architecture & Performance
-→ answers: [answers/module-09.md](answers/module-09.md) *(written when you reach Module 9)*
+## Module 10 — Architecture & Performance
+→ answers: [answers/module-10.md](answers/module-10.md) *(written when you reach Module 10)*
 
 1. What is the marshalling boundary in Godot's C# binding, and what does crossing it cost?
 2. Why do per-frame allocations hurt more on mobile than on desktop?
@@ -215,8 +231,8 @@ Re-take each module's questions **two weeks later**. Spaced repetition is the on
 
 ---
 
-## Module 10 — Capstone & Release
-→ answers: [answers/module-10.md](answers/module-10.md) *(written when you reach Module 10)*
+## Module 11 — Capstone & Release
+→ answers: [answers/module-11.md](answers/module-11.md) *(written when you reach Module 11)*
 
 1. What is a vertical slice and what is it *for*?
 2. Why is scope, not skill, what kills projects?

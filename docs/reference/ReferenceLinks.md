@@ -22,8 +22,8 @@ update_trigger: "When a useful link is found"
 | [Godot C# basics](https://docs.godotengine.org/en/stable/tutorials/scripting/c_sharp/index.html) | The C#-specific section. Read it fully before Module 1. |
 | [Godot class reference](https://docs.godotengine.org/en/stable/classes/) | ⚠️ **Switch the language selector to C#** — signatures differ from GDScript. |
 | [Exporting for Android](https://docs.godotengine.org/en/stable/tutorials/export/exporting_for_android.html) | **The authoritative setup page.** Where this course's guides and it disagree, it wins. |
-| [Godot shading language](https://docs.godotengine.org/en/stable/tutorials/shaders/shader_reference/index.html) | GDShader reference — Module 5 lives here |
-| [Godot performance guide](https://docs.godotengine.org/en/stable/tutorials/performance/index.html) | Module 4 background |
+| [Godot shading language](https://docs.godotengine.org/en/stable/tutorials/shaders/shader_reference/index.html) | GDShader reference — Module 6 lives here |
+| [Godot performance guide](https://docs.godotengine.org/en/stable/tutorials/performance/index.html) | Module 5 background |
 | [Blender Manual](https://docs.blender.org/manual/en/latest/) | Genuinely excellent and badly underused |
 | [glTF 2.0 specification](https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html) | For when an import behaves oddly and you need ground truth |
 | [.NET / C# documentation](https://learn.microsoft.com/dotnet/csharp/) | Language reference |
@@ -43,13 +43,13 @@ update_trigger: "When a useful link is found"
 
 | Link | For |
 |------|-----|
-| [Game Programming Patterns](https://gameprogrammingpatterns.com/) (free online) | Architecture. Source of half of Module 9. Read *State*, *Component* and *Object Pool* early |
+| [Game Programming Patterns](https://gameprogrammingpatterns.com/) (free online) | Architecture. Source of half of Module 10. Read *State*, *Component* and *Object Pool* early |
 | [The Book of Shaders](https://thebookofshaders.com/) | Shader fundamentals from first principles |
 | [Godot Shaders](https://godotshaders.com/) | Community shader library — read them, don't just paste them |
 | [Real Time VFX](https://realtimevfx.com/) | The VFX craft community. Read the pinned beginner threads |
 | [Blender Studio training](https://studio.blender.org/training/) | Some free, high quality |
-| [Level Design Compendium](http://book.leveldesignbook.com/) | Module 4 background |
-| [Game Accessibility Guidelines](https://gameaccessibilityguidelines.com/) | Chapter 10.13 |
+| [Level Design Compendium](http://book.leveldesignbook.com/) | Module 5 background |
+| [Game Accessibility Guidelines](https://gameaccessibilityguidelines.com/) | Chapter 11.13 |
 
 ## Free assets — the short list
 

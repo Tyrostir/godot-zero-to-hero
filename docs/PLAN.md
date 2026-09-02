@@ -93,15 +93,15 @@ Eleven projects. Each one is playable and each one is shipped to your phone. The
 |---|---|---|---|
 | **P00** | **Hello Phone** — a cube you can rotate, running on your Android device | Module 0 | Toolchain, export, signing, the whole loop, day one |
 | **P01** | **Marble Runner** — tilt/touch controlled ball, ramps, collectibles, timer | Module 1 | Nodes, C#, 3D transforms, physics, input, camera, UI, save |
-| **P02** | **Foundry Kit** — a 14-piece modular art kit, made by you, used in-game | Module 2 | Blender modelling → UV → texture → bake → glTF → Godot |
-| **P03** | **Third-Person Playground** — a character that walks, runs, jumps, lands | Module 3 | Rigging, animation, AnimationTree, state machines, root motion |
-| **P04** | **Hollow — Level 1** — a real, lit, playable level built from your kit | Module 4 | Level design, GridMap, baked GI, occlusion, LOD, 60fps on device |
-| **P05** | **VFX Lab** — dissolve, force field, water, wind, impacts, smoke | Module 5 | GDShader, particles, decals, Blender-baked flipbooks |
-| **P06** | **Feel Pass** — the same level, but it feels good | Module 6 | Audio buses, music layers, screenshake, hitstop, tweens, haptics |
-| **P07** | **The Slice** — intro cinematic → menu → level → dialogue → ending | Module 7 | Story, GDD, dialogue system, cutscenes, camera direction, credits |
-| **P08** | **Warden** — your own sculpted, retopo'd, rigged, animated character | Module 8 | Full character pipeline, end to end, your hands only |
-| **P09** | **Systems Refactor** — the codebase you'd be happy to hand to a team | Module 9 | Architecture, Resources, settings tiers, profiling, tests |
-| **P10** | **Ember Hollow** — the capstone. 4 levels, boss, full narrative, released | Module 10 | Production, scope, polish, playtesting, Play Console, itch.io |
+| **P02** | **Foundry Kit** — a 14-piece modular art kit, made by you, used in-game | Module 3 | Blender modelling → UV → texture → bake → glTF → Godot |
+| **P03** | **Third-Person Playground** — a character that walks, runs, jumps, lands | Module 4 | Rigging, animation, AnimationTree, state machines, root motion |
+| **P04** | **Hollow — Level 1** — a real, lit, playable level built from your kit | Module 5 | Level design, GridMap, baked GI, occlusion, LOD, 60fps on device |
+| **P05** | **VFX Lab** — dissolve, force field, water, wind, impacts, smoke | Module 6 | GDShader, particles, decals, Blender-baked flipbooks |
+| **P06** | **Feel Pass** — the same level, but it feels good | Module 7 | Audio buses, music layers, screenshake, hitstop, tweens, haptics |
+| **P07** | **The Slice** — intro cinematic → menu → level → dialogue → ending | Module 8 | Story, GDD, dialogue system, cutscenes, camera direction, credits |
+| **P08** | **Warden** — your own sculpted, retopo'd, rigged, animated character | Module 9 | Full character pipeline, end to end, your hands only |
+| **P09** | **Systems Refactor** — the codebase you'd be happy to hand to a team | Module 10 | Architecture, Resources, settings tiers, profiling, tests |
+| **P10** | **Ember Hollow** — the capstone. 4 levels, boss, full narrative, released | Module 11 | Production, scope, polish, playtesting, Play Console, itch.io |
 
 Full briefs and done-criteria: **[projects/README.md](../projects/README.md)**.
 
@@ -111,9 +111,9 @@ Story, the opening screen, the ending screen, music, ambience and the walkthroug
 
 **From P01, a project is not shipped without:** an animated first page · an ending/results screen · at least one music loop · ambience where the piece has a place · a narrative frame, even one line · and a walkthrough that teaches without a wall of text.
 
-You build your first title screen in **Module 1** (chapter 1.35), not Module 7. It is crude — that is the point. You rebuild it with a live 3D character in Module 3, with your own shaders in Module 5, and finally as a directed, scored, narrated opening in Module 7.
+You build your first title screen in **Module 1** (chapter 1.35), not Module 8. It is crude — that is the point. You rebuild it with a live 3D character in Module 4, with your own shaders in Module 6, and finally as a directed, scored, narrated opening in Module 8.
 
-**Narration** gets eleven chapters of its own from Module 6, recorded by you with equipment you already own, with **mandatory synchronised subtitles** ([ADR-027](meta/Decisions.md#adr-027)).
+**Narration** gets eleven chapters of its own from Module 7, recorded by you with equipment you already own, with **mandatory synchronised subtitles** ([ADR-027](meta/Decisions.md#adr-027)).
 
 > 📎 Full project-by-project mapping: **[PresentationSpine.md](PresentationSpine.md)**.
 
@@ -129,9 +129,9 @@ Sixty-three **adoption and variant chapters** (numbered `N.Mb`, `N.Mc`…, marke
 
 **Step 3 is mandatory.** "A tutorial used it" is not a rationale. Chapter **0.10** teaches the six evaluation questions — licence, maintenance, **does it work from C#**, mobile cost measured on device, abandonment risk, and could you write it in a day — and you apply them every time thereafter. Choosing and rejecting dependencies is a larger part of professional work than writing code is.
 
-⚠️ **One honest consequence of choosing C#**: most Godot addons are GDScript, and using them from C# costs you type safety and ergonomics — **but not access**. They are nodes; you instantiate and call them. Three answers, all taught: prefer C#-native or GDExtension libraries (the **Chickensoft** ecosystem is the key find), wrap GDScript addons behind a C# interface (9.6b), and use **NuGet**, which GDScript users don't have (0.11).
+⚠️ **One honest consequence of choosing C#**: most Godot addons are GDScript, and using them from C# costs you type safety and ergonomics — **but not access**. They are nodes; you instantiate and call them. Three answers, all taught: prefer C#-native or GDExtension libraries (the **Chickensoft** ecosystem is the key find), wrap GDScript addons behind a C# interface (10.6b), and use **NuGet**, which GDScript users don't have (0.11).
 
-**And you are not restricted to one language** ([ADR-031](meta/Decisions.md#adr-031)). Godot's .NET build runs **GDScript and C# side by side**, and a **C++ GDExtension class registers as an engine type both can use**. The course teaches this deliberately: **C# primary** for systems and architecture, **GDScript secondary** for `@tool` editor scripts and addon glue, **C++ last resort** for a hot path you have measured. Every boundary lives in one wrapper file. Chapters **0.10b** and **9.1b**.
+**And you are not restricted to one language** ([ADR-031](meta/Decisions.md#adr-031)). Godot's .NET build runs **GDScript and C# side by side**, and a **C++ GDExtension class registers as an engine type both can use**. The course teaches this deliberately: **C# primary** for systems and architecture, **GDScript secondary** for `@tool` editor scripts and addon glue, **C++ last resort** for a hot path you have measured. Every boundary lives in one wrapper file. Chapters **0.10b** and **10.1b**.
 
 > 📎 Full catalogue, licences and caveats: **[Toolchain.md](Toolchain.md)**.
 
@@ -148,9 +148,9 @@ Godot genuinely uses four languages, and this course teaches all four — each s
 
 **You are not told the differences — you measure them.** Module 0's block **0B** builds the *same spinning cube* in GDScript (0.10), C# (0.11) and C++ (0.13–0.14), on your own hardware, recording build time, APK size, lines of code and iteration speed. In **0.17 you write the language decision table yourself, from your own numbers**, and use it for the next 300 chapters.
 
-> ⚠️ **0.13–0.14 will take an afternoon and will feel disproportionate.** That's deliberate. You won't need C++ again until Module 9 — doing the toolchain once now, when nothing depends on it, means Module 9 is about *performance* rather than about SCons.
+> ⚠️ **0.13–0.14 will take an afternoon and will feel disproportionate.** That's deliberate. You won't need C++ again until Module 10 — doing the toolchain once now, when nothing depends on it, means Module 10 is about *performance* rather than about SCons.
 
-**The rule that keeps four languages from becoming four sets of problems:** every boundary lives in **one wrapper file**. Chapters 9.1c and 9.6b.
+**The rule that keeps four languages from becoming four sets of problems:** every boundary lives in **one wrapper file**. Chapters 10.1c and 9.6b.
 
 > 📎 Full curriculum: **[Languages.md](Languages.md)**.
 
@@ -160,11 +160,11 @@ A course built on learning by doing needs a **gradient toward doing it alone**, 
 
 | Stage | Modules | Guided / Independent |
 |-------|---------|---------------------|
-| Early | 0–1 | **90 / 10** |
-| Intermediate | 2–4 | **70 / 30** |
-| Advanced | 5–7 | **50 / 50** |
-| Professional | 8–9 | **30 / 70** |
-| Capstone | 10 | **10 / 90** |
+| Early | 0–2 | **90 / 10** |
+| Intermediate | 3–5 | **70 / 30** |
+| Advanced | 6–8 | **50 / 50** |
+| Professional | 9–10 | **30 / 70** |
+| Capstone | 11–12 | **10 / 90** |
 
 Every major subsystem ends with a **⬜ blank-page build** — *requirements only, no steps, no reference implementation, no code*. There are eight, plus four mini-jams and the autopsies in [Exercises.md](Exercises.md). The progression per subsystem is **guided build → variation → ⬜ blank-page → jam → autopsy**.
 
@@ -172,7 +172,7 @@ Every major subsystem ends with a **⬜ blank-page build** — *requirements onl
 
 ### 3c-4. Android is a runtime, not just a build target
 
-**Module 1 block 1J** (1.40–1.49) covers what the plan previously missed entirely ([ADR-034](meta/Decisions.md#adr-034)): the activity lifecycle · interruptions · process death and resume · **the chaos test** · input beyond touch · screens you did not design for · **the device tier matrix** · **explicit performance budgets** · profile-first optimisation.
+**Module 2** (2.7–2.16) covers what the plan previously missed entirely ([ADR-034](meta/Decisions.md#adr-034)): the activity lifecycle · interruptions · process death and resume · **the chaos test** · input beyond touch · screens you did not design for · **the device tier matrix** · **explicit performance budgets** · profile-first optimisation.
 
 **P01 does not ship until it survives the chaos test** — home · reopen · lock · unlock · rotate · simulate a call · task-switch · **kill the process** · reopen · load save. From there it is a done-criterion on every project.
 
@@ -200,25 +200,25 @@ Between modules there are also **Mini-Jams** — 2-to-4-hour constrained builds 
 
 **Module 1 — Godot Foundations (P01 Marble Runner).** Nodes and scenes. The scene tree. C# scripts, lifecycle, `[Export]`. 3D transforms, basis, quaternions-when-you-need-them. Physics bodies. Input: keyboard, touch, gesture, accelerometer. Camera rigs and `SpringArm3D`. Signals and C# events. UI, anchors, Android safe area. Scene switching, autoloads. Saving to `user://`.
 
-**Module 2 — Blender I: Props & the Asset Pipeline (P02 Foundry Kit).** `B1–B8`. Interface, navigation, units matched to Godot. Box modelling. Modifiers. Topology and poly budgets for mobile. UV unwrapping and texel density. PBR theory and the Principled BSDF. Texture painting without paid tools. Baking normal/AO/curvature/ID. glTF export settings, collision naming conventions, Godot's import dock and import presets.
+**Module 3 — Blender I: Props & the Asset Pipeline (P02 Foundry Kit).** `B1–B8`. Interface, navigation, units matched to Godot. Box modelling. Modifiers. Topology and poly budgets for mobile. UV unwrapping and texel density. PBR theory and the Principled BSDF. Texture painting without paid tools. Baking normal/AO/curvature/ID. glTF export settings, collision naming conventions, Godot's import dock and import presets.
 
-**Module 3 — Characters I: Rig & Animate (P03 Playground).** `B9–B14`. Character silhouette and proportion. Armatures, bone naming, IK vs FK. Weight painting. The 12 principles applied to a run cycle. NLA. Mixamo: getting free animations and retargeting them in Blender. Root motion vs in-place. In Godot: `Skeleton3D`, `AnimationPlayer`, `AnimationTree`, state machines, `BlendSpace2D`. A C# character controller built as a real state machine.
+**Module 4 — Characters I: Rig & Animate (P03 Playground).** `B9–B14`. Character silhouette and proportion. Armatures, bone naming, IK vs FK. Weight painting. The 12 principles applied to a run cycle. NLA. Mixamo: getting free animations and retargeting them in Blender. Root motion vs in-place. In Godot: `Skeleton3D`, `AnimationPlayer`, `AnimationTree`, state machines, `BlendSpace2D`. A C# character controller built as a real state machine.
 
-**Module 4 — Worlds, Lighting & Mobile Performance (P04 Level 1).** Level design theory: pacing, landmarks, affordance, gating, the critical path. Greyboxing with CSG. `GridMap` and `MeshLibrary`. Terrain. Lighting: direct, shadow, `LightmapGI` vs `SDFGI` vs `VoxelGI` and why mobile means baked. `WorldEnvironment`: sky, fog, tonemapping, glow, SSAO — and the exact cost of each on a phone. Occlusion culling, LOD, `MultiMeshInstance3D`. Mobile vs Forward+ renderer. ETC2/ASTC texture compression.
+**Module 5 — Worlds, Lighting & Mobile Performance (P04 Level 1).** Level design theory: pacing, landmarks, affordance, gating, the critical path. Greyboxing with CSG. `GridMap` and `MeshLibrary`. Terrain. Lighting: direct, shadow, `LightmapGI` vs `SDFGI` vs `VoxelGI` and why mobile means baked. `WorldEnvironment`: sky, fog, tonemapping, glow, SSAO — and the exact cost of each on a phone. Occlusion culling, LOD, `MultiMeshInstance3D`. Mobile vs Forward+ renderer. ETC2/ASTC texture compression.
 
-**Module 5 — Shaders & VFX (P05 VFX Lab).** A mental model of the render pipeline. GDShader: spatial shaders, vertex and fragment stages, built-ins. Practical shaders you will actually ship: dissolve, force field, stylised water, wind-swayed foliage, toon ramp, triplanar. Driving shader params from C#. `GPUParticles3D`, process materials, sub-emitters, trails. Baking Blender smoke/fire simulations into flipbook sheets. Decals. Screen-space post effects. Shader compilation stutter and how to prewarm.
+**Module 6 — Shaders & VFX (P05 VFX Lab).** A mental model of the render pipeline. GDShader: spatial shaders, vertex and fragment stages, built-ins. Practical shaders you will actually ship: dissolve, force field, stylised water, wind-swayed foliage, toon ramp, triplanar. Driving shader params from C#. `GPUParticles3D`, process materials, sub-emitters, trails. Baking Blender smoke/fire simulations into flipbook sheets. Decals. Screen-space post effects. Shader compilation stutter and how to prewarm.
 
-**Module 6 — Audio, Narration & Game Feel (P06 Feel Pass).** `AudioStreamPlayer3D`, buses, effects, attenuation. Free audio sources and their licences. Editing in Audacity. Footsteps by surface. Adaptive music: loops, stingers, layers — and music that doesn't wear out. **Then narration, in full: writing for the ear; recording with a phone and a wardrobe; cleaning a take without over-processing it; the narration bus and side-chain ducking; synchronised subtitles; text-to-speech and its licensing.** Then game feel: tweening, easing curves, screenshake done tastefully, hitstop, camera kick, haptics.
+**Module 7 — Audio, Narration & Game Feel (P06 Feel Pass).** `AudioStreamPlayer3D`, buses, effects, attenuation. Free audio sources and their licences. Editing in Audacity. Footsteps by surface. Adaptive music: loops, stingers, layers — and music that doesn't wear out. **Then narration, in full: writing for the ear; recording with a phone and a wardrobe; cleaning a take without over-processing it; the narration bus and side-chain ducking; synchronised subtitles; text-to-speech and its licensing.** Then game feel: tweening, easing curves, screenshake done tastefully, hitstop, camera kick, haptics.
 
-**Module 7 — Story, Narrative & Cinematics (P07 The Slice).** Premise, theme, logline. Character arc. Environmental storytelling. Ludonarrative harmony — and dissonance. **Directing narration: who speaks, to whom, in what tense, and when silence is stronger.** Writing the GDD and the narrative bible. A data-driven dialogue system in C# with choices, portraits and a typewriter effect. **A narration system: cue-driven VO with synchronised subtitles, automatic music ducking, and a skip that doesn't break state.** Cutscenes with `AnimationPlayer` timelines, camera cuts and `Path3D` dollies. The splash/intro animation. The main-menu animation with its own theme. The narrated cold open. **The guided walkthrough — teaching the first five minutes with narration, camera and level rather than a wall of text.** Loading screens that don't lie. The narrated ending sequence. An auto-generated credits roll over an end-credits theme. Localisation, including what localising *audio* actually costs.
+**Module 8 — Story, Narrative & Cinematics (P07 The Slice).** Premise, theme, logline. Character arc. Environmental storytelling. Ludonarrative harmony — and dissonance. **Directing narration: who speaks, to whom, in what tense, and when silence is stronger.** Writing the GDD and the narrative bible. A data-driven dialogue system in C# with choices, portraits and a typewriter effect. **A narration system: cue-driven VO with synchronised subtitles, automatic music ducking, and a skip that doesn't break state.** Cutscenes with `AnimationPlayer` timelines, camera cuts and `Path3D` dollies. The splash/intro animation. The main-menu animation with its own theme. The narrated cold open. **The guided walkthrough — teaching the first five minutes with narration, camera and level rather than a wall of text.** Loading screens that don't lie. The narrated ending sequence. An auto-generated credits roll over an end-credits theme. Localisation, including what localising *audio* actually costs.
 
-**Module 8 — Characters II: Your Own (P08 Warden).** `B9–B15` at depth. Concept and blockout. Sculpting. Retopology by hand. High-to-low baking. Hand-painted and procedural texturing. A production rig with IK, pole targets, and custom bone shapes. Facial basics. A hand-keyed animation set: idle, walk, run, jump, attack, hit, death. Export and retarget into the P03 controller.
+**Module 9 — Characters II: Your Own (P08 Warden).** `B9–B15` at depth. Concept and blockout. Sculpting. Retopology by hand. High-to-low baking. Hand-painted and procedural texturing. A production rig with IK, pole targets, and custom bone shapes. Facial basics. A hand-keyed animation set: idle, walk, run, jump, attack, hit, death. Export and retarget into the P03 controller.
 
-**Module 9 — Architecture, Performance & Tooling (P09 Refactor).** C# in Godot: marshalling cost, allocations, the GC on mobile, `struct` vs `class`, object pooling. Composition over inheritance in a node tree. Custom `Resource` types for data-driven design. A versioned save system. A settings screen with real graphics tiers for low-end devices. Unit testing. Remote debugging and profiling on the device. `adb logcat`.
+**Module 10 — Architecture, Performance & Tooling (P09 Refactor).** C# in Godot: marshalling cost, allocations, the GC on mobile, `struct` vs `class`, object pooling. Composition over inheritance in a node tree. Custom `Resource` types for data-driven design. A versioned save system. A settings screen with real graphics tiers for low-end devices. Unit testing. Remote debugging and profiling on the device. `adb logcat`.
 
-**Module 10 — Capstone & Release (P10 Ember Hollow).** Pre-production and ruthless scope control. The vertical slice. A production schedule. Enemy AI with `NavigationAgent3D` and behaviour state machines. A boss fight. Playtesting protocol and what to actually record. The polish pass. Export templates, keystores, AAB vs APK, icons and adaptive icons, app size. GitHub Actions CI that builds your APK. itch.io page, trailer capture, Play Console internal testing, privacy policy.
+**Module 11 — Capstone & Release (P10 Ember Hollow).** Pre-production and ruthless scope control. The vertical slice. A production schedule. Enemy AI with `NavigationAgent3D` and behaviour state machines. A boss fight. Playtesting protocol and what to actually record. The polish pass. Export templates, keystores, AAB vs APK, icons and adaptive icons, app size. GitHub Actions CI that builds your APK. itch.io page, trailer capture, Play Console internal testing, privacy policy.
 
-**Module 11 — Beyond (optional).** Multiplayer basics, procedural generation, Geometry Nodes at depth, editor plugins and custom tooling, GDExtension, porting to desktop.
+**Module 12 — Beyond (optional).** Multiplayer basics, procedural generation, Geometry Nodes at depth, editor plugins and custom tooling, GDExtension, porting to desktop.
 
 ---
 
@@ -226,21 +226,21 @@ Between modules there are also **Mini-Jams** — 2-to-4-hour constrained builds 
 
 These are real limitations of the toolchain and of your setup. Knowing them now saves you a week later.
 
-**5.1 — You cannot do this course on the phone alone.**
+**6.1 — You cannot do this course on the phone alone.**
 This Termux session is a good place to write, plan, and manage git. It is not where the game gets built. Godot's C#/.NET tooling needs a desktop .NET SDK, and the Android *editor* build of Godot does **not** support C# at all. Your Android phone is the **target device**, and it is essential — you will deploy to it constantly.
 
 **Your build machine is a Linux desktop** (confirmed, [D-001](meta/Doubts.md)). That settles the setup route: the lean command-line Android SDK rather than the ~8 GB Android Studio install, OpenJDK from your distribution's packages, and a `udev` rule so `adb` sees the phone without `sudo`. The guides lead with Linux; Windows and macOS steps remain for other readers.
 
-**5.2 — C# on Android in Godot is supported, but it is the less-travelled path.**
+**6.2 — C# on Android in Godot is supported, but it is the less-travelled path.**
 Godot's .NET Android export works (4.2+ introduced it, later 4.x releases hardened it), but you will occasionally hit rough edges that a GDScript user would not: longer export times, larger APKs, and fewer StackOverflow answers. This course chooses C# anyway because you asked for it and because it is the better skill to own — but expect to read the official docs and Godot's GitHub issues sometimes. `reference/Troubleshooting.md` collects the known ones.
 
-**5.3 — Pin your versions.**
+**6.3 — Pin your versions.**
 Record the exact Godot, .NET, Blender, JDK and Android SDK versions you install in `guides/Setup_01_Prerequisites.md`. When something in this course doesn't match your editor, a version difference is the first suspect.
 
-**5.4 — Mobile is a hard performance target.**
+**6.4 — Mobile is a hard performance target.**
 A mid-range Android phone has roughly the GPU budget of a 2013 laptop and a thermal budget of about ten minutes. Almost every "make it pretty" technique you'll read about online assumes a desktop GPU. This course teaches the mobile-safe version *first* and mentions the desktop version second. If you ignore this you will build a beautiful game that runs at 14fps and cooks your phone.
 
-**5.5 — Scope is the thing that kills projects, not skill.**
+**6.5 — Scope is the thing that kills projects, not skill.**
 The capstone is deliberately small: four short levels and one boss. It will still take you longer than you expect. When you feel the urge to add a crafting system, write it in `GameDesignDocument.md` under *Post-launch* and move on.
 
 ---
@@ -263,7 +263,7 @@ There is no calendar here — you set the pace. But for calibration:
 | 9 | 42–60 h | 456 h |
 | 10 | 72–140 h | 596 h |
 
-Roughly **560–650 hours** to a released game. At 10 h/week that is a year; at 20 h/week, six months. Both are normal. Track your actual hours in `meta/Journal.md` — after Module 2 you will be able to estimate your own speed, which is itself a professional skill.
+Roughly **560–650 hours** to a released game. At 10 h/week that is a year; at 20 h/week, six months. Both are normal. Track your actual hours in `meta/Journal.md` — after Module 3 you will be able to estimate your own speed, which is itself a professional skill.
 
 **Rhythm that works:** one chapter per session, ending on a green build and a commit. Never stop mid-chapter on a broken build — future-you will not remember what you were mid-thought about.
 

@@ -49,10 +49,10 @@ The class name **must** match the file name, or Godot will not attach the script
 **Rules that matter more than formatting:**
 
 1. **No magic numbers in gameplay code.** Anything a designer might tune is `[Export]`ed.
-2. **No `GetNode("../../Player")`.** Reaching through the tree breaks the moment anyone moves a node. Use `[Export] NodePath`, groups, or an event bus ([ADR-003 of Module 9](../PLAN.md)).
+2. **No `GetNode("../../Player")`.** Reaching through the tree breaks the moment anyone moves a node. Use `[Export] NodePath`, groups, or an event bus ([ADR-003 of Module 10](../PLAN.md)).
 3. **`QueueFree()`, never `Free()`** unless you can articulate why.
 4. **Physics in `_PhysicsProcess`, everything else in `_Process`.**
-5. **No allocations in a per-frame hot path** — from Module 9 onward this is enforced, not suggested.
+5. **No allocations in a per-frame hot path** — from Module 10 onward this is enforced, not suggested.
 
 ---
 

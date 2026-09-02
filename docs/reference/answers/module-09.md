@@ -1,5 +1,5 @@
-# Answers — Module 09
+# Answers — Module 08
 
-*Written when you reach Module 09.*
+*Written when you reach Module 08.*
 
 Ask me to fill this in as you complete the module's chapters, or — better — write your own answers here first and ask me to review them. Producing the answer yourself and having it corrected beats reading a correct answer, every time.

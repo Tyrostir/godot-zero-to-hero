@@ -79,6 +79,7 @@ Some entries below have a **"In my own words"** line. That is yours to fill in, 
 | [D-008](#d-008) | 2026-09-02 | Godot/C# | Would GDScript or C++ give more free libraries? And can one game use all three languages? | ✅ |
 | [D-009](#d-009) | 2026-09-02 | Course logistics | Restructure for all three languages and adopt **every** library we explored | ✅ |
 | [D-010](#d-010) | 2026-09-02 | Course logistics | Which points from the external review are worth adopting? | ✅ |
+| [D-011](#d-011) | 2026-09-02 | Course logistics | What is a "vertical slice", and where should the capstone finish line be? | ✅ |
 
 ---
 
@@ -141,7 +142,7 @@ Recorded as verification block [V-01](../internal/VerificationRuns.md) and [T-00
 
 ## D-003
 
-**Date:** 2026-09-01 · **Context:** [Setup 01](../guides/Setup_01_Prerequisites.md), and it governs Module 4's entire budget · **Category:** Performance · **Status:** ⬜ Open — **needs your device**
+**Date:** 2026-09-01 · **Context:** [Setup 01](../guides/Setup_01_Prerequisites.md), and it governs Module 5's entire budget · **Category:** Performance · **Status:** ⬜ Open — **needs your device**
 
 ### Question
 > What is my test phone's GPU, RAM, Android version and Vulkan support?
@@ -152,8 +153,8 @@ Unknown, and it decides more than it looks like it does: **Vulkan support choose
 ### Full answer
 Three separate decisions hang on this:
 
-1. **Renderer** (chapter 4.13). Godot 4 offers Forward+, **Mobile** and **Compatibility**. Vulkan-capable devices can use Mobile — the intended phone path. A device without usable Vulkan drops you to Compatibility, which changes what shaders and lighting features are available, and therefore changes several chapters in Modules 4 and 5.
-2. **Performance budget** (4.12–4.18). A mid-range phone has roughly the GPU budget of a 2013 laptop and a **thermal budget of about ten minutes**. Triangle counts, texture resolution, shadow settings and post-processing all get set against your actual hardware, not a generic target.
+1. **Renderer** (chapter 5.13). Godot 4 offers Forward+, **Mobile** and **Compatibility**. Vulkan-capable devices can use Mobile — the intended phone path. A device without usable Vulkan drops you to Compatibility, which changes what shaders and lighting features are available, and therefore changes several chapters in Modules 4 and 5.
+2. **Performance budget** (5.12–5.18). A mid-range phone has roughly the GPU budget of a 2013 laptop and a **thermal budget of about ten minutes**. Triangle counts, texture resolution, shadow settings and post-processing all get set against your actual hardware, not a generic target.
 3. **UI** (1.29). Screen resolution, aspect ratio, refresh rate and whether you have a notch decide how much the safe-area work matters to you.
 
 **How to get the numbers:** Settings → About phone for model, Android version and RAM. An app like *Device Info HW* for the chipset. *Vulkan Hardware Capability Viewer* for Vulkan. Fill the table in [Setup 01 §3](../guides/Setup_01_Prerequisites.md#3-your-version-log).
@@ -161,7 +162,7 @@ Three separate decisions hang on this:
 **Worth doing if you can:** borrow an older or cheaper Android device. Your daily phone is probably better than your median player's; a five-year-old handset becomes your *performance truth*. Build for that one and the good phone looks after itself.
 
 ### Related
-[Setup 01 §3](../guides/Setup_01_Prerequisites.md) · [ADR-010](Decisions.md#adr-010) · chapters 1.29, 4.12–4.18
+[Setup 01 §3](../guides/Setup_01_Prerequisites.md) · [ADR-010](Decisions.md#adr-010) · chapters 1.29, 5.12–5.18
 
 ### Action taken
 [T-004](ToDos.md). Also verification block [V-03](../internal/VerificationRuns.md).
@@ -217,14 +218,14 @@ You overrode it, and the reasoning is sound: my recommendation optimised for **a
 
 **Gap 3 — "walkthrough" was unaddressed in both senses:** the *designed* walkthrough (a level that teaches with no tutorial prompt) and the *written* one (a player-facing guide).
 
-**Why the audit was worth running rather than answering "yes".** Two of the three gaps were invisible from the module titles. Module 7 is called *Story, Narrative & Cinematics* and Module 6 *Audio & Game Feel*. A glance at those names would have produced a confident and wrong "yes, it's all covered." The ToC had to be read line by line against your list.
+**Why the audit was worth running rather than answering "yes".** Two of the three gaps were invisible from the module titles. Module 8 is called *Story, Narrative & Cinematics* and Module 7 *Audio & Game Feel*. A glance at those names would have produced a confident and wrong "yes, it's all covered." The ToC had to be read line by line against your list.
 
 **The fix.**
 
-- **[ADR-026 — The Presentation Spine].** Presentation runs through **every project from P01**, escalating. From P01 a project is not shipped without an animated first page, an ending screen, music, ambience, a narrative frame and a walkthrough — as **done-criteria**, not suggestions. You build a title screen **four times**: crude tween (1.35) → live 3D character (3.12) → your own shaders (5.22) → directed, scored, narrated opening (7.16–7.18). Same escalation for the ending, music, and the walkthrough.
+- **[ADR-026 — The Presentation Spine].** Presentation runs through **every project from P01**, escalating. From P01 a project is not shipped without an animated first page, an ending screen, music, ambience, a narrative frame and a walkthrough — as **done-criteria**, not suggestions. You build a title screen **four times**: crude tween (1.35) → live 3D character (3.12) → your own shaders (6.22) → directed, scored, narrated opening (8.16–8.18). Same escalation for the ending, music, and the walkthrough.
 - **[ADR-027 — Narration].** Eleven chapters, record-before-theorise, built around a phone and a wardrobe of soft furnishings — **no purchase required**. TTS treated as a legitimate option with its licensing trap stated. **Subtitles mandatory**: a phone gets played on mute, on a bus, by someone who is deaf, and by someone at 4% battery, and all four are the same requirement.
 
-**Rejected:** the cheap fix — bolting narration chapters onto Module 7 and leaving the rest. That would have closed gap 1 and left the pedagogy broken.
+**Rejected:** the cheap fix — bolting narration chapters onto Module 8 and leaving the rest. That would have closed gap 1 and left the pedagogy broken.
 
 **Cost, stated plainly:** 43 chapters added, **215 → 258**; pacing ~400–450 h → **~430–480 h**. Accepted because the chapters are short and distributed rather than lumped, and because every intermediate project now feels like a *game* rather than a tech demo — which is the strongest available defence against the thing that actually ends long courses, which is not difficulty but loss of interest.
 
@@ -313,7 +314,7 @@ Yes to all of it — with one correction. The free ecosystem is large and the pl
 
 Why it matters so much here: **every "best Godot addons" list online is written for GDScript users.** Most Godot addons *are* GDScript. They work from C# — they are nodes, you call them — but you lose type safety at exactly the boundary you most want it. A C# developer following those lists spends their life writing `Call("do_thing")`. Chickensoft is the answer, and knowing it exists is worth more than any single addon.
 
-Two further responses to that same problem are now taught: **wrap any GDScript addon behind a C# interface** (9.6b — one ugly file, the rest of your codebase stays typed), and **NuGet** (0.11), which is a large compensation GDScript users simply do not have.
+Two further responses to that same problem are now taught: **wrap any GDScript addon behind a C# interface** (10.6b — one ugly file, the rest of your codebase stays typed), and **NuGet** (0.11), which is a large compensation GDScript users simply do not have.
 
 **3 — Adopting them without breaking learn-by-doing.** This was the real design problem, and the answer is [ADR-028](Decisions.md#adr-028):
 
@@ -321,23 +322,23 @@ Two further responses to that same problem are now taught: **wrap any GDScript a
 > **2️⃣ Compare** → install it, **read its source**, find what it does better *and worse*.
 > **3️⃣ Decide** → adopt or keep yours, and **record why** in `DecisionsLog.md`.
 
-Adoption chapters are numbered `N.Mb` and marked 🧰, so the pairing is visible and existing numbering stays stable. Rigify comes *after* you hand-rig a biped (B24b). Phantom Camera *after* you write a follow camera (1.24b). LogicBlocks *after* your own FSM has silently got hierarchical states wrong (3.7b). RetopoFlow *after* hand retopology (B34b).
+Adoption chapters are numbered `N.Mb` and marked 🧰, so the pairing is visible and existing numbering stays stable. Rigify comes *after* you hand-rig a biped (B24b). Phantom Camera *after* you write a follow camera (1.24b). LogicBlocks *after* your own FSM has silently got hierarchical states wrong (4.7b). RetopoFlow *after* hand retopology (B34b).
 
 **Step 3 is mandatory, and "a tutorial used it" is not a rationale.** Chapter **0.10** teaches the six evaluation questions — licence · maintenance · **does it work from C#** · mobile cost *measured on device* · abandonment risk · could you write it in a day. Choosing and rejecting dependencies is a larger part of professional work than writing code is, and the Godot 3→4 break orphaned enough addons to make the point concrete.
 
-**Rejections are recorded too** ([`../Toolchain.md` §8](../Toolchain.md)): FMOD/Wwise (community integration + C# + Android is three compounding risks — awareness only, 6.2b, no install), every paid Blender addon that has a free equivalent taught here, GPL addons in shipped code, and anything abandoned since Godot 4.0.
+**Rejections are recorded too** ([`../Toolchain.md` §8](../Toolchain.md)): FMOD/Wwise (community integration + C# + Android is three compounding risks — awareness only, 7.2b, no install), every paid Blender addon that has a free equivalent taught here, GPL addons in shipped code, and anything abandoned since Godot 4.0.
 
 **4 — On "AAA", honestly.** You asked for *AAA standard — professional — industry grade*. Two of those three are achievable through this course. One is not, and saying so is more useful than agreeing ([ADR-030](Decisions.md#adr-030)).
 
 **AAA is a description of budget and headcount, not of quality**: 100–300 people, $50–200 M, three to five years, with marketing that often exceeds production. No course produces that and no solo developer achieves it — not for want of skill, but because it is a claim about organisational scale.
 
-**Professional and industry-grade craft is entirely achievable, and the course now targets it in full.** The gaps I found and closed: **industry milestones** (first playable, vertical slice, alpha, beta, content lock, gold — 10.1b) · **production tracking with Kitsu**, an open-source tool used in real studios (10.3b) · **code standards** — `.editorconfig`, .NET analyzers, `dotnet format`, XML doc comments, warnings-as-errors (9.2b) · **structured logging** with Serilog rather than `GD.Print` (9.11b) · **unit-testable scene code** (9.9b) · **storyboarding and previz** (7.2b) · **colour management** (7.24b) · **the post-mortem**, written honestly and published (10.11b) · and **a portfolio and breakdown reel** for studio applications (10.20b).
+**Professional and industry-grade craft is entirely achievable, and the course now targets it in full.** The gaps I found and closed: **industry milestones** (first playable, vertical slice, alpha, beta, content lock, gold — 11.1b) · **production tracking with Kitsu**, an open-source tool used in real studios (10.3b) · **code standards** — `.editorconfig`, .NET analyzers, `dotnet format`, XML doc comments, warnings-as-errors (10.2b) · **structured logging** with Serilog rather than `GD.Print` (9.11b) · **unit-testable scene code** (10.9b) · **storyboarding and previz** (8.2b) · **colour management** (8.24b) · **the post-mortem**, written honestly and published (11.11b) · and **a portfolio and breakdown reel** for studio applications (11.20b).
 
 What is deliberately *not* attempted, and why that is right: large content volume (scope kills solo projects — [ADR-019](Decisions.md#adr-019)), photoreal fidelity (wrong target for a phone — [ADR-010](Decisions.md#adr-010)), multiplayer infrastructure (an entire discipline; awareness only), and marketing at scale.
 
 **The honest summary:** at the end you will not have made a AAA game. You will have the craft, the pipeline discipline and the shipped evidence to work on one — or to make something small and excellent on your own, which is the harder and rarer achievement.
 
-**5 — Cost.** 32 chapters added, **258 → 290**. Pacing ~430–480 h → **~470–530 h**. Module 9 grew most (13 → 19) because that is where professional practice concentrates.
+**5 — Cost.** 32 chapters added, **258 → 290**. Pacing ~430–480 h → **~470–530 h**. Module 10 grew most (13 → 19) because that is where professional practice concentrates.
 
 **6 — One caveat I cannot remove.** [`[UNVERIFIED]`](../internal/VerificationRuns.md) applies to this whole document. I cannot install or run any of these libraries ([ADR-016](Decisions.md#adr-016)). Versions, current maintenance status, real C# ergonomics and actual mobile cost must be checked **by you at the point of adoption** — which is exactly the exercise in step 2 anyway, so the constraint and the pedagogy happen to point the same way.
 
@@ -423,7 +424,7 @@ Godot's .NET build runs **GDScript and C# in the same project simultaneously**, 
 [ADR-031](Decisions.md#adr-031) · [ADR-029](Decisions.md#adr-029) · [ADR-022](Decisions.md#adr-022) · [`../Toolchain.md` §4b–§4c](../Toolchain.md) · [PLAN §3c](../PLAN.md)
 
 ### Action taken
-[ADR-031](Decisions.md#adr-031) added. `Toolchain.md` gained §4b (the three-way language comparison) and §4c (using all three in one game). Two chapters added — **0.10b** *GDScript, C# and C++ in one project* and **9.1b** *Polyglot architecture: where the boundary goes*; **11.4** and **11.5** expanded. Course 290 → 292.
+[ADR-031](Decisions.md#adr-031) added. `Toolchain.md` gained §4b (the three-way language comparison) and §4c (using all three in one game). Two chapters added — **0.10b** *GDScript, C# and C++ in one project* and **10.1b** *Polyglot architecture: where the boundary goes*; **12.4** and **12.5** expanded. Course 290 → 292.
 
 ### In my own words
 *(yours to fill in)*
@@ -459,14 +460,14 @@ Done — **333 chapters**, and the two hard parts were solved by design rather t
 
 Any course can assert *"C++ is faster, GDScript iterates quicker."* A number you produced on your own phone is one you believe, remember, and can defend — and you will notice when it stops being true for your hardware or Godot version. That is the difference between learning by doing and being told.
 
-⚠️ **0.13–0.14 will take an afternoon and feel disproportionate.** Deliberate. You will not touch C++ again until Module 9; doing the toolchain once now, when nothing depends on it, means Module 9 is about *performance* rather than about SCons.
+⚠️ **0.13–0.14 will take an afternoon and feel disproportionate.** Deliberate. You will not touch C++ again until Module 10; doing the toolchain once now, when nothing depends on it, means Module 10 is about *performance* rather than about SCons.
 
 **Where each language actually lives** (full detail in [`../Languages.md`](../Languages.md)):
 
 - **C#** — ~180 chapters. Systems, architecture, data, saves, tests.
-- **GDScript** — **8 chapters where it is genuinely the right choice**, not token ones: `@tool` animation validator (3.2b), `@tool` level validator (4.9b), a full editor plugin with a custom dock (9.10b), consuming Panku Console from C# (1.31b), evaluating Dialogue Manager/Dialogic (7.10b) and Beehave (10.6b), and the wrapper pattern (9.6b).
-- **C++/GDExtension** — **7 chapters, all earned.** The centrepiece is **9.1e — the measured rewrite**: take one profiled hot path, implement it GDScript → C# → C++, benchmark each step **on the phone**, and decide where to stop. That chapter is what makes *"use C++ only after profiling"* a fact you have proven rather than a slogan you were given.
-- **GDShader** — Module 5's twelve chapters, now introduced in 0.16 so it is not a surprise.
+- **GDScript** — **8 chapters where it is genuinely the right choice**, not token ones: `@tool` animation validator (4.2b), `@tool` level validator (5.9b), a full editor plugin with a custom dock (10.10b), consuming Panku Console from C# (1.31b), evaluating Dialogue Manager/Dialogic (8.10b) and Beehave (11.6b), and the wrapper pattern (10.6b).
+- **C++/GDExtension** — **7 chapters, all earned.** The centrepiece is **10.1e — the measured rewrite**: take one profiled hot path, implement it GDScript → C# → C++, benchmark each step **on the phone**, and decide where to stop. That chapter is what makes *"use C++ only after profiling"* a fact you have proven rather than a slogan you were given.
+- **GDShader** — Module 6's twelve chapters, now introduced in 0.16 so it is not a surprise.
 
 *Problem 2 — adopting ~50 libraries naively adds ~50 chapters and produces a tool catalogue*, which is the exact opposite of [ADR-002](Decisions.md#adr-002). Solved by **[ADR-032](Decisions.md#adr-032): cluster by session, not by tool.** Where several small tools share a purpose they get **one chapter in which each is used once, on your own asset**:
 
@@ -474,12 +475,12 @@ Any course can assert *"C++ is faster, GDScript iterates quicker."* A number you
 |---|---|
 | **B5b** | LoopTools · Bool Tool · 3D-Print Toolbox · Extra Objects · Copy Attributes |
 | **B15b/c/d** | Poly Haven · ambientCG · BlenderKit · Material Maker · Krita · GIMP · Inkscape |
-| **4.2b/c** | A.N.T. Landscape · Sapling · Cell Fracture · Blender GIS |
+| **5.2b/c** | A.N.T. Landscape · Sapling · Cell Fracture · Blender GIS |
 | **4.4c** | HTerrain · Zylann Voxel Tools |
 | **B29b · B31b · B34c · B41b** | Rokoko · Mixamo converters · MakeHuman · MB-Lab · Instant Meshes · Cascadeur |
 | **1.13b/1.16b/1.31b/1.33b** | Jolt · Input Helper · Panku Console · System.Text.Json |
-| **9.7c/9.10b/9.10c** | MemoryPack · MessagePack · a GDScript editor dock · the rest of Chickensoft |
-| **5.20b · 6.4b · 7.19b · 7.24c · 0.20 · 10.14b · 11.3b** | OBS · scrcpy · Ardour · Inkscape · Blender VSE · Git Plugin · GodotEnv · Play Games/Billing · Sverchok · Animation Nodes |
+| **9.7c/10.10b/9.10c** | MemoryPack · MessagePack · a GDScript editor dock · the rest of Chickensoft |
+| **6.20b · 6.4b · 7.19b · 7.24c · 0.20 · 11.14b · 11.3b** | OBS · scrcpy · Ardour · Inkscape · Blender VSE · Git Plugin · GodotEnv · Play Games/Billing · Sverchok · Animation Nodes |
 
 Every cluster chapter is still a **doing** session — each tool used once on real content — and every one still sits *after* the manual technique it accelerates ([ADR-028](Decisions.md#adr-028)). MACHIN3tools after manual hard-surface work. The asset browsers after you have sourced and licence-checked by hand. Instant Meshes after hand retopology.
 
@@ -493,7 +494,7 @@ Every cluster chapter is still a **doing** session — each tool used once on re
 [ADR-001](Decisions.md#adr-001) *(revised)* · [ADR-031](Decisions.md#adr-031) · [ADR-032](Decisions.md#adr-032) · [`../Languages.md`](../Languages.md) · [`../Toolchain.md` §7b](../Toolchain.md) · [PLAN §3c-2](../PLAN.md)
 
 ### Action taken
-New document [`../Languages.md`](../Languages.md). [ADR-001](Decisions.md#adr-001) revised to four languages; [ADR-032](Decisions.md#adr-032) added. Module 0 restructured into blocks 0A/0B/0C (14 → 21 chapters). 41 chapters added across all modules including the Module 9 C++ block (9.1c–9.1f). `Toolchain.md` gained §7b (coverage guarantee). `PLAN.md` gained §3c-2 and a refreshed pacing table. `CourseState.md` tracker regenerated. `Practicals.md`, `README.md`, `CompactContext.md`, `CLAUDE-MEMORY.md` updated.
+New document [`../Languages.md`](../Languages.md). [ADR-001](Decisions.md#adr-001) revised to four languages; [ADR-032](Decisions.md#adr-032) added. Module 0 restructured into blocks 0A/0B/0C (14 → 21 chapters). 41 chapters added across all modules including the Module 10 C++ block (10.1c–10.1f). `Toolchain.md` gained §7b (coverage guarantee). `PLAN.md` gained §3c-2 and a refreshed pacing table. `CourseState.md` tracker regenerated. `Practicals.md`, `README.md`, `CompactContext.md`, `CLAUDE-MEMORY.md` updated.
 
 ### In my own words
 *(yours to fill in)*
@@ -515,7 +516,7 @@ New document [`../Languages.md`](../Languages.md). [ADR-001](Decisions.md#adr-00
 **First, verification rather than agreement.** The review makes specific factual claims about the repository, so I checked them before assessing any argument:
 
 - *"README says 333 builds, another section says 292"* — **true, and my bug.** `Practicals.md`'s per-module table still totalled 292/30 after the last restructure; I had updated the summary rows and missed the breakdown. **Fixed.**
-- *"Forward+ then switch to Mobile"* — **true, and a real design error** in an Android-first course. Beginning on the renderer you do not ship on manufactures a migration that finds problems late. **Fixed:** P00 starts on Mobile, and 4.13 became a *comparison* rather than a port.
+- *"Forward+ then switch to Mobile"* — **true, and a real design error** in an Android-first course. Beginning on the renderer you do not ship on manufactures a migration that finds problems late. **Fixed:** P00 starts on Mobile, and 5.13 became a *comparison* rather than a port.
 - *"No Android lifecycle coverage"* — **true.** `grep` for lifecycle / backgrounding / process-death / ANR / battery returned **nothing** across 333 chapters. The largest content gap in the plan.
 - *"No git branching or bisect"* — **true.**
 - *"Blender numbering B0–B19 vs B42"* — **was** true; that README line has said `B1–B42` since the restructure. The review read a partly stale snapshot on that one point.
@@ -530,11 +531,11 @@ Its concrete form is **[ADR-032](Decisions.md#adr-032)** — *"every catalogued 
 
 **Third, what I am adopting** (detail in [`ReviewTriage.md` §2](ReviewTriage.md)): the **scaffolding gradient** (90/10 guided → 10/90 independent) and **blank-page builds**, which together are the load-bearing fix; a dedicated **Android runtime engineering** block (lifecycle, chaos test, input beyond touch, fragmentation); **thermal soak, battery, memory-pressure and GPU bottleneck taxonomy**; **explicit performance budgets and a device tier matrix**; a **version matrix** with upgrade discipline; **debugging as a taught skill**; **git branching, CI, testing, playtesting and profiling all starting earlier and growing** — which is our own three-pass spiral, applied to engineering practice, where we had failed to apply it; **crash and ANR monitoring**; **priority tiers** L1/L2/L3; and three additions to the chapter loop — **Observe**, **Diagnose before theory**, and **Reflection**.
 
-**Fourth, where I adapt rather than adopt.** The review says C++ in Module 0 is excessive cognitive load. **It is right, and that was my error** — but the fix is *resequencing*, not removal, because you explicitly asked for all three languages. The GDScript-vs-C# measured comparison **stays** in Module 0 (both trivial, no toolchain); the C++ leg moves to Module 9 beside `9.1e`, the measured rewrite, where it already has an earned trigger. The "measure it yourself" pedagogy survives; the afternoon of SCons moves to where it is motivated.
+**Fourth, where I adapt rather than adopt.** The review says C++ in Module 0 is excessive cognitive load. **It is right, and that was my error** — but the fix is *resequencing*, not removal, because you explicitly asked for all three languages. The GDScript-vs-C# measured comparison **stays** in Module 0 (both trivial, no toolchain); the C++ leg moves to Module 10 beside `10.1e`, the measured rewrite, where it already has an earned trigger. The "measure it yourself" pedagogy survives; the afternoon of SCons moves to where it is motivated.
 
 Similarly, its C# foundations point is right for 🐣 Path A but assumes a true beginner. You are a C/C++-solid, Python-strong embedded engineer, so the micro-track is scoped to **C#-specific** things — properties, `partial`, attributes, delegates/events, LINQ, generics, `async`, nullable references, records — not to variables and methods.
 
-**Fifth, where I disagree.** Its *"actual completeness: 4/10"* scores us on the completeness of something we have explicitly not started. `CourseState.md` states *Phase 1 — planning · 0/333 published · plan awaiting your review*, and that is the case **because you asked for the plan first and then asked to review it before any chapter was written.** The observation is correct; folding a 4/10 into the headline verdict is a category error. Its "GDShader should come later" is also already true — it is Module 5; only one first-contact chapter is early.
+**Fifth, where I disagree.** Its *"actual completeness: 4/10"* scores us on the completeness of something we have explicitly not started. `CourseState.md` states *Phase 1 — planning · 0/333 published · plan awaiting your review*, and that is the case **because you asked for the plan first and then asked to review it before any chapter was written.** The observation is correct; folding a 4/10 into the headline verdict is a category error. Its "GDShader should come later" is also already true — it is Module 6; only one first-contact chapter is early.
 
 **Sixth, the net effect is smaller, not larger.** Roughly **315–325 chapters**, because demoting L3 tools to awareness removes 12–18 and the Android/measurement additions cost about 20. The gain is that ~40 tool-tour chapters become ~30 chapters of Android engineering, measurement, debugging and independent building.
 
@@ -546,7 +547,52 @@ Similarly, its C# foundations point is right for 🐣 Path A but assumes a true 
 [`ReviewTriage.md`](ReviewTriage.md) · [ADR-032](Decisions.md#adr-032) · [ADR-026](Decisions.md#adr-026) · [ADR-019](Decisions.md#adr-019) · [ADR-002](Decisions.md#adr-002)
 
 ### Action taken
-`Practicals.md` counts table repaired. `Setup_05` and ToC `4.13` switched to Mobile-first. New [`ReviewTriage.md`](ReviewTriage.md) with the full point-by-point triage. Restructure pending your answers on the two ⏸️ items.
+`Practicals.md` counts table repaired. `Setup_05` and ToC `5.13` switched to Mobile-first. New [`ReviewTriage.md`](ReviewTriage.md) with the full point-by-point triage. Restructure pending your answers on the two ⏸️ items.
+
+### In my own words
+*(yours to fill in)*
+
+---
+
+## D-011
+
+**Date:** 2026-09-02 · **Context:** Applying the review triage; the learner asked for the capstone question to be explained properly · **Category:** Course logistics · **Status:** ✅ Answered
+
+### Question *(verbatim)*
+> I don't understand this question. Please explain in detail and ask me again.
+
+*(In response to: "§34 says the capstone is too large, and prefers one excellent vertical slice. ADR-019 currently locks 4 short levels.")*
+
+### Short answer
+Fair — **"vertical slice" is industry jargon and I used it without defining it.** A vertical slice is a *narrow* piece of the game finished to *final* quality through every layer — art, audio, UI, narrative, polish — as opposed to building all four levels roughly and polishing later. The question was really: **where is the finish line?** You chose **all four levels**, and that stands.
+
+### Full answer
+
+**The metaphor.** Picture the game as a layer cake: gameplay systems → art → animation → audio → UI → narrative → polish.
+
+- A **horizontal** approach builds one layer across the whole game: rough out all four levels, *then* art-pass all four, *then* audio-pass all four.
+- A **vertical slice** cuts down through **every layer** for a narrow width — one level, fully finished. You can hand it to a stranger and they experience what the finished game *feels* like. It is what studios show publishers.
+
+**What the question actually decided** — not how many levels you are allowed to build, but **when the course counts as complete**:
+
+| | Slice ships | Four levels ship *(your choice)* |
+|---|---|---|
+| "Complete" means | Level 1 final-quality + boss + intro + ending + credits + settings + released | All four levels finished + released |
+| Playtime | ~8–10 min | ~25 min |
+| Extra hours | — | **+60–90 h** |
+| Levels 2–4 | Optional post-release expansion | Required before release |
+
+**The argument for the slice**, which you have now heard and set aside: levels 2–4 teach almost nothing new. Once level 1 is finished to final quality you have used every skill in the course — modelling, rigging, lighting, shaders, audio, AI, narrative, optimisation, release. Levels 2–4 are pure production, and production is where solo projects most often stall: 500 hours in, systems all working, and the person burns out on level 3 with nothing ever released.
+
+**Your decision: four levels.** Recorded as a reaffirmation of [ADR-019](Decisions.md#adr-019), and **not to be revisited.** A 25-minute game is a materially better portfolio piece than a 10-minute one, and production stamina is itself a real skill.
+
+**The mitigation I have added**, because the risk is real even though the decision is yours: **the vertical slice becomes a milestone rather than the ship target.** Level 1 must reach final quality and be validated on device *before* levels 2–4 begin. If appetite runs out at level 3, there is still a complete, releasable game behind you rather than four half-finished ones.
+
+### Related
+[ADR-019](Decisions.md#adr-019) · [ADR-035](Decisions.md#adr-035) · [`ReviewTriage.md` §3](ReviewTriage.md)
+
+### Action taken
+[ADR-019](Decisions.md#adr-019) reaffirmed with the vertical-slice-as-milestone mitigation. Capstone scope unchanged at four levels plus boss.
 
 ### In my own words
 *(yours to fill in)*
@@ -578,6 +624,7 @@ Every ~20 doubts, come back and look for patterns. If four of your questions wer
 | Version | Date | Change |
 |---------|------|--------|
 | 1.0 | 2026-09-01 | Created at course inception. Table format. |
+| 2.5 | 2026-09-02 | D-011 added — vertical slice explained; capstone reaffirmed at four levels. |
 | 2.4 | 2026-09-02 | D-010 added — external review triaged. |
 | 2.3 | 2026-09-02 | D-009 added — four-language restructure and full library adoption. |
 | 2.2 | 2026-09-02 | D-008 added — language ecosystems compared, and multi-language development confirmed. |

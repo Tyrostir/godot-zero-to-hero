@@ -58,7 +58,7 @@ godot-zero-to-hero/
 │   ├── Languages.md                C#, GDScript, C++, GDShader — which job goes to which
 │   ├── meta/ReviewTriage.md        external review, triaged point by point
 │   ├── Exercises.md                standalone drills, challenges, autopsies
-│   ├── GameDesignDocument.md       the capstone GDD (filled in during Module 7)
+│   ├── GameDesignDocument.md       the capstone GDD (filled in during Module 8)
 │   │
 │   ├── chapters/                   the course itself + the mandatory chapter template
 │   ├── guides/                     Setup 01–05, in order
@@ -137,15 +137,15 @@ Nothing you build is throwaway. The capstone is assembled from the ten projects 
 |---|---|---|---|
 | **P00** | Hello Phone | M0 | A signed APK you made, on your phone — day one |
 | **P01** | Marble Runner | M1 | A finished 3-level game: physics, touch, camera, UI, saves, **title screen, ending screen, music** |
-| **P02** | Foundry Kit | M2 | 14 modular assets **you** modelled, unwrapped, textured, baked |
-| **P03** | Playground | M3 | A character that walks, runs, jumps and lands properly |
-| **P04** | Hollow, Level 1 | M4 | A real lit level at 60fps on your actual phone |
-| **P05** | VFX Lab | M5 | Six shaders you wrote by hand, plus Blender-baked effects |
-| **P06** | Feel Pass | M6 | Proof of what sound and timing do to a game — **plus your own recorded, mixed, subtitled narration** |
-| **P07** | The Slice | M7 | Splash → narrated cold open → menu → level → dialogue → guided walkthrough → narrated ending → credits |
-| **P08** | Warden | M8 | **Your own character** — sculpt to animation, all yours |
-| **P09** | Systems Refactor | M9 | Code you'd be happy to hand to a team |
-| **P10** | 🏆 Ember Hollow | M10 | **A released Android game** |
+| **P02** | Foundry Kit | M3 | 14 modular assets **you** modelled, unwrapped, textured, baked |
+| **P03** | Playground | M4 | A character that walks, runs, jumps and lands properly |
+| **P04** | Hollow, Level 1 | M5 | A real lit level at 60fps on your actual phone |
+| **P05** | VFX Lab | M6 | Six shaders you wrote by hand, plus Blender-baked effects |
+| **P06** | Feel Pass | M7 | Proof of what sound and timing do to a game — **plus your own recorded, mixed, subtitled narration** |
+| **P07** | The Slice | M8 | Splash → narrated cold open → menu → level → dialogue → guided walkthrough → narrated ending → credits |
+| **P08** | Warden | M9 | **Your own character** — sculpt to animation, all yours |
+| **P09** | Systems Refactor | M10 | Code you'd be happy to hand to a team |
+| **P10** | 🏆 Ember Hollow | M11 | **A released Android game** |
 
 Plus four **mini-jams** — timeboxed, constrained, no help given. Those are where you find out what you can do alone.
 
@@ -176,7 +176,7 @@ At the end you won't have made a AAA game. You'll have the craft, the pipeline d
 
 ## Two things you should know up front
 
-**You need a desktop or laptop.** Godot's Android editor build has no C# support, so authoring happens on a desktop; your phone is the target device, and it is essential. Details in [PLAN.md §5.1](docs/PLAN.md).
+**You need a desktop or laptop.** Godot's Android editor build has no C# support, so authoring happens on a desktop; your phone is the target device, and it is essential. Details in [PLAN.md §6.1](docs/PLAN.md).
 
 **`[UNVERIFIED]` markers are deliberate.** This course is authored from a Termux session with no Godot, no Blender and no Android SDK. Any claim about what a tool actually prints carries an `[UNVERIFIED]` marker until you run it and report back — the alternative would be confidently-worded fiction. See [the verification protocol](docs/internal/VerificationRuns.md).
 

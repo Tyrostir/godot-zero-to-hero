@@ -91,11 +91,11 @@ Every chapter declares its guided/independent split, and the ratio shifts across
 
 | Stage | Modules | Guided / Independent |
 |-------|---------|---------------------|
-| Early | 0–1 | **90 / 10** |
-| Intermediate | 2–4 | **70 / 30** |
-| Advanced | 5–7 | **50 / 50** |
-| Professional | 8–9 | **30 / 70** |
-| Capstone | 10 | **10 / 90** |
+| Early | 0–2 | **90 / 10** |
+| Intermediate | 3–5 | **70 / 30** |
+| Advanced | 6–8 | **50 / 50** |
+| Professional | 9–10 | **30 / 70** |
+| Capstone | 11–12 | **10 / 90** |
 
 **⬜ Blank-page builds** end every major subsystem: *requirements only — no steps, no reference implementation, no code*. The progression is **guided build → variation → ⬜ blank-page → jam → autopsy**.
 

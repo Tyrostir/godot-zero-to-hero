@@ -13,7 +13,7 @@ Desktop = the workshop (Godot, Blender, .NET SDK, Android SDK — all real work)
 Godot's Android editor exists and works, but it has **no C#/.NET support** — the .NET runtime and MSBuild toolchain aren't part of it. C# requires a desktop .NET SDK. If you were writing GDScript, developing on the phone would be viable.
 
 **5. The debug keystore.**
-Android refuses to install an unsigned package. Every APK must be signed with a certificate; the "debug keystore" is a throwaway certificate with well-known credentials (`androiddebugkey` / `android`) used for development builds. Release builds need your own keystore, which you must **back up** — losing it means you can never publish an update to that app listing again (ch 10.14).
+Android refuses to install an unsigned package. Every APK must be signed with a certificate; the "debug keystore" is a throwaway certificate with well-known credentials (`androiddebugkey` / `android`) used for development builds. Release builds need your own keystore, which you must **back up** — losing it means you can never publish an update to that app listing again (ch 11.14).
 
 **6. `adb devices` says `unauthorized`.**
 The phone showed an *"Allow USB debugging?"* dialog and it wasn't accepted (or the screen was locked when you plugged in). Unlock the phone, unplug/replug, and tick *Always allow from this computer*. If no dialog appears, revoke USB debugging authorisations in Developer Options and try again.

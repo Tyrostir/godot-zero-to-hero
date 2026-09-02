@@ -117,7 +117,7 @@ update_trigger: "Every time a decision is made, revisited, superseded or reverse
 
 **Why the hard rejection of NC.** A free game with a donation link, ads, or an eventual paid release is arguably commercial. By the time that question arises, the asset is baked into forty scenes. The cost of avoiding NC up front is approximately zero, because CC0 alternatives exist for everything this course needs.
 
-**Consequence.** Chapter 7.19 generates the in-game credits roll from the ledger, so the discipline pays for itself.
+**Consequence.** Chapter 8.19 generates the in-game credits roll from the ledger, so the discipline pays for itself.
 
 ---
 
@@ -236,12 +236,12 @@ update_trigger: "Every time a decision is made, revisited, superseded or reverse
 
 | Requested | Status before the audit |
 |---|---|
-| Story development, premise/theme/logline, character arc | ✅ Module 7 (7.1–7.7) |
-| Environmental storytelling, ludonarrative harmony | ✅ 7.4–7.5 |
-| Intro/splash animation, main menu animation, first-play opening | ✅ 7.14–7.16 |
-| Ending sequence, credits roll | ✅ 7.18–7.19 |
-| Cutscenes, camera language, Blender-rendered cinematics | ✅ 7.12–7.13, 7.20–7.21 |
-| Background music, adaptive layers | ✅ 6.6 |
+| Story development, premise/theme/logline, character arc | ✅ Module 8 (8.1–8.7) |
+| Environmental storytelling, ludonarrative harmony | ✅ 8.4–8.5 |
+| Intro/splash animation, main menu animation, first-play opening | ✅ 8.14–8.16 |
+| Ending sequence, credits roll | ✅ 8.18–8.19 |
+| Cutscenes, camera language, Blender-rendered cinematics | ✅ 8.12–8.13, 8.20–8.21 |
+| Background music, adaptive layers | ✅ 7.6 |
 
 **Findings — three genuine gaps.**
 
@@ -249,7 +249,7 @@ update_trigger: "Every time a decision is made, revisited, superseded or reverse
 2. **All of it was quarantined in Modules 6 and 7.** Projects P01–P05 shipped with no title screen, no ending screen and no music. This contradicted the learner's *"on all the projects wherever applicable"* — and, more seriously, **contradicted [ADR-002](Decisions.md#adr-002)**: a learner would reach roughly hour 180 before building a first title screen, and would then have to learn timing, camera language, sound design and pacing simultaneously, at full difficulty, with no practice. That is exactly the theory-then-practice failure the course exists to avoid.
 3. **"Walkthrough" was unaddressed in both of its senses** — the *designed* walkthrough (a level that teaches without prompts) and the *written* walkthrough (a player-facing guide). Neither existed.
 
-**Why the audit was worth doing rather than answering "yes, it's covered".** Two of the three gaps were invisible from the module titles. Module 7 is called *Story, Narrative & Cinematics* and Module 6 is called *Audio & Game Feel*; a glance at those names would have produced a confident and wrong "yes".
+**Why the audit was worth doing rather than answering "yes, it's covered".** Two of the three gaps were invisible from the module titles. Module 8 is called *Story, Narrative & Cinematics* and Module 7 is called *Audio & Game Feel*; a glance at those names would have produced a confident and wrong "yes".
 
 ---
 
@@ -257,11 +257,11 @@ update_trigger: "Every time a decision is made, revisited, superseded or reverse
 
 **Decision.** Presentation runs through **every project from P01 onward**, escalating in passes, rather than living in Modules 6–7. From P01, a project is not shipped without an animated first page, an ending screen, at least one music loop, ambience where the piece has a place, a narrative frame, and a walkthrough that teaches without a wall of text. These are **done-criteria**, not suggestions.
 
-**Rejected.** Leaving it in Module 7 and simply adding narration chapters there. That would have fixed gap 1 while leaving gaps 2 and 3 — and would have left the pedagogy broken.
+**Rejected.** Leaving it in Module 8 and simply adding narration chapters there. That would have fixed gap 1 while leaving gaps 2 and 3 — and would have left the pedagogy broken.
 
 **Consequences.**
 - **43 chapters added; the course grows 215 → 258.** Modules 1 (+4), 2 (+1), 3 (+2), 4 (+4), 5 (+2), 6 (+8), 7 (+4), 8 (+1), 9 (+1), 10 (+2), plus MJ3/MJ4 formalised into the ToC.
-- Module 6 renamed **Audio, Narration & Game Feel**.
+- Module 7 renamed **Audio, Narration & Game Feel**.
 - A new document, [`../PresentationSpine.md`](../PresentationSpine.md), maps every project's presentation deliverables and the three-pass escalation.
 - `projects/README.md` gains 34 new done-criteria, marked 🎬 🏁 🎵 📖 🚶 🔊.
 - Pacing rises from ~400–450 h to ~430–480 h.
@@ -272,11 +272,11 @@ update_trigger: "Every time a decision is made, revisited, superseded or reverse
 
 ### 🆕 DECIDED — ADR-027: Narration recorded by the learner; subtitles mandatory
 
-**Decision.** Eleven chapters on narration and voice (6.8–6.14, 7.6, 7.11, 8.2, 10.18), taught practical-first — record first, theorise after.
+**Decision.** Eleven chapters on narration and voice (7.8–7.14, 8.6, 8.11, 9.2, 11.18), taught practical-first — record first, theorise after.
 
-**No purchase required.** Chapter 6.9 is built around a phone's voice recorder and a wardrobe of soft furnishings. Making a bad take and fixing it is the fastest route to understanding proximity effect, plosives and noise floor. Microphone guidance is offered for later, never assumed.
+**No purchase required.** Chapter 7.9 is built around a phone's voice recorder and a wardrobe of soft furnishings. Making a bad take and fixing it is the fastest route to understanding proximity effect, plosives and noise floor. Microphone guidance is offered for later, never assumed.
 
-**Text-to-speech is treated as a legitimate choice** (6.13), with an honest account of when it is right and of the licensing trap in commercial use — rather than as a fallback for people who "can't" record.
+**Text-to-speech is treated as a legitimate choice** (7.13), with an honest account of when it is right and of the licensing trap in commercial use — rather than as a fallback for people who "can't" record.
 
 **Subtitles are mandatory, not a stretch goal.** Any narration shipped carries synchronised captions and a toggle. A phone gets played on mute, on a bus, by someone who is deaf, and by someone at 4% battery; all four are the same requirement. Designing the cue track for captions from the start produces a better system than retrofitting accessibility later.
 
@@ -312,7 +312,7 @@ New document [`../Toolchain.md`](../Toolchain.md): every library with licence, m
 
 **Everything stays free.** Where a paid tool is the industry default, the free equivalent is taught and the paid one named: Rigify not Auto-Rig Pro · Geometry Nodes / Proton Scatter not Scatter5 · QuadriFlow / RetopoFlow not Quad Remesher · ambientCG and Poly Haven not Quixel · Material Maker not Substance Designer.
 
-**Explicit rejections recorded**, because a rejection is as informative as an adoption: FMOD/Wwise (community integration + C# + Android compounds three risks — awareness only in 6.2b, no install), GPL addons in shipped code, and anything abandoned since Godot 4.0.
+**Explicit rejections recorded**, because a rejection is as informative as an adoption: FMOD/Wwise (community integration + C# + Android compounds three risks — awareness only in 7.2b, no install), GPL addons in shipped code, and anything abandoned since Godot 4.0.
 
 ---
 
@@ -324,9 +324,9 @@ New document [`../Toolchain.md`](../Toolchain.md): every library with licence, m
 
 **Why say it rather than quietly agree.** Agreeing would have been easier and would have set the learner up to measure a finished solo game against an impossible bar and conclude they had failed. The distinction also has *practical* consequences: it is why [ADR-019](Decisions.md#adr-019) locks scope and [ADR-010](Decisions.md#adr-010) refuses photoreal fidelity, and both of those are what make the game shippable.
 
-**Gaps closed to make "industry grade" true rather than aspirational.** Industry milestones (10.1b) · Kitsu production tracking (10.3b) · code standards with warnings-as-errors (9.2b) · structured logging (9.11b) · unit-testable scene code (9.9b) · storyboarding and previz (7.2b) · colour management (7.24b) · **the post-mortem** (10.11b) · **portfolio and breakdown reel** (10.20b).
+**Gaps closed to make "industry grade" true rather than aspirational.** Industry milestones (11.1b) · Kitsu production tracking (10.3b) · code standards with warnings-as-errors (10.2b) · structured logging (9.11b) · unit-testable scene code (10.9b) · storyboarding and previz (8.2b) · colour management (8.24b) · **the post-mortem** (11.11b) · **portfolio and breakdown reel** (11.20b).
 
-**Cost.** 32 chapters, **258 → 290**; pacing ~430–480 h → **~470–530 h**. Module 9 grew most (13 → 19), which is correct — that is where professional practice concentrates.
+**Cost.** 32 chapters, **258 → 290**; pacing ~430–480 h → **~470–530 h**. Module 10 grew most (13 → 19), which is correct — that is where professional practice concentrates.
 
 ---
 
@@ -344,7 +344,7 @@ The distinction is load-bearing: the first reading is an argument for switching 
 
 **Rejected — switching the course to GDScript.** Considered seriously rather than dismissed, because zero chapters are written and this was the last cheap moment to change. GDScript would gain frictionless addons, no build step, smaller APKs and the better-travelled Android path ([ADR-022](Decisions.md#adr-022) is a genuine cost being paid). It would lose NuGet, static typing and IDE refactoring across a 292-chapter project, and the transferable skill requested in the learner's first prompt. Given [ADR-030](Decisions.md#adr-030), typing and testability outweigh addon convenience — and the addon gap is bounded and now mitigated. **The learner was told explicitly that the cost of changing rises steeply from chapter one.**
 
-**Consequences.** Two chapters added — **0.10b** (*GDScript, C# and C++ in one project*) and **9.1b** (*Polyglot architecture: where the boundary goes*); **11.4** and **11.5** expanded, the latter to flag that C# support lags GDScript on some export platforms. `Toolchain.md` gained §4b and §4c. Course 290 → **292**.
+**Consequences.** Two chapters added — **0.10b** (*GDScript, C# and C++ in one project*) and **10.1b** (*Polyglot architecture: where the boundary goes*); **12.4** and **12.5** expanded, the latter to flag that C# support lags GDScript on some export platforms. `Toolchain.md` gained §4b and §4c. Course 290 → **292**.
 
 **Recorded as `[UNVERIFIED]`:** cross-language script *inheritance* is not supported (GDScript cannot extend a C# class or vice versa). The practical guidance — compose at the boundary, never inherit across it — holds regardless of version.
 
@@ -362,15 +362,15 @@ Resolved by teaching **by role and by measurement**, never in parallel. Module 0
 
 *Why this shape and not a comparison chapter.* Any course can assert "C++ is faster, GDScript iterates quicker". A number the learner produced on their own phone is one they believe, remember, and can defend — and they will notice when it stops being true for their hardware or Godot version. Asserting it would also have violated [ADR-002](Decisions.md#adr-002) directly: a table of language properties is theory, and theory does not open a chapter here.
 
-*Scope per language, deliberately unequal.* C# ~180 chapters (primary). GDScript **8**, each one a job where it is genuinely the better choice — `@tool` validators, an editor dock, addon consumption, and the wrapper pattern. C++ **7**, all earned, centred on **9.1e — the measured rewrite** (one profiled hot path, GDScript → C# → C++, benchmarked on the phone at each step). GDShader 12, now introduced in 0.16 rather than arriving unannounced in Module 5.
+*Scope per language, deliberately unequal.* C# ~180 chapters (primary). GDScript **8**, each one a job where it is genuinely the better choice — `@tool` validators, an editor dock, addon consumption, and the wrapper pattern. C++ **7**, all earned, centred on **10.1e — the measured rewrite** (one profiled hot path, GDScript → C# → C++, benchmarked on the phone at each step). GDShader 12, now introduced in 0.16 rather than arriving unannounced in Module 6.
 
 *Rejected — making the languages co-primary.* Spreading ~180 gameplay chapters across three languages would teach three shallowly and none well, and would contradict [D-008](Doubts.md#d-008), where the case for C# primary was made and accepted.
 
-*Accepted honestly:* chapters 0.13–0.14 will take an afternoon and feel disproportionate. They are placed early precisely so that Module 9 can be about performance rather than about SCons.
+*Accepted honestly:* chapters 0.13–0.14 will take an afternoon and feel disproportionate. They are placed early precisely so that Module 10 can be about performance rather than about SCons.
 
 **Problem 2 — adopting ~50 libraries naively adds ~50 chapters and produces a tool catalogue.**
 
-That is the exact inversion of [ADR-002](Decisions.md#adr-002): "here is a list of addons" is not learning by doing. Resolved by **[ADR-032](Decisions.md#adr-032) — cluster by session, not by tool.** Where several small tools share a purpose they get one chapter in which **each is used once, on the learner's own asset**: B5b (five built-in Blender addons), B15b–d (asset browsers, Material Maker, the 2D toolchain), 4.2b–c (procedural generators), 1.13b–1.33b (Jolt, Input Helper, Panku Console, System.Text.Json), 9.10b–c, and others.
+That is the exact inversion of [ADR-002](Decisions.md#adr-002): "here is a list of addons" is not learning by doing. Resolved by **[ADR-032](Decisions.md#adr-032) — cluster by session, not by tool.** Where several small tools share a purpose they get one chapter in which **each is used once, on the learner's own asset**: B5b (five built-in Blender addons), B15b–d (asset browsers, Material Maker, the 2D toolchain), 5.2b–c (procedural generators), 1.13b–1.33b (Jolt, Input Helper, Panku Console, System.Text.Json), 10.10b–c, and others.
 
 Every cluster chapter still obeys [ADR-028](Decisions.md#adr-028) — it sits *after* the manual technique it accelerates.
 
@@ -378,7 +378,7 @@ Every cluster chapter still obeys [ADR-028](Decisions.md#adr-028) — it sits *a
 
 *A useful accident:* **B31b** (MakeHuman + MB-Lab) becomes a **live case study in evaluation question #2**, because MB-Lab's maintenance has genuinely been patchy — a real example of what to do with a useful but under-maintained addon rather than a hypothetical one.
 
-**Consequences.** 41 chapters added, **292 → 333**. Module 0 restructured into 0A/0B/0C (14 → 21). Module 9 gains the C++ block 9.1c–9.1f (20 → 27). New document [`../Languages.md`](../Languages.md). `Toolchain.md` gains §7b, a coverage guarantee stating that nothing in it is listed and left unused. Pacing ~470–530 h → **~540–620 h**.
+**Consequences.** 41 chapters added, **292 → 333**. Module 0 restructured into 0A/0B/0C (14 → 21). Module 10 gains the C++ block 10.1c–10.1f (20 → 27). New document [`../Languages.md`](../Languages.md). `Toolchain.md` gains §7b, a coverage guarantee stating that nothing in it is listed and left unused. Pacing ~470–530 h → **~540–620 h**.
 
 ---
 
@@ -391,7 +391,7 @@ Every cluster chapter still obeys [ADR-028](Decisions.md#adr-028) — it sits *a
 **Confirmed defects.**
 
 1. **A live counts inconsistency, self-inflicted.** `Practicals.md`'s per-module table still totalled **292 chapters / 30 adoptions** after the 333-chapter restructure — the summary rows were updated and the breakdown table was not. **Fixed.**
-2. **Renderer migration, a real design error.** `Setup_05` started P00 on **Forward+** with a switch to Mobile at 4.13. In an Android-first course that manufactures a migration and finds problems late. **Fixed:** P00 starts on **Mobile**; 4.13 became a comparison that prices the alternatives rather than a port.
+2. **Renderer migration, a real design error.** `Setup_05` started P00 on **Forward+** with a switch to Mobile at 4.13. In an Android-first course that manufactures a migration and finds problems late. **Fixed:** P00 starts on **Mobile**; 5.13 became a comparison that prices the alternatives rather than a port.
 3. **Android lifecycle coverage was entirely absent** — `grep` for lifecycle / backgrounding / process death / ANR / battery returned nothing across 333 chapters. The largest content gap in the plan.
 4. **Git practice stopped at "commit after every chapter"** — no branching, tags, revert, or bisect.
 
@@ -409,7 +409,7 @@ Across Sessions 001–002 the plan went **215 → 258 → 290 → 292 → 333** 
 
 Its concrete expression is **[ADR-032](Decisions.md#adr-032)** — "every catalogued library gets a chapter that uses it" — which was the wrong answer to "adopt all the libraries". The correct answer is a **priority tier**: some tools warrant a chapter, some a paragraph, some only an awareness mention. ADR-032 is due for revision, and the revision **removes** chapters.
 
-**Also recorded:** the review is right that **C++ in Module 0 is too early**, and that was an authoring error made while satisfying a genuine request ([D-009](Doubts.md#d-009)). The fix is resequencing, not removal — the measured-comparison pedagogy survives in Module 0 for GDScript vs C#, and the C++ leg moves to Module 9 beside `9.1e` where it already has an earned trigger.
+**Also recorded:** the review is right that **C++ in Module 0 is too early**, and that was an authoring error made while satisfying a genuine request ([D-009](Doubts.md#d-009)). The fix is resequencing, not removal — the measured-comparison pedagogy survives in Module 0 for GDScript vs C#, and the C++ leg moves to Module 10 beside `10.1e` where it already has an earned trigger.
 
 **Full triage:** [`ReviewTriage.md`](ReviewTriage.md). Two items returned to the learner as ⏸️ because they contradict emphatic prior instructions: presentation-spine scope ([ADR-026](Decisions.md#adr-026)) and capstone size ([ADR-019](Decisions.md#adr-019)).
 
@@ -427,9 +427,9 @@ Its concrete expression is **[ADR-032](Decisions.md#adr-032)** — "every catalo
 
 **ADR-032 revised.** From *"every catalogued library gets a chapter"* to a three-tier scheme — L1 chapter, L2 clustered chapter, **L3 awareness mention only**. Fourteen chapters removed (Kitsu, MemoryPack/MessagePack, Serilog, Ardour, Blender GIS, Sverchok, Animation Nodes, HTerrain/Voxel Tools, Sky3D, Panku, Inkscape/Krita, Blender VSE, Chickensoft Collections, plus presentation merges). The original wording optimised for **coverage** when the goal is **capability**.
 
-**C++ relocated.** Chapters 0.13–0.15 moved from Module 0 to Module 9 (9.1c–9.1c3), beside the measured rewrite. The measure-it-yourself pedagogy survives for GDScript vs C# in Module 0; the afternoon of `godot-cpp` and SCons moves to where a profiler has given it a reason.
+**C++ relocated.** Chapters 0.13–0.15 moved from Module 0 to Module 10 (10.1c–10.1c3), beside the measured rewrite. The measure-it-yourself pedagogy survives for GDScript vs C# in Module 0; the afternoon of `godot-cpp` and SCons moves to where a profiler has given it a reason.
 
-**Presentation scaled** per the learner's decision: passes merged or marked 🔬 optional (3.12 into 3.11, 1.38 into 1.35, 5.22 and 8.2 optional).
+**Presentation scaled** per the learner's decision: passes merged or marked 🔬 optional (3.12 into 4.11, 1.38 into 1.35, 6.22 and 9.2 optional).
 
 ---
 
@@ -442,5 +442,19 @@ I under-counted the additions: Android block 10 · early engineering practice 8 
 **This is recorded rather than quietly corrected because it is the same bias the review diagnosed, appearing one more time** — optimising for coverage and then estimating optimistically about it. What genuinely improved is the *shape*: ~14 tool-tour chapters became 10 of Android runtime engineering, 8 of debugging/git/CI/testing/playtesting moved early, and **8 blank-page builds where there were none**. Worth the 15 extra chapters — but it is not the reduction that was claimed, and **the scope question the review raised remains open.**
 
 **New hazard.** Module 1 is now **63 chapters**, nearly a fifth of the course. Blocks 1A–1J keep it navigable and P01 ships at the end, but it should probably be split. Recorded as [T-024](ToDos.md); not done unilaterally because renumbering modules 2–11 touches ~100 cross-references.
+
+---
+
+### 🔁 REAFFIRMED — ADR-019 capstone scope · 🆕 DECIDED — ADR-035 thirteen modules
+
+**Capstone.** The external review (§34) recommended shrinking the ship target to a single finished level, and **the author agreed with that recommendation**. The learner asked for the question to be explained properly — correctly, since "vertical slice" was used as jargon without definition — and then **chose to keep all four levels**. That stands and is not to be revisited.
+
+*Risk stated once and then dropped:* levels 2–4 teach almost no new skills, so they are ~60–90 hours of pure production, and production is where solo projects stall. **Mitigation added:** the vertical slice becomes a **milestone rather than the ship target** — level 1 must reach final quality and be device-validated before levels 2–4 begin, so a complete releasable game exists even if appetite runs out later.
+
+**ADR-035 — the split.** [ADR-034](Decisions.md#adr-034)'s Android block pushed Module 1 to 63 chapters. Module 1 is now **Godot Foundations (44)** and Module 2 is **Android Runtime & Engineering Practice (19)**, ending with P01 shipping. Old Modules 2–11 became 3–12. **13 modules, 348 chapters.**
+
+**P01 now spans two modules** — Module 1 builds Marble Runner, Module 2 makes it survive Android and ships it. Honest about what shipping a mobile game involves, and it means the learner's first release already survives the chaos test.
+
+**How the renumber was done safely.** Not by blind regex — a survey found **915 candidate tokens** with real false-positive risk (`Godot 4.2+`, `glTF 2.0`, `Apache-2.0`, `9.8f`, review scores like `9.5/10`). Instead: extract the exact set of chapter IDs present in the Table of Contents, replace only those, exclude tokens preceded by `Godot ` or followed by `+`, and skip the external review file entirely. 14 ambiguous matches were audited by hand first. 36 files changed; `answers/module-NN.md` renamed; **all 573 relative links verified afterwards**; version strings confirmed intact.
 
 ---

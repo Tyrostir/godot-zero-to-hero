@@ -27,7 +27,7 @@ update_trigger: "End of every session — regenerate from CourseState + Decision
 ## WHAT
 
 - **Course:** *Godot Zero to Hero* — 3D **Android** game development with **Godot 4 (.NET / C#)** and **Blender**.
-- **Shape:** 12 modules · **348 chapters** (64 Blender · ~45 🧰 adoption · 8 ⬜ blank-page) · **11 projects** · 4 mini-jams · ~560–650 h.
+- **Shape:** **13 modules** · **348 chapters** (64 Blender · ~45 🧰 adoption · 8 ⬜ blank-page) · **11 projects** · 4 mini-jams · ~560–650 h.
 - **Languages:** **C# primary** (~180 ch) · GDScript (8) · C++/GDExtension (7) · GDShader (12). All four taught; see [`../Languages.md`](../Languages.md).
 - **Repo:** ✅ [`https://github.com/Tyrostir/godot-zero-to-hero`](https://github.com/Tyrostir/godot-zero-to-hero) — live, pushed 2026-09-01.
 - **Authoring path:** `/root/claude/godot-zero-to-hero` (Termux).
@@ -60,16 +60,16 @@ BUILDING (learner's desktop):  ✅ LINUX (D-001 resolved)
   Needs: 8 GB+ RAM, Vulkan GPU, 40 GB disk
 
 TARGET (learner's phone):  ⏳ specs unknown — D-003
-  Vulkan support decides Mobile vs Compatibility renderer (ch 4.13)
+  Vulkan support decides Mobile vs Compatibility renderer (ch 5.13)
 ```
 
 ## THE FIVE RULES THAT SHAPE EVERY CHAPTER
 
 0. **[ADR-024] Three paths, all authored in full.** 🐣 A (extra scaffolding, complete listings) · 🚶 B (the learner's, full chapter) · 🏃 C (Fast-Track Summary + build + cheat sheet). One document, path markers. Ratios below are measured on the Path B reading.
 0. **[ADR-033] Help is removed on a schedule.** 90/10 guided → 10/90 by the capstone. Every chapter declares its split; every subsystem ends with a **⬜ blank-page build** (requirements only). **Success = independent capability, not chapter count.**
-0a2. **[ADR-034] Android is a runtime, not a build target.** Module 1 block 1J: lifecycle, interruptions, process death, **the chaos test**, input beyond touch, device tier matrix, explicit performance budgets. P01 does not ship until it survives the chaos test.
-0a. **[ADR-028] Build it once by hand, then adopt the library.** 28 🧰 `N.Mb` adoption chapters: hand-build → read the library's source → **decide and record why**. Never library-first. **[ADR-029]** Free toolchain catalogued in [`../Toolchain.md`](../Toolchain.md); six evaluation questions taught in 0.10. ⚠️ Most Godot addons are GDScript — C# loses **ergonomics, not access**. Prefer **Chickensoft** (C#-first), wrap the rest behind a C# interface (9.6b), use **NuGet** (0.11). **[ADR-031] Polyglot by design:** C# primary · GDScript for `@tool` scripts and addon glue · C++/GDExtension only after profiling. Boundaries live in one file (0.10b, 9.1b). **[ADR-030]** "AAA" = budget/headcount, not achievable solo, and saying so is more useful than agreeing; **professional/industry-grade craft** is the real target and is taught in full.
-0b. **[ADR-026] The Presentation Spine.** Story, first-page animation, end-page animation, music, ambience and the walkthrough ship with **every project from P01**, not just Module 7. Title screen is built four times: 1.35 → 3.12 → 5.22 → 7.16–7.18. **[ADR-027]** Narration is recorded by the learner with gear they own (6.8–6.14), and **subtitles are mandatory**.
+0a2. **[ADR-034] Android is a runtime, not a build target.** Module 2 (2.7–2.16): lifecycle, interruptions, process death, **the chaos test**, input beyond touch, device tier matrix, explicit performance budgets. P01 does not ship until it survives the chaos test.
+0a. **[ADR-028] Build it once by hand, then adopt the library.** 28 🧰 `N.Mb` adoption chapters: hand-build → read the library's source → **decide and record why**. Never library-first. **[ADR-029]** Free toolchain catalogued in [`../Toolchain.md`](../Toolchain.md); six evaluation questions taught in 0.10. ⚠️ Most Godot addons are GDScript — C# loses **ergonomics, not access**. Prefer **Chickensoft** (C#-first), wrap the rest behind a C# interface (10.6b), use **NuGet** (0.11). **[ADR-031] Polyglot by design:** C# primary · GDScript for `@tool` scripts and addon glue · C++/GDExtension only after profiling. Boundaries live in one file (0.10b, 10.1b). **[ADR-030]** "AAA" = budget/headcount, not achievable solo, and saying so is more useful than agreeing; **professional/industry-grade craft** is the real target and is taught in full.
+0b. **[ADR-026] The Presentation Spine.** Story, first-page animation, end-page animation, music, ambience and the walkthrough ship with **every project from P01**, not just Module 8. Title screen is built four times: 1.35 → 3.12 → 6.22 → 8.16–7.18. **[ADR-027]** Narration is recorded by the learner with gear they own (7.8–7.14), and **subtitles are mandatory**.
 1. **[ADR-002] Practical-first, enforced numerically.** Build section comes first and is ≥50% of a chapter; theory follows and is ≤30%. No chapter opens with theory. Every chapter ends with something runnable.
 2. **[ADR-010] Mobile-first.** The mobile-safe technique is the default taught; the desktop one is an aside. Baked before real-time. Atlas before per-object.
 3. **[ADR-016] `[UNVERIFIED]` everything unrun.** Never invent an error message, a menu path, or a version number. Mark it, and let the learner clear it via `toAgent/`.
@@ -82,17 +82,17 @@ TARGET (learner's phone):  ⏳ specs unknown — D-003
 P00 Hello Phone      M0   spinning cube ON THE PHONE — the whole toolchain, day one
 P01 Marble Runner    M1   nodes, C#, transforms, physics, touch, camera, UI, save
                           + title screen, results screen, music, one-line premise
-P02 Foundry Kit      M2   14-piece modular kit YOU model/UV/texture/bake — one atlas, <12k tris
-P03 Playground       M3   rig, animate, AnimationTree, C# state machine, coyote time
-P04 Hollow Level 1   M4   level design, GridMap, baked GI, 60fps ON DEVICE
-P05 VFX Lab          M5   6 hand-written GDShaders, particles, Blender flipbooks
-P06 Feel Pass        M6   audio buses, adaptive music, screenshake, hitstop, haptics
+P02 Foundry Kit      M3   14-piece modular kit YOU model/UV/texture/bake — one atlas, <12k tris
+P03 Playground       M4   rig, animate, AnimationTree, C# state machine, coyote time
+P04 Hollow Level 1   M5   level design, GridMap, baked GI, 60fps ON DEVICE
+P05 VFX Lab          M6   6 hand-written GDShaders, particles, Blender flipbooks
+P06 Feel Pass        M7   audio buses, adaptive music, screenshake, hitstop, haptics
                           + NARRATION: write, record, clean, duck, subtitle
-P07 The Slice        M7   splash→narrated cold open→menu→level→dialogue→
+P07 The Slice        M8   splash→narrated cold open→menu→level→dialogue→
                           guided walkthrough→narrated ending→credits, unbroken
-P08 Warden           M8   YOUR character: sculpt→retopo→UV→bake→texture→rig→animate
-P09 Refactor         M9   architecture, Resources, pooling, tiers, tests, profiling
-P10 Ember Hollow     M10  4 levels + boss, released to itch.io + Play internal testing
+P08 Warden           M9   YOUR character: sculpt→retopo→UV→bake→texture→rig→animate
+P09 Refactor         M10   architecture, Resources, pooling, tiers, tests, profiling
+P10 Ember Hollow     M11  4 levels + boss, released to itch.io + Play internal testing
 ```
 
 ## HARD TECHNICAL FACTS

@@ -64,15 +64,15 @@ This is the honest test of a practical course — not "what did you cover", but 
 |---|---|
 | **Module 0** | A signed APK, made by you, installed on your own phone |
 | **Module 1** | A finished 3-level 3D game with touch controls, HUD, pause, save, level select — **an animated title screen, a results screen and music** |
-| **Module 2** | A 14-piece art kit **you modelled, unwrapped, textured and baked** — one atlas, under 12k triangles |
-| **Module 3** | A character that walks, runs, jumps and lands, driven by a state machine you wrote — **idling on your title screen** |
-| **Module 4** | A real, lit, art-passed level holding 60fps on your actual phone, an ambience bed, a menu flythrough, and **a level a stranger can finish with no tutorial prompt** |
-| **Module 5** | Six shaders you wrote by hand, four particle effects, and a smoke flipbook you simulated in Blender |
-| **Module 6** | A before/after recording proving what sound and timing do to a game — **and your own recorded, mixed, subtitled narration** |
-| **Module 7** | An unbroken flow from splash screen to credits, with a dialogue system a designer could edit |
-| **Module 8** | **Your own character** — sculpted, retopologised, UV'd, baked, textured, rigged, animated, in-game |
-| **Module 9** | A codebase with zero per-frame allocations, unit tests, graphics tiers and an editor validation tool |
-| **Module 10** | 🏆 **A released Android game**, on itch.io and in Play internal testing, with a trailer |
+| **Module 3** | A 14-piece art kit **you modelled, unwrapped, textured and baked** — one atlas, under 12k triangles |
+| **Module 4** | A character that walks, runs, jumps and lands, driven by a state machine you wrote — **idling on your title screen** |
+| **Module 5** | A real, lit, art-passed level holding 60fps on your actual phone, an ambience bed, a menu flythrough, and **a level a stranger can finish with no tutorial prompt** |
+| **Module 6** | Six shaders you wrote by hand, four particle effects, and a smoke flipbook you simulated in Blender |
+| **Module 7** | A before/after recording proving what sound and timing do to a game — **and your own recorded, mixed, subtitled narration** |
+| **Module 8** | An unbroken flow from splash screen to credits, with a dialogue system a designer could edit |
+| **Module 9** | **Your own character** — sculpted, retopologised, UV'd, baked, textured, rigged, animated, in-game |
+| **Module 10** | A codebase with zero per-frame allocations, unit tests, graphics tiers and an editor validation tool |
+| **Module 11** | 🏆 **A released Android game**, on itch.io and in Play internal testing, with a trailer |
 
 ---
 
@@ -110,19 +110,19 @@ Practical-first only works if you meet things more than once. Every major topic 
 
 | Topic | 1️⃣ Naive | 2️⃣ Correct | 3️⃣ Professional |
 |-------|----------|-----------|-----------------|
-| Movement | Set position directly (1.4) | Physics + delta + state machine (1.13, 3.7) | Coyote time, buffering, pooling, no allocations (3.8, 9.2) |
-| Lighting | One directional light (0.8) | Shadows, environment, GI options (4.6–4.8) | Baked lightmaps within a measured mobile budget (4.9, 4.12) |
-| Materials | Default `StandardMaterial3D` (1.2) | PBR maps authored in Blender (B13–B16) | One atlas, packed channels, batched draw calls (B12, 4.15) |
+| Movement | Set position directly (1.4) | Physics + delta + state machine (1.13, 4.7) | Coyote time, buffering, pooling, no allocations (4.8, 10.2) |
+| Lighting | One directional light (0.8) | Shadows, environment, GI options (5.6–5.8) | Baked lightmaps within a measured mobile budget (5.9, 5.12) |
+| Materials | Default `StandardMaterial3D` (1.2) | PBR maps authored in Blender (B13–B16) | One atlas, packed channels, batched draw calls (B12, 5.15) |
 | Character art | A CC0 placeholder (P03) | Retargeted Mixamo on a borrowed rig (B29) | Your own sculpt→retopo→rig→animate (P08) |
-| 🧰 State machines | Hand-written FSM (3.7) | LogicBlocks / State Charts compared (3.7b) | Serialisable hierarchical states in the capstone AI (10.6b) |
+| 🧰 State machines | Hand-written FSM (4.7) | LogicBlocks / State Charts compared (4.7b) | Serialisable hierarchical states in the capstone AI (11.6b) |
 | 🧰 Rigging | Hand-built armature (B21–B23) | Rigify meta-rig generation (B24b) | A rig another animator could use (B39) |
-| Saving | JSON to `user://` (1.33) | Versioned with migration (9.7) | Tested, corruption-tolerant, device-verified (C1.2, 9.9) |
-| 🎬 Title screen | Tween + `AnimationPlayer` (1.35) | Live 3D character, camera drift (3.12); your own shaders (5.22) | Directed, scored, narrated opening (7.16–7.18) |
-| 🏁 Ending | A results card (1.36) | End card with a stinger (P06) | Narrated payoff into credits over a theme (7.21–7.22) |
-| 🎵 Music | One loop, three SFX (1.37) | Adaptive layers, ambience (4.22, 6.6–6.7) | Full mix, ducking, per-bus volume, subtitles (6.11, 9.8) |
-| 🔊 Narration | — | Record, clean, duck, caption (6.8–6.12) | Cue-driven system, directed, localised (7.6, 7.11, 7.13) |
-| 🚶 Walkthrough | Teach by level shape (4.21) | Directed onboarding with narration (7.19) | A written player guide, and the design fixes it forces (10.20) |
-| UI | Anchored labels (1.28) | Themes and containers (1.30) | Safe area, scaling, accessibility (1.29, 10.13) |
+| Saving | JSON to `user://` (1.33) | Versioned with migration (10.7) | Tested, corruption-tolerant, device-verified (C1.2, 10.9) |
+| 🎬 Title screen | Tween + `AnimationPlayer` (1.35) | Live 3D character, camera drift (3.12); your own shaders (6.22) | Directed, scored, narrated opening (8.16–8.18) |
+| 🏁 Ending | A results card (1.36) | End card with a stinger (P06) | Narrated payoff into credits over a theme (8.21–8.22) |
+| 🎵 Music | One loop, three SFX (1.37) | Adaptive layers, ambience (5.22, 7.6–7.7) | Full mix, ducking, per-bus volume, subtitles (7.11, 10.8) |
+| 🔊 Narration | — | Record, clean, duck, caption (7.8–7.12) | Cue-driven system, directed, localised (8.6, 8.11, 8.13) |
+| 🚶 Walkthrough | Teach by level shape (5.21) | Directed onboarding with narration (8.19) | A written player guide, and the design fixes it forces (11.20) |
+| UI | Anchored labels (1.28) | Themes and containers (1.30) | Safe area, scaling, accessibility (1.29, 11.13) |
 
 **Never all three at once.** Meeting the naive version first is what makes the correct version *make sense* rather than *be memorised*.
 

@@ -14,13 +14,13 @@ One page each. Written **alongside the chapter that introduces the material**, n
 
 | Sheet | Covers | Written after |
 |-------|--------|---------------|
-| `Blender_Hotkeys.md` | Navigation, modelling, UV, sculpt, weight paint, animation | Module 2 |
+| `Blender_Hotkeys.md` | Navigation, modelling, UV, sculpt, weight paint, animation | Module 3 |
 | `Blender_ExportChecklist.md` | The pre-export checks that prevent 90% of import problems | B17–B19 |
 | `Godot_CSharp_API.md` | The 60 calls you actually use, in C# form | Module 1 |
-| `Godot_NodeTypes.md` | Which node for which job, with the mobile cost of each | Module 4 |
-| `GDShader.md` | Built-ins, render modes, common functions, the six course shaders | Module 5 |
+| `Godot_NodeTypes.md` | Which node for which job, with the mobile cost of each | Module 5 |
+| `GDShader.md` | Built-ins, render modes, common functions, the six course shaders | Module 6 |
 | `Adb.md` | Every `adb` command this course uses, plus logcat filters | Module 0 |
-| `MobilePerf.md` | Frame budget arithmetic, the diagnostic order, target numbers | Module 4 |
+| `MobilePerf.md` | Frame budget arithmetic, the diagnostic order, target numbers | Module 5 |
 | `Git.md` | The commands and the commit-message format for this repo | Module 0 |
 
 > 💡 **Build these from your own [Journal.md](../../meta/Journal.md).** Anything you looked up twice belongs on a sheet. Anything you looked up three times belongs in [Doubts.md](../../meta/Doubts.md) as a real gap.

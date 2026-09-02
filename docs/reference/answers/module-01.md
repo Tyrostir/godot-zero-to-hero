@@ -33,7 +33,7 @@ Beyond designer convenience: exported values are serialised into the scene, so d
 ## Physics
 
 **11. Four body types.**
-`StaticBody3D` — ramps, walls, the level. `RigidBody3D` — the marble itself, fully simulated. `CharacterBody3D` — a scripted mover with `MoveAndSlide` (a patrolling hazard, or the Module 3 character). `Area3D` — non-solid detection volumes: collectibles, the goal, kill planes. (`AnimatableBody3D` is the fifth: a static body designed to be moved by script/animation — the right choice for a moving platform.)
+`StaticBody3D` — ramps, walls, the level. `RigidBody3D` — the marble itself, fully simulated. `CharacterBody3D` — a scripted mover with `MoveAndSlide` (a patrolling hazard, or the Module 4 character). `Area3D` — non-solid detection volumes: collectibles, the goal, kill planes. (`AnimatableBody3D` is the fifth: a static body designed to be moved by script/animation — the right choice for a moving platform.)
 
 **12. Layer vs mask.**
 **Layer** = which layers this body *exists on* — "what I am". **Mask** = which layers this body *scans* — "what I care about colliding with". They are independent, and A detecting B does not imply B detects A.
@@ -50,7 +50,7 @@ The node is persistent and updates once per physics frame — good for a permane
 ## Input
 
 **16. `IsActionPressed` for movement, not for jump.**
-Movement wants "is it held right now" — continuous state, polled every physics tick. A jump is an **event**: `IsActionPressed` would fire on every tick the button is held, giving you infinite jumps. Use `IsActionJustPressed`, and be aware that polling can still miss a tap that began *and ended* between two physics ticks — which is one of the reasons jump buffering (ch 3.8) exists.
+Movement wants "is it held right now" — continuous state, polled every physics tick. A jump is an **event**: `IsActionPressed` would fire on every tick the button is held, giving you infinite jumps. Use `IsActionJustPressed`, and be aware that polling can still miss a tap that began *and ended* between two physics ticks — which is one of the reasons jump buffering (ch 4.8) exists.
 
 **17. The InputMap.**
 It maps named actions ("jump") to concrete inputs, so gameplay code never mentions a key or a touch position. Skip it and you cannot add a second control scheme, cannot offer remapping, and cannot support a gamepad — without editing every gameplay script. On a phone, where you'll ship at least two schemes, this bites in week one.

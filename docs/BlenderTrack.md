@@ -28,14 +28,14 @@ It is not a separate course. Every chapter exists because the game needs the ass
 | Pipeline | B17–B19 | 2 | Assets actually inside Godot |
 | Rigging | B20–B24 | 3 | A working biped rig |
 | Animation | B25–B30 | 3 | A locomotion set |
-| Simulation & VFX | B-VFX (5.16–5.17) | 5 | Flipbook smoke, fire, cloth |
-| Cinematic | B-CIN (7.20–7.21) | 7 | Rendered cutscene + trailer |
+| Simulation & VFX | B-VFX (6.16–6.17) | 5 | Flipbook smoke, fire, cloth |
+| Cinematic | B-CIN (8.20–8.21) | 7 | Rendered cutscene + trailer |
 | Character (full) | B31–B42 | 8 | The Warden |
-| Procedural | B-GN (11.3) | 11 | Scatter systems |
+| Procedural | B-GN (12.3) | 11 | Scatter systems |
 
 ---
 
-## Block 1 — Fluency (B1–B4) · Module 2
+## Block 1 — Fluency (B1–B4) · Module 3
 
 You cannot learn modelling while also fighting the interface. This block exists to make navigation automatic so that later chapters can be about *shapes* rather than about *where the button is*.
 
@@ -57,7 +57,7 @@ Scene units, unit scale, and the rule that **1 Blender metre = 1 Godot unit**. `
 
 ---
 
-## Block 2 — Modelling (B5–B9) · Module 2
+## Block 2 — Modelling (B5–B9) · Module 3
 
 **B5 — Box modelling.**
 Vertex/edge/face modes. Extrude, inset, loop cut, bevel, knife, bridge, merge, and the difference between deleting and dissolving. Built live: a crate, from a cube to a finished prop.
@@ -81,7 +81,7 @@ What a phone can afford. Measuring triangles in the statistics overlay. Budget a
 
 ---
 
-## Block 3 — Surfacing (B10–B16) · Module 2
+## Block 3 — Surfacing (B10–B16) · Module 3
 
 **B10 — UV unwrapping.**
 What a UV map is. Seams, marking them, and where a seam should go (hidden edges, natural breaks, silhouette-safe). Unwrap, Smart UV Project, Follow Active Quads, Cube/Cylinder projection. Reading a checker texture: stretching, rotation, mirroring, seams.
@@ -113,7 +113,7 @@ The high-to-low workflow. Cages, ray distance, and what a "ray miss" looks like.
 
 ---
 
-## Block 4 — Pipeline (B17–B19) · Module 2
+## Block 4 — Pipeline (B17–B19) · Module 3
 
 **B17 — Export formats.**
 glTF 2.0 as the correct answer, and why: open, modern, handles PBR and skinning natively, and is Godot's best-supported path. Why not FBX (proprietary, ambiguous, scale chaos) and why not OBJ (no animation, no PBR). `.glb` vs `.gltf`+bin. Every checkbox in the glTF export panel, explained.
@@ -128,7 +128,7 @@ Import presets, per-file settings, `.import` files and what they are. Re-importi
 
 ---
 
-## Block 5 — Rigging (B20–B24) · Module 3
+## Block 5 — Rigging (B20–B24) · Module 4
 
 **B20 — Character anatomy for games.**
 Proportion, silhouette, and readability at phone-screen size. T-pose vs A-pose (and why A-pose deforms better at the shoulder). Where joints actually are, versus where beginners put them.
@@ -150,7 +150,7 @@ Naming conventions (`.L`/`.R` and why the exact syntax matters for symmetry). Bo
 
 ---
 
-## Block 6 — Animation (B25–B30) · Module 3
+## Block 6 — Animation (B25–B30) · Module 4
 
 **B25 — Keyframes and the graph editor.**
 Inserting keys, keying sets, auto-key. The dope sheet as timing, the graph editor as *feel*. Interpolation modes, handle types, and how to read an F-curve. Onion skinning.
@@ -175,7 +175,7 @@ In-place vs root motion, what each costs in engine, and the hybrid that most gam
 
 ---
 
-## Block 7 — Simulation & VFX (Module 5, chapters 5.16–5.17)
+## Block 7 — Simulation & VFX (Module 6, chapters 6.16–6.17)
 
 **Smoke and fire → flipbook.** Quick Smoke setup, domain resolution, and why you keep it low. Baking the sim. Rendering the domain from a fixed camera to an image sequence. Assembling a 4×4 or 8×8 sprite sheet. Getting the alpha right so it composites in-engine.
 **Cloth → mesh animation.** Cloth sim on a banner or cape, pinning, collision, baking to shape keys or an mdd, and exporting as vertex animation.
@@ -183,7 +183,7 @@ In-place vs root motion, what each costs in engine, and the hybrid that most gam
 
 ---
 
-## Block 8 — Cinematic: rendering & compositing (Module 7, chapters 7.20–7.21)
+## Block 8 — Cinematic: rendering & compositing (Module 8, chapters 8.20–8.21)
 
 **Cameras and rendering.** Camera objects, focal length, depth of field, and the language of shots. EEVEE vs Cycles: what each is for, sampling, denoising, render time reality. Output settings, colour management, Filmic/AgX, and rendering an image sequence rather than a video file (and why).
 **Compositing.** The compositor node graph. Render layers and passes. Glare, lens distortion, colour balance, vignette. Alpha-over for layering. Assembling a trailer in the Video Sequence Editor. Rendering a pre-rendered cutscene for use in-game, and the size cost of doing so on mobile.
@@ -191,9 +191,9 @@ In-place vs root motion, what each costs in engine, and the hybrid that most gam
 
 ---
 
-## Block 9 — The full character pipeline (B31–B42) · Module 8
+## Block 9 — The full character pipeline (B31–B42) · Module 9
 
-This is Module 8 in full. Every chapter is one stage of building **the Warden**.
+This is Module 9 in full. Every chapter is one stage of building **the Warden**.
 
 - **B31 — Concept & blockout.** Reference boards, silhouette thumbnails, proportion blocking with primitives.
 - **B32 — Sculpting fundamentals.** Dyntopo vs multires vs voxel remesh. The brush set that actually matters (Draw, Clay Strips, Grab, Crease, Smooth, Inflate, Pinch). Symmetry. Masking and face sets.
@@ -210,7 +210,7 @@ This is Module 8 in full. Every chapter is one stage of building **the Warden**.
 
 ---
 
-## Block 10 — Geometry Nodes (Module 11, chapter 11.3)
+## Block 10 — Geometry Nodes (Module 12, chapter 12.3)
 
 Procedural modelling as a node graph. Scattering rocks, grass and debris across a surface with control. Instancing on points. Attributes. Building a procedural fence/pipe/cable generator. Realising the result to real geometry, and exporting it. Where Geometry Nodes replaces manual work and where it's a fun distraction.
 

@@ -57,6 +57,7 @@ update_trigger: "Whenever a decision is made, changed, or superseded"
 | [ADR-032](#adr-032) | Libraries adopted by **priority tier** — chapter, paragraph, or awareness only | Pedagogy | ✅ (revised) |
 | [ADR-033](#adr-033) | **The scaffolding gradient** — help is removed on a declared schedule, 90/10 → 10/90 | Pedagogy | ✅ |
 | [ADR-034](#adr-034) | **Android runtime engineering is a first-class block**, not a release-week concern | Product | ✅ |
+| [ADR-035](#adr-035) | **Thirteen modules** — Module 1 split; Android runtime becomes Module 2 | Structure | ✅ |
 
 ---
 
@@ -179,7 +180,7 @@ Every asset used in this course is free and permissively licensed — CC0 wherev
 
 **Rejected licences:** CC-BY-NC and CC-BY-ND, in all cases, without exception. CC-BY-SA is discouraged.
 
-**Why.** An untracked asset is an unshippable asset. Chapter 7.19 generates the game's credits roll directly from the ledger, which makes the discipline pay for itself.
+**Why.** An untracked asset is an unshippable asset. Chapter 8.19 generates the game's credits roll directly from the ledger, which makes the discipline pay for itself.
 
 ---
 
@@ -316,6 +317,10 @@ Prose, diagrams and course structure: **CC BY-SA 4.0**. Code in `projects/`: **M
 
 *Ember Hollow*: four ~6-minute levels, one enemy type with two variants, one boss with three phases, one core verb plus one traversal verb. **No crafting, no inventory, no procedural generation.**
 
+**🔁 Reaffirmed 2026-09-02.** An external review recommended shrinking the ship target to a single finished level (a "vertical slice"), with levels 2–4 as optional post-release expansion. The author agreed with that recommendation. **The learner considered it and chose to keep all four levels as the release target.** That decision stands and is not to be revisited.
+
+*The risk, stated once and then dropped:* levels 2–4 teach almost no new skills — by the time level 1 is finished to final quality every technique in the course has been used — so they are roughly 60–90 hours of pure production, and production is where solo projects most often stall. **The mitigation is the vertical slice as a milestone rather than as the ship target:** level 1 must reach final quality and be validated on device before levels 2–4 begin, so that if appetite runs out there is still a complete, releasable game.
+
 **Why.** Scope, not skill, is what kills projects. The lock is written down precisely so that a future enthusiasm has something to argue against. New ideas go in the GDD under *Post-launch*.
 
 ---
@@ -342,7 +347,7 @@ No GitHub alert blocks (`> [!NOTE]`), no GitHub-specific task-list semantics in 
 ### C# on Android is knowingly the less-travelled path
 **Status:** ✅ Active · **Category:** Product
 
-Godot's .NET Android export works (introduced in the 4.2 line, hardened since), but it has fewer users than GDScript. Expect longer export times, larger APKs, and occasional issues with no Stack Overflow answer.
+Godot's .NET Android export works (introduced in the 5.2 line, hardened since), but it has fewer users than GDScript. Expect longer export times, larger APKs, and occasional issues with no Stack Overflow answer.
 
 **Accepted deliberately.** Mitigations: pin versions ([Setup 01](../guides/Setup_01_Prerequisites.md)); consult the official docs and Godot's GitHub issues before assuming a bug is yours; log every one in [`../reference/Troubleshooting.md`](../reference/Troubleshooting.md).
 
@@ -352,7 +357,7 @@ Godot's .NET Android export works (introduced in the 4.2 line, hardened since), 
 ### Capstone working title is *Ember Hollow*
 **Status:** 🔄 Provisional · **Category:** Product
 
-A placeholder so the capstone can be referred to concretely from Module 4 onward. The learner names it properly in chapter 7.1, and this ADR is then revised.
+A placeholder so the capstone can be referred to concretely from Module 5 onward. The learner names it properly in chapter 8.1, and this ADR is then revised.
 
 ---
 
@@ -404,7 +409,7 @@ Full mapping, project by project: [`../PresentationSpine.md`](../PresentationSpi
 
 **Why this changed.** The plan as first drafted quarantined all of it in Modules 6–7. That was wrong on two counts. First, it contradicted the learner's actual request — *"on all the projects wherever applicable"*. Second, and worse, it contradicted [ADR-002](#adr-002): a learner would spend roughly 180 hours before making their first title screen, then have to learn timing, camera language, sound design and pacing **all at once, at full difficulty, with no practice**. That is precisely the theory-then-practice failure this course exists to avoid.
 
-**The escalation.** You build a title screen four times: crude tween (1.35) → live 3D character (3.12) → your own shaders (5.22) → directed, scored, narrated opening (7.16–7.18). Same for the ending (1.36 → 7.21), music (1.37 → 6.7 → 7.17) and the walkthrough (level shape 4.21 → directed onboarding 7.19 → a written guide 10.20).
+**The escalation.** You build a title screen four times: crude tween (1.35) → live 3D character (3.12) → your own shaders (6.22) → directed, scored, narrated opening (8.16–8.18). Same for the ending (1.36 → 8.21), music (1.37 → 7.7 → 8.17) and the walkthrough (level shape 5.21 → directed onboarding 8.19 → a written guide 11.20).
 
 **Cost.** 42 additional chapters (215 → 258). Accepted: they are almost all short, they are distributed rather than lumped, and they make every intermediate project feel like a *game* rather than a tech demo — which is itself the strongest defence against the thing that actually kills courses, which is losing interest.
 
@@ -414,13 +419,13 @@ Full mapping, project by project: [`../PresentationSpine.md`](../PresentationSpi
 ### Narration is recorded by the learner; subtitles are mandatory
 **Status:** ✅ Active *(decided 2026-09-02)* · **Category:** Product
 
-Narration and voice get eleven chapters (6.8–6.14, 7.6, 7.11, 8.2, 10.18), taught practical-first: **record before theorising**.
+Narration and voice get eleven chapters (7.8–7.14, 8.6, 8.11, 9.2, 11.18), taught practical-first: **record before theorising**.
 
-**No purchase is required.** Chapter 6.9 is built around a phone's voice recorder and a wardrobe of soft furnishings as an improvised booth. The fastest way to learn what makes a voice track bad is to make a bad one and fix it. Microphone guidance is offered for later, never assumed.
+**No purchase is required.** Chapter 7.9 is built around a phone's voice recorder and a wardrobe of soft furnishings as an improvised booth. The fastest way to learn what makes a voice track bad is to make a bad one and fix it. Microphone guidance is offered for later, never assumed.
 
-**Text-to-speech is treated as legitimate** (6.13), not as a fallback for people who "can't" record — with an honest account of when it's the right choice and the licensing trap in commercial use.
+**Text-to-speech is treated as legitimate** (7.13), not as a fallback for people who "can't" record — with an honest account of when it's the right choice and the licensing trap in commercial use.
 
-**Subtitles are mandatory.** Any narration shipped must carry synchronised captions and a toggle ([`9.8`](../TableOfContents.md)). A phone gets played on mute, on a bus, by someone who is deaf, and by someone at 4% battery — all four are the same requirement, and treating it as an accessibility afterthought produces a worse system than designing the cue track for captions from the start.
+**Subtitles are mandatory.** Any narration shipped must carry synchronised captions and a toggle ([`10.8`](../TableOfContents.md)). A phone gets played on mute, on a bus, by someone who is deaf, and by someone at 4% battery — all four are the same requirement, and treating it as an accessibility afterthought produces a worse system than designing the cue track for captions from the start.
 
 ---
 
@@ -456,11 +461,11 @@ Full catalogue with licences, caveats and adoption chapters: **[`../Toolchain.md
 
 **The six evaluation questions** (taught in chapter 0.10, applied every time thereafter): licence · maintenance · **does it work from C#** · mobile cost measured on device · abandonment risk · could you write it in a day.
 
-**⚠️ The C# consequence, stated plainly.** Most Godot addons are GDScript. They work from C# — they are nodes, you call them — but with lost type safety and real friction. Three responses, all taught: prefer C#-native or GDExtension libraries; **wrap any GDScript addon behind a C# interface** (chapter 9.6b); and use **NuGet**, which is a large compensation GDScript users do not have (chapter 0.11).
+**⚠️ The C# consequence, stated plainly.** Most Godot addons are GDScript. They work from C# — they are nodes, you call them — but with lost type safety and real friction. Three responses, all taught: prefer C#-native or GDExtension libraries; **wrap any GDScript addon behind a C# interface** (chapter 10.6b); and use **NuGet**, which is a large compensation GDScript users do not have (chapter 0.11).
 
 **The single most consequential find** is the **Chickensoft** ecosystem — maintained, MIT, **C#-first** Godot libraries (LogicBlocks, AutoInject, GodotNodeInterfaces, SaveFileBuilder, GodotTest, GodotEnv). Every "best Godot addons" list online is written for GDScript users; a C# developer following those lists spends their life writing `Call("do_thing")`.
 
-**Explicit rejections** are recorded in [`../Toolchain.md` §8](../Toolchain.md) — including FMOD/Wwise (community integration + C# + Android is three compounding risks; awareness taught in 6.2b, no install) and GPL-licensed addons in shipped code.
+**Explicit rejections** are recorded in [`../Toolchain.md` §8](../Toolchain.md) — including FMOD/Wwise (community integration + C# + Android is three compounding risks; awareness taught in 7.2b, no install) and GPL-licensed addons in shipped code.
 
 **`[UNVERIFIED]` applies.** The author cannot install or run any of these ([ADR-016](#adr-016)). Versions, current maintenance and mobile cost are checked by the learner **at the point of adoption** — which is the exercise anyway, so the constraint and the pedagogy point the same way.
 
@@ -480,21 +485,21 @@ The learner's stated goal is to be able to develop *"AAA standard — profession
 |---|---|
 | A real asset pipeline: budgets, atlases, texel density, LODs, bakes, validation | Modules 2, 4, 8 |
 | Production rigging with the industry-standard free system (Rigify) | B24b |
-| Storyboards and previz before cameras (Grease Pencil) | 7.2b |
-| Colour management (OpenColorIO / AgX), as studios do it | 7.24b |
-| Behaviour trees, navmesh AI, telegraphed readable combat | 10.6–10.8 |
-| Code standards: analyzers, `.editorconfig`, warnings-as-errors, doc comments | 9.2b |
-| Unit-testable scene code, and a test suite | 9.9, 9.9b |
-| Structured logging and on-device profiling as routine | 9.11, 9.11b |
-| CI that builds a signed artefact on every tag | 10.17 |
-| **Industry milestones** — first playable, vertical slice, alpha, beta, content lock, gold | 10.1b |
+| Storyboards and previz before cameras (Grease Pencil) | 8.2b |
+| Colour management (OpenColorIO / AgX), as studios do it | 8.24b |
+| Behaviour trees, navmesh AI, telegraphed readable combat | 11.6–11.8 |
+| Code standards: analyzers, `.editorconfig`, warnings-as-errors, doc comments | 10.2b |
+| Unit-testable scene code, and a test suite | 10.9, 10.9b |
+| Structured logging and on-device profiling as routine | 10.11, 9.11b |
+| CI that builds a signed artefact on every tag | 11.17 |
+| **Industry milestones** — first playable, vertical slice, alpha, beta, content lock, gold | 11.1b |
 | **Production tracking** with an open-source studio tool (Kitsu) | 10.3b |
-| Structured playtesting with recorded protocol | 10.11 |
-| **The post-mortem**, written honestly and published | 10.11b |
-| Accessibility as a requirement, not a stretch goal | 10.13, ADR-027 |
-| **A portfolio and breakdown reel** for studio applications | 10.20b |
+| Structured playtesting with recorded protocol | 11.11 |
+| **The post-mortem**, written honestly and published | 11.11b |
+| Accessibility as a requirement, not a stretch goal | 11.13, ADR-027 |
+| **A portfolio and breakdown reel** for studio applications | 11.20b |
 
-**What is deliberately *not* attempted**, and why it is the right call: a large content volume (scope kills solo projects — [ADR-019](#adr-019)); photoreal fidelity (wrong target for a phone — [ADR-010](#adr-010)); multiplayer infrastructure (an entire discipline; awareness only in 11.1); and marketing at scale.
+**What is deliberately *not* attempted**, and why it is the right call: a large content volume (scope kills solo projects — [ADR-019](#adr-019)); photoreal fidelity (wrong target for a phone — [ADR-010](#adr-010)); multiplayer infrastructure (an entire discipline; awareness only in 12.1); and marketing at scale.
 
 **The honest summary.** At the end you will not have made a AAA game. You will have the craft, the pipeline discipline and the shipped evidence to work on one — or to make something small and excellent on your own, which is the harder and rarer achievement.
 
@@ -512,7 +517,7 @@ Godot's .NET build runs **GDScript and C# side by side in one project**, and a *
 | **GDScript** | **Secondary** | `@tool` editor scripts, small UI glue, **consuming and patching community addons** | Core architecture |
 | **C++ / GDExtension** | **Last resort** | A hot path you have **measured**, or wrapping a native library | Anything before profiling |
 
-**The rule that makes it safe:** every boundary lives in **one place** — one wrapper file per GDScript addon exposing a clean C# interface; one GDExtension module with a narrow documented API. Taught in **9.1b** and **9.6b**.
+**The rule that makes it safe:** every boundary lives in **one place** — one wrapper file per GDScript addon exposing a clean C# interface; one GDExtension module with a narrow documented API. Taught in **10.1b** and **10.6b**.
 
 **The correction this ADR records.** [ADR-029](#adr-029) said most Godot addons are GDScript and that this costs C# users. That is true but was easy to misread as *"C# loses access to those addons."* **It does not.** They are nodes; you instantiate and call them. What is lost is **ergonomics** — type safety and autocomplete at the seam — not access. The distinction matters because the first reading would justify switching languages, and the second one does not.
 
@@ -557,10 +562,10 @@ Everything at L1 and L2 still has a chapter that uses it on real project content
 | **B5b** The built-in addons, used once each | LoopTools · Bool Tool · 3D-Print Toolbox · Extra Objects · Copy Attributes |
 | **B15b** The CC0 asset browsers | Poly Haven · ambientCG · BlenderKit |
 | **B15d** The free 2D toolchain | Krita · GIMP · Inkscape |
-| **4.2b** Blender's procedural generators | A.N.T. Landscape · Sapling Tree Gen · Cell Fracture |
+| **5.2b** Blender's procedural generators | A.N.T. Landscape · Sapling Tree Gen · Cell Fracture |
 | **0.20** Dev-loop tools | Godot Git Plugin · GodotEnv |
 | **B29b** Retargeting tools | Rokoko Studio Live · Mixamo root-motion converters |
-| **5.20b** Capture tools | OBS Studio · scrcpy |
+| **6.20b** Capture tools | OBS Studio · scrcpy |
 | **9.10c** The rest of Chickensoft | Collections · PowerUps |
 
 **Every cluster chapter still obeys [ADR-002](#adr-002)**: the Build section is *using* each tool on real content, not reading about it. A chapter that merely describes tools has failed and gets rewritten.
@@ -581,13 +586,13 @@ Every chapter declares how much of it is **guided** and how much is **independen
 
 | Stage | Modules | Guided / Independent | What that means in practice |
 |-------|---------|---------------------|-----------------------------|
-| **Early** | 0–1 | **90 / 10** | Every step given. The independent 10% is the chapter's practicals |
-| **Intermediate** | 2–4 | **70 / 30** | Steps given for anything new; you repeat known techniques unaided |
-| **Advanced** | 5–7 | **50 / 50** | Requirements and constraints given; approach is yours |
-| **Professional** | 8–9 | **30 / 70** | A brief and a budget. Guidance only where the material is genuinely new |
-| **Capstone** | 10 | **10 / 90** | You are building. I review, unblock and challenge |
+| **Early** | 0–2 | **90 / 10** | Every step given. The independent 10% is the chapter's practicals |
+| **Intermediate** | 3–5 | **70 / 30** | Steps given for anything new; you repeat known techniques unaided |
+| **Advanced** | 6–8 | **50 / 50** | Requirements and constraints given; approach is yours |
+| **Professional** | 9–10 | **30 / 70** | A brief and a budget. Guidance only where the material is genuinely new |
+| **Capstone** | 11–12 | **10 / 90** | You are building. I review, unblock and challenge |
 
-**⬜ Blank-page builds.** Every major subsystem ends with one: **requirements only — no steps, no reference implementation, no code**. Eight exist (1.49, 2.22b, 3.12b, 4.22b, 5.22b, 6.18b, 7.24d, 9.11c), plus the four mini-jams and the autopsies in [`../Exercises.md`](../Exercises.md).
+**⬜ Blank-page builds.** Every major subsystem ends with one: **requirements only — no steps, no reference implementation, no code**. Eight exist (1.49, 3.22b, 4.12b, 5.22b, 6.22b, 7.18b, 8.24d, 10.11c), plus the four mini-jams and the autopsies in [`../Exercises.md`](../Exercises.md).
 
 The progression for every subsystem is: **guided build → variation → ⬜ blank-page → jam → autopsy**.
 
@@ -605,17 +610,38 @@ The progression for every subsystem is: **guided build → variation → ⬜ bla
 ### Android runtime engineering is a first-class block
 **Status:** ✅ Active *(decided 2026-09-02)* · **Category:** Product
 
-**Module 1 block 1J** (chapters 1.40–1.49) covers the Android *runtime*, not just the Android *build*: the activity lifecycle · interruptions (calls, notifications, screen lock) · process death and resume · **the chaos test** · input beyond touch (back gesture, navigation modes, gesture interruption, gamepads) · screens you did not design for · **the device tier matrix** · **explicit performance budgets** · profile-first optimisation.
+**Module 2** (chapters 2.7–2.16) covers the Android *runtime*, not just the Android *build*: the activity lifecycle · interruptions (calls, notifications, screen lock) · process death and resume · **the chaos test** · input beyond touch (back gesture, navigation modes, gesture interruption, gamepads) · screens you did not design for · **the device tier matrix** · **explicit performance budgets** · profile-first optimisation.
 
 **⭐ The chaos test becomes a done-criterion on every project from P01:** home · reopen · lock · unlock · rotate · simulate a call · task-switch · **kill the process** · reopen · load save.
 
 **Why this was missing and why that mattered.** A `grep` across all 333 chapters for *lifecycle*, *backgrounding*, *process death*, *ANR* and *battery* returned **nothing**. The plan covered how to *build* an APK in great detail and never covered how an Android app *behaves*. That is the difference between a game that renders correctly and a game that survives a phone call — and it is the single most common way a technically competent mobile game gets one-star reviews.
 
-**Why here rather than in Module 10.** It is placed *before* P01 ships, so the first game the learner releases already survives it. Deferring it to release week means every project before it accumulates lifecycle bugs, and the fixes become architectural rather than incremental.
+**Why here rather than in Module 11.** It is placed *before* P01 ships, so the first game the learner releases already survives it. Deferring it to release week means every project before it accumulates lifecycle bugs, and the fixes become architectural rather than incremental.
 
-**Related additions:** thermal soak testing, battery measurement, memory-pressure torture tests and the GPU bottleneck taxonomy (CPU / GPU / draw-call / fill-rate / bandwidth / shader-bound) in Module 4; crash and **ANR** monitoring, staged rollout and rollback in Module 10.
+**Related additions:** thermal soak testing, battery measurement, memory-pressure torture tests and the GPU bottleneck taxonomy (CPU / GPU / draw-call / fill-rate / bandwidth / shader-bound) in Module 5; crash and **ANR** monitoring, staged rollout and rollback in Module 11.
 
 *Adopted from the external review of 2026-09-02, §5–§9, §24–§25, §29–§31.*
+
+---
+
+## ADR-035
+### Thirteen modules — Module 1 split, Android runtime becomes Module 2
+**Status:** ✅ Active *(decided 2026-09-02)* · **Category:** Structure
+
+Adding [ADR-034](#adr-034)'s Android block pushed Module 1 to **63 chapters** — nearly a fifth of the course in one module. It is now split:
+
+| | Was | Now |
+|---|---|---|
+| **Module 1 — Godot Foundations** | 63 ch | **44 ch** — nodes, scenes, C#, transforms, physics, input, cameras, signals, UI, persistence, presentation |
+| **Module 2 — Android Runtime & Engineering Practice** | — | **19 ch** — engineering practice (2.1–2.6) then the Android runtime block (2.7–2.16), ending with **P01 shipping** |
+
+Everything after shifted: old Modules 2–11 became **3–12**. The course is now **13 modules, 348 chapters**.
+
+**P01 now spans two modules.** Module 1 builds Marble Runner; Module 2 makes it survive Android and ships it. That is honest about what shipping a mobile game actually involves, and it means the learner's first release already survives the chaos test.
+
+**Engineering practice moved with it.** The first test, debugging, `git bisect`, branching, a tiny CI pipeline and the first playtest were originally in Modules 10–11. They sit in **2A** because the three-pass spiral applies to engineering practice too: a tiny version now, grown later. *A test suite you first meet in month nine is a test suite you never write.*
+
+**Cost, acknowledged.** The renumber touched 36 files and ~900 tokens. It was done by matching only against the set of chapter IDs actually present in the Table of Contents — never by blind regex — after auditing 14 ambiguous matches (`Godot 4.2+`, `glTF 2.0`, `Apache-2.0`, `9.8f`, review scores like `9.5/10`). All 572 relative links were verified afterwards. `docs/reference/answers/module-NN.md` were renamed to match.
 
 ---
 
@@ -629,4 +655,4 @@ The progression for every subsystem is: **guided build → variation → ⬜ bla
 | 1.3 | 2026-09-02 | ADR-011 amended: **both** the question and the author's full answer are logged in `Doubts.md`, unprompted, every turn. Prompted by [D-006](Doubts.md#d-006). |
 | 1.4 | 2026-09-02 | ADR-028 (build-then-adopt), ADR-029 (the free toolchain), ADR-030 (what "industry grade" honestly means). Course grows 258 → 290 chapters; new `Toolchain.md`. Prompted by [D-007](Doubts.md#d-007). |
 | 1.6 | 2026-09-02 | ADR-001 revised — **four languages taught**, C# primary; Module 0 restructured into 0A/0B/0C with the "same cube three ways" measured comparison. ADR-032 — every catalogued library adopted, clustered. Course 292 → **333**. Prompted by [D-009](Doubts.md#d-009). |
-| 1.5 | 2026-09-02 | ADR-031 (polyglot by design). Corrects a misreadable claim in ADR-029: C# loses addon *ergonomics*, not addon *access*. Chapters 0.10b and 9.1b added → 292. Prompted by [D-008](Doubts.md#d-008). |
+| 1.5 | 2026-09-02 | ADR-031 (polyglot by design). Corrects a misreadable claim in ADR-029: C# loses addon *ergonomics*, not addon *access*. Chapters 0.10b and 10.1b added → 292. Prompted by [D-008](Doubts.md#d-008). |

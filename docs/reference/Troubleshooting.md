@@ -125,7 +125,7 @@ update_trigger: "Every time an error is encountered and solved — by either of 
 
 ### A brief freeze the first time an effect appears
 **Cause:** Shader compilation stutter.
-**Fix:** Prewarm materials during loading (chapter 5.12).
+**Fix:** Prewarm materials during loading (chapter 6.12).
 
 ---
 

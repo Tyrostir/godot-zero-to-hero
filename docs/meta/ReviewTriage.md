@@ -26,7 +26,7 @@ Scope reviewed: the course plan at roughly commit `b71dc66` (333 chapters).
 | "README claims 333 builds, another section gives 292" | ✅ **True and my bug.** `Practicals.md`'s per-module table still totalled 292/30 after the last restructure — I updated the summary rows and missed the breakdown. **Fixed.** |
 | "README claims 63 adoptions, practicals list 30" | ✅ **Same bug. Fixed.** |
 | "Blender numbering B0–B19 in one place, B42 in another" | ⚠️ **Was true; now stale.** The old README said `B0–B19`; it has said `B1–B42` since the restructure. Residual imprecision — there are actually 66 Blender chapters once variants and embedded `[B]` chapters are counted. Worth one clarifying line. |
-| Forward+ → Mobile migration | ✅ **True and a real design error. Fixed** — P00 now starts on Mobile; 4.13 became a comparison, not a port. |
+| Forward+ → Mobile migration | ✅ **True and a real design error. Fixed** — P00 now starts on Mobile; 5.13 became a comparison, not a port. |
 | No Android lifecycle coverage | ✅ **True.** `grep` for lifecycle/backgrounding/process-death/ANR/battery returns **nothing**. Largest content gap in the plan. |
 | No git branching / bisect | ✅ **True.** Nothing beyond "commit after every chapter". |
 
@@ -58,7 +58,7 @@ The concrete expression of it is **[ADR-032](Decisions.md#adr-032)** — *"every
 | **13/27/28** | **Version matrix**, upgrade discipline, reproducible builds. "Never say *latest*" | ✅ Right | `ENGINE_VERSION.md` + an upgrade-discipline chapter |
 | **15** | **Debugging as a taught skill** — conditional breakpoints, watch, call stacks, remote debug, minimal repro, **binary-search debugging**, bisect | ✅ Right, we were thin | Threaded from Module 1, not deferred |
 | **16–19, 33** | **Git branching, CI, testing, playtesting, profiling — all start earlier**, tiny first, grown | ✅ **Right, and it is our own principle** | This is the three-pass spiral we failed to apply to engineering practice |
-| **29–30** | Release engineering depth; **crash and ANR monitoring** | ✅ ANR was entirely missing | Added to Module 10 |
+| **29–30** | Release engineering depth; **crash and ANR monitoring** | ✅ ANR was entirely missing | Added to Module 11 |
 | **3** | **Priority tiers** — L1 must know · L2 must understand · L3 know it exists | ✅ Right, and it **corrects ADR-032** | Kitsu, MemoryPack, Serilog, USD, OCIO, Sverchok → L3 awareness. **Removes chapters** |
 | **36** | Loop gains **Observe**, **Diagnose (learner first)**, **Reflection (explain it back)** | ✅ Genuine improvement | Chapter template revised — theory arrives only *after* the learner attempts diagnosis |
 
@@ -68,7 +68,7 @@ The concrete expression of it is **[ADR-032](Decisions.md#adr-032)** — *"every
 
 | § | Point | My adaptation |
 |---|-------|---------------|
-| **2** | **Too many languages too early. C++ in Module 0 is excessive.** | ✅ **Right, and this was my error.** But the fix is *resequencing*, not removal — the learner explicitly asked for all three ([D-009](Doubts.md#d-009)). **Keep** the GDScript-vs-C# measured comparison in Module 0 (both are trivial, no toolchain). **Move** the C++ leg (0.13–0.15) into Module 9 beside `9.1e`, the measured rewrite, where it already has an earned trigger. The "measure it yourself" pedagogy survives intact; the afternoon of SCons moves to where it is motivated. |
+| **2** | **Too many languages too early. C++ in Module 0 is excessive.** | ✅ **Right, and this was my error.** But the fix is *resequencing*, not removal — the learner explicitly asked for all three ([D-009](Doubts.md#d-009)). **Keep** the GDScript-vs-C# measured comparison in Module 0 (both are trivial, no toolchain). **Move** the C++ leg (0.13–0.15) into Module 10 beside `10.1e`, the measured rewrite, where it already has an earned trigger. The "measure it yourself" pedagogy survives intact; the afternoon of SCons moves to where it is motivated. |
 | **14** | C# foundations for a true beginner | 🔄 Right for 🐣 Path A, but our learner is a **C/C++-solid, Python-strong embedded engineer**. A micro-track on *variables and methods* would insult them. Scope it to **C#-specific** things they genuinely have not met: properties, `partial`, attributes, delegates/events, LINQ, generics, `async`, nullable references, records, `struct` vs `class` semantics. Threaded, never a standalone block. |
 | **35** | The revised Phase 0–12 curriculum | 🔄 **Adopt the resequencing insight, not the structure.** Promoting **mobile engineering to immediately after the first shipped game** is right and I will do it. But the phase list itself is *less* specific than our modules — "Learn: modelling, UV, materials, baking, LOD" is what B10–B19 already are, in detail. Wholesale adoption would be a downgrade. |
 | **34** | Capstone too large; prefer one excellent vertical slice | 🔄 Partly right. [ADR-019](Decisions.md#adr-019) already locks it to four ~6-minute levels. Proposal: **the vertical slice is the ship target; levels 2–4 become explicitly optional expansion.** Most solo projects die in content production, not in systems. ⏸️ Learner's call. |
@@ -90,7 +90,7 @@ The concrete expression of it is **[ADR-032](Decisions.md#adr-032)** — *"every
 | § | Point | Why I disagree |
 |---|-------|----------------|
 | **4** | *"Actual completeness of supplied course: 4/10"* and "the repository is a blueprint, not a course" | ❌ **This scores us on completeness of something we explicitly have not started.** [`CourseState.md`](CourseState.md) states *Phase 1 — planning · 0/333 chapters published · plan awaiting review*. It is a blueprint **by design and by declaration**, because the learner asked for the plan first and then asked to review it before any chapter was written. Folding a 4/10 into the headline verdict is unfair and misleading. The *observation* is correct; the *score* is a category error. |
-| **2** | "GDShader should come later" | ❌ It already is — Module 5, twelve chapters. Only `0.16` is early, and it is one chapter that exists so shaders are not a surprise in Module 5. Cheap and useful; keeping it. |
+| **2** | "GDShader should come later" | ❌ It already is — Module 6, twelve chapters. Only `0.16` is early, and it is one chapter that exists so shaders are not a surprise in Module 6. Cheap and useful; keeping it. |
 | **35** | Phase list replacing our modules | ❌ See §3 above — less specific than what exists. |
 
 ---
@@ -102,7 +102,7 @@ Contrary to expectation, acting on this review should make the course **smaller*
 | Change | Δ chapters |
 |---|---|
 | §3 priority tiers → demote L3 tools to awareness paragraphs (revises [ADR-032](Decisions.md#adr-032)) | **−12 to −18** |
-| §2 move the C++ block from Module 0 to Module 9 | 0 (moved, not added) |
+| §2 move the C++ block from Module 0 to Module 10 | 0 (moved, not added) |
 | §20 presentation scaling, *if approved* | **−6 to −10** |
 | §34 capstone to a vertical slice, *if approved* | **−4 to −6** |
 | §5 Android engineering block | **+10 to +14** |

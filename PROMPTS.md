@@ -101,7 +101,7 @@ Flagged five honest constraints in `PLAN.md §5`, the most important being that 
 4. **Many** intermediate practicals, exercises and projects → [ADR-006](docs/meta/Decisions.md#adr-006)
 5. Questions **with answers** → [ADR-007](docs/meta/Decisions.md#adr-007)
 6. Free public assets, with download and usage guidance → [ADR-008](docs/meta/Decisions.md#adr-008)
-7. Story, storytelling, intro/first-page/walkthrough/end-page animation, professional grade → Module 7
+7. Story, storytelling, intro/first-page/walkthrough/end-page animation, professional grade → Module 8
 8. **Do not install or run anything** in this environment → [ADR-016](docs/meta/Decisions.md#adr-016)
 
 ### Artefacts changed
@@ -224,7 +224,7 @@ The important consequence was a **latent contradiction between ADR-002 and ADR-0
 
 ### Artefacts changed
 
-`docs/meta/Decisions.md` (ADR-024 rewritten and activated; ADR-004 amended) · `docs/meta/DecisionsLog.md` (three entries) · `docs/meta/Doubts.md` (D-001 resolved, D-004 added) · `docs/PLAN.md` (new §1b *Three paths, one document*; §5.1 Linux) · `docs/chapters/README.md` (Fast-Track Summary in the template, path system, Paths column) · `docs/TableOfContents.md` (path legend) · `docs/Practicals.md` (path/practical interaction) · `docs/guides/Setup_04_Android_And_Device.md` (Linux-first, ⭐ udev rule) · `docs/guides/Setup_01_Prerequisites.md` · `docs/meta/{CourseState,CompactContext,ToDos}.md` · `docs/internal/CLAUDE-MEMORY.md`
+`docs/meta/Decisions.md` (ADR-024 rewritten and activated; ADR-004 amended) · `docs/meta/DecisionsLog.md` (three entries) · `docs/meta/Doubts.md` (D-001 resolved, D-004 added) · `docs/PLAN.md` (new §1b *Three paths, one document*; §6.1 Linux) · `docs/chapters/README.md` (Fast-Track Summary in the template, path system, Paths column) · `docs/TableOfContents.md` (path legend) · `docs/Practicals.md` (path/practical interaction) · `docs/guides/Setup_04_Android_And_Device.md` (Linux-first, ⭐ udev rule) · `docs/guides/Setup_01_Prerequisites.md` · `docs/meta/{CourseState,CompactContext,ToDos}.md` · `docs/internal/CLAUDE-MEMORY.md`
 
 ---
 
@@ -255,11 +255,11 @@ Audited the Table of Contents against the list item by item rather than answerin
 
 **Fixed with two new decisions.**
 
-**[ADR-026 — The Presentation Spine](docs/meta/Decisions.md#adr-026).** Presentation runs through **every project from P01**, escalating in passes. From P01 a project is not shipped without an animated first page, an ending screen, music, ambience, a narrative frame and a walkthrough — as **done-criteria**, not suggestions. You build a title screen **four times**: crude tween (1.35) → live 3D character (3.12) → your own shaders (5.22) → directed, scored, narrated opening (7.16–7.18). Same escalation for the ending, music, and the walkthrough.
+**[ADR-026 — The Presentation Spine](docs/meta/Decisions.md#adr-026).** Presentation runs through **every project from P01**, escalating in passes. From P01 a project is not shipped without an animated first page, an ending screen, music, ambience, a narrative frame and a walkthrough — as **done-criteria**, not suggestions. You build a title screen **four times**: crude tween (1.35) → live 3D character (3.12) → your own shaders (6.22) → directed, scored, narrated opening (8.16–8.18). Same escalation for the ending, music, and the walkthrough.
 
 **[ADR-027 — Narration](docs/meta/Decisions.md#adr-027).** Eleven chapters, practical-first: record before theorising. Built around a phone and a wardrobe of soft furnishings — **no purchase required**. TTS treated as a legitimate option with its licensing trap stated. **Subtitles mandatory**, because a phone gets played on mute, on a bus, by someone who is deaf, and by someone at 4% battery, and all four are the same requirement.
 
-Rejected the cheaper fix — adding narration chapters to Module 7 and leaving the rest alone. That would have closed gap 1 and left the pedagogy broken.
+Rejected the cheaper fix — adding narration chapters to Module 8 and leaving the rest alone. That would have closed gap 1 and left the pedagogy broken.
 
 **Cost, stated plainly:** 43 chapters added, **215 → 258**; pacing ~400–450 h → **~430–480 h**. Accepted because the chapters are short and distributed, and because every intermediate project now feels like a *game* rather than a tech demo — the strongest defence against the thing that actually ends long courses, which is not difficulty but loss of interest.
 
@@ -272,7 +272,7 @@ Rejected the cheaper fix — adding narration chapters to Module 7 and leaving t
 
 **New:** `docs/PresentationSpine.md`.
 **Rewritten:** `docs/TableOfContents.md` (43 chapters added across modules 1–10; MJ3/MJ4 formalised) · `docs/meta/CourseState.md` (tracker, progress bar and counts regenerated from the ToC) · `projects/README.md` (34 presentation done-criteria).
-**Updated:** `docs/meta/Decisions.md` (ADR-026, ADR-027) · `docs/meta/DecisionsLog.md` (audit findings + two decisions) · `docs/PLAN.md` (new §3b, Module 6/7 syllabus, pacing table) · `docs/Practicals.md` (counts, per-module table, spiral) · `docs/reference/Glossary.md` (+18 audio/narrative terms) · `docs/meta/CompactContext.md` · `docs/meta/ToDos.md` (T-019, T-020, T-021) · `docs/internal/CLAUDE-MEMORY.md` (operating rule 3b) · `README.md`.
+**Updated:** `docs/meta/Decisions.md` (ADR-026, ADR-027) · `docs/meta/DecisionsLog.md` (audit findings + two decisions) · `docs/PLAN.md` (new §3b, Module 7/7 syllabus, pacing table) · `docs/Practicals.md` (counts, per-module table, spiral) · `docs/reference/Glossary.md` (+18 audio/narrative terms) · `docs/meta/CompactContext.md` · `docs/meta/ToDos.md` (T-019, T-020, T-021) · `docs/internal/CLAUDE-MEMORY.md` (operating rule 3b) · `README.md`.
 
 ---
 
@@ -352,9 +352,9 @@ Audited the plan for library coverage. It named a handful of *tools* in `Resourc
 
 **On "AAA" I corrected the premise rather than agreeing** ([ADR-030](docs/meta/Decisions.md#adr-030)). AAA describes **budget and headcount, not quality** — 100–300 people, $50–200 M, three to five years — so it is not a solo outcome. Agreeing would have been easier and would have set the learner up to measure a finished game against an impossible bar and conclude they'd failed. The distinction also has practical teeth: it is *why* ADR-019 locks scope and ADR-010 refuses photoreal fidelity, and both are what make the game shippable.
 
-**Professional / industry-grade craft is achievable and is now targeted in full.** Nine missing practices added: industry milestones (10.1b), Kitsu production tracking (10.3b), code standards with warnings-as-errors (9.2b), structured logging (9.11b), unit-testable scene code (9.9b), storyboarding and previz (7.2b), colour management (7.24b), **the post-mortem** (10.11b), and a **portfolio and breakdown reel** (10.20b).
+**Professional / industry-grade craft is achievable and is now targeted in full.** Nine missing practices added: industry milestones (11.1b), Kitsu production tracking (10.3b), code standards with warnings-as-errors (10.2b), structured logging (9.11b), unit-testable scene code (10.9b), storyboarding and previz (8.2b), colour management (8.24b), **the post-mortem** (11.11b), and a **portfolio and breakdown reel** (11.20b).
 
-**Cost:** 32 chapters, **258 → 290**; ~430–480 h → **~470–530 h**. Module 9 grew most (13 → 19), which is right — that's where professional practice concentrates.
+**Cost:** 32 chapters, **258 → 290**; ~430–480 h → **~470–530 h**. Module 10 grew most (13 → 19), which is right — that's where professional practice concentrates.
 
 ### Standing instructions extracted
 
@@ -403,7 +403,7 @@ Recorded as **[ADR-031 — polyglot by design](docs/meta/Decisions.md#adr-031)**
 
 ### Artefacts changed
 
-`docs/meta/Decisions.md` (ADR-031; ADR-029 correction) · `docs/meta/DecisionsLog.md` · `docs/meta/Doubts.md` ([D-008](docs/meta/Doubts.md#d-008)) · `docs/Toolchain.md` (§4b language comparison, §4c multi-language development) · `docs/TableOfContents.md` (0.10b, 9.1b; 11.4 and 11.5 expanded) · `docs/PLAN.md` §3c · `docs/meta/CourseState.md` (regenerated, 292) · `docs/meta/CompactContext.md` · `docs/internal/CLAUDE-MEMORY.md` · `docs/Practicals.md` · `README.md`.
+`docs/meta/Decisions.md` (ADR-031; ADR-029 correction) · `docs/meta/DecisionsLog.md` · `docs/meta/Doubts.md` ([D-008](docs/meta/Doubts.md#d-008)) · `docs/Toolchain.md` (§4b language comparison, §4c multi-language development) · `docs/TableOfContents.md` (0.10b, 10.1b; 12.4 and 12.5 expanded) · `docs/PLAN.md` §3c · `docs/meta/CourseState.md` (regenerated, 292) · `docs/meta/CompactContext.md` · `docs/internal/CLAUDE-MEMORY.md` · `docs/Practicals.md` · `README.md`.
 
 ---
 
@@ -428,7 +428,7 @@ Two design problems had to be solved by *design* rather than by addition, becaus
 
 The alternative — a comparison chapter — would have violated the practical-first mandate directly: a table of language properties is theory, and theory does not open a chapter here. It would also have been less useful. Any course can assert "C++ is faster"; a number you produced on your own phone is one you believe and can defend, and you will notice when it stops being true for your hardware.
 
-Scope per language is deliberately unequal: **C# ~180** chapters (primary); **GDScript 8**, each a job where it is genuinely better (`@tool` validators, an editor dock, addon consumption, the wrapper pattern); **C++ 7**, all earned, centred on **9.1e — the measured rewrite** (one profiled hot path, GDScript → C# → C++, benchmarked on the phone at each step, decide where to stop); **GDShader 12**, now introduced in 0.16 rather than arriving unannounced in Module 5.
+Scope per language is deliberately unequal: **C# ~180** chapters (primary); **GDScript 8**, each a job where it is genuinely better (`@tool` validators, an editor dock, addon consumption, the wrapper pattern); **C++ 7**, all earned, centred on **10.1e — the measured rewrite** (one profiled hot path, GDScript → C# → C++, benchmarked on the phone at each step, decide where to stop); **GDShader 12**, now introduced in 0.16 rather than arriving unannounced in Module 6.
 
 I did **not** make them co-primary. Spreading ~180 gameplay chapters across three languages teaches three shallowly and none well, and would contradict [D-008](docs/meta/Doubts.md#d-008) where the case for C# primary was made and accepted.
 
@@ -444,7 +444,7 @@ I did **not** make them co-primary. Spreading ~180 gameplay chapters across thre
 ### Artefacts changed
 
 **New:** `docs/Languages.md`.
-**Restructured:** `docs/TableOfContents.md` (Module 0 → blocks 0A/0B/0C; +41 chapters incl. the Module 9 C++ block 9.1c–9.1f) · `docs/meta/CourseState.md` (tracker and progress bar regenerated, 333).
+**Restructured:** `docs/TableOfContents.md` (Module 0 → blocks 0A/0B/0C; +41 chapters incl. the Module 10 C++ block 10.1c–10.1f) · `docs/meta/CourseState.md` (tracker and progress bar regenerated, 333).
 **Updated:** `docs/meta/Decisions.md` (ADR-001 revised; ADR-032 added) · `docs/meta/DecisionsLog.md` · `docs/meta/Doubts.md` ([D-009](docs/meta/Doubts.md#d-009)) · `docs/Toolchain.md` (§7b coverage guarantee) · `docs/PLAN.md` (§3c-2, pacing) · `docs/Practicals.md` · `docs/meta/CompactContext.md` · `docs/internal/CLAUDE-MEMORY.md` · `README.md`.
 
 ---
@@ -468,7 +468,7 @@ Verified the review's factual claims against the repository **before** assessing
 
 **It was right about the checkable things**, including one live bug of mine: `Practicals.md`'s per-module table still totalled **292 chapters / 30 adoptions** after the 333 restructure, because I updated the summary rows and missed the breakdown. Also confirmed: the **Forward+ → Mobile migration** in Setup 05 is a real design error for an Android-first course; **Android lifecycle coverage was entirely absent** (`grep` for lifecycle/backgrounding/process-death/ANR/battery returned nothing across 333 chapters); and **git practice stopped at "commit after every chapter"**. Its "Blender B0–B19 vs B42" claim was true of an older README and is now stale.
 
-**Fixed immediately:** the counts table, and the renderer — P00 now starts on Mobile and 4.13 became a comparison rather than a port.
+**Fixed immediately:** the counts table, and the renderer — P00 now starts on Mobile and 5.13 became a comparison rather than a port.
 
 **The systemic point is the valuable one, and it names a failure of mine.** *"Optimise for capabilities you can demonstrate independently, not chapter count."* Across four consecutive turns the plan went **215 → 258 → 290 → 292 → 333**. Every increase answered a legitimate request and I stated the cost each time — **but I never once proposed removing anything.** Somewhere around hour 500 I should have asked "what comes out?" I recorded this in `DecisionsLog.md` so a future session recognises the pattern.
 
@@ -476,7 +476,7 @@ Its concrete expression is **[ADR-032](docs/meta/Decisions.md#adr-032)** — "ev
 
 **Adopting:** the scaffolding gradient (90/10 → 10/90) and blank-page builds — together the load-bearing fix; an Android runtime engineering block; thermal soak / battery / memory-pressure / GPU bottleneck taxonomy; explicit performance budgets and a device matrix; a version matrix with upgrade discipline; debugging as a taught skill; git, CI, testing, playtesting and profiling all starting earlier and growing; crash and ANR monitoring; priority tiers; and Observe / Diagnose-before-theory / Reflection added to the chapter loop.
 
-**Adapting:** C++ in Module 0 is too early and that was my error — but the fix is *resequencing*, not removal, since all three languages were explicitly requested. The GDScript-vs-C# measured comparison stays in Module 0; the C++ leg moves beside `9.1e` where it already has an earned trigger.
+**Adapting:** C++ in Module 0 is too early and that was my error — but the fix is *resequencing*, not removal, since all three languages were explicitly requested. The GDScript-vs-C# measured comparison stays in Module 0; the C++ leg moves beside `10.1e` where it already has an earned trigger.
 
 **Rejecting:** its *"completeness 4/10"*, which scores a course explicitly not yet started — `CourseState.md` says Phase 1, 0/333 published, plan awaiting review, and that is the case *because the learner asked for the plan first*. The observation is right; the score is a category error.
 
@@ -487,7 +487,7 @@ Its concrete expression is **[ADR-032](docs/meta/Decisions.md#adr-032)** — "ev
 ### Artefacts changed
 
 **New:** `docs/meta/ReviewTriage.md` (full point-by-point triage).
-**Fixed:** `docs/Practicals.md` (counts table) · `docs/guides/Setup_05_Git_And_FirstDeploy.md` and `docs/TableOfContents.md` 4.13 (Mobile-first).
+**Fixed:** `docs/Practicals.md` (counts table) · `docs/guides/Setup_05_Git_And_FirstDeploy.md` and `docs/TableOfContents.md` 5.13 (Mobile-first).
 **Logged:** `docs/meta/Doubts.md` ([D-010](docs/meta/Doubts.md#d-010)) · `docs/meta/DecisionsLog.md` (two entries, including the author's own failure mode).
 
 ---
@@ -508,7 +508,7 @@ Execution:           Do the full restructure now
 
 Executed the full restructure on the two settled answers, and left the capstone untouched pending an explanation — the question used "vertical slice" without defining it, which was my failure of phrasing, not a failure of theirs.
 
-**Applied:** ADR-033 scaffolding gradient (90/10 → 10/90, declared per chapter, 8 ⬜ blank-page builds) · ADR-034 Android runtime engineering as Module 1 block 1J with the chaos test as a done-criterion · ADR-032 revised to three priority tiers, removing 14 chapters · C++ relocated from Module 0 to Module 9 beside the measured rewrite · early engineering practice (debugging, git branching and bisect, tiny CI, first test, first playtest) moved into Module 1 · release depth and ANR monitoring added to Module 10 · a micro-C# track scoped to C#-specific material · presentation scaled per the learner's decision · chapter template gains Scaffolding, Observe, **Diagnose-before-theory** and Reflection.
+**Applied:** ADR-033 scaffolding gradient (90/10 → 10/90, declared per chapter, 8 ⬜ blank-page builds) · ADR-034 Android runtime engineering as Module 1 block 1J with the chaos test as a done-criterion · ADR-032 revised to three priority tiers, removing 14 chapters · C++ relocated from Module 0 to Module 10 beside the measured rewrite · early engineering practice (debugging, git branching and bisect, tiny CI, first test, first playtest) moved into Module 1 · release depth and ANR monitoring added to Module 11 · a micro-C# track scoped to C#-specific material · presentation scaled per the learner's decision · chapter template gains Scaffolding, Observe, **Diagnose-before-theory** and Reflection.
 
 **Reported honestly rather than quietly adjusted:** my own estimate in `ReviewTriage.md` said the restructure would land at 315–325 chapters. **It lands at 348.** I under-counted additions — 31 added against 14 removed. That is the same coverage-over-capability bias the review diagnosed, showing up one more time in my own arithmetic, so it is recorded in both `ReviewTriage.md` and `DecisionsLog.md` rather than smoothed over.
 
@@ -517,3 +517,28 @@ Executed the full restructure on the two settled answers, and left the capstone 
 ### Artefacts changed
 
 `docs/TableOfContents.md` (C++ relocated · 1J Android block · early engineering practice · 8 blank-page builds · 14 L3 demotions · presentation scaling) · `docs/meta/Decisions.md` (ADR-033, ADR-034, ADR-032 revised) · `docs/chapters/README.md` (template: Scaffolding, Observe, Diagnose, Reflection) · `docs/meta/CourseState.md` (regenerated, 348) · `docs/meta/ReviewTriage.md` (estimate corrected) · `docs/PLAN.md` (§3c-3, §3c-4) · `docs/Practicals.md` · `docs/meta/CompactContext.md` · `docs/internal/CLAUDE-MEMORY.md` · `docs/meta/ToDos.md` (T-024, T-025) · `README.md`.
+
+---
+
+## PROMPT#12
+
+**Date:** 2026-09-02 · **Session:** 002
+
+### Prompt (verbatim — answers to two questions)
+
+```text
+Capstone finish line:  Ship all 4 levels + boss
+Module 1 (63 chapters): Split it — renumber everything
+```
+
+### Response
+
+**Capstone.** The learner overrode both the review's recommendation and mine. Recorded as a reaffirmation of [ADR-019](docs/meta/Decisions.md#adr-019), with the risk stated once and then dropped. One mitigation added that does not touch the decision: **the vertical slice becomes a milestone rather than the ship target** — level 1 must reach final quality and be device-validated before levels 2–4 begin, so a complete releasable game exists even if appetite runs out at level 3.
+
+**The split.** Module 1 → **Module 1 Godot Foundations (44)** + **Module 2 Android Runtime & Engineering Practice (19)**. Old Modules 2–11 → 3–12. **13 modules, 348 chapters.** P01 now spans two modules, which is honest about what shipping a mobile game involves.
+
+**The renumber was the risky part and was done carefully rather than quickly.** A survey found 915 candidate tokens with genuine false-positive risk — `Godot 4.2+`, `glTF 2.0`, `Apache-2.0`, `9.8f`, `CC BY-SA 4.0`, review scores like `9.5/10`. A blind regex would have corrupted the repository. Instead I extracted the exact set of chapter IDs from the Table of Contents and replaced only those, excluded tokens preceded by `Godot ` or followed by `+`, skipped the external review file, and audited the 14 remaining ambiguous matches by hand before applying. 36 files changed; block labels and `answers/module-NN.md` renamed to match; **all 573 relative links verified**; version strings confirmed intact.
+
+### Artefacts changed
+
+`docs/TableOfContents.md` (split, renumber, block labels) · `docs/meta/CourseState.md` (regenerated, 13 modules) · `docs/meta/Decisions.md` (ADR-019 reaffirmed, ADR-035 added) · `docs/meta/DecisionsLog.md` · `docs/meta/Doubts.md` ([D-011](docs/meta/Doubts.md#d-011)) · `docs/reference/QuestionBank.md` (+ Module 2 questions) · `docs/reference/answers/` (renamed 02–10 → 03–11, new module-02) · `docs/PLAN.md` · `docs/chapters/README.md` · `docs/meta/CompactContext.md` · `docs/internal/CLAUDE-MEMORY.md` · plus 30 files touched by the renumber.

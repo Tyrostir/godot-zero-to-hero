@@ -38,7 +38,7 @@ update_trigger: "End of every session, and immediately after any decision or lea
 
 You are the **author** of a book-length course: *Godot Zero to Hero* — 3D **Android** game development with **Godot 4 (.NET / C#)** and **Blender**. The **learner** owns the repo and does all hands-on work. **You write Markdown; you do not run software.**
 
-**Shape:** 12 modules · **348 chapters** (64 Blender · ~45 🧰 adoption · 8 ⬜ blank-page) · **11 projects** · 4 mini-jams · ~560–650 hours.
+**Shape:** **13 modules** · **348 chapters** (64 Blender · ~45 🧰 adoption · 8 ⬜ blank-page) · **11 projects** · 4 mini-jams · ~560–650 hours.
 
 **Four languages** ([ADR-001](../meta/Decisions.md#adr-001)): **C# primary** (~180 ch) · **GDScript** (8 — `@tool` scripts, editor plugins, addon glue) · **C++/GDExtension** (7 — measured hot paths only) · **GDShader** (12). Taught by measurement: Module 0 block 0B builds the *same cube* three ways and the learner writes the decision table in 0.17 from their own numbers. See [`../Languages.md`](../Languages.md).
 
@@ -88,15 +88,15 @@ TARGET   (learner's phone):    ⏳ specs unknown — D-003. Decides the renderer
 **Track A — Godot/C#:** Modules 0–11, 173 chapters.
 **Track B — Blender:** `B1`–`B42` plus 6 Blender chapters embedded in other modules, braided in at the point the game needs each asset ([ADR-003](../meta/Decisions.md#adr-003)).
 
-**The Presentation Spine ([ADR-026](../meta/Decisions.md#adr-026)) — do not forget this one.** Story, first-page animation, end-page animation, music, ambience and the walkthrough ship with **every project from P01**, escalating in passes; they are **not** confined to Module 7. Narration ([ADR-027](../meta/Decisions.md#adr-027)) is recorded by the learner with equipment they already own, and **subtitles are mandatory**. Full mapping: [`../PresentationSpine.md`](../PresentationSpine.md). Covers modelling, sculpting, retopology, UV, texturing, shading, baking, rigging, animation, simulation, rendering, compositing and geometry nodes — every one attached to a shipped asset.
+**The Presentation Spine ([ADR-026](../meta/Decisions.md#adr-026)) — do not forget this one.** Story, first-page animation, end-page animation, music, ambience and the walkthrough ship with **every project from P01**, escalating in passes; they are **not** confined to Module 8. Narration ([ADR-027](../meta/Decisions.md#adr-027)) is recorded by the learner with equipment they already own, and **subtitles are mandatory**. Full mapping: [`../PresentationSpine.md`](../PresentationSpine.md). Covers modelling, sculpting, retopology, UV, texturing, shading, baking, rigging, animation, simulation, rendering, compositing and geometry nodes — every one attached to a shipped asset.
 
 **The project spine (nothing is throwaway — P10 is assembled from P00–P09):**
 
 ```text
-P00 Hello Phone   M0  · P01 Marble Runner M1 · P02 Foundry Kit  M2
-P03 Playground    M3  · P04 Hollow Lvl 1  M4 · P05 VFX Lab      M5
-P06 Feel Pass     M6  · P07 The Slice     M7 · P08 Warden       M8
-P09 Refactor      M9  · P10 Ember Hollow  M10 (released)
+P00 Hello Phone   M0  · P01 Marble Runner M1 · P02 Foundry Kit  M3
+P03 Playground    M4  · P04 Hollow Lvl 1  M5 · P05 VFX Lab      M6
+P06 Feel Pass     M7  · P07 The Slice     M8 · P08 Warden       M9
+P09 Refactor      M10  · P10 Ember Hollow  M11 (released)
 ```
 
 Capstone working title *Ember Hollow* is provisional ([ADR-023](../meta/Decisions.md#adr-023)); the learner names it properly in ch 7.1.
@@ -114,7 +114,7 @@ Capstone working title *Ember Hollow* is provisional ([ADR-023](../meta/Decision
 | Repo on GitHub | ✅ live — https://github.com/Tyrostir/godot-zero-to-hero |
 | Git | branch `main`, pushed, commit `6219e4b` |
 
-**Session 001 produced:** README, PLAN, TableOfContents (+ alias), BlenderTrack, Practicals, Exercises, projects/README, 5 setup guides, QuestionBank + answers M0–M2, ResourcesMeta, 25 ADRs, DecisionsLog, CourseState, CompactContext, Doubts, ToDos, Journal, and this internal set.
+**Session 001 produced:** README, PLAN, TableOfContents (+ alias), BlenderTrack, Practicals, Exercises, projects/README, 5 setup guides, QuestionBank + answers M0–M3, ResourcesMeta, 25 ADRs, DecisionsLog, CourseState, CompactContext, Doubts, ToDos, Journal, and this internal set.
 
 ---
 
@@ -130,7 +130,7 @@ Extracted verbatim-in-substance from their prompts. These do not expire.
 | 4 | **Many** intermediate practicals, exercises and projects — *"not just 1 at the end"* | [ADR-006](../meta/Decisions.md#adr-006), [`../Practicals.md`](../Practicals.md) |
 | 5 | Questions **with answers** | [ADR-007](../meta/Decisions.md#adr-007) |
 | 6 | Guide to **free public assets** — 3D, VFX, animation, audio, materials, shaders — where to get them and how to use them | [ADR-008](../meta/Decisions.md#adr-008), `ResourcesMeta.md` |
-| 7 | Teach the **whole game**, not just code: story development, storytelling, intro animation, first-page animation, walkthrough, end-page animation — professional grade | Module 7 |
+| 7 | Teach the **whole game**, not just code: story development, storytelling, intro animation, first-page animation, walkthrough, end-page animation — professional grade | Module 8 |
 | 8 | Create the GitHub repo `godot-zero-to-hero` using `$GITHUB_TOKEN` | [T-001](../meta/ToDos.md) — blocked |
 | 9 | Draft PLAN, TableOfContents, Doubts **and all documentation needed to track progress**, first | Session 001 output |
 | 10 | **Do not install or run anything** in the Termux environment | [ADR-016](../meta/Decisions.md#adr-016) |
@@ -146,7 +146,7 @@ Extracted verbatim-in-substance from their prompts. These do not expire.
 2b. **[ADR-033] Declare the guided/independent split in every chapter's front matter**, and honour the gradient. Under pressure the instinct is to give more help — the number exists so drift is visible. Every major subsystem ends with a **⬜ blank-page build**: requirements only, no steps, no reference implementation, no code.
 2c. **[ADR-034] Every project from P01 must survive the Android chaos test** before it ships.
 3a. **[ADR-028/029] Build it once by hand, then adopt the library.** 28 `N.Mb` chapters, marked 🧰. Never teach a library before the learner has hand-built the thing it replaces, and **always require a recorded decision** — "a tutorial used it" is not a rationale. Catalogue, licences and caveats: [`../Toolchain.md`](../Toolchain.md). ⚠️ **Most Godot addons are GDScript**; from C# that costs type safety. Prefer **Chickensoft** (C#-first: LogicBlocks, AutoInject, GodotNodeInterfaces, SaveFileBuilder, GodotTest), wrap the rest behind a C# interface, and remember **NuGet** is available.
-3b. **[ADR-026/027] Presentation is a spine, not a module.** Every project from P01 ships a title screen, an ending screen, music, a narrative frame and a walkthrough. Narration from Module 6, with **mandatory subtitles**. Before drafting any project chapter, check [`../PresentationSpine.md` §2](../PresentationSpine.md).
+3b. **[ADR-026/027] Presentation is a spine, not a module.** Every project from P01 ships a title screen, an ending screen, music, a narrative frame and a walkthrough. Narration from Module 7, with **mandatory subtitles**. Before drafting any project chapter, check [`../PresentationSpine.md` §2](../PresentationSpine.md).
 4. **Every question → `D-NNN`** in `Doubts.md` — **the learner's question verbatim AND your short + full answer**, at the end of every turn, **unprompted**. `/btw` (on the same line as the question) guarantees it, but any question qualifies. ⚠️ **Known failure mode:** logging a question into `PROMPTS.md` only and forgetting `Doubts.md`. That happened once, with [D-005](../meta/Doubts.md#d-005). `PROMPTS.md` is the narrative; `Doubts.md` is the searchable reference; they are not substitutes.
 5. **Every decision → `ADR-NNN`** in `Decisions.md`, with its history appended to `DecisionsLog.md`. The log is **append-only**.
 6. **Every prompt and full response → `PROMPTS.md`** ([ADR-015](../meta/Decisions.md#adr-015)).
@@ -197,7 +197,7 @@ Extracted verbatim-in-substance from their prompts. These do not expire.
 - **Godot C#-first (⭐ the key find):** **Chickensoft** — LogicBlocks, AutoInject, GodotNodeInterfaces, SaveFileBuilder, GodotTest, GodotEnv. MIT.
 - **Godot addons:** Phantom Camera, Terrain3D (GDExtension → good C#), Proton Scatter, Beehave / LimboAI, Godot State Charts, Dialogue Manager (documented C#), Dialogic 2, Sky3D, Debug Draw 3D, Panku Console, Input Helper, GdUnit4 (C#), godot-ci.
 - **NuGet:** System.Text.Json, MemoryPack, Serilog, FluentAssertions.
-- **Rejected:** FMOD/Wwise (awareness only, 6.2b), all paid Blender addons, GPL addons in shipped code, anything abandoned since Godot 4.0.
+- **Rejected:** FMOD/Wwise (awareness only, 7.2b), all paid Blender addons, GPL addons in shipped code, anything abandoned since Godot 4.0.
 
 **Licences** — CC0 preferred; CC-BY fine with attribution; **CC-BY-NC and CC-BY-ND rejected outright** ([ADR-008](../meta/Decisions.md#adr-008)).
 
@@ -220,7 +220,7 @@ Extracted verbatim-in-substance from their prompts. These do not expire.
 | 019 | Capstone scope locked: 4 levels + 1 boss |
 | **024** | **Three learning paths 🐣/🚶/🏃, all authored in full. Decided yes.** |
 | 025 | QNX repo conventions adopted |
-| **026** | **Presentation Spine — story/screens/music/walkthrough in every project, not just Module 7** |
+| **026** | **Presentation Spine — story/screens/music/walkthrough in every project, not just Module 8** |
 | **027** | **Narration recorded by the learner; subtitles mandatory** |
 | **028** | **Build it once by hand, then adopt the library — 28 🧰 `N.Mb` chapters** |
 | **029** | **The free toolchain; dependency evaluation is a taught skill** |
@@ -228,7 +228,7 @@ Extracted verbatim-in-substance from their prompts. These do not expire.
 | **031** | **Polyglot: C# primary · GDScript for tooling/addon glue · C++ only after profiling. C# loses addon *ergonomics*, not *access*** |
 | **032** | **Libraries adopted by tier: L1 chapter · L2 cluster · L3 awareness only. Revised — the original "every library gets a chapter" optimised for coverage over capability** |
 | **033** | **⭐ Scaffolding gradient — 90/10 → 10/90, declared per chapter; 8 ⬜ blank-page builds. Success = independent capability, not chapter count** |
-| **034** | **Android runtime engineering (Module 1 block 1J). Chaos test is a done-criterion on every project** |
+| **034** | **Android runtime engineering (Module 2). Chaos test is a done-criterion on every project** |
 
 ---
 
