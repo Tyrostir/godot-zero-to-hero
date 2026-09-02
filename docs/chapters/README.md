@@ -46,12 +46,13 @@ The course itself. Chapters are published in order and appear here as they are w
 | **1.2** | [Scenes, Instancing, and Scene Inheritance](module1/1A/1.2_ScenesAndInstancing.md) | A | 🐣🚶🏃 | 45–60 m | ✅ Published |
 | **1.3** | [The Scene Tree and the Main Loop](module1/1A/1.3_TheSceneTree.md) | A | 🐣🚶🏃 | 45–60 m | ✅ Published |
 | **1.4** | [Your First Real C# Script](module1/1A/1.4_YourFirstRealScript.md) | A | 🐣🚶🏃 | 45–60 m | ✅ Published |
+| **1.4b** | [The C# You Have Not Met, I](module1/1A/1.4b_TheCSharpYouHaveNotMet.md) | A | 🐣🚶🏃 | 45–60 m | ✅ Published |
 
-**23 / 359.** 🎉 **MODULE 0 COMPLETE** — toolchain, first APK, four languages, dependencies and a pinned build.
+**24 / 359.** 🎉 **MODULE 0 COMPLETE** — toolchain, first APK, four languages, dependencies and a pinned build.
  🎉 **Block 0B complete** — all four languages written, and a decision table built from your own measurements.
  🎉 **Block 0A complete** — toolchain installed, an app on the phone, and the ability to read it when it breaks.
 
-Next: **1.4b — The C# you have not met, I**.
+Next: **1.5 — Tuning without recompiling**.
 
 > 📏 **ADR-002 compliance** — measured against the instructional body ([ADR-002](../meta/Decisions.md#adr-002)):
 >
@@ -80,6 +81,7 @@ Next: **1.4b — The C# you have not met, I**.
 > | 1.2 | 60.8% | 22.1% |
 > | 1.3 | 62.9% | 23.6% |
 > | 1.4 | 66.9% | 20.2% |
+> | 1.4b | 63.9% | 16.8% |
 
 > 📑 Full chapter list: **[`../TableOfContents.md`](../TableOfContents.md)**
 > 📍 Current progress: **[`../meta/CourseState.md`](../meta/CourseState.md)**
