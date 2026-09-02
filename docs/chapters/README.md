@@ -36,11 +36,19 @@ The course itself. Chapters are published in order and appear here as they are w
 | **0.18** ⭐ | [The Version Matrix](module0/0C/0.18_TheVersionMatrix.md) | A | 🐣🚶🏃 | 45–60 m | ✅ Published |
 | **0.19** | [Module 0 Self-Check](module0/0C/0.19_Module0SelfCheck.md) | **Q** | 🐣🚶🏃 | 60–90 m | ✅ Published |
 
-**19 / 359.** 🎉 **MODULE 0 COMPLETE** — toolchain, first APK, four languages, dependencies and a pinned build.
+### Module 1 — Godot Foundations · P01 *Marble Runner*
+
+**1A — The engine's model of the world**
+
+| # | Chapter | Track | Paths | Time | Status |
+|---|---------|-------|-------|------|--------|
+| **1.1** | [Nodes: The One Idea Godot Is Built On](module1/1A/1.1_Nodes.md) | A | 🐣🚶🏃 | 45–60 m | ✅ Published |
+
+**20 / 359.** 🎉 **MODULE 0 COMPLETE** — toolchain, first APK, four languages, dependencies and a pinned build.
  🎉 **Block 0B complete** — all four languages written, and a decision table built from your own measurements.
  🎉 **Block 0A complete** — toolchain installed, an app on the phone, and the ability to read it when it breaks.
 
-Next: **Module 1 — Godot Foundations**, and Project 01 *Marble Runner*.
+Next: **1.2 — Scenes, instancing, and scene inheritance**.
 
 > 📏 **ADR-002 compliance** — measured against the instructional body ([ADR-002](../meta/Decisions.md#adr-002)):
 >
@@ -65,6 +73,7 @@ Next: **Module 1 — Godot Foundations**, and Project 01 *Marble Runner*.
 > | 0.17 | 53.8% | 23.1% |
 > | 0.18 | 65.0% | 18.2% |
 > | 0.19 | *(assessment chapter — exempt)* | |
+> | 1.1 | 56.5% | 26.8% |
 
 > 📑 Full chapter list: **[`../TableOfContents.md`](../TableOfContents.md)**
 > 📍 Current progress: **[`../meta/CourseState.md`](../meta/CourseState.md)**

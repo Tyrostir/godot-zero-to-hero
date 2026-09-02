@@ -67,8 +67,8 @@ Every chapter ends with `[X]` and `[Q]`; they are only listed separately below w
 - **1.2 [A]** Scenes, instancing, and scene inheritance — Godot's answer to prefabs
 - **1.3 [A]** The scene tree, the main loop, and the order things happen in
 - **1.4 [A]** Your first real C# script: `_Ready`, `_Process`, `_PhysicsProcess`, and what `delta` actually is
-- **1.4b [A]** **The C# you have not met** — properties, `partial`, attributes, `[Export]`, and why a game engine wants all three. *(Micro-track: C#-specific things a C/C++ programmer has not seen — never variables and loops)*
-- **1.5 [A]** `[Export]`, the inspector, and why designers should never edit code
+- **1.4b [A]** **The C# you have not met, I** — value vs reference semantics, `List<T>` and `Dictionary<,>`, and the garbage collector. *(Micro-track: C#-specific things a C/C++ programmer has not seen. Properties, `partial` and attributes were covered in [0.11](chapters/module0/0B/0.11_CSharpFirstContact.md) and are not repeated)*
+- **1.5 [A]** **Tuning without recompiling** — the exported-value discipline: why a magic number in gameplay code is a design smell, and how live tuning changes what you can find
 - **1.6 [A]** Nodes vs Resources — the distinction that confuses everyone once
 
 **1B — Space and motion**
