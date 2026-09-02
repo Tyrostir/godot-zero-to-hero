@@ -39,6 +39,7 @@ git init -b main
 git status --short                  # should be quiet — no .godot/, bin/, obj/
 git check-ignore -v .godot/         # names the exact rule that ignored it
 
+sudo apt install git-lfs
 git lfs install
 git lfs track "*.blend" "*.psd" "*.wav" "*.fbx"
 git add .gitattributes .gitignore
