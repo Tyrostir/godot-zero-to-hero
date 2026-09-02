@@ -72,6 +72,9 @@ Each block is small, numbered `V-NN`, and asks for **exact, pasteable output** �
 | **V-04** | desktop | The exact text of the three deliberate failures in exercise C0.1 (missing keystore · missing export templates · invalid package name) | ⬜ Open |
 | **V-05** | desktop | Blender → Godot 2 m cube round-trip: does it arrive at exactly 2 units? | ⬜ Open |
 | **V-06** | phone | Godot's on-device performance monitor readings for P00 — frame time, draw calls, memory | ⬜ Open |
+| **V-08** | desktop | **Chapter 0.2** — `godot --version`, `dotnet --list-sdks`, the `.csproj` `<TargetFramework>` line, Help→About wording, export-template path, and the three deliberate build failures' exact text | ⬜ Open |
+| **V-09** | desktop | **Chapter 0.3** — `blender --version`; whether the 3 m cube arrives at exactly 3 units in Godot; Godot's mesh-size readout | ⬜ Open |
+| **V-10** | desktop | **Chapter 0.4** — `java -version`, `sdkmanager --version`, `adb version`, the JVM path, **the API level and build-tools version the official Godot export page currently requires**, and the `sdkmanager` failure text when `latest/` is renamed | ⬜ Open |
 | **V-07** | desktop + phone | **Chapter 0.1** — output of `uname -a`, `lscpu`, `free -h`, `df -h ~`, `lspci`, `vulkaninfo --summary`, `lsusb` (plugged and unplugged); the Termux `dotnet --version` failure text verbatim; and the phone's Settings → About phone fields | ⬜ Open |
 
 ---

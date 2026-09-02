@@ -26,7 +26,7 @@ update_trigger: "End of every working session, and after every chapter is publis
 | **Learner** | Tyrostir — path 🚶 **B, Self-Learner** (A and C authored in full, [ADR-024](Decisions.md#adr-024)) |
 | **Current phase** | **Phase 3 — writing chapters** |
 | **Plan status** | ✅ **Approved** — chapter writing began 2026-09-02 |
-| **Chapters published** | **1 / 359** — [0.1 Machines and Their Roles](../chapters/Chapter_00.01_MachinesAndTheirRoles.md) |
+| **Chapters published** | **4 / 359** — [0.1](../chapters/Chapter_00.01_MachinesAndTheirRoles.md) · [0.2](../chapters/Chapter_00.02_GodotAndDotNet.md) · [0.3](../chapters/Chapter_00.03_Blender.md) · [0.4](../chapters/Chapter_00.04_AndroidToolchain.md) |
 | **Setup guides published** | **5 / 5** — all carry `[UNVERIFIED]` markers, none run yet |
 | **Projects shipped** | **0 / 11** · public releases **0 / 4** |
 | **Blender chapters published** | **0 / 64** |
@@ -63,8 +63,8 @@ OVERALL                                  [                    ]   0 %   (0/359)
 
 | Who | Action |
 |-----|--------|
-| 👤 **You — do next** | ⭐ **Do [chapter 0.1](../chapters/Chapter_00.01_MachinesAndTheirRoles.md)** — audit both machines, create `Machines.md`, close [D-003](Doubts.md), commit. ~45–60 min. Then paste your command output into [`../../toAgent/`](../../toAgent/) to clear **V-07**. |
-| 🤖 **Me — next turn** | **Chapter 0.2 — Installing Godot 4 (.NET build) and the .NET SDK.** |
+| 👤 **You — do next** | ⭐ **Work chapters [0.1](../chapters/Chapter_00.01_MachinesAndTheirRoles.md) → [0.4](../chapters/Chapter_00.04_AndroidToolchain.md)** — roughly 4–5 hours. At the end: Godot compiles C#, Blender round-trips a cube at the right scale, `adb version` works, and [`Machines.md`](Machines.md) is filled. Then paste output into [`../../toAgent/`](../../toAgent/) to clear **V-07** to **V-10**. |
+| 🤖 **Me — next turn** | **Chapter 0.5 — Connecting your phone: USB debugging, `adb devices`, wireless debugging.** |
 
 ---
 
@@ -106,7 +106,7 @@ Tick as you go. `[ ]` not started · `[~]` in progress · `[x]` done · `[!]` do
 
 ### Module 0 — Toolchain, First APK & The Four Languages
 
-[x] 0.1 · [ ] 0.2 · [ ] 0.3 · [ ] 0.4 · [ ] 0.5 · [ ] 0.6
+[x] 0.1 · [x] 0.2 · [x] 0.3 · [x] 0.4 · [ ] 0.5 · [ ] 0.6
 [ ] 0.7 · [ ] 0.8 **ship** ⭐ · [ ] 0.9 · [ ] 0.10 · [ ] 0.11 · [ ] 0.12
 [ ] 0.13 · [ ] 0.14 · [ ] 0.15 · [ ] 0.16 · [ ] 0.17 · [ ] 0.18
 [ ] 0.19 self-check

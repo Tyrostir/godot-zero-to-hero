@@ -17,8 +17,20 @@ The course itself. Chapters are published in order and appear here as they are w
 | # | Chapter | Track | Paths | Time | Status |
 |---|---------|-------|-------|------|--------|
 | **0.1** | [Machines and Their Roles](Chapter_00.01_MachinesAndTheirRoles.md) | A | 🐣🚶🏃 | 45–60 m | ✅ Published |
+| **0.2** | [Installing Godot 4 (.NET) and the .NET SDK](Chapter_00.02_GodotAndDotNet.md) | A | 🐣🚶🏃 | 60–90 m | ✅ Published |
+| **0.3** | [Installing Blender, and Configuring It Once](Chapter_00.03_Blender.md) | A | 🐣🚶🏃 | 45–60 m | ✅ Published |
+| **0.4** | [JDK, Android SDK, and the Debug Keystore](Chapter_00.04_AndroidToolchain.md) | A | 🐣🚶🏃 | 60–90 m | ✅ Published |
 
-**1 / 359.** Next: **0.2 — Installing Godot 4 (.NET build) and the .NET SDK**.
+**4 / 359.** Next: **0.5 — Connecting your phone: USB debugging, `adb devices`, wireless debugging**.
+
+> 📏 **ADR-002 compliance** — measured against the instructional body ([ADR-002](../meta/Decisions.md#adr-002)):
+>
+> | Chapter | Doing (≥50%) | Theory (≤30%) |
+> |---|---|---|
+> | 0.1 | 70.9% | 16.3% |
+> | 0.2 | 68.9% | 17.0% |
+> | 0.3 | 65.1% | 19.3% |
+> | 0.4 | 63.3% | 19.9% |
 
 > 📑 Full chapter list: **[`../TableOfContents.md`](../TableOfContents.md)**
 > 📍 Current progress: **[`../meta/CourseState.md`](../meta/CourseState.md)**

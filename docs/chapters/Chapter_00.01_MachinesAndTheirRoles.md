@@ -178,14 +178,19 @@ Unplug and re-run `lsusb`. **A line should disappear.** If the two lists are ide
 
 ### Step 6 — Create your machine inventory
 
-**This is the chapter's deliverable.** Create a new file on the desktop:
+**This is the chapter's deliverable.** The template is already in the repo — your job is to fill it.
 
 ```bash
 cd ~/godot-zero-to-hero          # wherever you cloned it
 $EDITOR docs/meta/Machines.md
 ```
 
-Paste this template and fill in **every** field from Steps 1–4. Leave a field blank only if you genuinely could not find it, and mark it `?` rather than guessing.
+Fill in **every** field in the *Workshop*, *Target* and *Ratios* sections from Steps 1–4. Leave the tool-version table alone for now; [0.2](Chapter_00.02_GodotAndDotNet.md)–[0.4](Chapter_00.04_AndroidToolchain.md) fill that.
+
+Mark a field `?` if you genuinely could not find it. **Never guess** — a wrong number is worse than a missing one, because you will trust it later.
+
+<details>
+<summary>What the file looks like, if you want to see it before opening it</summary>
 
 ```markdown
 ---
@@ -259,6 +264,8 @@ update_trigger: "When a machine changes, or a spec is corrected"
 
 > On <today>, I predict the first thing to limit me on the phone will be **____**, because ____.
 ```
+
+</details>
 
 ### Step 7 — Close the open doubt
 
