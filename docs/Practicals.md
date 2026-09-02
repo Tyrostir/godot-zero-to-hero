@@ -39,19 +39,19 @@ Every chapter is ≥50% doing and ≤30% theory, by mandate. Here is what that p
 
 | Module | Chapters | Builds | Chapter practicals | Standalone | 🎬 Present. | 🧰 Adopt | Project | Jam |
 |--------|---------|--------|--------------------|-----------|------------|---------|---------|-----|
-| 0 — Toolchain | 14 | 14 | ~22 | 2 | — | 3 | 🚢 **P00 Hello Phone** | — |
-| 1 — Godot Foundations | 43 | 43 | ~86 | 6 | 5 | 2 | 🚢 **P01 Marble Runner** | ⏱️ MJ1 |
-| 2 — Blender I | 29 | 29 | ~58 | 6 | 2 | 3 | 🚢 **P02 Foundry Kit** | — |
-| 3 — Characters I | 28 | 28 | ~56 | 5 | 3 | 2 | 🚢 **P03 Playground** | ⏱️ MJ2 |
-| 4 — Worlds & Performance | 27 | 27 | ~54 | 5 | 5 | 3 | 🚢 **P04 Level 1** | — |
-| 5 — Shaders & VFX | 26 | 26 | ~52 | 5 | 1 | 1 | 🚢 **P05 VFX Lab** | ⏱️ MJ3 |
-| 6 — Audio, Narration & Feel | 21 | 21 | ~42 | 4 | 6 | 1 | 🚢 **P06 Feel Pass** | — |
-| 7 — Story & Cinematics | 31 | 31 | ~62 | 5 | 6 | 4 | 🚢 **P07 The Slice** | ⏱️ MJ4 |
-| 8 — Characters II | 17 | 17 | ~34 | 4 | 2 | 1 | 🚢 **P08 Warden** | — |
-| 9 — Architecture | 20 | 20 | ~40 | 2 | 2 | 6 | 🚢 **P09 Refactor** | — |
-| 10 — Capstone | 29 | 29 | ~48 | 2 | 2 | 3 | 🚢 **P10 Ember Hollow** | — |
-| 11 — Beyond | 7 | 7 | ~14 | — | — | 1 | — | — |
-| **Total** | **292** | **292** | **~584** | **44** | **34** | **30** | **11** | **4** |
+| 0 — Toolchain | 21 | 21 | ~32 | 2 | — | 5 | 🚢 **P00 Hello Phone** | — |
+| 1 — Godot Foundations | 47 | 47 | ~94 | 6 | 5 | 6 | 🚢 **P01 Marble Runner** | ⏱️ MJ1 |
+| 2 — Blender I | 34 | 34 | ~68 | 6 | 2 | 7 | 🚢 **P02 Foundry Kit** | — |
+| 3 — Characters I | 30 | 30 | ~60 | 5 | 3 | 4 | 🚢 **P03 Playground** | ⏱️ MJ2 |
+| 4 — Worlds & Performance | 31 | 31 | ~62 | 5 | 5 | 7 | 🚢 **P04 Level 1** | — |
+| 5 — Shaders & VFX | 29 | 29 | ~58 | 5 | 1 | 4 | 🚢 **P05 VFX Lab** | ⏱️ MJ3 |
+| 6 — Audio, Narration & Feel | 23 | 23 | ~46 | 4 | 6 | 3 | 🚢 **P06 Feel Pass** | — |
+| 7 — Story & Cinematics | 33 | 33 | ~66 | 5 | 6 | 6 | 🚢 **P07 The Slice** | ⏱️ MJ4 |
+| 8 — Characters II | 20 | 20 | ~40 | 4 | 2 | 4 | 🚢 **P08 Warden** | — |
+| 9 — Architecture | 27 | 27 | ~54 | 2 | 2 | 9 | 🚢 **P09 Refactor** | — |
+| 10 — Capstone | 30 | 30 | ~52 | 2 | 2 | 4 | 🚢 **P10 Ember Hollow** | — |
+| 11 — Beyond | 8 | 8 | ~16 | — | — | 2 | — | — |
+| **Total** | **333** | **333** | **~660** | **44** | **34** | **63** | **11** | **4** |
 
 ---
 

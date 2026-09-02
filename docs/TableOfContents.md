@@ -254,7 +254,7 @@ Every chapter ends with `[X]` and `[Q]`; they are only listed separately below w
 **4C — Speed**
 - **4.11b [A]** 🧰 🔬 **Sky3D** — dynamic sky and a day/night cycle
 - **4.12 [A]** The mobile GPU in your pocket: tile-based rendering, bandwidth, overdraw, thermal throttling
-- **4.13 [A]** Forward+ vs Mobile vs Compatibility renderers — choosing, and the consequences
+- **4.13 [A]** Forward+ vs Mobile vs Compatibility renderers — **you have been on Mobile since chapter 0.8**; this chapter prices what the other two would have cost you, and when each is right. A comparison, not a migration
 - **4.14 [A]** Texture compression: ETC2, ASTC, mipmaps, and import settings that matter
 - **4.15 [A]** Draw calls, batching, `MultiMeshInstance3D` for grass and rubble
 - **4.15b [A]** 🧰 **Proton Scatter** — rule-based scattering for grass, rocks and debris, measured against your draw-call budget

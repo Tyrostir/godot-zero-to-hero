@@ -381,3 +381,36 @@ Every cluster chapter still obeys [ADR-028](Decisions.md#adr-028) — it sits *a
 **Consequences.** 41 chapters added, **292 → 333**. Module 0 restructured into 0A/0B/0C (14 → 21). Module 9 gains the C++ block 9.1c–9.1f (20 → 27). New document [`../Languages.md`](../Languages.md). `Toolchain.md` gains §7b, a coverage guarantee stating that nothing in it is listed and left unused. Pacing ~470–530 h → **~540–620 h**.
 
 ---
+
+### 🔍 VERIFIED — External review triaged; two defects confirmed and fixed
+
+**Context.** The learner commissioned an external review (`godot-course-review.md`) of the plan at ~`b71dc66` and asked which points are worth adopting.
+
+**Method.** Every factual claim was checked against the repository before any argument was assessed.
+
+**Confirmed defects.**
+
+1. **A live counts inconsistency, self-inflicted.** `Practicals.md`'s per-module table still totalled **292 chapters / 30 adoptions** after the 333-chapter restructure — the summary rows were updated and the breakdown table was not. **Fixed.**
+2. **Renderer migration, a real design error.** `Setup_05` started P00 on **Forward+** with a switch to Mobile at 4.13. In an Android-first course that manufactures a migration and finds problems late. **Fixed:** P00 starts on **Mobile**; 4.13 became a comparison that prices the alternatives rather than a port.
+3. **Android lifecycle coverage was entirely absent** — `grep` for lifecycle / backgrounding / process death / ANR / battery returned nothing across 333 chapters. The largest content gap in the plan.
+4. **Git practice stopped at "commit after every chapter"** — no branching, tags, revert, or bisect.
+
+**Stale claim.** The review's "Blender numbering B0–B19 vs B42" was true of an older README and has not been since the restructure.
+
+**Rejected claim.** *"Actual completeness of supplied course: 4/10."* This scores completeness of something explicitly not started — `CourseState.md` states Phase 1, 0/333 published, plan awaiting review, and that is the case *because the learner asked for the plan first*. The observation is correct; the score is a category error and drags the headline verdict down misleadingly.
+
+---
+
+### 🔍 VERIFIED — A failure mode in this project's own decision-making
+
+The review's closing point — *"optimise for capabilities you can demonstrate independently, not for chapter count"* — identifies something the decision log itself makes visible in hindsight.
+
+Across Sessions 001–002 the plan went **215 → 258 → 290 → 292 → 333** chapters in four consecutive turns. Each increase answered a legitimate learner request and each cost was stated at the time. **But no turn ever proposed removing anything.** The author never once asked *"what comes out?"* That is a failure of judgement, and it is recorded here so a future session recognises the pattern.
+
+Its concrete expression is **[ADR-032](Decisions.md#adr-032)** — "every catalogued library gets a chapter that uses it" — which was the wrong answer to "adopt all the libraries". The correct answer is a **priority tier**: some tools warrant a chapter, some a paragraph, some only an awareness mention. ADR-032 is due for revision, and the revision **removes** chapters.
+
+**Also recorded:** the review is right that **C++ in Module 0 is too early**, and that was an authoring error made while satisfying a genuine request ([D-009](Doubts.md#d-009)). The fix is resequencing, not removal — the measured-comparison pedagogy survives in Module 0 for GDScript vs C#, and the C++ leg moves to Module 9 beside `9.1e` where it already has an earned trigger.
+
+**Full triage:** [`ReviewTriage.md`](ReviewTriage.md). Two items returned to the learner as ⏸️ because they contradict emphatic prior instructions: presentation-spine scope ([ADR-026](Decisions.md#adr-026)) and capstone size ([ADR-019](Decisions.md#adr-019)).
+
+---

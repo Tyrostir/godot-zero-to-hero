@@ -78,6 +78,7 @@ Some entries below have a **"In my own words"** line. That is yours to fill in, 
 | [D-007](#d-007) | 2026-09-02 | Course logistics | Which free Blender and Godot libraries exist, can we adopt them, and can I reach AAA? | ✅ |
 | [D-008](#d-008) | 2026-09-02 | Godot/C# | Would GDScript or C++ give more free libraries? And can one game use all three languages? | ✅ |
 | [D-009](#d-009) | 2026-09-02 | Course logistics | Restructure for all three languages and adopt **every** library we explored | ✅ |
+| [D-010](#d-010) | 2026-09-02 | Course logistics | Which points from the external review are worth adopting? | ✅ |
 
 ---
 
@@ -499,6 +500,59 @@ New document [`../Languages.md`](../Languages.md). [ADR-001](Decisions.md#adr-00
 
 ---
 
+## D-010
+
+**Date:** 2026-09-02 · **Context:** An external review of the plan (ChatGPT), supplied as `godot-course-review.md` · **Category:** Course logistics · **Status:** ✅ Answered
+
+### Question *(verbatim)*
+> can you read /root/claude/godot-zero-to-hero/godot-course-review.md (from chatgpt) and deeply analyze and figure-out which of these points are worth to consider in our course? I STILL INSIST on LEARNING BY DOING approach (with theory and explanation needed on demand). Please analyze from your side and give your comments.
+
+### Short answer
+**The review is substantially right and worth acting on.** I verified its factual claims first: it caught **a live bug I had introduced** (a stale counts table), a **real design error** (starting on Forward+ then migrating to Mobile), and a genuine **total absence of Android lifecycle coverage**. Both defects are fixed. Full point-by-point triage: [`ReviewTriage.md`](ReviewTriage.md). Its single most valuable point also names a failure of mine: I optimised for coverage instead of independent capability.
+
+### Full answer
+
+**First, verification rather than agreement.** The review makes specific factual claims about the repository, so I checked them before assessing any argument:
+
+- *"README says 333 builds, another section says 292"* — **true, and my bug.** `Practicals.md`'s per-module table still totalled 292/30 after the last restructure; I had updated the summary rows and missed the breakdown. **Fixed.**
+- *"Forward+ then switch to Mobile"* — **true, and a real design error** in an Android-first course. Beginning on the renderer you do not ship on manufactures a migration that finds problems late. **Fixed:** P00 starts on Mobile, and 4.13 became a *comparison* rather than a port.
+- *"No Android lifecycle coverage"* — **true.** `grep` for lifecycle / backgrounding / process-death / ANR / battery returned **nothing** across 333 chapters. The largest content gap in the plan.
+- *"No git branching or bisect"* — **true.**
+- *"Blender numbering B0–B19 vs B42"* — **was** true; that README line has said `B1–B42` since the restructure. The review read a partly stale snapshot on that one point.
+
+**Second, the systemic criticism — and my own failure.** The review's closing line is the most valuable thing anyone has said about this plan:
+
+> *"Do not optimize for the number of chapters. Optimize for the number of capabilities you can demonstrate independently."*
+
+Across four consecutive turns the plan went **215 → 258 → 290 → 292 → 333** chapters. Each turn answered a legitimate request, and I stated the cost each time — **but not once did I propose removing anything.** Somewhere around hour 500 a careful collaborator should have asked *"what comes out?"* I did not. That is a failure of judgement, not of taste.
+
+Its concrete form is **[ADR-032](Decisions.md#adr-032)** — *"every catalogued library gets a chapter that uses it"* — which was the wrong answer to *"adopt all the libraries."* The right answer is the review's §3: **some tools deserve a chapter, some a paragraph, some only "this exists."** Revising ADR-032 **removes** chapters.
+
+**Third, what I am adopting** (detail in [`ReviewTriage.md` §2](ReviewTriage.md)): the **scaffolding gradient** (90/10 guided → 10/90 independent) and **blank-page builds**, which together are the load-bearing fix; a dedicated **Android runtime engineering** block (lifecycle, chaos test, input beyond touch, fragmentation); **thermal soak, battery, memory-pressure and GPU bottleneck taxonomy**; **explicit performance budgets and a device tier matrix**; a **version matrix** with upgrade discipline; **debugging as a taught skill**; **git branching, CI, testing, playtesting and profiling all starting earlier and growing** — which is our own three-pass spiral, applied to engineering practice, where we had failed to apply it; **crash and ANR monitoring**; **priority tiers** L1/L2/L3; and three additions to the chapter loop — **Observe**, **Diagnose before theory**, and **Reflection**.
+
+**Fourth, where I adapt rather than adopt.** The review says C++ in Module 0 is excessive cognitive load. **It is right, and that was my error** — but the fix is *resequencing*, not removal, because you explicitly asked for all three languages. The GDScript-vs-C# measured comparison **stays** in Module 0 (both trivial, no toolchain); the C++ leg moves to Module 9 beside `9.1e`, the measured rewrite, where it already has an earned trigger. The "measure it yourself" pedagogy survives; the afternoon of SCons moves to where it is motivated.
+
+Similarly, its C# foundations point is right for 🐣 Path A but assumes a true beginner. You are a C/C++-solid, Python-strong embedded engineer, so the micro-track is scoped to **C#-specific** things — properties, `partial`, attributes, delegates/events, LINQ, generics, `async`, nullable references, records — not to variables and methods.
+
+**Fifth, where I disagree.** Its *"actual completeness: 4/10"* scores us on the completeness of something we have explicitly not started. `CourseState.md` states *Phase 1 — planning · 0/333 published · plan awaiting your review*, and that is the case **because you asked for the plan first and then asked to review it before any chapter was written.** The observation is correct; folding a 4/10 into the headline verdict is a category error. Its "GDShader should come later" is also already true — it is Module 5; only one first-contact chapter is early.
+
+**Sixth, the net effect is smaller, not larger.** Roughly **315–325 chapters**, because demoting L3 tools to awareness removes 12–18 and the Android/measurement additions cost about 20. The gain is that ~40 tool-tour chapters become ~30 chapters of Android engineering, measurement, debugging and independent building.
+
+**Seventh, the thing the review understates.** It treats scaffolding removal as a delivery detail. **It is the load-bearing fix.** Every chapter currently written into the plan is guided; the four mini-jams are the only unscaffolded work in 333 chapters. A course whose entire premise is learning by doing has **no gradient toward doing it alone**. Independent capability is not a by-product of finishing guided chapters — it must be built by removing help on a schedule. That deserves its own ADR with a declared percentage per module, for the same reason [ADR-002](Decisions.md#adr-002) got numeric thresholds: a gradient you can check beats an intention you can drift away from.
+
+**Two questions returned to you**, because they contradict instructions you gave emphatically: the **presentation spine's scope** (§20) and the **capstone's size** (§34). I will not silently reverse either.
+
+### Related
+[`ReviewTriage.md`](ReviewTriage.md) · [ADR-032](Decisions.md#adr-032) · [ADR-026](Decisions.md#adr-026) · [ADR-019](Decisions.md#adr-019) · [ADR-002](Decisions.md#adr-002)
+
+### Action taken
+`Practicals.md` counts table repaired. `Setup_05` and ToC `4.13` switched to Mobile-first. New [`ReviewTriage.md`](ReviewTriage.md) with the full point-by-point triage. Restructure pending your answers on the two ⏸️ items.
+
+### In my own words
+*(yours to fill in)*
+
+---
+
 ## ⏸️ Parked
 
 *Questions consciously postponed, with a named chapter to revisit them at.*
@@ -524,6 +578,7 @@ Every ~20 doubts, come back and look for patterns. If four of your questions wer
 | Version | Date | Change |
 |---------|------|--------|
 | 1.0 | 2026-09-01 | Created at course inception. Table format. |
+| 2.4 | 2026-09-02 | D-010 added — external review triaged. |
 | 2.3 | 2026-09-02 | D-009 added — four-language restructure and full library adoption. |
 | 2.2 | 2026-09-02 | D-008 added — language ecosystems compared, and multi-language development confirmed. |
 | 2.1 | 2026-09-02 | D-007 added — free Blender/Godot libraries, the build-then-adopt pattern, and an honest answer on "AAA". |

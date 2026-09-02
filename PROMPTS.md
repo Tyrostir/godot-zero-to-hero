@@ -446,3 +446,46 @@ I did **not** make them co-primary. Spreading ~180 gameplay chapters across thre
 **New:** `docs/Languages.md`.
 **Restructured:** `docs/TableOfContents.md` (Module 0 → blocks 0A/0B/0C; +41 chapters incl. the Module 9 C++ block 9.1c–9.1f) · `docs/meta/CourseState.md` (tracker and progress bar regenerated, 333).
 **Updated:** `docs/meta/Decisions.md` (ADR-001 revised; ADR-032 added) · `docs/meta/DecisionsLog.md` · `docs/meta/Doubts.md` ([D-009](docs/meta/Doubts.md#d-009)) · `docs/Toolchain.md` (§7b coverage guarantee) · `docs/PLAN.md` (§3c-2, pacing) · `docs/Practicals.md` · `docs/meta/CompactContext.md` · `docs/internal/CLAUDE-MEMORY.md` · `README.md`.
+
+---
+
+## PROMPT#10
+
+**Date:** 2026-09-02 · **Session:** 002
+
+### Prompt (verbatim)
+
+```text
+can you read /root/claude/godot-zero-to-hero/godot-course-review.md (from chatgpt) and deeply analyze
+and figure-out which of these points are worth to consider in our course? I STILL INSIST on LEARNING
+BY DOING approach (with theory and explanation needed on demand). Please analyze from your side and
+give your comments.
+```
+
+### Response
+
+Verified the review's factual claims against the repository **before** assessing any of its arguments — it makes specific accusations of inconsistency, and those are checkable.
+
+**It was right about the checkable things**, including one live bug of mine: `Practicals.md`'s per-module table still totalled **292 chapters / 30 adoptions** after the 333 restructure, because I updated the summary rows and missed the breakdown. Also confirmed: the **Forward+ → Mobile migration** in Setup 05 is a real design error for an Android-first course; **Android lifecycle coverage was entirely absent** (`grep` for lifecycle/backgrounding/process-death/ANR/battery returned nothing across 333 chapters); and **git practice stopped at "commit after every chapter"**. Its "Blender B0–B19 vs B42" claim was true of an older README and is now stale.
+
+**Fixed immediately:** the counts table, and the renderer — P00 now starts on Mobile and 4.13 became a comparison rather than a port.
+
+**The systemic point is the valuable one, and it names a failure of mine.** *"Optimise for capabilities you can demonstrate independently, not chapter count."* Across four consecutive turns the plan went **215 → 258 → 290 → 292 → 333**. Every increase answered a legitimate request and I stated the cost each time — **but I never once proposed removing anything.** Somewhere around hour 500 I should have asked "what comes out?" I recorded this in `DecisionsLog.md` so a future session recognises the pattern.
+
+Its concrete expression is **[ADR-032](docs/meta/Decisions.md#adr-032)** — "every catalogued library gets a chapter" — which was the wrong answer to "adopt all the libraries". The right answer is the review's §3 priority tiers, and applying it **removes** chapters.
+
+**Adopting:** the scaffolding gradient (90/10 → 10/90) and blank-page builds — together the load-bearing fix; an Android runtime engineering block; thermal soak / battery / memory-pressure / GPU bottleneck taxonomy; explicit performance budgets and a device matrix; a version matrix with upgrade discipline; debugging as a taught skill; git, CI, testing, playtesting and profiling all starting earlier and growing; crash and ANR monitoring; priority tiers; and Observe / Diagnose-before-theory / Reflection added to the chapter loop.
+
+**Adapting:** C++ in Module 0 is too early and that was my error — but the fix is *resequencing*, not removal, since all three languages were explicitly requested. The GDScript-vs-C# measured comparison stays in Module 0; the C++ leg moves beside `9.1e` where it already has an earned trigger.
+
+**Rejecting:** its *"completeness 4/10"*, which scores a course explicitly not yet started — `CourseState.md` says Phase 1, 0/333 published, plan awaiting review, and that is the case *because the learner asked for the plan first*. The observation is right; the score is a category error.
+
+**Two items returned to the learner** rather than decided unilaterally, because both contradict emphatic prior instructions: presentation-spine scope ([ADR-026](docs/meta/Decisions.md#adr-026)) and capstone size ([ADR-019](docs/meta/Decisions.md#adr-019)).
+
+**Net effect if fully applied: ~315–325 chapters — smaller, not larger.**
+
+### Artefacts changed
+
+**New:** `docs/meta/ReviewTriage.md` (full point-by-point triage).
+**Fixed:** `docs/Practicals.md` (counts table) · `docs/guides/Setup_05_Git_And_FirstDeploy.md` and `docs/TableOfContents.md` 4.13 (Mobile-first).
+**Logged:** `docs/meta/Doubts.md` ([D-010](docs/meta/Doubts.md#d-010)) · `docs/meta/DecisionsLog.md` (two entries, including the author's own failure mode).

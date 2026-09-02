@@ -55,7 +55,8 @@ The root `.gitignore` already covers Godot + .NET. Chapter **0.7** explains each
 
 ## 3. Build P00
 
-1. **New Godot project** at `projects/P00_HelloPhone/`. Renderer: **Forward+** for now (you switch to Mobile in ch 4.13).
+1. **New Godot project** at `projects/P00_HelloPhone/`. Renderer: **Mobile**.
+   > 📱 **Why Mobile from chapter one.** This is an Android course, so we start on the renderer we ship on. Beginning on Forward+ and "switching later" creates a migration that finds problems late — exactly the wrong shape for a device-first course ([ADR-010](../meta/Decisions.md#adr-010)). Chapter 4.13 later *compares* the three renderers and prices what Forward+ would have cost you; it is a comparison, not a port.
 2. Scene: `Node3D` root named `Main`.
 3. Add `MeshInstance3D` child → give it a `BoxMesh`.
 4. Add `Camera3D` at `(0, 2, 4)`, rotated about −25° on X so it looks at the box.
