@@ -85,6 +85,7 @@ Some entries below have a **"In my own words"** line. That is yours to fill in, 
 | [D-014](#d-014) | 2026-09-02 | Blender | Chapter 0.3: no Clip Start, no Extra Objects/Copy Attributes, and the cube is not 3 grid squares | ✅ |
 | [D-015](#d-015) | 2026-09-02 | Setup/Install | Chapter 0.4 gives commands for the command-line tools zip but never says where to download it | ✅ |
 | [D-016](#d-016) | 2026-09-02 | Setup/Install | `keytool` not recognised on Windows — and the `setx PATH` command I gave was harmful | ✅ |
+| [D-017](#d-017) | 2026-09-03 | Godot/C# | Chapter 0.13: `mesh.MaterialOverride is ShaderMaterial` is always false | ✅ |
 
 ---
 
@@ -894,6 +895,79 @@ Chapter 0.4: Fast-Track and Step 4 rewritten to use `[Environment]::SetEnvironme
 
 ---
 
+## D-017
+
+**Date:** 2026-09-03 · **Context:** Chapter 0.13 Step 5, in the committed `projects/P00_HelloPhone` · **Category:** Godot/C# · **Status:** ✅ Answered — **authoring error, fixed**
+
+### Question *(verbatim)*
+> In Chapter 0.13, Step 5: I am getting "if (mesh.MaterialOverride is ShaderMaterial shaderMat)" condition false. Can you please review projects/P00_HelloPhone project source code (I kept in this repo) and figure out what is wrong and tell me?
+
+### Short answer
+**My chapter's fault.** A `MeshInstance3D` has **two** material slots in two different Inspector sections. Your `Main.tscn` shows the material in **`surface_material_override/0`**; the code checks **`MaterialOverride`**, a different property, which is `null`. Step 1's instruction named the wrong parent section and led you to the slot the Step 5 code does not read.
+
+### Full answer
+
+**The evidence, from your committed scene:**
+
+```text
+[node name="CubeGDShader" type="MeshInstance3D" ...]
+mesh = SubResource("BoxMesh_q6c6o")
+surface_material_override/0 = SubResource("ShaderMaterial_0u86m")   ← the material is here
+```
+
+**The two slots, and why the instruction misled:**
+
+| Inspector section | Property in `.tscn` | Scope |
+|---|---|---|
+| **`MeshInstance3D`** → Surface Material Override → `0` | `surface_material_override/0` | One surface |
+| **`GeometryInstance3D`** → Geometry → Material Override | `material_override` | The whole mesh |
+
+The chapter said *"Inspector → `MeshInstance3D` → **Material Override**"*. **`Material Override` is not under `MeshInstance3D`** — it lives under `GeometryInstance3D`. And expanding `MeshInstance3D` shows **Surface Material Override**, which is the nearest match. The instruction pointed at a heading that does not contain the thing it named, so the reasonable interpretation was the one that broke the code.
+
+**The fix — three fallbacks rather than one guess:**
+
+```csharp
+ShaderMaterial shaderMat =
+    MaterialOverride as ShaderMaterial                  // whole-mesh override
+    ?? GetSurfaceOverrideMaterial(0) as ShaderMaterial  // per-surface override  ← yours
+    ?? GetActiveMaterial(0) as ShaderMaterial;          // whatever is actually in use
+
+if (shaderMat is null)
+{
+    GD.PushError($"{Name}: no ShaderMaterial. MaterialOverride={MaterialOverride}, " +
+                 $"SurfaceOverride0={GetSurfaceOverrideMaterial(0)}");
+    return;
+}
+```
+
+`GetActiveMaterial(0)` resolves the whole chain and returns whatever is genuinely in use — the right call when you do not control how a scene was authored. ⚠️ It can return a **shared** resource, so setting a parameter on it affects every mesh using it; that matters in [6.14](../TableOfContents.md), not here.
+
+**Two things you did better than the chapter, worth keeping.**
+
+1. You declared `public partial class CubeGdShader : MeshInstance3D`, so `this` **is** the mesh — `GetNode<MeshInstance3D>(".")` was never needed. My chapters used that idiom in both [0.11](../chapters/Chapter_00.11_CSharpFirstContact.md) and 0.13; both are now corrected to match what you did.
+2. You added an `else` that printed `mesh.MaterialOverride`. **That is why this was diagnosable at all.** The chapter's version had no failure path, so a wrong slot produced silence — no error, no tint, no clue.
+
+**The lesson I have written into the chapter**, because it generalises well beyond materials:
+
+> **Any code that looks something up should say what it found when it fails.**
+
+An `if` with no `else` around a lookup converts a five-second diagnosis into an open-ended hunt. Your instinct to add one is the correct one, and 0.13 now ships with a `PushError` that names both slots and their contents.
+
+**Also spotted, minor:** your `ShaderTint` default is `new Color(.5f, 1f, 2.5f)`. Blue at `2.5` is outside the 0–1 range — legal in Godot as an HDR colour, but it will clamp or oversaturate once it reaches `ALBEDO`. Probably not what you intended.
+
+**Why `[UNVERIFIED]` did not catch this.** The Inspector path carried no marker, because I did not think of it as an uncertain claim — I thought of it as a menu path I knew. That is precisely the failure [D-014](#d-014) already identified and I repeated it: **GUI navigation is exactly as unverifiable from my environment as an error string.** Recorded again in [`DecisionsLog.md`](DecisionsLog.md), because twice is a pattern rather than an accident.
+
+### Related
+[D-014](#d-014) · [chapter 0.13](../chapters/Chapter_00.13_GDShaderFirstContact.md) · [chapter 0.11](../chapters/Chapter_00.11_CSharpFirstContact.md) · [ADR-016](Decisions.md#adr-016)
+
+### Action taken
+Chapter 0.13 Step 1 rewritten with both slots named and a comparison table; Step 5 rewritten with the three-fallback lookup and a mandatory `PushError` failure path. Chapter 0.11 corrected to declare `: MeshInstance3D` and drop `GetNode(".")`. Run-it checklist updated.
+
+### In my own words
+*(yours to fill in)*
+
+---
+
 ## ⏸️ Parked
 
 *Questions consciously postponed, with a named chapter to revisit them at.*
@@ -919,6 +993,7 @@ Every ~20 doubts, come back and look for patterns. If four of your questions wer
 | Version | Date | Change |
 |---------|------|--------|
 | 1.0 | 2026-09-01 | Created at course inception. Table format. |
+| 3.1 | 2026-09-03 | D-017 — `MaterialOverride` vs `surface_material_override/0`; chapter 0.13 named the wrong Inspector section. |
 | 3.0 | 2026-09-02 | D-016 — `keytool` not on PATH, and the `setx PATH` command in 0.4 was harmful. First defect capable of damaging the learner\'s machine. |
 | 2.9 | 2026-09-02 | D-015 — chapter 0.4 never said where to download the command-line tools; Fast-Track had no download step at all. |
 | 2.8 | 2026-09-02 | D-014 — three authoring errors in chapter 0.3 found by the learner and fixed. |

@@ -73,8 +73,17 @@ By the end your cube will be coloured by a shader you wrote, driven by a value y
 ### Step 1 — Give the cube a shader material
 
 1. Select `Cube` in `Main.tscn`.
-2. Inspector → `MeshInstance3D` → **Material Override** → **New ShaderMaterial**.
+2. In the Inspector, expand the **`MeshInstance3D`** section and find **Surface Material Override** → element **`0`** → **New ShaderMaterial**.
 3. Click the new material to expand it → **Shader** → **New Shader**.
+
+> ⚠️ **A `MeshInstance3D` has two material slots, in two different Inspector sections.** *(Corrected 2026-09-02 — see [D-017](../meta/Doubts.md#d-017).)* An earlier version of this chapter said "MeshInstance3D → Material Override", which names the wrong parent section and does not exist.
+>
+> | Inspector section | Property in `.tscn` | Scope |
+> |---|---|---|
+> | **`MeshInstance3D`** → Surface Material Override → `0` | `surface_material_override/0` | That one surface |
+> | **`GeometryInstance3D`** → Geometry → Material Override | `material_override` | The whole mesh |
+>
+> **Either works for this chapter** — but your C# must look in the slot you actually used. Step 5 handles both.
 4. Name it `res://CubeShader.gdshader`. Create, then double-click it.
 
 The **Shader Editor** opens in the bottom panel — a fourth place code lives, alongside Output, Debugger and MSBuild.
@@ -143,7 +152,7 @@ Run the scene and change `tint` from the **Remote** tree while it plays.
 
 ### Step 5 — Drive it from C# ⭐
 
-Add to `Spinner.cs`:
+Add to `Spinner.cs` — and make sure the class declares `: MeshInstance3D`, not `: Node3D`, so `this` **is** the mesh:
 
 ```csharp
     [Export] public Color ShaderTint { get; set; } = new Color(0f, 1f, 0.5f);
@@ -151,15 +160,33 @@ Add to `Spinner.cs`:
     public override void _Ready()
     {
         // ... existing GD.Print ...
-        var mesh = GetNode<MeshInstance3D>(".");
-        if (mesh.MaterialOverride is ShaderMaterial shaderMat)
+
+        // Look in every slot a material can occupy — see the warning in Step 1.
+        ShaderMaterial shaderMat =
+            MaterialOverride as ShaderMaterial                  // whole-mesh override
+            ?? GetSurfaceOverrideMaterial(0) as ShaderMaterial  // per-surface override
+            ?? GetActiveMaterial(0) as ShaderMaterial;          // whatever is actually in use
+
+        if (shaderMat is null)
         {
-            shaderMat.SetShaderParameter("tint",
-                new Vector3(ShaderTint.R, ShaderTint.G, ShaderTint.B));
-            GD.Print($"Shader tint set to {ShaderTint}");
+            // ⭐ Never fail silently. Print what you DID find.
+            GD.PushError($"{Name}: no ShaderMaterial. " +
+                         $"MaterialOverride={MaterialOverride}, " +
+                         $"SurfaceOverride0={GetSurfaceOverrideMaterial(0)}");
+            return;
         }
+
+        shaderMat.SetShaderParameter("tint",
+            new Vector3(ShaderTint.R, ShaderTint.G, ShaderTint.B));
+        GD.Print($"Shader tint set to {ShaderTint}");
     }
 ```
+
+> 💡 **Why three fallbacks rather than one guess.** `MaterialOverride` and `GetSurfaceOverrideMaterial(0)` are genuinely different properties, and which one holds your material depends on which Inspector slot you clicked. **`GetActiveMaterial(0)` resolves the whole chain** and returns whatever is actually being used — it is the one to reach for when you do not control how the scene was authored.
+
+> ⚠️ **`GetActiveMaterial` can return a *shared* resource.** If the same material is used by several meshes, setting a parameter on it changes all of them. Fine here; it matters in [6.14](../TableOfContents.md) when you have many instances of one effect.
+
+> 🚨 **Note the `else` branch.** An earlier version of this chapter had no failure path, so a wrong slot produced *nothing at all* — no error, no tint, no clue. **Any code that looks something up should say what it found when it fails.** That single habit would have turned this chapter's bug into a one-line diagnosis.
 
 Build, `F6`. The cube takes the colour your **C#** chose.
 
@@ -200,7 +227,7 @@ git push
 - [ ] Cube turns red from a two-line shader, with **no Build press**
 - [ ] It pulses with `TIME`, in the **editor**, game not running
 - [ ] Three uniforms appear in the Inspector with the right widgets
-- [ ] C# sets `tint` and the cube obeys
+- [ ] C# sets `tint` and the cube obeys — **or `PushError` tells you exactly which slot was empty**
 - [ ] `vertex()` ripples the geometry
 - [ ] All of it works **on the phone**
 

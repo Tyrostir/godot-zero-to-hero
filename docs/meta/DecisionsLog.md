@@ -582,3 +582,24 @@ That is a different failure mode from [D-014](Doubts.md#d-014) and [D-015](Doubt
 **⚠️ A category line worth drawing.** This is the first defect in this course that could **damage the learner's machine** rather than waste their time. `[UNVERIFIED]` does not cover it, because there was no uncertainty to flag — the command was simply wrong. **Commands that modify system state need a different standard of care from commands that print things**, and that standard is: prefer the API over the convenience wrapper, make it idempotent, and never write a variable by reading a differently-scoped one.
 
 ---
+
+## 2026-09-03 — Session 003
+
+### 🔍 VERIFIED — GUI navigation went unmarked a second time; making it a rule
+
+**Context.** The learner reported `mesh.MaterialOverride is ShaderMaterial` evaluating false in chapter 0.13. Their committed `Main.tscn` showed the material in `surface_material_override/0`. Full analysis: [D-017](Doubts.md#d-017).
+
+**The bug.** A `MeshInstance3D` exposes **two** material slots in **two different Inspector sections** — `MeshInstance3D → Surface Material Override → 0` (`surface_material_override/0`) and `GeometryInstance3D → Geometry → Material Override` (`material_override`). The chapter said *"Inspector → MeshInstance3D → Material Override"*, which **names a property that is not under that heading**. Expanding `MeshInstance3D` shows *Surface Material Override*, so the reasonable reading was the one the Step 5 code could not handle.
+
+**Why this is worse than an ordinary mistake.** [D-014](Doubts.md#d-014) established, on 2026-09-02, that **GUI procedures are exactly as unverifiable from this environment as error strings and must carry `[UNVERIFIED]`**. This Inspector path carried no marker — because it was not *felt* as an uncertain claim; it was felt as a menu path the author knew. **Twice is a pattern, not an accident.**
+
+**Rule, now explicit:** *any* instruction naming a menu, panel, section, property row or button gets `[UNVERIFIED]` unless a learner screenshot or `toAgent/` paste has confirmed it. Confidence is not evidence, and the feeling of knowing a UI is the exact thing that stops the marker being written.
+
+**Two things the learner did better than the chapter**, both now adopted into it:
+
+1. Declaring `class CubeGdShader : MeshInstance3D` so `this` *is* the mesh, rather than the chapter's clumsy `GetNode<MeshInstance3D>(".")`. That idiom appeared in 0.11 and 0.13 and is removed from both.
+2. Adding an `else` that printed what was actually found. **The chapter's version had no failure path**, so a wrong slot produced total silence.
+
+**The generalised lesson written into 0.13:** *any code that looks something up should say what it found when it fails.* An `if` with no `else` around a lookup turns a five-second diagnosis into an open-ended hunt — and this is the same family as [0.11](../chapters/Chapter_00.11_CSharpFirstContact.md)'s "failures that are absences are the hardest to notice".
+
+---

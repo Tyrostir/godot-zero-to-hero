@@ -70,9 +70,10 @@ using Godot;
 
 // 1. public   — Godot must see the type from outside the assembly
 // 2. partial  — the source generator writes a second half of this class
-// 3. : Node3D — must derive from a Godot type to be attachable
+// 3. : MeshInstance3D — must derive from a Godot type to be attachable,
+//                       and matching the node type gives you `this` directly
 // 4. The file MUST be named Spinner.cs
-public partial class Spinner : Node3D
+public partial class Spinner : MeshInstance3D   // ← MeshInstance3D, so `this` is the mesh
 {
     // A slider, not a text box, because of the hint
     [Export(PropertyHint.Range, "0,720,5")]
@@ -93,10 +94,10 @@ public partial class Spinner : Node3D
 
     public override void _Ready()
     {
-        // Tint the cube, proving the exported Color reached the material
-        var mesh = GetNode<MeshInstance3D>(".");
-        var mat = new StandardMaterial3D { AlbedoColor = Tint };
-        mesh.MaterialOverride = mat;
+        // Tint the cube, proving the exported Color reached the material.
+        // Declare the class as `: MeshInstance3D` and `this` IS the mesh —
+        // no GetNode(".") needed. (Corrected 2026-09-02, see D-017.)
+        MaterialOverride = new StandardMaterial3D { AlbedoColor = Tint };
 
         GD.Print($"Spinner ready on {OS.GetName()} — {DegreesPerSecond}°/s {Direction}");
     }

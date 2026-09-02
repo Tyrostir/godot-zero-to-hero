@@ -182,6 +182,9 @@ Every chapter declares its guided/independent split, and the ratio shifts across
 
 ## The `[UNVERIFIED]` marker
 
+> 🚨 **Includes every GUI instruction.** Any menu path, panel name, Inspector section, property row or button label is `[UNVERIFIED]` unless a learner screenshot or `toAgent/` paste has confirmed it. This has been got wrong twice ([D-014](../meta/Doubts.md#d-014), [D-017](../meta/Doubts.md#d-017)) for the same reason both times: a UI path *feels* like something the author knows rather than something they are guessing. **Confidence is not evidence.**
+
+
 I write these chapters from an Ubuntu/Termux session on a phone with **no Godot, no Blender, no .NET and no Android SDK**, and you have instructed that nothing be installed there. So **any claim about what a tool actually prints, or exactly where a menu item sits, is marked `[UNVERIFIED]` until you run it and report back**.
 
 ```text
