@@ -77,6 +77,7 @@ Each block is small, numbered `V-NN`, and asks for **exact, pasteable output** �
 | **V-10** | desktop | **Chapter 0.4** — `java -version`, `sdkmanager --version`, `adb version`, the JVM path, **the API level and build-tools version the official Godot export page currently requires**, and the `sdkmanager` failure text when `latest/` is renamed | ⬜ Open |
 | **V-11** | desktop + phone | **Chapter 0.5** — the Developer-options menu path on your phone; `adb devices` output and serial format; whether a USB driver was needed on Windows; the exact `unauthorized` and `offline` wording; the two wireless ports | ⬜ Open |
 | **V-12** | desktop | **Chapter 0.6** — every dock and panel name in Godot 4.7.2 (Node dock tab position, MSBuild panel presence, Remote/Local button wording, Attach Script icon), and the exact text of the three deliberate failures | ⬜ Open |
+| **V-13** | desktop | **Chapter 0.7** — file counts before and after the `.gitignore`; `git check-ignore -v` output format; `git count-objects -vH` figures; whether Git for Windows set `core.autocrlf` to `true` on your install | ⬜ Open |
 | **V-07** | desktop + phone | **Chapter 0.1** — output of `uname -a`, `lscpu`, `free -h`, `df -h ~`, `lspci`, `vulkaninfo --summary`, `lsusb` (plugged and unplugged); the Termux `dotnet --version` failure text verbatim; and the phone's Settings → About phone fields | ⬜ Open |
 
 ---

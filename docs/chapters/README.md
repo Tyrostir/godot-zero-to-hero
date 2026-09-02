@@ -22,8 +22,9 @@ The course itself. Chapters are published in order and appear here as they are w
 | **0.4** | [JDK, Android SDK, and the Debug Keystore](Chapter_00.04_AndroidToolchain.md) | A | 🐣🚶🏃 | 60–90 m | ✅ Published |
 | **0.5** | [Connecting Your Phone](Chapter_00.05_ConnectingYourPhone.md) | A | 🐣🚶🏃 | 45–60 m | ✅ Published |
 | **0.6** | [The Godot Editor](Chapter_00.06_TheGodotEditor.md) | A | 🐣🚶🏃 | 60–75 m | ✅ Published |
+| **0.7** | [Git for Game Projects](Chapter_00.07_GitForGameProjects.md) | A | 🐣🚶🏃 | 60–75 m | ✅ Published |
 
-**6 / 359.** Next: **0.7 — Git for game projects**.
+**7 / 359.** Next: ⭐ **0.8 — Project 00: "Hello Phone"** — the Module 0 milestone.
 
 > 📏 **ADR-002 compliance** — measured against the instructional body ([ADR-002](../meta/Decisions.md#adr-002)):
 >
@@ -35,6 +36,7 @@ The course itself. Chapters are published in order and appear here as they are w
 > | 0.4 | 71.3% | 15.4% |
 > | 0.5 | 67.0% | 19.6% |
 > | 0.6 | 66.2% | 20.0% |
+> | 0.7 | 64.2% | 20.8% |
 
 > 📑 Full chapter list: **[`../TableOfContents.md`](../TableOfContents.md)**
 > 📍 Current progress: **[`../meta/CourseState.md`](../meta/CourseState.md)**
