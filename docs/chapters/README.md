@@ -48,12 +48,15 @@ The course itself. Chapters are published in order and appear here as they are w
 | **1.4** | [Your First Real C# Script](module1/1A/1.4_YourFirstRealScript.md) | A | 🐣🚶🏃 | 45–60 m | ✅ Published |
 | **1.4b** | [The C# You Have Not Met, I](module1/1A/1.4b_TheCSharpYouHaveNotMet.md) | A | 🐣🚶🏃 | 45–60 m | ✅ Published |
 | **1.5** | [Tuning Without Recompiling](module1/1A/1.5_TuningWithoutRecompiling.md) | A | 🐣🚶🏃 | 45–60 m | ✅ Published |
+| **1.6** | [Nodes vs Resources](module1/1A/1.6_NodesVsResources.md) | A | 🐣🚶🏃 | 45–60 m | ✅ Published |
 
-**25 / 359.** 🎉 **MODULE 0 COMPLETE** — toolchain, first APK, four languages, dependencies and a pinned build.
+🎉 **Block 1A complete** — 7 chapters.
+
+**26 / 359.** 🎉 **MODULE 0 COMPLETE** — toolchain, first APK, four languages, dependencies and a pinned build.
  🎉 **Block 0B complete** — all four languages written, and a decision table built from your own measurements.
  🎉 **Block 0A complete** — toolchain installed, an app on the phone, and the ability to read it when it breaks.
 
-Next: **1.6 — Nodes vs Resources**, closing block 1A.
+Next: **1.7 — 3D space in Godot**, opening block **1B — Space and motion**.
 
 > 📏 **ADR-002 compliance** — measured against the instructional body ([ADR-002](../meta/Decisions.md#adr-002)):
 >
@@ -84,6 +87,7 @@ Next: **1.6 — Nodes vs Resources**, closing block 1A.
 > | 1.4 | 66.9% | 20.2% |
 > | 1.4b | 63.9% | 16.8% |
 > | 1.5 | 67.5% | 16.9% |
+> | 1.6 | 57.1% | 24.3% |
 
 > 📑 Full chapter list: **[`../TableOfContents.md`](../TableOfContents.md)**
 > 📍 Current progress: **[`../meta/CourseState.md`](../meta/CourseState.md)**
