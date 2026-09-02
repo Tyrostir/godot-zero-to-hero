@@ -38,11 +38,11 @@ update_trigger: "End of every session, and immediately after any decision or lea
 
 You are the **author** of a book-length course: *Godot Zero to Hero* — 3D **Android** game development with **Godot 4 (.NET / C#)** and **Blender**. The **learner** owns the repo and does all hands-on work. **You write Markdown; you do not run software.**
 
-**Shape:** 12 modules · **333 chapters** (66 Blender · 63 🧰 adoption · 34 🎬 presentation) · **11 projects** · 4 mini-jams · ~540–620 hours.
+**Shape:** 12 modules · **348 chapters** (64 Blender · ~45 🧰 adoption · 8 ⬜ blank-page) · **11 projects** · 4 mini-jams · ~560–650 hours.
 
 **Four languages** ([ADR-001](../meta/Decisions.md#adr-001)): **C# primary** (~180 ch) · **GDScript** (8 — `@tool` scripts, editor plugins, addon glue) · **C++/GDExtension** (7 — measured hot paths only) · **GDShader** (12). Taught by measurement: Module 0 block 0B builds the *same cube* three ways and the learner writes the decision table in 0.17 from their own numbers. See [`../Languages.md`](../Languages.md).
 
-**Progress: Phase 1. 0/333 chapters. Plan drafted, awaiting the learner's review. Nothing installed yet.**
+**Progress: Phase 1. 0/348 chapters. Plan drafted, awaiting the learner's review. Nothing installed yet.**
 
 **Cadence: one chapter per turn**, committed and pushed, with `docs/meta/` updated each time.
 
@@ -109,7 +109,7 @@ Capstone working title *Ember Hollow* is provisional ([ADR-023](../meta/Decision
 |---|---|
 | Phase | 1 — planning |
 | Plan | ⏳ **awaiting the learner's review** ([T-002](../meta/ToDos.md)) — they explicitly asked to review before chapters begin |
-| Chapters | 0 / 333 |
+| Chapters | 0 / 348 |
 | Setup guides | 5 / 5 drafted, all `[UNVERIFIED]` |
 | Repo on GitHub | ✅ live — https://github.com/Tyrostir/godot-zero-to-hero |
 | Git | branch `main`, pushed, commit `6219e4b` |
@@ -143,6 +143,8 @@ Extracted verbatim-in-substance from their prompts. These do not expire.
 1. **Practical-first is structural, not stylistic.** Follow the mandatory template in [`../chapters/README.md`](../chapters/README.md). Build first, ≥50%. Theory after, ≤30%. Never open a chapter with theory.
 2. **Never fabricate tool output.** `[UNVERIFIED]` it.
 3. **Mobile-first ordering** ([ADR-010](../meta/Decisions.md#adr-010)). The mobile-safe technique is the default; the desktop one is an aside.
+2b. **[ADR-033] Declare the guided/independent split in every chapter's front matter**, and honour the gradient. Under pressure the instinct is to give more help — the number exists so drift is visible. Every major subsystem ends with a **⬜ blank-page build**: requirements only, no steps, no reference implementation, no code.
+2c. **[ADR-034] Every project from P01 must survive the Android chaos test** before it ships.
 3a. **[ADR-028/029] Build it once by hand, then adopt the library.** 28 `N.Mb` chapters, marked 🧰. Never teach a library before the learner has hand-built the thing it replaces, and **always require a recorded decision** — "a tutorial used it" is not a rationale. Catalogue, licences and caveats: [`../Toolchain.md`](../Toolchain.md). ⚠️ **Most Godot addons are GDScript**; from C# that costs type safety. Prefer **Chickensoft** (C#-first: LogicBlocks, AutoInject, GodotNodeInterfaces, SaveFileBuilder, GodotTest), wrap the rest behind a C# interface, and remember **NuGet** is available.
 3b. **[ADR-026/027] Presentation is a spine, not a module.** Every project from P01 ships a title screen, an ending screen, music, a narrative frame and a walkthrough. Narration from Module 6, with **mandatory subtitles**. Before drafting any project chapter, check [`../PresentationSpine.md` §2](../PresentationSpine.md).
 4. **Every question → `D-NNN`** in `Doubts.md` — **the learner's question verbatim AND your short + full answer**, at the end of every turn, **unprompted**. `/btw` (on the same line as the question) guarantees it, but any question qualifies. ⚠️ **Known failure mode:** logging a question into `PROMPTS.md` only and forgetting `Doubts.md`. That happened once, with [D-005](../meta/Doubts.md#d-005). `PROMPTS.md` is the narrative; `Doubts.md` is the searchable reference; they are not substitutes.
@@ -224,7 +226,9 @@ Extracted verbatim-in-substance from their prompts. These do not expire.
 | **029** | **The free toolchain; dependency evaluation is a taught skill** |
 | **030** | **"AAA" = budget/headcount, not achievable solo — say so; industry-grade craft is the target** |
 | **031** | **Polyglot: C# primary · GDScript for tooling/addon glue · C++ only after profiling. C# loses addon *ergonomics*, not *access*** |
-| **032** | **Every catalogued library is adopted, clustered into doing-sessions — never listed and left unused** |
+| **032** | **Libraries adopted by tier: L1 chapter · L2 cluster · L3 awareness only. Revised — the original "every library gets a chapter" optimised for coverage over capability** |
+| **033** | **⭐ Scaffolding gradient — 90/10 → 10/90, declared per chapter; 8 ⬜ blank-page builds. Success = independent capability, not chapter count** |
+| **034** | **Android runtime engineering (Module 1 block 1J). Chaos test is a done-criterion on every project** |
 
 ---
 
@@ -237,6 +241,6 @@ Extracted verbatim-in-substance from their prompts. These do not expire.
 | **H-03** | 🟠 C# + Android in Godot is the less-travelled path; rough edges with few community answers. | [ADR-022](../meta/Decisions.md#adr-022). Check Godot's GitHub issues before assuming a bug is the learner's. Log everything in `Troubleshooting.md`. |
 | **H-04** | 🟠 Every setup guide is `[UNVERIFIED]`. If a version number here is wrong, Module 0 stalls. | Guides link the always-current official pages and say explicitly that those pages win. |
 | **H-05** | 🟠 Scope creep on the capstone. | [ADR-019](../meta/Decisions.md#adr-019) locks it; new ideas go to the GDD under *Post-launch*. |
-| **H-06** | 🟡 333 chapters at one per turn is a long project. Momentum is the real risk. | Eleven shipped projects supply visible progress, and [ADR-026](../meta/Decisions.md#adr-026) is a direct mitigation: every project now has a title screen, an ending and music, so each one *feels* like a game rather than a tech demo. P00 lands in the first session of real work. |
+| **H-06** | 🟡 348 chapters at one per turn is a long project. Momentum is the real risk. | Eleven shipped projects supply visible progress, and [ADR-026](../meta/Decisions.md#adr-026) is a direct mitigation: every project now has a title screen, an ending and music, so each one *feels* like a game rather than a tech demo. P00 lands in the first session of real work. |
 | **H-07** | ✅ **Cleared, and answered before any chapter existed** — exactly why it was asked in Session 001. Three paths, all authored in full. No retrofitting needed. | — |
 | **H-08** | 🔵 Godot version drift over a ~year-long project. | Version log in [Setup 01 §3](../guides/Setup_01_Prerequisites.md); pin and record. |

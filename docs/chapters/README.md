@@ -48,20 +48,24 @@ Enforced by [**ADR-002 — the Practical-First Mandate**](../meta/Decisions.md#a
 |---|---------|------|-------|
 | — | YAML front matter | chapter number, module, track, **paths**, time, prerequisites, status | — |
 | 1 | `# Chapter NN — Title` | one H1 | — |
+| 1b | 🪜 **Scaffolding** | Front matter declares this chapter's guided/independent split, per [ADR-033](../meta/Decisions.md#adr-033) | 1 line |
 | 2 | 🎯 **Goal** | **One sentence**: what will exist at the end that does not exist now | 1 line |
 | 2b | 🏃 **Fast-Track Summary** | The whole chapter in ~10 bullets plus the finished code. **Path C reads only this and the cheat sheet.** | short |
 | 3 | 🧭 **Before you start** | Prerequisites, and what you should already have running | short |
 | 4 | 🔨 **Build** | **Step-by-step doing. Must be the first substantive section.** Every step is a click, a keystroke or a line of code. | **≥ 50%** |
 | 5 | ▶️ **Run it** | What you should see. Screenshot or expected output. **The chapter must end in something runnable.** | short |
+| 5b | 👀 **Observe** | What actually happened? Name it before explaining it | short |
 | 6 | 🧠 **Why it works** | The theory *this build needed* — and only that | **≤ 30%** |
 | 7 | 🗺️ **Mental model** | A Mermaid diagram, wherever a picture beats prose | 1 diagram |
-| 8 | 💥 **Break it** | A deliberate sabotage, and the error it produces | short |
+| 8 | 💥 **Break it** | A deliberate sabotage | short |
+| 8b | 🔎 **Diagnose** | **The learner attempts the diagnosis first.** The answer is collapsed below, not printed above it | short |
 | 9 | 🏋️ **Practicals** | 1–3 drills that *change* the build. ⭐ marks must-do. | short |
 | 10 | ✅ **Check yourself** | 3–5 questions, answers in a collapsed block | short |
 | 11 | 📎 **Cheat sheet** | Everything introduced, in one table | short |
 | 12 | 🔗 **Further reading** | Into [`../reference/ReferenceLinks.md`](../reference/ReferenceLinks.md) | short |
 | 13 | 💾 **Commit** | The exact commit message to use | 1 line |
 | 14 | ➡️ **What's next** | | 1 line |
+| 14b | 🪞 **Reflection** | Explain the concept back in your own words. If you cannot, the chapter is not finished | 2 lines |
 | 15 | 📝 **Chapter changelog** | | table |
 
 ### Path markers ([ADR-024](../meta/Decisions.md#adr-024))
@@ -81,11 +85,27 @@ Every chapter serves three paths from one document:
 
 > ⚠️ **The ratios in ADR-002 are measured on the Path B reading** — the full chapter minus 🐣 boxes and the 🏃 summary. Path material *adds*; it never displaces the build.
 
+### The scaffolding gradient ([ADR-033](../meta/Decisions.md#adr-033))
+
+Every chapter declares its guided/independent split, and the ratio shifts across the course:
+
+| Stage | Modules | Guided / Independent |
+|-------|---------|---------------------|
+| Early | 0–1 | **90 / 10** |
+| Intermediate | 2–4 | **70 / 30** |
+| Advanced | 5–7 | **50 / 50** |
+| Professional | 8–9 | **30 / 70** |
+| Capstone | 10 | **10 / 90** |
+
+**⬜ Blank-page builds** end every major subsystem: *requirements only — no steps, no reference implementation, no code*. The progression is **guided build → variation → ⬜ blank-page → jam → autopsy**.
+
+> ⚠️ **Under pressure the instinct is always to give more help.** The declared percentage exists so that drift is visible, exactly as [ADR-002](../meta/Decisions.md#adr-002)'s thresholds do for theory creep.
+
 ### The four hard rules
 
 1. **No chapter begins with theory.** If a concept genuinely cannot be built before it is explained, the chapter is wrongly scoped — split it, or find a cruder version that *can* be built first.
 2. **Every chapter ends runnable.** If you can't press play, the chapter isn't finished.
-3. **Theory is a debrief, never a gate.**
+3. **Theory is a debrief, never a gate** — and in a Break-it section it arrives only *after* the learner has attempted the diagnosis.
 4. **The three-pass spiral** — naive, then correct, then professional. Never all three at once. See [`../Practicals.md §5`](../Practicals.md).
 
 ### Why the percentages exist

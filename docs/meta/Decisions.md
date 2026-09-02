@@ -54,7 +54,9 @@ update_trigger: "Whenever a decision is made, changed, or superseded"
 | [ADR-029](#adr-029) | The approved free toolchain, and dependency-evaluation as a taught skill | Tooling | ✅ |
 | [ADR-030](#adr-030) | What "industry grade" means here — and the honest limit of "AAA" | Product | ✅ |
 | [ADR-031](#adr-031) | **Polyglot by design** — C# primary, GDScript for tooling and addon glue, C++ only after profiling | Product | ✅ |
-| [ADR-032](#adr-032) | **Every library in `Toolchain.md` is adopted**, clustered so it stays learning-by-doing | Pedagogy | ✅ |
+| [ADR-032](#adr-032) | Libraries adopted by **priority tier** — chapter, paragraph, or awareness only | Pedagogy | ✅ (revised) |
+| [ADR-033](#adr-033) | **The scaffolding gradient** — help is removed on a declared schedule, 90/10 → 10/90 | Pedagogy | ✅ |
+| [ADR-034](#adr-034) | **Android runtime engineering is a first-class block**, not a release-week concern | Product | ✅ |
 
 ---
 
@@ -532,7 +534,19 @@ Godot's .NET build runs **GDScript and C# side by side in one project**, and a *
 ### Every library in the toolchain is adopted — clustered, so it stays learning-by-doing
 **Status:** ✅ Active *(decided 2026-09-02)* · **Category:** Pedagogy
 
-**Every** free library and addon catalogued in [`../Toolchain.md`](../Toolchain.md) now has a chapter that uses it on real project content. Nothing is listed and left unused.
+> 🔄 **Revised 2026-09-02.** The original wording — *"every catalogued library gets a chapter that uses it"* — was the wrong answer to "adopt all the libraries", and it is worth recording why. It optimised for **coverage** when the goal is **capability**. An external review's §3 supplied the corrective, and applying it **removes** chapters.
+
+Libraries are adopted at one of **three priority tiers**:
+
+| Tier | Treatment | Examples |
+|------|-----------|----------|
+| **L1 — must know** | Its own chapter: install, use on real content, measure, decide | Rigify · Phantom Camera · Terrain3D · GdUnit4 · LogicBlocks · TexTools · RetopoFlow · FFmpeg |
+| **L2 — must understand** | A **clustered** chapter, or a substantial mention inside a related one | The built-in Blender addons · the CC0 browsers · the 2D toolchain · Debug Draw + Panku · Sky3D · Instant Meshes |
+| **L3 — know it exists** | 🔎 A named mention only. **No chapter.** You should recognise the name and know what problem it solves | Kitsu · MemoryPack · MessagePack · Serilog · Ardour · Blender GIS · Sverchok · Animation Nodes · USD · OpenColorIO |
+
+**The ecosystem is not a memorisation requirement.** A tool you have never had a problem for is a tool you will not remember.
+
+Everything at L1 and L2 still has a chapter that uses it on real project content.
 
 **The design problem this had to solve.** One chapter per library would have added ~50 chapters and turned the course into a **tool catalogue** — the exact opposite of [ADR-002](#adr-002). "Here is a list of addons" is not learning by doing.
 
@@ -556,6 +570,52 @@ Godot's .NET build runs **GDScript and C# side by side in one project**, and a *
 **Two rejections worth recording.** *One chapter per tool* — bloat, and it inverts the course's priorities. *Mentioning tools in passing without a chapter* — which is what the plan did before, and it is how a "recommended tools" list becomes something nobody ever actually installs.
 
 **Cost.** 41 chapters added (292 → 333) and pacing rises to roughly **540–620 h**. Accepted: the alternative is a catalogue the learner never opens.
+
+---
+
+## ADR-033
+### The scaffolding gradient — help is removed on a declared schedule
+**Status:** ✅ Active *(decided 2026-09-02)* · **Category:** Pedagogy
+
+Every chapter declares how much of it is **guided** and how much is **independent**, and the ratio shifts across the course on a published schedule.
+
+| Stage | Modules | Guided / Independent | What that means in practice |
+|-------|---------|---------------------|-----------------------------|
+| **Early** | 0–1 | **90 / 10** | Every step given. The independent 10% is the chapter's practicals |
+| **Intermediate** | 2–4 | **70 / 30** | Steps given for anything new; you repeat known techniques unaided |
+| **Advanced** | 5–7 | **50 / 50** | Requirements and constraints given; approach is yours |
+| **Professional** | 8–9 | **30 / 70** | A brief and a budget. Guidance only where the material is genuinely new |
+| **Capstone** | 10 | **10 / 90** | You are building. I review, unblock and challenge |
+
+**⬜ Blank-page builds.** Every major subsystem ends with one: **requirements only — no steps, no reference implementation, no code**. Eight exist (1.49, 2.22b, 3.12b, 4.22b, 5.22b, 6.18b, 7.24d, 9.11c), plus the four mini-jams and the autopsies in [`../Exercises.md`](../Exercises.md).
+
+The progression for every subsystem is: **guided build → variation → ⬜ blank-page → jam → autopsy**.
+
+**Why this is the load-bearing decision, not a delivery detail.** Before this ADR every one of 333 chapters was guided, and the four mini-jams were the *only* unscaffolded work in the course. A course whose entire premise is learning by doing had **no gradient toward doing it alone**. Independent capability is not a by-product of finishing guided chapters — it has to be built, by removing help deliberately.
+
+**Why a declared percentage rather than an intention.** Exactly the reasoning behind [ADR-002](#adr-002)'s numeric thresholds: a gradient you can check beats one you can drift away from. Under pressure, the instinct is always to give more help.
+
+**The measure of success changes with it.** Not *"I completed 350 chapters"* but *"given a real requirement, I can design → implement → debug → test → profile → validate on Android → ship it."* Recorded because it reframes what "done" means for the whole course.
+
+*Adopted from the external review of 2026-09-02, §22 and §37 — see [`ReviewTriage.md`](ReviewTriage.md).*
+
+---
+
+## ADR-034
+### Android runtime engineering is a first-class block
+**Status:** ✅ Active *(decided 2026-09-02)* · **Category:** Product
+
+**Module 1 block 1J** (chapters 1.40–1.49) covers the Android *runtime*, not just the Android *build*: the activity lifecycle · interruptions (calls, notifications, screen lock) · process death and resume · **the chaos test** · input beyond touch (back gesture, navigation modes, gesture interruption, gamepads) · screens you did not design for · **the device tier matrix** · **explicit performance budgets** · profile-first optimisation.
+
+**⭐ The chaos test becomes a done-criterion on every project from P01:** home · reopen · lock · unlock · rotate · simulate a call · task-switch · **kill the process** · reopen · load save.
+
+**Why this was missing and why that mattered.** A `grep` across all 333 chapters for *lifecycle*, *backgrounding*, *process death*, *ANR* and *battery* returned **nothing**. The plan covered how to *build* an APK in great detail and never covered how an Android app *behaves*. That is the difference between a game that renders correctly and a game that survives a phone call — and it is the single most common way a technically competent mobile game gets one-star reviews.
+
+**Why here rather than in Module 10.** It is placed *before* P01 ships, so the first game the learner releases already survives it. Deferring it to release week means every project before it accumulates lifecycle bugs, and the fixes become architectural rather than incremental.
+
+**Related additions:** thermal soak testing, battery measurement, memory-pressure torture tests and the GPU bottleneck taxonomy (CPU / GPU / draw-call / fill-rate / bandwidth / shader-bound) in Module 4; crash and **ANR** monitoring, staged rollout and rollback in Module 10.
+
+*Adopted from the external review of 2026-09-02, §5–§9, §24–§25, §29–§31.*
 
 ---
 

@@ -18,15 +18,16 @@ update_trigger: "When a practical, drill, challenge, jam or project is added or 
 
 | Kind | Marker | What it is | Where it lives | Count |
 |------|--------|-----------|----------------|-------|
-| **Chapter Build** | 🔨 | The mandatory first section of *every* chapter. You are building within the first screen of text. | Inside each chapter | **333** |
-| **Chapter Practical** | 🏋️ | 1–3 drills at the end of each chapter that *change* what you just built | Inside each chapter | **~660** |
+| **Chapter Build** | 🔨 | The mandatory first section of *every* chapter. You are building within the first screen of text. | Inside each chapter | **348** |
+| **Chapter Practical** | 🏋️ | 1–3 drills at the end of each chapter that *change* what you just built | Inside each chapter | **~690** |
 | **Standalone Drill / Challenge / Autopsy** | 🔁 / 🧗 / 🔍 | Repeatable skill-builders, unscaffolded challenges, and analyses of existing work | [`Exercises.md`](Exercises.md) | **44** |
 | **Project** | 🚢 | A complete, playable, deployed-to-phone milestone | [`../projects/README.md`](../projects/README.md) | **11** |
+| **⬜ Blank-page build** | ⬜ | **Requirements only. No steps, no reference implementation, no code.** One per major subsystem | [`meta/Decisions.md#adr-033`](meta/Decisions.md#adr-033) | **8** |
 | **Mini-Jam** | ⏱️ | Timeboxed, constrained, *no help given* | [`../projects/README.md#mini-jams`](../projects/README.md#mini-jams) | **4** |
 | **Presentation deliverable** | 🎬 | A title screen, ending screen, music pass, narration or walkthrough shipped with a project | [`PresentationSpine.md`](PresentationSpine.md) | **34** |
-| **Library adoption** | 🧰 | Install a free library, read its source, measure it on device, and record a decision | [`Toolchain.md`](Toolchain.md) | **63** |
+| **Library adoption** | 🧰 | Install a free library, read its source, measure it on device, and record a decision | [`Toolchain.md`](Toolchain.md) | **~45 (L1+L2)** |
 
-**Total distinct hands-on units: ~1,110.**
+**Total distinct hands-on units: ~1,150.**
 **Chapters that begin with theory: 0.** That is a hard rule, not an aspiration ([ADR-002](meta/Decisions.md#adr-002)).
 
 > 🐣🚶🏃 **Paths and practicals** ([ADR-024](meta/Decisions.md#adr-024)). ⭐ practicals are done by **every** path — they are the ones without which the chapter didn't happen. Unmarked practicals are Paths A and B. 🔬 deep-dive practicals are Paths B and C. Path A gets complete code listings for every build; Path C gets the Fast-Track Summary and the ⭐ practicals only.
@@ -37,21 +38,21 @@ update_trigger: "When a practical, drill, challenge, jam or project is added or 
 
 Every chapter is ≥50% doing and ≤30% theory, by mandate. Here is what that produces:
 
-| Module | Chapters | Builds | Chapter practicals | Standalone | 🎬 Present. | 🧰 Adopt | Project | Jam |
-|--------|---------|--------|--------------------|-----------|------------|---------|---------|-----|
-| 0 — Toolchain | 21 | 21 | ~32 | 2 | — | 5 | 🚢 **P00 Hello Phone** | — |
-| 1 — Godot Foundations | 47 | 47 | ~94 | 6 | 5 | 6 | 🚢 **P01 Marble Runner** | ⏱️ MJ1 |
-| 2 — Blender I | 34 | 34 | ~68 | 6 | 2 | 7 | 🚢 **P02 Foundry Kit** | — |
-| 3 — Characters I | 30 | 30 | ~60 | 5 | 3 | 4 | 🚢 **P03 Playground** | ⏱️ MJ2 |
-| 4 — Worlds & Performance | 31 | 31 | ~62 | 5 | 5 | 7 | 🚢 **P04 Level 1** | — |
-| 5 — Shaders & VFX | 29 | 29 | ~58 | 5 | 1 | 4 | 🚢 **P05 VFX Lab** | ⏱️ MJ3 |
-| 6 — Audio, Narration & Feel | 23 | 23 | ~46 | 4 | 6 | 3 | 🚢 **P06 Feel Pass** | — |
-| 7 — Story & Cinematics | 33 | 33 | ~66 | 5 | 6 | 6 | 🚢 **P07 The Slice** | ⏱️ MJ4 |
-| 8 — Characters II | 20 | 20 | ~40 | 4 | 2 | 4 | 🚢 **P08 Warden** | — |
-| 9 — Architecture | 27 | 27 | ~54 | 2 | 2 | 9 | 🚢 **P09 Refactor** | — |
-| 10 — Capstone | 30 | 30 | ~52 | 2 | 2 | 4 | 🚢 **P10 Ember Hollow** | — |
-| 11 — Beyond | 8 | 8 | ~16 | — | — | 2 | — | — |
-| **Total** | **333** | **333** | **~660** | **44** | **34** | **63** | **11** | **4** |
+| Module | Chapters | Builds | Chapter practicals | Standalone | 🎬 Present. | 🧰 Adopt | ⬜ Blank | Project | Jam |
+|--------|---------|--------|--------------------|-----------|------------|---------|--------|---------|-----|
+| 0 — Toolchain & Languages | 19 | 19 | ~30 | 2 | — | 5 | — | 🚢 **P00** | — |
+| 1 — Godot + Android Eng. | 63 | 63 | ~126 | 7 | 4 | 6 | 1 | 🚢 **P01** | ⏱️ MJ1 |
+| 2 — Blender I | 35 | 35 | ~70 | 6 | 2 | 7 | 1 | 🚢 **P02** | — |
+| 3 — Characters I | 30 | 30 | ~60 | 6 | 3 | 3 | 1 | 🚢 **P03** | ⏱️ MJ2 |
+| 4 — Worlds & Performance | 29 | 29 | ~58 | 6 | 5 | 5 | 1 | 🚢 **P04** | — |
+| 5 — Shaders & VFX | 30 | 30 | ~60 | 6 | 1 | 4 | 1 | 🚢 **P05** | ⏱️ MJ3 |
+| 6 — Audio, Narration & Feel | 23 | 23 | ~46 | 4 | 6 | 2 | 1 | 🚢 **P06** | — |
+| 7 — Story & Cinematics | 32 | 32 | ~64 | 6 | 5 | 5 | 1 | 🚢 **P07** | ⏱️ MJ4 |
+| 8 — Characters II | 20 | 20 | ~40 | 4 | 1 | 4 | — | 🚢 **P08** | — |
+| 9 — Architecture & C++ | 28 | 28 | ~56 | 3 | 2 | 7 | 1 | 🚢 **P09** | — |
+| 10 — Capstone | 32 | 32 | ~54 | 2 | 2 | 3 | — | 🚢 **P10** | — |
+| 11 — Beyond | 7 | 7 | ~14 | — | — | 1 | — | — | — |
+| **Total** | **348** | **348** | **~690** | **52** | **31** | **~45** | **8** | **11** | **4** |
 
 ---
 

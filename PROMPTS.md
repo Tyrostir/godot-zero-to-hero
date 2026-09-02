@@ -489,3 +489,31 @@ Its concrete expression is **[ADR-032](docs/meta/Decisions.md#adr-032)** — "ev
 **New:** `docs/meta/ReviewTriage.md` (full point-by-point triage).
 **Fixed:** `docs/Practicals.md` (counts table) · `docs/guides/Setup_05_Git_And_FirstDeploy.md` and `docs/TableOfContents.md` 4.13 (Mobile-first).
 **Logged:** `docs/meta/Doubts.md` ([D-010](docs/meta/Doubts.md#d-010)) · `docs/meta/DecisionsLog.md` (two entries, including the author's own failure mode).
+
+---
+
+## PROMPT#11
+
+**Date:** 2026-09-02 · **Session:** 002
+
+### Prompt (verbatim — answers to three questions)
+
+```text
+Presentation spine:  Scale it per project
+Capstone scope:      I don't understand this question. Please explain in detail and ask me again.
+Execution:           Do the full restructure now
+```
+
+### Response
+
+Executed the full restructure on the two settled answers, and left the capstone untouched pending an explanation — the question used "vertical slice" without defining it, which was my failure of phrasing, not a failure of theirs.
+
+**Applied:** ADR-033 scaffolding gradient (90/10 → 10/90, declared per chapter, 8 ⬜ blank-page builds) · ADR-034 Android runtime engineering as Module 1 block 1J with the chaos test as a done-criterion · ADR-032 revised to three priority tiers, removing 14 chapters · C++ relocated from Module 0 to Module 9 beside the measured rewrite · early engineering practice (debugging, git branching and bisect, tiny CI, first test, first playtest) moved into Module 1 · release depth and ANR monitoring added to Module 10 · a micro-C# track scoped to C#-specific material · presentation scaled per the learner's decision · chapter template gains Scaffolding, Observe, **Diagnose-before-theory** and Reflection.
+
+**Reported honestly rather than quietly adjusted:** my own estimate in `ReviewTriage.md` said the restructure would land at 315–325 chapters. **It lands at 348.** I under-counted additions — 31 added against 14 removed. That is the same coverage-over-capability bias the review diagnosed, showing up one more time in my own arithmetic, so it is recorded in both `ReviewTriage.md` and `DecisionsLog.md` rather than smoothed over.
+
+**New hazard flagged, not silently fixed:** Module 1 is now 63 chapters — nearly a fifth of the course. It should probably be split, but renumbering modules 2–11 touches ~100 cross-references, so it is [T-024](docs/meta/ToDos.md) awaiting a decision.
+
+### Artefacts changed
+
+`docs/TableOfContents.md` (C++ relocated · 1J Android block · early engineering practice · 8 blank-page builds · 14 L3 demotions · presentation scaling) · `docs/meta/Decisions.md` (ADR-033, ADR-034, ADR-032 revised) · `docs/chapters/README.md` (template: Scaffolding, Observe, Diagnose, Reflection) · `docs/meta/CourseState.md` (regenerated, 348) · `docs/meta/ReviewTriage.md` (estimate corrected) · `docs/PLAN.md` (§3c-3, §3c-4) · `docs/Practicals.md` · `docs/meta/CompactContext.md` · `docs/internal/CLAUDE-MEMORY.md` · `docs/meta/ToDos.md` (T-024, T-025) · `README.md`.

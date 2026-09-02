@@ -6,7 +6,7 @@
 
 This is not a book you read and then start. From Module 0 you have a `.apk` running on your own phone, and every chapter after that adds a real feature to a real game.
 
-> 🏋️ **333 chapter builds · ~660 chapter practicals · 44 standalone drills · 34 presentation deliverables · 63 library adoptions · 11 projects · 4 mini-jams.**
+> 🏋️ **348 chapter builds · ~690 chapter practicals · 44 standalone drills · 8 ⬜ blank-page builds · 11 projects · 4 mini-jams.**
 > **Four languages** — C# (primary), GDScript, C++/GDExtension and GDShader — each taught where it earns its place.
 > **Chapters that begin with theory: 0.** That is enforced, not aspirational — see [ADR-002](docs/meta/Decisions.md#adr-002) and the audit in [docs/Practicals.md](docs/Practicals.md).
 
@@ -56,6 +56,7 @@ godot-zero-to-hero/
 │   ├── PresentationSpine.md        story, screens, music, narration — per project
 │   ├── Toolchain.md                every free library/addon, and where we adopt it
 │   ├── Languages.md                C#, GDScript, C++, GDShader — which job goes to which
+│   ├── meta/ReviewTriage.md        external review, triaged point by point
 │   ├── Exercises.md                standalone drills, challenges, autopsies
 │   ├── GameDesignDocument.md       the capstone GDD (filled in during Module 7)
 │   │
@@ -103,6 +104,20 @@ Every chapter has the same shape, and it is enforced by [the mandatory template]
 ```
 
 **Theory is a debrief, never a gate.** And every major topic is met three times — naive, then correct, then professional — never all three at once.
+
+### Help is removed on a schedule
+
+Every chapter declares how much of it is guided ([ADR-033](docs/meta/Decisions.md#adr-033)):
+
+| Modules | Guided / Independent |
+|---|---|
+| 0–1 | 90 / 10 |
+| 2–4 | 70 / 30 |
+| 5–7 | 50 / 50 |
+| 8–9 | 30 / 70 |
+| 10 | **10 / 90** |
+
+Every major subsystem ends with a **⬜ blank-page build**: *requirements only — no steps, no reference implementation, no code.* The measure of success is not "I completed 348 chapters"; it is **"given a real requirement, I can design → implement → debug → test → profile → validate on Android → ship it."**
 
 ### Build it once, then adopt the library
 

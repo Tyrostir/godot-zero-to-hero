@@ -112,7 +112,13 @@ Contrary to expectation, acting on this review should make the course **smaller*
 | §22/37 blank-page builds and the scaffolding gradient | **+0** — these are *structural*, applied inside existing chapters |
 | §14 micro-C# track, threaded | **+4** |
 
-**Estimated net: roughly 315–325 chapters, with a materially better shape.** The gain is not the count — it is that ~40 tool-tour chapters become ~30 chapters of Android engineering, measurement, debugging and independent building.
+**Estimated net: roughly 315–325 chapters.**
+
+> ⚠️ **Correction, after actually applying it: the real figure is 348, not 315–325.** My estimate was wrong, and in the direction that flatters me — I under-counted the additions (the Android block alone is 10 chapters, early engineering practice 8, blank-page builds 8, micro-C# 2, release depth 3 = **31 added** against **14 removed**). Recording this rather than quietly adjusting the target, because it is the same coverage-over-capability bias the review diagnosed, showing up one more time.
+>
+> **What actually improved is the shape, not the size:** ~14 tool-tour chapters became 10 chapters of Android runtime engineering, 8 of debugging/git/CI/testing/playtesting moved early, and **8 blank-page builds where there were previously none**. That is worth the 15 extra chapters. But it is not the reduction I claimed, and the scope question the review raised remains open.
+>
+> ⚠️ **Known imbalance:** Module 1 is now **63 chapters** — nearly a fifth of the course in one module. It is internally structured into blocks 1A–1J and P01 ships at the end, but it should probably be split. Flagged as [T-024](ToDos.md).
 
 ---
 

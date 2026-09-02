@@ -414,3 +414,33 @@ Its concrete expression is **[ADR-032](Decisions.md#adr-032)** — "every catalo
 **Full triage:** [`ReviewTriage.md`](ReviewTriage.md). Two items returned to the learner as ⏸️ because they contradict emphatic prior instructions: presentation-spine scope ([ADR-026](Decisions.md#adr-026)) and capstone size ([ADR-019](Decisions.md#adr-019)).
 
 ---
+
+### 🆕 DECIDED — ADR-033 (scaffolding gradient) · ADR-034 (Android runtime) · 🔄 REVISED — ADR-032
+
+**Context.** The learner approved the full restructure from [`ReviewTriage.md`](ReviewTriage.md), plus per-project scaling of the presentation spine.
+
+**ADR-033 — the scaffolding gradient.** Help is removed on a declared schedule: 90/10 guided in Modules 0–1, through to 10/90 at the capstone. Every chapter declares its split in front matter. Eight **⬜ blank-page builds** added — requirements only, no steps, no reference implementation, no code.
+
+*Why this is the load-bearing change.* Before it, every one of 333 chapters was guided and the four mini-jams were the **only** unscaffolded work in the course. A course premised on learning by doing had no gradient toward doing it alone. *Why a declared percentage:* same reasoning as [ADR-002](Decisions.md#adr-002)'s thresholds — under pressure the instinct is always to give more help, and a number makes drift visible.
+
+**ADR-034 — Android runtime engineering.** Module 1 block **1J** (1.40–1.49). Placed *before* P01 ships, so the first released game already survives it; deferring it to release week would let every earlier project accumulate lifecycle bugs whose fixes become architectural. The **chaos test** becomes a done-criterion on every project.
+
+**ADR-032 revised.** From *"every catalogued library gets a chapter"* to a three-tier scheme — L1 chapter, L2 clustered chapter, **L3 awareness mention only**. Fourteen chapters removed (Kitsu, MemoryPack/MessagePack, Serilog, Ardour, Blender GIS, Sverchok, Animation Nodes, HTerrain/Voxel Tools, Sky3D, Panku, Inkscape/Krita, Blender VSE, Chickensoft Collections, plus presentation merges). The original wording optimised for **coverage** when the goal is **capability**.
+
+**C++ relocated.** Chapters 0.13–0.15 moved from Module 0 to Module 9 (9.1c–9.1c3), beside the measured rewrite. The measure-it-yourself pedagogy survives for GDScript vs C# in Module 0; the afternoon of `godot-cpp` and SCons moves to where a profiler has given it a reason.
+
+**Presentation scaled** per the learner's decision: passes merged or marked 🔬 optional (3.12 into 3.11, 1.38 into 1.35, 5.22 and 8.2 optional).
+
+---
+
+### 🔍 VERIFIED — my chapter-count estimate was wrong, in the flattering direction
+
+[`ReviewTriage.md` §6](ReviewTriage.md) predicted the restructure would land at **315–325 chapters**. Applied, it lands at **348**.
+
+I under-counted the additions: Android block 10 · early engineering practice 8 · blank-page builds 8 · micro-C# 2 · release depth 3 = **31 added** against **14 removed**.
+
+**This is recorded rather than quietly corrected because it is the same bias the review diagnosed, appearing one more time** — optimising for coverage and then estimating optimistically about it. What genuinely improved is the *shape*: ~14 tool-tour chapters became 10 of Android runtime engineering, 8 of debugging/git/CI/testing/playtesting moved early, and **8 blank-page builds where there were none**. Worth the 15 extra chapters — but it is not the reduction that was claimed, and **the scope question the review raised remains open.**
+
+**New hazard.** Module 1 is now **63 chapters**, nearly a fifth of the course. Blocks 1A–1J keep it navigable and P01 ships at the end, but it should probably be split. Recorded as [T-024](ToDos.md); not done unilaterally because renumbering modules 2–11 touches ~100 cross-references.
+
+---

@@ -38,23 +38,23 @@ Every chapter ends with `[X]` and `[Q]`; they are only listed separately below w
 - **0.9 [A]** Reading errors: the Godot output panel, the debugger, and `adb logcat`
 
 **0B — The four languages you will write** 🐣🚶🏃
-> You will write **GDScript**, **C#**, **C++** and **GDShader** in this course ([ADR-001](meta/Decisions.md#adr-001), [ADR-031](meta/Decisions.md#adr-031)). This block is where you meet the first three, by building the *same cube* in each and **measuring the difference yourself**. Full curriculum: [Languages.md](Languages.md).
+> You will write **GDScript**, **C#**, **C++** and **GDShader** in this course ([ADR-001](meta/Decisions.md#adr-001), [ADR-031](meta/Decisions.md#adr-031)). Here you meet the two you will use immediately, by building the *same cube* in each and **measuring the difference yourself**, plus a first taste of GDShader.
+>
+> 📌 **C++/GDExtension deliberately does not appear here.** Setting up `godot-cpp` and per-ABI Android builds is an afternoon of toolchain work with no motivation behind it yet, and putting it at chapter 13 of 340 is a good way to stall. It arrives in **Module 9** ([9.1c–9.1g](#module-9--architecture-c-performance--tooling)) at the moment a profiler gives you a reason. Full curriculum: [Languages.md](Languages.md).
 
 - **0.10 [A]** **GDScript first contact** — the same spinning cube, in six lines, with no build step. Why it exists and what it is genuinely best at
 - **0.11 [A]** **C# first contact** — the same cube again, and the build step it costs you. `partial`, the class-name rule, and `[Export]`
 - **0.12 [A]** ⭐ **Measured: two languages, one cube** — build time, APK size, lines of code, and iteration speed. Record the numbers; you will use them for the next 300 chapters
-- **0.13 [A]** **C++ / GDExtension first contact** — `godot-cpp`, SCons, and a native node that both GDScript and C# can see in the node menu
-- **0.14 [A]** **Compiling it for Android** — per-ABI builds (`arm64-v8a`, `armeabi-v7a`), the `.gdextension` file, and your native node running on the phone
-- **0.15 [A]** ⭐ **The same cube, three ways** — the full comparison, on your own hardware. **You derive the polyglot heuristic; you are not handed it**
-- **0.16 [A]** **GDShader — the fourth language** — why it is not like the other three, where it runs, and a one-line fragment shader on your cube
-- **0.17 [A]** **The language decision table** — which job goes to which language, written by you from your own measurements, and used for the rest of the course
+- **0.13 [A]** **GDShader — the fourth language** — why it is not like the other three, where it runs, and a one-line fragment shader on your cube
+- **0.14 [A]** **The language decision table** — which job goes to which language, written by you from your own measurements. C++ is a placeholder row you will fill in **Module 9**, once you have a measured reason to care
 
 **0C — Dependencies and the dev loop**
-- **0.18 [A]** The Asset Library, and **how to evaluate a dependency** — licence, maintenance, language viability, mobile cost, abandonment risk, and "could I write this in a day?"
-- **0.19 [A]** **NuGet** — the entire .NET package ecosystem, which GDScript users do not have. And why every package ships inside your APK
-- **0.20 [A]** 🧰 **Godot Git Plugin**, **GodotEnv** and the dev-loop tools you will use daily
+- **0.15 [A]** The Asset Library, and **how to evaluate a dependency** — licence, maintenance, language viability, mobile cost, abandonment risk, and "could I write this in a day?"
+- **0.16 [A]** **NuGet** — the entire .NET package ecosystem, which GDScript users do not have. And why every package ships inside your APK
+- **0.17 [A]** 🧰 **Godot Git Plugin**, **GodotEnv** and the dev-loop tools you will use daily
+- **0.18 [A]** ⭐ **The version matrix** — pinning Godot, .NET, JDK, Android SDK/NDK, build-tools, Blender and every addon in `ENGINE_VERSION.md`. **"Latest" is not a version**, and a build you cannot reproduce in six months is not a release
 
-- **0.21 [Q]** Module 0 self-check
+- **0.19 [Q]** Module 0 self-check
 
 ---
 
@@ -67,6 +67,7 @@ Every chapter ends with `[X]` and `[Q]`; they are only listed separately below w
 - **1.2 [A]** Scenes, instancing, and scene inheritance — Godot's answer to prefabs
 - **1.3 [A]** The scene tree, the main loop, and the order things happen in
 - **1.4 [A]** Your first real C# script: `_Ready`, `_Process`, `_PhysicsProcess`, and what `delta` actually is
+- **1.4b [A]** **The C# you have not met** — properties, `partial`, attributes, `[Export]`, and why a game engine wants all three. *(Micro-track: C#-specific things a C/C++ programmer has not seen — never variables and loops)*
 - **1.5 [A]** `[Export]`, the inspector, and why designers should never edit code
 - **1.6 [A]** Nodes vs Resources — the distinction that confuses everyone once
 
@@ -78,7 +79,7 @@ Every chapter ends with `[X]` and `[Q]`; they are only listed separately below w
 
 **1C — Physics**
 - **1.11 [A]** The four body types: `StaticBody3D`, `RigidBody3D`, `CharacterBody3D`, `Area3D`
-- **1.11b [A]** 🧰 **Debug Draw 3D** — you cannot learn physics you cannot see. Rays, shapes and text drawn at runtime
+- **1.11b [A]** 🧰 **Debug Draw 3D** and **Panku Console** — you cannot learn physics you cannot see. Runtime shapes, rays and text, plus an in-game console. Also your **first taste of consuming a GDScript addon from C#**
 - **1.12 [A]** Collision shapes, layers, masks — and how to think about layer design
 - **1.13 [A]** Making the marble roll: forces, impulses, torque, damping, physics materials
 - **1.13b [A]** 🧰 **Jolt physics** — choosing a solver, and measuring the difference on your own scene
@@ -102,6 +103,7 @@ Every chapter ends with `[X]` and `[Q]`; they are only listed separately below w
 
 **1F — Talking between objects**
 - **1.25 [A]** Signals in C#: connecting, emitting, custom signals, `[Signal]` delegates
+- **1.25b [A]** **The C# you have not met, II** — delegates, events, and how they map onto Godot's signals
 - **1.26 [A]** Groups, `CallDeferred`, and node lookup patterns that survive refactors
 - **1.27 [A]** Autoloads (singletons): the right and wrong things to put in them
 
@@ -112,21 +114,39 @@ Every chapter ends with `[X]` and `[Q]`; they are only listed separately below w
 - **1.31 [A]** A HUD: timer, collectible counter, pause menu
 
 **1H — Beyond one scene**
-- **1.31b [A]** 🧰 **Panku Console** — an in-game debug console, and a first taste of consuming a GDScript addon from C#
 - **1.32 [A]** Changing scenes, preloading, and a loading screen that isn't a lie
+- **1.32b [A]** ⭐ **Your first test** — `save → load` round-trips, and `100 HP − 25 damage = 75`. Three assertions, no framework ceremony. **Testing starts here, not in Module 9**
 - **1.33 [A]** Saving to `user://`: JSON, `FileAccess`, and where that file lives on Android
 - **1.33b [A]** 🧰 **System.Text.Json** — your first shipped NuGet package, and what it added to the APK
 - **1.34 [A]** Level select, best times, and persistent state
+- **1.34b [A]** ⭐ **Debugging, properly** — breakpoints, conditional breakpoints, watch expressions, call stacks, and **remote debugging on the device**. Then the discipline: *never change five things at once*
+- **1.34c [A]** **Binary-search debugging and `git bisect`** — plant a bug, commit it, and let bisect find it for you
+- **1.34d [A]** **Git beyond `commit`** — feature branches, merges, tags, `revert`, `cherry-pick`, and when each is the right tool
+- **1.34e [A]** ⭐ **A tiny CI pipeline** — push → build → test. Ten lines of YAML now; it grows into the release pipeline in 10.17
+- **1.34f [A]** ⭐ **Your first playtest** — hand the APK to one person, say nothing, watch. Record every moment of confusion. **Playtesting starts here, not in Module 10**
 
 **1I — Presentation: the first screen, the last screen, and sound** 🐣🚶🏃
-- **1.35 [A]** Your **first-page animation**: a title screen built with `Tween` and `AnimationPlayer` — pass 1, naive
+- **1.35 [A]** ⭐ Your **first-page animation**: a title screen built with `Tween` and `AnimationPlayer` — pass 1, naive. Includes the **one-line premise on the card**, and how it changes the way the level reads
 - **1.36 [A]** Your **end-page animation**: a results screen that reports the run and pays it off
 - **1.37 [A]** One music loop and three sounds — the minimum audio that stops a game feeling like a prototype
-- **1.38 [A]** Telling the story in one line: a premise on the title card, and how it changes the way the level reads
 
-- **1.39 [P] Project 01 ship** — Marble Runner v1.0 on your phone: 3 levels, times saved, **title screen, end screen and music**
-- **1.40 [J] Mini-Jam 1** — 3 hours: a game whose only verb is *falling*
-- **1.41 [Q]** Module 1 self-check (28 questions)
+**1J — Android runtime engineering** 🐣🚶🏃
+> 📱 **The block the plan was missing.** A game that renders correctly is not an Android game. An Android game survives being interrupted, backgrounded, killed and resumed — on hardware you did not choose. **P01 does not ship until it survives this block.**
+
+- **1.40 [A]** **The Android activity lifecycle** — pause, resume, background, foreground, and what Godot does at each: `NOTIFICATION_APPLICATION_PAUSED`, `WM_CLOSE_REQUEST`, focus loss
+- **1.41 [A]** **Interruptions** — an incoming call, a notification, the screen locking, the user switching apps. Auto-pause, audio ducking, and never losing input state
+- **1.42 [A]** **Process death and resume** — Android kills backgrounded apps. Saving on pause, restoring on launch, and testing it with `adb shell am kill`
+- **1.43 [A]** ⭐ **The Android chaos test** — home · reopen · lock · unlock · rotate · simulate a call · task-switch · **kill the process** · reopen · load save. Find every lifecycle failure and fix it. **A done-criterion on every project from here on**
+- **1.44 [A]** **Input beyond touch** — the back gesture and back button, gesture-navigation vs three-button modes, gesture interruption, multi-touch cancellation, physical keyboards and **gamepads**
+- **1.45 [A]** **Screens you did not design for** — aspect ratios from 4:3 to 21:9, notches and cutouts, refresh rates from 60 to 144 Hz, and why `Engine.MaxFps` is not the whole story
+- **1.46 [A]** ⭐ **The device tier matrix** — Low / Mid / High, with a target framerate for each. Your release is validated against the matrix, not against your own phone
+- **1.47 [A]** ⭐ **Performance budgets, explicitly** — 60 fps = 16.67 ms, broken down across CPU, GPU, draw calls, triangles, textures, memory, particles, lights, shadows, load time and package size. **Every budget is measured, never assumed**
+- **1.48 [A]** **Profile-first optimisation, from now on** — measure → identify the bottleneck → change **one** thing → measure again. The habit that replaces guessing
+- **1.49 [X]** ⬜ **Blank-page build** — add touch controls, safe-area handling and lifecycle survival to a *new* scene, from requirements only. No instructions
+
+- **1.50 [P] Project 01 ship** — Marble Runner v1.0 on your phone: 3 levels, times saved, **title screen, end screen and music**, and it **survives the chaos test**
+- **1.51 [J] Mini-Jam 1** — 3 hours: a game whose only verb is *falling*
+- **1.52 [Q]** Module 1 self-check (28 questions)
 
 ---
 
@@ -162,7 +182,7 @@ Every chapter ends with `[X]` and `[Q]`; they are only listed separately below w
 - **B15 [B]** Texturing without paid software: Blender texture paint, Material Maker, Krita, ambientCG
 - **B15b [B]** 🧰 **The CC0 asset browsers** — Poly Haven, ambientCG and BlenderKit addons, inside Blender, with the licence check that must accompany each
 - **B15c [B]** 🧰 **Material Maker** — procedural PBR authoring that exports Godot shaders directly. Your free Substance Designer
-- **B15d [B]** 🧰 **The free 2D toolchain** — Krita for hand-painting, GIMP for map surgery, Inkscape for icons and logos
+- **B15d [B]** 🧰 **The free 2D toolchain** — Krita for hand-painting and concept art, GIMP for map surgery, Inkscape for icons and logos. Used again for the game's logo in Module 7
 - **B16 [B]** Baking: high-poly → low-poly normal maps, AO, curvature, ID masks
 
 **2D — Getting it into the game**
@@ -174,6 +194,8 @@ Every chapter ends with `[X]` and `[Q]`; they are only listed separately below w
 - **2.21 [A]** `MeshLibrary` and `GridMap`: turning your kit into a level-building tool
 
 - **2.22 [B]** **Environmental storytelling in a prop**: making a crate imply a place, a history and an owner
+
+- **2.22b [X]** ⬜ **Blank-page build** — model, unwrap, texture and export a *new* prop to spec, transforms applied, correct pivot, under budget. Requirements only
 
 - **2.23 [P] Project 02 ship** — the Foundry Kit, in-engine, replacing Marble Runner's grey boxes
 - **2.24 [Q]** Module 2 self-check
@@ -218,8 +240,9 @@ Every chapter ends with `[X]` and `[Q]`; they are only listed separately below w
 - **3.10 [X]** Add a dodge-roll state with i-frames, from scratch
 
 **3E — Presentation: the character carries the story**
-- **3.11 [A]** Character identity without words: what an idle pose, a silhouette and a walk cycle say about who this is
-- **3.12 [A]** **First-page animation, pass 2** — a title screen with a live 3D character idling in it
+- **3.11 [A]** Character identity without words: what an idle pose, a silhouette and a walk cycle say about who this is — then 🔬 **optional: put that character on the title screen, idling** (first-page animation, pass 2)
+
+- **3.12b [X]** ⬜ **Blank-page build** — give a *different* rigged character a working locomotion state machine. No walkthrough
 
 - **3.13 [P] Project 03 ship** — playground with slopes, stairs, gaps, ledges; character handles all
 - **3.14 [J] Mini-Jam 2** — 4 hours: a one-room game about reaching a high ledge
@@ -234,12 +257,10 @@ Every chapter ends with `[X]` and `[Q]`; they are only listed separately below w
 **4A — Design**
 - **4.1 [A]** Level design theory: the critical path, landmarks, affordance, gating, pacing
 - **4.2 [A]** Sketching a level on paper, then greyboxing it with CSG nodes
-- **4.2b [A]** 🧰 **A.N.T. Landscape**, **Sapling Tree Gen** and **Cell Fracture** — Blender's procedural generators, used on real level content
-- **4.2c [A]** 🧰 🔬 **Blender GIS** — real-world terrain and satellite imagery as reference
+- **4.2b [A]** 🧰 **A.N.T. Landscape**, **Sapling Tree Gen** and **Cell Fracture** — Blender's procedural generators, used on real level content. *(Blender GIS mentioned in passing: 🔎 awareness only)*
 - **4.3 [A]** Metrics: deriving jump distance, step height and door width from your character
 - **4.4 [A]** Replacing greybox with the Foundry Kit via `GridMap`
-- **4.4b [A]** 🧰 **Terrain3D** — a sculptable, LOD-aware terrain system, and what it costs on a phone
-- **4.4c [A]** 🧰 **HTerrain** and **Zylann Voxel Tools** — the alternatives to Terrain3D, and the cases where each one wins
+- **4.4b [A]** 🧰 **Terrain3D** — a sculptable, LOD-aware terrain system, and what it costs on a phone. Compared against **HTerrain** and **Zylann Voxel Tools** in the same chapter
 - **4.5 [X]** Design and greybox a second level to a written brief
 
 **4B — Light**
@@ -249,10 +270,9 @@ Every chapter ends with `[X]` and `[Q]`; they are only listed separately below w
 - **4.9 [A]** Baking lightmaps: UV2, lightmap size, bake settings, common bake artefacts
 - **4.9b [A]** 🧰 **A `@tool` level validator in GDScript** — checks lightmap UVs, missing collisions and over-budget meshes, in the editor, every time you save
 - **4.10 [A]** `ReflectionProbe`, and fake reflections that cost nothing
-- **4.11 [A]** `WorldEnvironment`: sky, ambient, fog, tonemapping, glow, SSAO — priced individually for mobile
+- **4.11 [A]** `WorldEnvironment`: sky, ambient, fog, tonemapping, glow, SSAO — priced individually for mobile. 🧰 **Sky3D** adopted here for a day/night cycle
 
 **4C — Speed**
-- **4.11b [A]** 🧰 🔬 **Sky3D** — dynamic sky and a day/night cycle
 - **4.12 [A]** The mobile GPU in your pocket: tile-based rendering, bandwidth, overdraw, thermal throttling
 - **4.13 [A]** Forward+ vs Mobile vs Compatibility renderers — **you have been on Mobile since chapter 0.8**; this chapter prices what the other two would have cost you, and when each is right. A comparison, not a migration
 - **4.14 [A]** Texture compression: ETC2, ASTC, mipmaps, and import settings that matter
@@ -266,7 +286,9 @@ Every chapter ends with `[X]` and `[Q]`; they are only listed separately below w
 - **4.19 [A]** **Environmental storytelling in a level** — the landmark as a story beat, and what the ruins imply
 - **4.20 [A]** The **level flythrough**: an in-engine `Path3D` camera move, used as the menu backdrop
 - **4.21 [A]** **The walkthrough, designed in** — teaching the player without a tutorial prompt: sightlines, affordance, and the critical path as narration
-- **4.22 [A]** Ambience: the sound of a place, and why silence reads as "unfinished"
+- **4.22 [A]** ⭐ Ambience: the sound of a place, and why silence reads as "unfinished"
+
+- **4.22b [X]** ⬜ **Blank-page build** — light and optimise a room you did not design, to a written framerate budget, on device
 
 - **4.23 [P] Project 04 ship** — Level 1, art-passed, lit and **ambient**, 60fps measured on device
 - **4.24 [Q]** Module 4 self-check
@@ -306,7 +328,9 @@ Every chapter ends with `[X]` and `[Q]`; they are only listed separately below w
 - **5.20b [A]** 🧰 **OBS Studio** and **scrcpy** — capturing your phone's screen and your desktop, for playtests and trailers
 - **5.21 [X]** Author an impact effect: particles + decal + shader + screen effect, under 0.5ms
 
-- **5.22 [A]** **First-page animation, pass 3** — a title screen driven by your own shaders: dissolve-in text, animated background
+- **5.22 [A]** 🔬 **Optional: first-page animation, pass 3** — a title screen driven by your own shaders: dissolve-in text, animated background
+
+- **5.22b [X]** ⬜ **Blank-page build** — write a shader to a written visual spec, with no reference implementation
 
 - **5.23 [P] Project 05 ship** — VFX Lab, plus impact FX wired into the Playground
 - **5.24 [J] Mini-Jam 3** — 3 hours: a scene where nothing moves except shaders
@@ -322,8 +346,7 @@ Every chapter ends with `[X]` and `[Q]`; they are only listed separately below w
 - **6.2 [A]** Audio buses, effects, ducking, and a master mix that respects phone speakers
 - **6.2b [A]** 🧰 **FMOD and Wwise** — what audio middleware is for, why studios use it, and the honest reasons we do not. Awareness only, no install
 - **6.3 [A]** Sourcing free audio legally: Freesound, Sonniss GDC bundles, Kenney, Pixabay, OpenGameArt
-- **6.4 [A]** Editing SFX in Audacity: trim, normalise, fade, pitch variation, loop points
-- **6.4b [A]** 🧰 **Ardour** — a full free DAW, for when Audacity runs out of road
+- **6.4 [A]** Editing SFX in Audacity: trim, normalise, fade, pitch variation, loop points. 🔎 **Ardour** named as the step up when Audacity runs out of road
 - **6.5 [A]** Footsteps that respond to surface material
 - **6.6 [A]** Adaptive music: loops, stingers, and layered intensity
 - **6.7 [A]** **Background music that doesn't wear out** — loop points, variation, dynamic range, and the courage to use silence
@@ -343,6 +366,8 @@ Every chapter ends with `[X]` and `[Q]`; they are only listed separately below w
 - **6.16 [A]** Game feel II — screenshake with a noise function (not random jitter), camera kick, hitstop
 - **6.17 [A]** Haptics on Android: `Input.VibrateHandheld`, and restraint
 - **6.18 [X]** A/B drill: record the level before and after the feel pass; write down what changed and why
+
+- **6.18b [X]** ⬜ **Blank-page build** — do a full audio and feel pass on a scene you have never touched
 
 - **6.19 [P] Project 06 ship** · **6.20 [Q]** Module 6 self-check
 
@@ -379,15 +404,15 @@ Every chapter ends with `[X]` and `[Q]`; they are only listed separately below w
 - **7.17 [A]** The **main menu animation** — an animated 3D menu scene, parallax, idle motion, **its own music theme**
 - **7.18 [A]** The **first-play opening** — a narrated cold open, title card, and the hand-off to gameplay
 - **7.19 [A]** **The guided walkthrough** — teaching the first five minutes with narration, camera and level, not a wall of text
-- **7.19b [A]** 🧰 **Inkscape** for the logo and UI iconography, **Krita** for concept art and key art
 - **7.20 [A]** Loading screens, scene transitions, and threaded loading
 - **7.21 [A]** The **ending-page animation** — narrated payoff, the last shot, and how to pace an outro
 - **7.22 [A]** A **credits roll** generated automatically from `reference/AssetLicenses.md`, over an end-credits theme
 - **7.23 [B]** Blender for cinematics: camera rigs, Cycles vs EEVEE, rendering a pre-rendered cutscene
-- **7.24 [B]** Blender compositing: the node editor, glare, colour grade, and rendering a trailer
+- **7.24 [B]** Blender compositing: the node editor, glare, colour grade, and cutting the trailer in the **Video Sequence Editor**
 
-- **7.24c [B]** 🧰 **Blender's Video Sequence Editor** — cutting the trailer inside Blender, with no extra software
 - **7.24b [B]** 🧰 **Colour management** — OpenColorIO, AgX and the ACES-adjacent practice studios use to keep renders consistent
+
+- **7.24d [X]** ⬜ **Blank-page build** — script, stage and shoot a 20-second cutscene from a one-line brief
 
 - **7.25 [P] Project 07 ship** — the full narrated slice, played end-to-end on device
 - **7.26 [J] Mini-Jam 4** — 4 hours: tell a complete story in 60 seconds with no words
@@ -416,7 +441,7 @@ Every chapter ends with `[X]` and `[Q]`; they are only listed separately below w
 - **B41b [B]** 🧰 **Cascadeur** — physics-assisted keyframe animation, on the attack and death clips
 - **B42 [B]** Export, and retargeting onto the Module 3 controller
 - **8.1 [A]** In-engine setup: materials, LODs, attachment points, ragdoll basics
-- **8.2 [A]** **Vocal identity** — the Warden's barks, efforts and grunts, recorded and processed by you
+- **8.2 [A]** 🔬 **Optional: vocal identity** — the Warden's barks, efforts and grunts, recorded and processed by you
 - **8.3 [P] Project 08 ship** · **8.4 [Q]** Module 8 self-check
 
 ---
@@ -427,8 +452,13 @@ Every chapter ends with `[X]` and `[Q]`; they are only listed separately below w
 - **9.1 [A]** C# in Godot: the marshalling boundary, and what crossing it costs
 - **9.1b [A]** **Polyglot architecture** — adding GDScript and C++ to a C# project: where the boundary goes, what crossing it costs per frame, and why you compose across languages rather than inherit
 **9A2 — Going native: C++ where it is earned**
-- **9.1c [A]** ⭐ **Writing a real GDExtension** — a C++ node with exported properties and signals, visible to **both** GDScript and C# in the node menu
-- **9.1d [A]** **Shipping it** — per-ABI Android builds, the `.gdextension` file, debug vs release, and what it adds to your APK
+> 📌 **This is where C++ finally arrives**, relocated out of Module 0. You have now profiled a real game on a real phone, so "C++ is faster" stops being a slogan and becomes a hypothesis you can test.
+
+- **9.1c [A]** **C++ / GDExtension first contact** — `godot-cpp`, SCons, and a native node that both GDScript and C# can see in the node menu. Budget an afternoon for the toolchain
+- **9.1c2 [A]** **Compiling it for Android** — per-ABI builds (`arm64-v8a`, `armeabi-v7a`), the `.gdextension` file, and your native node running on the phone
+- **9.1c3 [A]** ⭐ **The same cube, three ways** — finally complete the Module 0 comparison with real numbers, and **fill in the C++ row of your own decision table**
+- **9.1d0 [A]** ⭐ **Writing a real GDExtension** — a C++ node with exported properties and signals, visible to **both** GDScript and C# in the node menu
+- **9.1d [A]** **Debug vs release native builds**, symbol stripping, and what the extension adds to your APK
 - **9.1e [A]** ⭐ **The measured rewrite** — take one profiled hot path from GDScript → C# → C++, benchmark each step **on the phone**, and decide where to stop. The chapter that makes "use C++ only after profiling" a fact rather than a slogan
 - **9.1f [A]** 🔬 Wrapping a native C++ library in a GDExtension, and the licence question that comes with it
 
@@ -441,16 +471,15 @@ Every chapter ends with `[X]` and `[Q]`; they are only listed separately below w
 - **9.6 [A]** An event bus, and when a signal is better than a reference
 - **9.7 [A]** A versioned save system with migration, and where saves live on Android
 - **9.6b [A]** **Wrapping a GDScript addon behind a C# interface** — one ugly file, and the rest of your codebase stays typed and testable
-- **9.7b [A]** 🧰 **Chickensoft.SaveFileBuilder** and **MemoryPack** — structured saves, and binary serialisation when JSON is too slow
-- **9.7c [A]** 🧰 **MemoryPack** and **MessagePack** — binary serialisation, benchmarked against JSON on real save data
+- **9.7b [A]** 🧰 **Chickensoft.SaveFileBuilder** — structured saves. 🔎 **MemoryPack / MessagePack** named as the binary options if JSON ever measures too slow
 - **9.8 [A]** A settings screen with real graphics tiers, auto-detected from device capability — **plus separate music / SFX / narration volume, and a subtitle toggle**
 - **9.9 [A]** Unit testing game logic: pure C# tests, and GdUnit4 for scene-level tests
 - **9.10 [A]** Editor tooling: `[Tool]` scripts, custom docks, and a level-validation button
 - **9.9b [A]** 🧰 **GdUnit4**, **Chickensoft.GodotNodeInterfaces** and **FluentAssertions** — making scene code genuinely unit-testable
 - **9.10b [A]** 🧰 **A GDScript editor plugin with a custom dock** — the asset-validation tool you will actually use daily
-- **9.10c [A]** 🧰 **Chickensoft.Collections**, **PowerUps** and the rest of the ecosystem
-- **9.11 [A]** Profiling on device, `adb logcat`, and building a repeatable performance test
-- **9.11b [A]** 🧰 **Serilog** — structured logging you can filter, instead of `GD.Print` everywhere
+- **9.11 [A]** Profiling on device, `adb logcat`, structured logging with **Serilog** instead of `GD.Print` everywhere, and a repeatable performance test
+- **9.11c [X]** ⬜ **Blank-page build** — take a deliberately broken project (leaks, draw-call storm, broken save) and **diagnose and repair it** with no hints. An autopsy, timed
+
 - **9.12 [P] Project 09 ship** · **9.13 [Q]** Module 9 self-check
 
 ---
@@ -462,8 +491,7 @@ Every chapter ends with `[X]` and `[Q]`; they are only listed separately below w
 - **10.1 [A]** Pre-production: scope, the one-page pitch, and the feature guillotine
 - **10.1b [A]** **The milestones industry actually uses** — pre-production, first playable, vertical slice, alpha, beta, content lock, gold — and what each one *means*
 - **10.2 [A]** The vertical slice, and using it to re-estimate everything
-- **10.3 [A]** A production schedule and a task board you'll actually maintain
-- **10.3b [A]** 🧰 **Kitsu** and the **Blender Kitsu** addon — open-source production tracking, as used in real studios
+- **10.3 [A]** A production schedule and a task board you'll actually maintain. 🔎 **Kitsu** and **Blender Kitsu** named as the open-source studio option
 - **10.4 [A]** Asset lists, naming, and a content pipeline that survives four levels
 
 **10B — Content**
@@ -487,6 +515,9 @@ Every chapter ends with `[X]` and `[Q]`; they are only listed separately below w
 - **10.17 [A]** CI: a GitHub Actions workflow that builds a signed APK on every tag
 - **10.18 [A]** **Trailer craft**: a 60-second script, the narration, the cut, and the shot you open on
 - **10.19 [A]** Capturing footage and screenshots (Godot, `scrcpy`, OBS, Blender compositing)
+- **10.19b [A]** ⭐ **Crash and ANR monitoring in the wild** — your released players will never send you `adb logcat`. Crash reporting, ANR traces, symbolication, device distribution, and tracking a fix across releases
+- **10.19c [A]** **Release engineering in depth** — `versionCode` vs `versionName`, debug vs release signing, **staged rollout and rollback**, the Play data-safety form, and permissions you must justify
+- **10.19d [A]** **Version upgrade discipline** — upgrade Godot → run the test suite → find the breaking changes → fix → re-release. Maintaining `ENGINE_VERSION.md`, and **reproducing a build from six months ago**
 - **10.20 [A]** **The player-facing walkthrough** — writing a guide to your own game, and what doing so reveals about its design
 - **10.21 [A]** itch.io release; Play Console internal testing; store listing; privacy policy
 - **10.22 [A]** Post-launch: crash reports, patching, and reading feedback without being destroyed by it
@@ -501,8 +532,7 @@ Every chapter ends with `[X]` and `[Q]`; they are only listed separately below w
 
 - **11.1 [A]** Multiplayer: the high-level multiplayer API, authority, and why mobile makes it hard
 - **11.2 [A]** Procedural generation: rooms, mazes, and seeded randomness
-- **11.3 [B]** Geometry Nodes at depth: scatter systems, procedural props, exporting the result
-- **11.3b [B]** 🧰 🔬 **Sverchok** and **Animation Nodes** — the older parametric node systems, and what Geometry Nodes replaced
+- **11.3 [B]** Geometry Nodes at depth: scatter systems, procedural props, exporting the result. 🔎 Sverchok and Animation Nodes named as what it replaced
 - **11.4 [A]** **GDExtension and native code** — writing a C++ module that both GDScript and C# can use, compiling it per Android ABI, and the profiling evidence that should precede all of it
 - **11.5 [A]** Porting: desktop, web, and what changes — including the platforms where **C# support lags GDScript**, and how to check before you promise one
 - **11.6 [A]** Turning the codebase into a reusable template for your next game

@@ -154,6 +154,30 @@ Godot genuinely uses four languages, and this course teaches all four — each s
 
 > 📎 Full curriculum: **[Languages.md](Languages.md)**.
 
+### 3c-3. Help is removed on a schedule
+
+A course built on learning by doing needs a **gradient toward doing it alone**, or it produces someone who can follow instructions. Every chapter declares its guided/independent split ([ADR-033](meta/Decisions.md#adr-033)):
+
+| Stage | Modules | Guided / Independent |
+|-------|---------|---------------------|
+| Early | 0–1 | **90 / 10** |
+| Intermediate | 2–4 | **70 / 30** |
+| Advanced | 5–7 | **50 / 50** |
+| Professional | 8–9 | **30 / 70** |
+| Capstone | 10 | **10 / 90** |
+
+Every major subsystem ends with a **⬜ blank-page build** — *requirements only, no steps, no reference implementation, no code*. There are eight, plus four mini-jams and the autopsies in [Exercises.md](Exercises.md). The progression per subsystem is **guided build → variation → ⬜ blank-page → jam → autopsy**.
+
+**This changes what "done" means for the whole course.** Not *"I completed 348 chapters"* but *"given a real requirement, I can design → implement → debug → test → profile → validate on Android → ship it."*
+
+### 3c-4. Android is a runtime, not just a build target
+
+**Module 1 block 1J** (1.40–1.49) covers what the plan previously missed entirely ([ADR-034](meta/Decisions.md#adr-034)): the activity lifecycle · interruptions · process death and resume · **the chaos test** · input beyond touch · screens you did not design for · **the device tier matrix** · **explicit performance budgets** · profile-first optimisation.
+
+**P01 does not ship until it survives the chaos test** — home · reopen · lock · unlock · rotate · simulate a call · task-switch · **kill the process** · reopen · load save. From there it is a done-criterion on every project.
+
+That is the difference between a game that renders correctly and a game that survives a phone call, and it sits *before* your first release rather than after it.
+
 ### 3d. What "industry grade" means here
 
 You said you want to reach **AAA / professional / industry grade**. Two of those three are what this course targets in full. One deserves an honest word ([ADR-030](meta/Decisions.md#adr-030)).
@@ -239,7 +263,7 @@ There is no calendar here — you set the pace. But for calibration:
 | 9 | 42–60 h | 456 h |
 | 10 | 72–140 h | 596 h |
 
-Roughly **540–620 hours** to a released game. At 10 h/week that is a year; at 20 h/week, six months. Both are normal. Track your actual hours in `meta/Journal.md` — after Module 2 you will be able to estimate your own speed, which is itself a professional skill.
+Roughly **560–650 hours** to a released game. At 10 h/week that is a year; at 20 h/week, six months. Both are normal. Track your actual hours in `meta/Journal.md` — after Module 2 you will be able to estimate your own speed, which is itself a professional skill.
 
 **Rhythm that works:** one chapter per session, ending on a green build and a commit. Never stop mid-chapter on a broken build — future-you will not remember what you were mid-thought about.
 
