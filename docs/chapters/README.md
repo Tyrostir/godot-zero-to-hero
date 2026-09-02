@@ -34,11 +34,13 @@ The course itself. Chapters are published in order and appear here as they are w
 | **0.16** | [NuGet](Chapter_00.16_NuGet.md) | A | 🐣🚶🏃 | 45–60 m | ✅ Published |
 | **0.17** 🧰 | [Dev-Loop Tools](Chapter_00.17_DevLoopTools.md) | A | 🐣🚶🏃 | 45–60 m | ✅ Published |
 | **0.18** ⭐ | [The Version Matrix](Chapter_00.18_TheVersionMatrix.md) | A | 🐣🚶🏃 | 45–60 m | ✅ Published |
+| **0.19** | [Module 0 Self-Check](Chapter_00.19_Module0SelfCheck.md) | **Q** | 🐣🚶🏃 | 60–90 m | ✅ Published |
 
-**18 / 359.** 🎉 **Block 0B complete** — all four languages written, and a decision table built from your own measurements.
+**19 / 359.** 🎉 **MODULE 0 COMPLETE** — toolchain, first APK, four languages, dependencies and a pinned build.
+ 🎉 **Block 0B complete** — all four languages written, and a decision table built from your own measurements.
  🎉 **Block 0A complete** — toolchain installed, an app on the phone, and the ability to read it when it breaks.
 
-Next: **0.19 — Module 0 self-check**.
+Next: **Module 1 — Godot Foundations**, and Project 01 *Marble Runner*.
 
 > 📏 **ADR-002 compliance** — measured against the instructional body ([ADR-002](../meta/Decisions.md#adr-002)):
 >
@@ -62,6 +64,7 @@ Next: **0.19 — Module 0 self-check**.
 > | 0.16 | 59.3% | 20.6% |
 > | 0.17 | 53.8% | 23.1% |
 > | 0.18 | 65.0% | 18.2% |
+> | 0.19 | *(assessment chapter — exempt)* | |
 
 > 📑 Full chapter list: **[`../TableOfContents.md`](../TableOfContents.md)**
 > 📍 Current progress: **[`../meta/CourseState.md`](../meta/CourseState.md)**
