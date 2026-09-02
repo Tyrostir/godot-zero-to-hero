@@ -14,11 +14,11 @@ The course itself. Chapters are published in order and appear here as they are w
 
 ## Published
 
-*None yet — Session 001 produced the plan and scaffolding. Chapter 0.1 begins once [`../PLAN.md`](../PLAN.md) is approved ([T-002](../meta/ToDos.md)).*
-
 | # | Chapter | Track | Paths | Time | Status |
 |---|---------|-------|-------|------|--------|
-| — | — | — | — | — | — |
+| **0.1** | [Machines and Their Roles](Chapter_00.01_MachinesAndTheirRoles.md) | A | 🐣🚶🏃 | 45–60 m | ✅ Published |
+
+**1 / 359.** Next: **0.2 — Installing Godot 4 (.NET build) and the .NET SDK**.
 
 > 📑 Full chapter list: **[`../TableOfContents.md`](../TableOfContents.md)**
 > 📍 Current progress: **[`../meta/CourseState.md`](../meta/CourseState.md)**
@@ -29,13 +29,14 @@ The course itself. Chapters are published in order and appear here as they are w
 ## Naming ([ADR-020](../meta/Decisions.md#adr-020))
 
 ```text
-ChapterNN_PascalCaseTitle.md
+Chapter_MM.NN_PascalCaseTitle.md
 ```
 
-`NN` is zero-padded and monotonically increasing across **both** tracks, so **reading order equals file order**. Blender chapters carry their `B`-number in the title, not the filename:
+`MM` is the module, `NN` the chapter, so **filenames sort in reading order** and carry the ID everyone cites. Variant chapters keep their suffix (`Chapter_01.34b_...`). Blender chapters carry their `B`-number in the title:
 
 ```text
-Chapter14_B05_BoxModellingTheCrate.md
+Chapter_00.01_MachinesAndTheirRoles.md
+Chapter_03.B05_BoxModellingTheCrate.md
 ```
 
 ---

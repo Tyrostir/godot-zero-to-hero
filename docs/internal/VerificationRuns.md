@@ -72,6 +72,7 @@ Each block is small, numbered `V-NN`, and asks for **exact, pasteable output** �
 | **V-04** | desktop | The exact text of the three deliberate failures in exercise C0.1 (missing keystore · missing export templates · invalid package name) | ⬜ Open |
 | **V-05** | desktop | Blender → Godot 2 m cube round-trip: does it arrive at exactly 2 units? | ⬜ Open |
 | **V-06** | phone | Godot's on-device performance monitor readings for P00 — frame time, draw calls, memory | ⬜ Open |
+| **V-07** | desktop + phone | **Chapter 0.1** — output of `uname -a`, `lscpu`, `free -h`, `df -h ~`, `lspci`, `vulkaninfo --summary`, `lsusb` (plugged and unplugged); the Termux `dotnet --version` failure text verbatim; and the phone's Settings → About phone fields | ⬜ Open |
 
 ---
 

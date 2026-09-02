@@ -24,9 +24,9 @@ update_trigger: "End of every working session, and after every chapter is publis
 | **Local path (authoring)** | `/root/claude/godot-zero-to-hero` (Termux) |
 | **Local path (building)** | ✅ **A Linux desktop** ([D-001](Doubts.md) resolved 2026-09-01) |
 | **Learner** | Tyrostir — path 🚶 **B, Self-Learner** (A and C authored in full, [ADR-024](Decisions.md#adr-024)) |
-| **Current phase** | **Phase 1 — planning and scaffolding** |
-| **Plan status** | ⏳ **Awaiting your approval** |
-| **Chapters published** | **0 / 359** |
+| **Current phase** | **Phase 3 — writing chapters** |
+| **Plan status** | ✅ **Approved** — chapter writing began 2026-09-02 |
+| **Chapters published** | **1 / 359** — [0.1 Machines and Their Roles](../chapters/Chapter_00.01_MachinesAndTheirRoles.md) |
 | **Setup guides published** | **5 / 5** — all carry `[UNVERIFIED]` markers, none run yet |
 | **Projects shipped** | **0 / 11** · public releases **0 / 4** |
 | **Blender chapters published** | **0 / 64** |
@@ -34,7 +34,7 @@ update_trigger: "End of every working session, and after every chapter is publis
 | **Blender installed?** | ❌ Not yet — [Setup 03](../guides/Setup_03_Blender.md) |
 | **Phone connected?** | ❌ Not yet — [Setup 04](../guides/Setup_04_Android_And_Device.md) |
 | **P00 on device?** | ❌ Not yet — the Module 0 milestone |
-| **Blocked on** | 🔴 **`PLAN.md` approval** ([T-002](ToDos.md)) — you asked to review it before any chapter is written |
+| **Blocked on** | Nothing. [D-003](Doubts.md) (phone specs) closes when you complete chapter 0.1 |
 | **Last session** | 2026-09-01 (Session 001) |
 
 ### Progress bar
@@ -63,8 +63,8 @@ OVERALL                                  [                    ]   0 %   (0/359)
 
 | Who | Action |
 |-----|--------|
-| 👤 **You — do next** | ⭐ **1. Review [`../PLAN.md`](../PLAN.md)** and come back with amendments — you asked for this before any chapter is written. Read §1 (philosophy), §1b (the three paths), §3 (the 11 projects) and §5 (honest constraints). 2. Skim [`../TableOfContents.md`](../TableOfContents.md) for anything missing or mis-sequenced. 3. Record your phone's specs ([D-003](Doubts.md)). |
-| 🤖 **Me — next turn** | ⏸️ **Holding for your plan review.** On your word: **Chapter 0.1**, written for all three paths, one chapter per turn. |
+| 👤 **You — do next** | ⭐ **Do [chapter 0.1](../chapters/Chapter_00.01_MachinesAndTheirRoles.md)** — audit both machines, create `Machines.md`, close [D-003](Doubts.md), commit. ~45–60 min. Then paste your command output into [`../../toAgent/`](../../toAgent/) to clear **V-07**. |
+| 🤖 **Me — next turn** | **Chapter 0.2 — Installing Godot 4 (.NET build) and the .NET SDK.** |
 
 ---
 
@@ -106,7 +106,7 @@ Tick as you go. `[ ]` not started · `[~]` in progress · `[x]` done · `[!]` do
 
 ### Module 0 — Toolchain, First APK & The Four Languages
 
-[ ] 0.1 · [ ] 0.2 · [ ] 0.3 · [ ] 0.4 · [ ] 0.5 · [ ] 0.6
+[x] 0.1 · [ ] 0.2 · [ ] 0.3 · [ ] 0.4 · [ ] 0.5 · [ ] 0.6
 [ ] 0.7 · [ ] 0.8 **ship** ⭐ · [ ] 0.9 · [ ] 0.10 · [ ] 0.11 · [ ] 0.12
 [ ] 0.13 · [ ] 0.14 · [ ] 0.15 · [ ] 0.16 · [ ] 0.17 · [ ] 0.18
 [ ] 0.19 self-check

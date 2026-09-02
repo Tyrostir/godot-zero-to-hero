@@ -584,3 +584,37 @@ The result is a **staged release model**: v1.0 after Level 1, then v1.1–v1.3 a
 ### Artefacts changed
 
 `docs/TableOfContents.md` (Module 11 rebuilt, 11A–11F) · `docs/meta/Decisions.md` (ADR-019 rewritten) · `docs/meta/DecisionsLog.md` · `docs/meta/Doubts.md` ([D-012](docs/meta/Doubts.md#d-012)) · `docs/meta/CourseState.md` (regenerated; four release milestones) · `docs/PLAN.md` (§3a-2, Module 11 syllabus, spine row) · `projects/README.md` (P10 brief and done-criteria) · `README.md` · `docs/meta/CompactContext.md` · `docs/internal/CLAUDE-MEMORY.md`.
+
+---
+
+## PROMPT#14
+
+**Date:** 2026-09-02 · **Session:** 002
+
+### Prompt (verbatim)
+
+```text
+start chapter 0.1
+```
+
+### Response
+
+Wrote and published **Chapter 0.1 — Machines and Their Roles**, the first chapter of 359. Phase 2 → Phase 3.
+
+**Design choices worth recording:**
+
+- **The Build produces something the repository actually needs.** Its deliverable is `docs/meta/Machines.md`, which closes **[D-003](docs/meta/Doubts.md#d-003)** — a blocker open since Session 001 that gates decisions in Modules 5, 6 and 11. A first chapter that does real work beats one that warms up.
+- **The Break-it is a single command** — `dotnet --version` in Termux — which *proves* the machine split rather than asserting it. The Diagnose block then converts that failure into a transferable skill: telling `command not found` from `permission denied` from a missing shared library.
+- **Observe asks for arithmetic, not agreement.** The learner computes their own desktop:phone ratios. A number they produced is what makes [ADR-010](docs/meta/Decisions.md#adr-010)'s mobile-first rule credible for the next 350 chapters.
+- Two Build steps were added that were genuinely missing: a **USB data-cable check** (charge-only cables are the commonest failure in 0.5, and testing costs a minute) and creating the inventory file as a real artefact.
+
+**The chapter failed my own mandate on first measurement, and I reported it rather than shipping quietly.** [ADR-002](docs/meta/Decisions.md#adr-002) requires Build ≥50%; measured against the whole file it was **23.9%**. Two things were wrong: the Build section was thin, *and* the denominator had never been defined — apparatus required by ADR-024 and ADR-033 (fast-track summary, cheat sheet, check-yourself, diagnose) is bulky enough that no chapter would ever reach 50% of a whole file.
+
+I fixed the **content first**, then defined the measure: the denominator is the **instructional body** only. Final: **62.2% doing, 21.2% theory.** Logged prominently in `DecisionsLog.md`, because defining a metric right after failing it is exactly the move that deserves suspicion — the order of operations is the defence, and a future session should check content before touching the measure.
+
+Also revised **[ADR-020](docs/meta/Decisions.md#adr-020)**: chapter filenames become `Chapter_MM.NN_Title.md`. A flat counter was specified when the course was 215 chapters; at 359 with IDs like `1.34b` it would need a lookup table to find anything.
+
+### Artefacts changed
+
+**New:** `docs/chapters/Chapter_00.01_MachinesAndTheirRoles.md`.
+**Updated:** `docs/meta/Decisions.md` (ADR-002 measurement defined, ADR-020 revised) · `docs/meta/DecisionsLog.md` · `docs/chapters/README.md` (index, naming) · `docs/meta/CourseState.md` (Phase 3, 1/359) · `docs/meta/ToDos.md` (T-013 done, T-026) · `docs/internal/VerificationRuns.md` (V-07).

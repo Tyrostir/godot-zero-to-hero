@@ -478,3 +478,48 @@ I under-counted the additions: Android block 10 · early engineering practice 8 
 **Consequences.** Module 11 restructured into 11A–11F. Module 11: 32 → 43 chapters. Course **348 → 359**. Pacing to ~580–670 h. New P10 done-criteria: a v1.0 save must load in v1.3, verified; and at least one hotfix shipped against a real crash report. `CourseState.md` milestones now track four public releases.
 
 ---
+
+## 2026-09-02 — Session 002 (Phase 3 begins)
+
+### 🔍 VERIFIED — writing chapter 0.1 exposed that ADR-002's ratios were unmeasurable
+
+**Context.** [ADR-002](Decisions.md#adr-002) has mandated *"Build ≥50%, theory ≤30%"* since Session 001. Chapter 0.1 is the first chapter actually written against it.
+
+**Finding: it failed — 23.9% Build.** And the failure was informative, because **two separate things were wrong**:
+
+1. **The Build section was genuinely thin.** It told the learner to fill in tables in an existing file. That is a real deliverable but a small one.
+2. **The denominator had never been specified.** Measured against the whole file, a chapter's apparatus — fast-track summary, cheat sheet, check-yourself, diagnose block, further reading, reflection — is substantial, and no amount of Build content would reach 50% without deleting the apparatus that [ADR-024](Decisions.md#adr-024) and [ADR-033](Decisions.md#adr-033) require.
+
+**Both were fixed, deliberately in that order.**
+
+- **Build strengthened first**, with two steps that were genuinely missing: a **USB data-cable verification** (charge-only cables are the single most common failure in chapter 0.5, and testing takes a minute), and **producing `docs/meta/Machines.md` as a real artefact** rather than editing someone else's table. The chapter's Goal promises a committed inventory exists at the end; now one does.
+- **Then the denominator was defined**: the **instructional body** only — Build · Run it · Observe · Why it works · Mental model · Break it · Diagnose. Apparatus is excluded.
+
+**Result: 62.2% doing, 21.2% theory. Passes.**
+
+> ⚠️ **Recorded prominently because defining a metric immediately after failing it is exactly the move that deserves suspicion.** The order matters and is the defence: the content was improved *first*, and the definition would have been needed regardless — every subsequent chapter would have hit the same wall. But a future session should treat "redefine the measure" as a last resort and check the content first, as was done here.
+
+---
+
+### 🔄 REVISED — ADR-020: chapter filenames carry the chapter ID
+
+`ChapterNN_PascalCaseTitle.md` (a flat counter) → **`Chapter_MM.NN_PascalCaseTitle.md`**.
+
+**Why.** The flat counter was specified when the course was 215 chapters in 12 modules. At 359 chapters with hierarchical IDs like `1.34b` and `9.1c3`, a flat counter would require a lookup table to find any chapter from its citation. Filenames now sort in reading order **and** carry the address that every other document cites.
+
+First file: `docs/chapters/Chapter_00.01_MachinesAndTheirRoles.md`.
+
+---
+
+### 📖 PUBLISHED — Chapter 0.1, Machines and Their Roles
+
+**1 / 359.** Phase 2 → **Phase 3 (writing chapters)**.
+
+Design notes worth keeping:
+
+- **The Build produces something the repository actually needs.** Its deliverable, `docs/meta/Machines.md`, closes **[D-003](Doubts.md#d-003)** — a blocker open since Session 001 that gates decisions in Modules 5, 6 and 11. A first chapter that does real work beats a first chapter that warms up.
+- **The Break-it is one command:** `dotnet --version` in Termux. It *proves* the machine split rather than asserting it, and the Diagnose block turns the failure into a transferable skill — distinguishing `command not found` from `permission denied` from a missing shared library.
+- **Observe asks for arithmetic, not agreement.** The learner computes their own desktop:phone ratios. That number, produced by them, is what makes [ADR-010](Decisions.md#adr-010) credible for the next 350 chapters.
+- Verification block **V-07** issued for every `[UNVERIFIED]` marker in the chapter.
+
+---

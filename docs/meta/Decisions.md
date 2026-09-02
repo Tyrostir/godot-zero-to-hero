@@ -105,6 +105,14 @@ Full curriculum: [`../Languages.md`](../Languages.md).
 | 7 | 📎 **Cheat sheet** | Everything introduced, in one table |
 | 8 | 💾 **Commit** | The exact commit message |
 
+**How the ratios are measured** *(defined 2026-09-02, after writing chapter 0.1 exposed that they were not)*:
+
+> **Denominator = the instructional body only** — Build · Run it · Observe · Why it works · Mental model · Break it · Diagnose.
+> **Numerator (doing)** = Build + Run it + Observe. **Numerator (theory)** = Why it works + Mental model.
+> Measured in lines. Excluded from the denominator: front matter, Goal, 🏃 Fast-Track Summary, Before you start, Practicals, Check yourself, Cheat sheet, Further reading, Commit, What's next, Reflection, Changelog — these are **apparatus around the chapter**, not the chapter.
+
+⚠️ **Why this needed defining, and why it is not a relaxation.** Chapter 0.1 measured **23.9% Build against the whole file** and failed. Two things were wrong: the Build section was genuinely thin *and* the denominator had never been specified. Both were fixed — the Build section gained two real steps (a data-cable verification, and producing `Machines.md` as an actual artefact) **and** the measure was defined. Recorded in [`DecisionsLog.md`](DecisionsLog.md) because defining a metric immediately after failing it is exactly the kind of move that deserves scrutiny.
+
 **Hard rules.**
 
 1. **No chapter may begin with a theory section.** If a concept genuinely cannot be built before it is explained, the chapter is wrongly scoped — split it, or find a cruder version that *can* be built first.
@@ -342,7 +350,14 @@ Prose, diagrams and course structure: **CC BY-SA 4.0**. Code in `projects/`: **M
 ### Chapter files are `ChapterNN_PascalCaseTitle.md`
 **Status:** ✅ Active · **Category:** Docs
 
-Zero-padded, monotonically increasing. Blender chapters use the `B` prefix in their title but share the same numbering sequence, so reading order equals file order.
+Chapter files are named **`Chapter_MM.NN_PascalCaseTitle.md`** — module, then chapter — so filenames sort in reading order and carry the ID everyone actually cites:
+
+```text
+docs/chapters/Chapter_00.01_MachinesAndTheirRoles.md
+docs/chapters/Chapter_01.34b_GitBeyondCommit.md
+```
+
+*(Revised 2026-09-02.* A flat `ChapterNN` counter was specified originally. With 359 chapters across 13 modules and hierarchical IDs like `1.34b`, it would have required a lookup table to find any chapter. **The ID is the address.**)
 
 ---
 
