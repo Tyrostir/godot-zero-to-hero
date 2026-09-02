@@ -6,6 +6,7 @@ module: 0
 block: "0A — Toolchain and first deploy"
 track: A
 paths: "🐣🚶🏃"
+platforms: "🪟 Windows 11 · 🐧 Linux (native)"
 scaffolding: "90 / 10 — guided / independent"
 time: "45–60 min"
 prerequisites: "0.2 — Godot is installed and compiles C#"
@@ -29,8 +30,7 @@ By the end, Blender is installed and configured so you never fight it again — 
 
 ## 🏃 Fast-Track Summary
 
-- Install from the **official tarball**, not snap. Snap's sandbox restricts file access in ways that bite later. `[UNVERIFIED]`
-- `tar -xf blender-*.tar.xz -C ~/opt/`, symlink to `~/.local/bin/blender`.
+- 🪟 `winget install BlenderFoundation.Blender` · 🐧 the **official tarball, not snap** — snap's sandbox restricts file access in ways that bite later. `[UNVERIFIED]`
 - Preferences pass: Developer Extras · Python Tooltips · Emulate Numpad (if no numpad) · Turntable orbit · Clip Start `0.01` · Undo 64 · **Auto Save 2 min**. Save Preferences.
 - Enable add-ons: **Node Wrangler**, Extra Objects (Mesh + Curve), Copy Attributes.
 - Scene → Units: **Metric, Unit Scale 1.0, Metres**. Then `File → Defaults → Save Startup File`.
@@ -52,9 +52,19 @@ By the end, Blender is installed and configured so you never fight it again — 
 
 ## 🔨 Build
 
-### Step 1 — Install from the tarball
+### Step 1 — Install Blender
 
-Go to <https://www.blender.org/download/> and take the current stable **4.x** Linux release (`.tar.xz`).
+> 🪟 **Windows (PowerShell)**
+
+```powershell
+winget install BlenderFoundation.Blender
+# then reopen PowerShell:
+blender --version
+```
+
+If `winget` is unavailable, download the installer from <https://www.blender.org/download/>. Either is fine on Windows — there is no snap-style sandbox to avoid.
+
+> 🐧 **Linux** — take the current stable **4.x** `.tar.xz` from <https://www.blender.org/download/>
 
 ```bash
 mkdir -p ~/opt
@@ -63,7 +73,9 @@ ln -sf ~/opt/blender-4*-linux-x64/blender ~/.local/bin/blender
 blender --version
 ```
 
-> ⚠️ **Not the snap package.** `sudo snap install blender` works, and its sandbox confines file access in ways that cause confusing failures later — saving textures outside your home, add-ons that write to disk, external tool integration. The tarball is self-contained, updates by extracting a new one, and never surprises you. `[UNVERIFIED]` — snap's exact confinement behaviour on your distribution.
+> ⚠️ 🐧 **Not the snap package.** `sudo snap install blender` works, and its sandbox confines file access in ways that cause confusing failures later — saving textures outside your home, add-ons that write to disk, external tool integration. The tarball is self-contained, updates by extracting a new one, and never surprises you. `[UNVERIFIED]` — snap's exact confinement behaviour on your distribution.
+
+> ⚠️ **Do not run Blender inside WSL.** GPU rendering is unreliable through WSLg, and you will use it for bakes from Module 4 onward. See [Platforms.md §2.2](../reference/Platforms.md).
 
 > 🐣 **What is a tarball?** A compressed archive, like a `.zip`. Extracting it gives you a folder containing the whole program; there is no installer and nothing is scattered across your system. To uninstall, delete the folder.
 
@@ -140,12 +152,12 @@ In the export panel on the right:
 - **Include → Limit to:** tick **Selected Objects** (select the cube first)
 - Leave everything else default for now; every checkbox is explained in chapter **B17**
 
-Save as `~/scratch/testcube.glb`.
+Save as `~/scratch/testcube.glb` (🪟 `%USERPROFILE%\scratch\testcube.glb`).
 
 ### Step 6 — Import into Godot and measure
 
 1. Open your `Scratch` Godot project from [0.2](Chapter_00.02_GodotAndDotNet.md).
-2. Copy the file in: `cp ~/scratch/testcube.glb ~/scratch/Scratch/`
+2. Copy the file into the Godot project folder — 🐧 `cp ~/scratch/testcube.glb ~/scratch/Scratch/` · 🪟 `Copy-Item $env:USERPROFILE\scratch\testcube.glb $env:USERPROFILE\scratch\Scratch\`
 3. Godot's FileSystem dock will notice it and import automatically.
 4. Open a 3D scene (or add a `Node3D` root), then **drag `testcube.glb` from the FileSystem dock into the scene**.
 5. Select the imported mesh. In the Inspector, expand **Transform**. Confirm **Scale** is `1, 1, 1`.
@@ -314,6 +326,7 @@ Fixing it downstream — scaling the node in Godot — leaves you with broken ph
 | Unit System | Metric | Sizes meaningless |
 | **Unit Scale** | **1.0** | **Everything exports at the wrong size** |
 | Auto Save | 2 min | You lose an afternoon of sculpting |
+| 🐧 Install method | tarball, not snap | Sandboxed file access bites later |
 | Clip Start | 0.01 m | Small props clip when you zoom in |
 
 ---

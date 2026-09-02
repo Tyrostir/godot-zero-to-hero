@@ -6,6 +6,7 @@ module: 0
 block: "0A — Toolchain and first deploy"
 track: A
 paths: "🐣🚶🏃"
+platforms: "🪟 Windows 11 · 🐧 Linux (native)"
 scaffolding: "90 / 10 — guided / independent"
 time: "60–90 min"
 prerequisites: "0.1 — you know your desktop's specs and Vulkan works"
@@ -29,9 +30,9 @@ By the end, a **Godot editor that compiles and runs your C#** exists on your des
 
 ## 🏃 Fast-Track Summary
 
-- Download the **.NET build** from <https://godotengine.org/download/linux/>. The filename contains **`mono`** — that is the same thing. `[UNVERIFIED]`
+- Download the **.NET build** from <https://godotengine.org/download/>. The filename contains **`mono`** — that is the same thing. `[UNVERIFIED]`
 - **Do not** move the binary out of its folder. The .NET build ships a `GodotSharp/` directory beside it and breaks without it.
-- Install the .NET **SDK** (not just the runtime): `sudo apt install dotnet-sdk-8.0`, verify with `dotnet --list-sdks`.
+- Install the .NET **SDK** (not just the runtime): 🪟 `winget install Microsoft.DotNet.SDK.8` · 🐧 `sudo apt install dotnet-sdk-8.0`. Verify with `dotnet --list-sdks`.
 - Verify Godot is the right build: **Help → About** must mention .NET/Mono. No Build button = wrong download.
 - `Editor → Manage Export Templates → Download and Install`. Must match the editor version **exactly**.
 - Smoke test: a `Node` with a C# script that prints in `_Ready()`. Press **Build** (hammer), then **F5**.
@@ -47,7 +48,7 @@ By the end, a **Godot editor that compiles and runs your C#** exists on your des
 |---|---|
 | [Chapter 0.1](Chapter_00.01_MachinesAndTheirRoles.md) done | You know your specs, and `vulkaninfo` sees your GPU |
 | ~3 GB free disk | Godot ~200 MB, .NET SDK ~1 GB, export templates ~1 GB |
-| A terminal on the **desktop** | Not Termux |
+| A terminal on the **desktop** | PowerShell 🪟 or bash 🐧 — **not Termux, and not WSL** ([Platforms.md](../reference/Platforms.md)) |
 
 ---
 
@@ -55,7 +56,7 @@ By the end, a **Godot editor that compiles and runs your C#** exists on your des
 
 ### Step 1 — Download the correct Godot build
 
-Go to <https://godotengine.org/download/linux/>.
+Go to <https://godotengine.org/download/> and pick your platform.
 
 You will see **two** downloads for Linux. This is the single most consequential click in the chapter.
 
@@ -70,32 +71,54 @@ You will see **two** downloads for Linux. This is the single most consequential 
 
 ### Step 2 — Extract it, and leave it alone
 
+> 🐧 **Linux**
+
 ```bash
-mkdir -p ~/opt
-cd ~/opt
+mkdir -p ~/opt && cd ~/opt
 unzip ~/Downloads/Godot_v4*_mono_linux_x86_64.zip
-ls
-```
-
-You should see a **folder**, not a bare executable — something like `Godot_v4.x-stable_mono_linux_x86_64/`, containing the binary **and** a `GodotSharp/` directory.
-
-```bash
-cd Godot_v4*_mono_linux_x86_64/
-ls
+cd Godot_v4*_mono_linux_x86_64/ && ls
 chmod +x Godot_v4*_mono_linux.x86_64
 ```
+
+> 🪟 **Windows (PowerShell)**
+
+```powershell
+# ⚠️ Unblock first — Windows marks downloaded archives, and Defender can
+#    quarantine files inside GodotSharp\ after extraction
+Unblock-File "$env:USERPROFILE\Downloads\Godot_v4*_mono_win64.zip"
+
+New-Item -ItemType Directory -Force "$env:USERPROFILE\opt" | Out-Null
+Expand-Archive "$env:USERPROFILE\Downloads\Godot_v4*_mono_win64.zip" `
+  -DestinationPath "$env:USERPROFILE\opt"
+Get-ChildItem "$env:USERPROFILE\opt\Godot_v4*_mono_win64"
+```
+
+Either way you should see a **folder**, not a bare executable — containing the Godot binary **and** a `GodotSharp/` directory.
 
 > 🚨 **Do not move the binary out of this folder.** The standard build is a single portable executable and people learn that habit first. **The .NET build is not.** It needs `GodotSharp/` sitting beside it, and moving the binary alone produces a Godot that launches, opens projects, and silently cannot compile C#. This wastes an evening surprisingly often.
 
 Make it launchable from anywhere:
 
+> 🐧 **Linux**
+
 ```bash
 mkdir -p ~/.local/bin
 ln -sf ~/opt/Godot_v4*_mono_linux_x86_64/Godot_v4*_mono_linux.x86_64 ~/.local/bin/godot
-# ~/.local/bin is usually already on PATH; if not:
 echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc && source ~/.bashrc
 godot --version
 ```
+
+> 🪟 **Windows (PowerShell)** — add the folder to your user PATH, then **reopen PowerShell**
+
+```powershell
+$godotDir = (Get-ChildItem "$env:USERPROFILE\opt\Godot_v4*_mono_win64").FullName
+[Environment]::SetEnvironmentVariable(
+  "Path", "$([Environment]::GetEnvironmentVariable('Path','User'));$godotDir", "User")
+# close this window, open a new PowerShell, then:
+Godot_v4*_mono_win64\Godot_v4*_mono_win64.exe --version
+```
+
+⚠️ 🪟 **Environment changes need a new terminal.** `setx` and `SetEnvironmentVariable` do not affect the window you ran them in.
 
 Record that version string. You will need it to match export templates in Step 5.
 
@@ -103,24 +126,32 @@ Record that version string. You will need it to match export templates in Step 5
 
 Godot needs the **SDK**, not just the runtime, because it invokes MSBuild to compile your code.
 
+> 🐧 **Linux**
+
 ```bash
-sudo apt update
-sudo apt install -y dotnet-sdk-8.0
+sudo apt update && sudo apt install -y dotnet-sdk-8.0
+```
+
+> 🪟 **Windows (PowerShell)**
+
+```powershell
+winget install Microsoft.DotNet.SDK.8
+```
+
+Then, on both:
+
+```bash
 dotnet --list-sdks
 dotnet --version
 ```
 
-`[UNVERIFIED]` — whether your distribution packages `dotnet-sdk-8.0` under that exact name. If apt cannot find it, use Microsoft's official instructions at <https://dotnet.microsoft.com/download> for your distribution.
+`[UNVERIFIED]` — whether your distribution packages `dotnet-sdk-8.0` under that exact name, and the current winget package id. If either fails, use the official installer at <https://dotnet.microsoft.com/download>.
 
 > ⚠️ **Runtime ≠ SDK.** `dotnet-runtime-8.0` will let you *run* .NET programs and will **not** let Godot build one. If `dotnet --list-sdks` prints nothing, you have the runtime only.
 
 ### Step 4 — Confirm Godot is the build you think it is
 
-Launch it:
-
-```bash
-godot
-```
+Launch it (🐧 `godot`, or 🪟 double-click the `.exe`).
 
 Create a new project — call it `Scratch`, put it in `~/scratch/Scratch`, renderer **Mobile** ([ADR-010](../meta/Decisions.md#adr-010)).
 
@@ -141,17 +172,25 @@ This is a ~1 GB download. While it runs, understand what you are downloading: **
 
 Verify they landed:
 
+> 🐧 **Linux**
+
 ```bash
 ls ~/.local/share/godot/export_templates/
 ```
 
-`[UNVERIFIED]` — the path on your distribution; older versions used `~/.local/share/godot/templates/`.
+> 🪟 **Windows (PowerShell)**
+
+```powershell
+Get-ChildItem "$env:APPDATA\Godot\export_templates"
+```
+
+`[UNVERIFIED]` — the exact path on your platform and version; older Godot releases used `.../godot/templates/`.
 
 ### Step 6 — Point Godot at the .NET SDK
 
 `Editor → Editor Settings → Dotnet → Editor`.
 
-- **Editor Path** — usually auto-detected. If blank, set it to the output of `which dotnet`.
+- **Editor Path** — usually auto-detected. If blank, set it to the output of 🐧 `which dotnet` · 🪟 `(Get-Command dotnet).Source`.
 - **External Editor** — set to VS Code or Rider if you have one; otherwise leave it and use Godot's built-in editor for now.
 
 ### Step 7 — The smoke test: does C# actually compile?
@@ -186,7 +225,7 @@ public partial class Hello : Node
 Fill these into [`docs/meta/Machines.md`](../meta/Machines.md) (created in 0.1) and [Setup 01 §3](../guides/Setup_01_Prerequisites.md#3-your-version-log):
 
 ```bash
-godot --version
+godot --version        # 🪟 use the full path to the .exe, or add it to PATH first
 dotnet --version
 dotnet --list-sdks
 ```
@@ -353,13 +392,15 @@ This is the nastiest of the three precisely because **the compiler is happy**. Y
 | `godot --version` | Editor version — must match export templates |
 | `dotnet --version` | Active SDK version |
 | `dotnet --list-sdks` | All SDKs. **Empty = you have the runtime only** |
-| `which dotnet` | Path for Godot's Editor Settings |
-| `ls ~/.local/share/godot/export_templates/` | Confirm templates installed |
+| `which dotnet` 🐧 / `(Get-Command dotnet).Source` 🪟 | Path for Godot's Editor Settings |
+| `ls ~/.local/share/godot/export_templates/` 🐧<br/>`Get-ChildItem "$env:APPDATA\Godot\export_templates"` 🪟 | Confirm templates installed |
 
 | Rule | Consequence of breaking it |
 |---|---|
 | Download the **.NET** build | No Build button; C# never compiles |
 | Keep the binary with `GodotSharp/` | Editor runs, C# silently fails |
+| 🪟 `Unblock-File` the download | Defender may quarantine files inside `GodotSharp/` |
+| 🪟 Reopen the terminal after a PATH change | `godot: command not found` in the same window |
 | `public partial class X : Node` in `X.cs` | Build error, or a script that silently does nothing |
 | Templates match editor version | Export refused, or an APK that crashes on launch |
 

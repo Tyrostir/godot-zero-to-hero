@@ -40,7 +40,7 @@ This is recorded as **[ADR-004](../meta/Decisions.md#adr-004)**.
 | GPU | Vulkan-capable | Anything from the last 6 years | Godot 4's Forward+ renderer requires Vulkan; lightmap baking uses the GPU |
 | Disk | 40 GB free | 100 GB | Godot ~1 GB, Blender ~1 GB, Android SDK ~8 GB, and your own assets grow fast |
 | CPU | 4 cores | 8 cores | Lightmap baking and Blender simulation are the two things that will punish a weak CPU |
-| OS | **Linux** — your choice ([D-001](../meta/Doubts.md)) | — | Win 10+ and macOS 12+ also work; the guides lead with Linux |
+| OS | **Windows 11** or **Linux** — both fully supported ([ADR-036](../meta/Decisions.md#adr-036)) | — | ⚠️ **WSL2 is a companion shell, not a workshop** — no USB passthrough. See [`Platforms.md`](../reference/Platforms.md) |
 
 **The two operations that will expose a weak machine** are sculpting in Blender (Module 9) and baking lightmaps (Module 5). Everything else is comfortable on modest hardware.
 

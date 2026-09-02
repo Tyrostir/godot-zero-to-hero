@@ -6,6 +6,7 @@ module: 0
 block: "0A — Toolchain and first deploy"
 track: A
 paths: "🐣🚶🏃"
+platforms: "🪟 Windows 11 · 🐧 Linux (native)"
 scaffolding: "90 / 10 — guided / independent"
 time: "45–60 min"
 prerequisites: "None. This is the first chapter."
@@ -50,12 +51,14 @@ By the end of this chapter, a **committed, filled-in inventory of the three mach
 
 | You need | Why |
 |---|---|
-| Your **Linux desktop**, powered on | It is the machine you will audit first |
+| Your **desktop**, powered on — Windows 11 **or** Linux | It is the machine you will audit first |
 | Your **Android phone**, in your hand | You will read its Settings; no cable needed yet |
 | This repo **cloned on the desktop** | You will edit and commit a file in it |
-| Nothing installed | Not Godot, not Blender, not the Android SDK. That is [0.2](../TableOfContents.md) onwards |
+| Nothing installed | Not Godot, not Blender, not the Android SDK. That is [0.2](Chapter_00.02_GodotAndDotNet.md) onwards |
 
-> 🐣 **New to this?** "Cloning a repo" means downloading a copy of this course's files that stays linked to the online version. If you have not done it yet: `git clone https://github.com/Tyrostir/godot-zero-to-hero.git` on your desktop. If `git` is not installed, `sudo apt install git`. That is all you need today.
+> 🐣 **New to this?** "Cloning a repo" means downloading a copy of this course's files that stays linked to the online version. If you have not done it yet, run `git clone https://github.com/Tyrostir/godot-zero-to-hero.git` on your desktop. If `git` is not installed: 🪟 `winget install Git.Git` · 🐧 `sudo apt install git`.
+
+> 🖥️ **Which desktop?** This course supports **Windows 11 native** and **Linux native** as the workshop. **WSL2 is a companion shell, not a workshop** — it has no USB passthrough, so `adb` cannot see your phone from inside it, and that breaks this course's core loop. The reasoning, and the recommended Windows + WSL split, are in [`Platforms.md`](../reference/Platforms.md). Read it before choosing.
 
 ---
 
@@ -65,29 +68,39 @@ You are going to produce a document. That is the deliverable — not a warm-up f
 
 ### Step 1 — Audit the desktop
 
-Open a terminal **on your Linux desktop** (not Termux) and run these one at a time. Copy each result somewhere you can paste from.
+Open a terminal **on your desktop** (not Termux) and run these one at a time. Copy each result somewhere you can paste from.
+
+> 🐧 **Linux / WSL** — bash
 
 ```bash
-# What operating system and kernel?
-uname -a
-cat /etc/os-release | head -3
-
-# How many CPU cores, and what kind?
-lscpu | grep -E '^(Model name|CPU\(s\)|Thread|Core)'
-
-# How much RAM?
-free -h
-
-# How much free disk in your home directory?
-df -h ~
-
-# What graphics hardware?
-lspci | grep -Ei 'vga|3d|display'
+uname -a                                              # OS and kernel
+cat /etc/os-release | head -3                         # distribution
+lscpu | grep -E '^(Model name|CPU\(s\)|Thread|Core)'  # CPU
+free -h                                               # RAM
+df -h ~                                               # free disk
+lspci | grep -Ei 'vga|3d|display'                     # graphics
 ```
 
-`[UNVERIFIED]` — the exact output format of each of these on your distribution. Paste what you actually get into [`toAgent/`](../../toAgent/) and this marker clears.
+> 🪟 **Windows (PowerShell)** — press `Win`, type *PowerShell*, open it
 
-> ⚠️ **If `lspci` is not found**, install it with `sudo apt install pciutils`. If `lscpu` is missing, `sudo apt install util-linux`. Both are usually present.
+```powershell
+Get-ComputerInfo -Property OsName,OsVersion,OsBuildNumber,CsSystemType
+
+Get-CimInstance Win32_Processor |
+  Select-Object Name,NumberOfCores,NumberOfLogicalProcessors
+
+(Get-CimInstance Win32_ComputerSystem).TotalPhysicalMemory / 1GB   # RAM in GB
+
+(Get-PSDrive C).Free / 1GB                                          # free disk in GB
+
+Get-CimInstance Win32_VideoController |
+  Select-Object Name,DriverVersion
+```
+
+`[UNVERIFIED]` — the exact output format on your OS. Paste what you actually get into [`toAgent/`](../../toAgent/) and this marker clears.
+
+> ⚠️ 🐧 **If `lspci` is not found:** `sudo apt install pciutils`. If `lscpu` is missing: `sudo apt install util-linux`.
+> ⚠️ 🪟 **Use PowerShell, not Command Prompt.** `cmd.exe` will not run any of the above.
 
 > 🐣 **What am I looking at?**
 > - **Kernel** — the core of the operating system. You will rarely care, but version mismatches occasionally explain a driver problem.
@@ -99,14 +112,25 @@ lspci | grep -Ei 'vga|3d|display'
 
 Godot 4's Forward+ renderer requires Vulkan. You will ship on the **Mobile** renderer ([ADR-010](../meta/Decisions.md#adr-010)), but the editor itself wants a working graphics driver.
 
+> 🐧 **Linux / WSL**
+
 ```bash
-# Is a Vulkan loader present, and does it see your GPU?
 vulkaninfo --summary 2>/dev/null | head -20 || echo "vulkaninfo not installed"
+# if missing: sudo apt install vulkan-tools
 ```
 
-If it is not installed: `sudo apt install vulkan-tools`. If it reports **zero devices**, your graphics driver needs attention before [0.2](../TableOfContents.md) — note it now rather than discovering it while trying to open Godot.
+> 🪟 **Windows (PowerShell)**
 
-`[UNVERIFIED]` — whether `vulkaninfo --summary` exists in your distribution's package version; older releases only support the un-summarised form.
+```powershell
+dxdiag /t "$env:USERPROFILE\dxdiag.txt"; Start-Sleep 5
+Select-String -Path "$env:USERPROFILE\dxdiag.txt" -Pattern "Card name|Driver Version"
+```
+
+For a definitive Vulkan answer on Windows, install the free **Vulkan SDK** from <https://vulkan.lunarg.com/> and run `vulkaninfoSDK.exe --summary`, or note your GPU model and check the vendor's driver notes.
+
+If Vulkan reports **zero devices**, your graphics driver needs attention before [0.2](Chapter_00.02_GodotAndDotNet.md) — note it now rather than discovering it while trying to open Godot.
+
+`[UNVERIFIED]` — whether `vulkaninfo --summary` exists in your distribution's package version, and dxdiag's exact field names on your build.
 
 ### Step 3 — Audit the phone
 
@@ -165,12 +189,20 @@ One minute now saves an evening in [0.5](../TableOfContents.md), where the singl
 2. On the phone, pull down the notification shade. Look for a **"Charging this device via USB"** notification and tap it.
 3. You want to see options like *File Transfer / Android Auto / PTP*. If the only option is **"No data transfer"** and nothing else is selectable, the cable is charge-only.
 
+> 🐧 **Linux** *(⚠️ WSL will **not** see the phone — [Platforms.md §2.1](../reference/Platforms.md))*
+
 ```bash
-# On the desktop, does the system see a USB device appear at all?
 lsusb
 ```
 
-Unplug and re-run `lsusb`. **A line should disappear.** If the two lists are identical, the cable is not carrying data — find another one before [0.5](../TableOfContents.md).
+> 🪟 **Windows (PowerShell)**
+
+```powershell
+Get-PnpDevice -PresentOnly | Where-Object InstanceId -like "USB*" |
+  Select-Object FriendlyName, Status
+```
+
+Unplug and re-run the command. **A line should disappear.** If the two lists are identical, the cable is not carrying data — find another one before [0.5](../TableOfContents.md).
 
 > ⚠️ **This is not a rare problem.** Cables bundled with power banks, car chargers and cheap wall plugs are frequently charge-only. They look exactly like data cables. Test now, while the test is one minute and not a debugging session.
 
@@ -181,9 +213,13 @@ Unplug and re-run `lsusb`. **A line should disappear.** If the two lists are ide
 **This is the chapter's deliverable.** The template is already in the repo — your job is to fill it.
 
 ```bash
-cd ~/godot-zero-to-hero          # wherever you cloned it
-$EDITOR docs/meta/Machines.md
+cd ~/godot-zero-to-hero                    # 🐧
 ```
+```powershell
+cd $env:USERPROFILE\godot-zero-to-hero      # 🪟
+```
+
+Then open `docs/meta/Machines.md` in any editor.
 
 Fill in **every** field in the *Workshop*, *Target* and *Ratios* sections from Steps 1–4. Leave the tool-version table alone for now; [0.2](Chapter_00.02_GodotAndDotNet.md)–[0.4](Chapter_00.04_AndroidToolchain.md) fill that.
 
@@ -271,7 +307,7 @@ update_trigger: "When a machine changes, or a spec is corrected"
 
 Two files to update, both real:
 
-1. [`docs/guides/Setup_01_Prerequisites.md`](../guides/Setup_01_Prerequisites.md) — fill in the **test device** table in §3. Leave the tool-version rows blank; those come in [0.2](../TableOfContents.md)–[0.4](../TableOfContents.md).
+1. [`docs/guides/Setup_01_Prerequisites.md`](../guides/Setup_01_Prerequisites.md) — fill in the **test device** table in §3. Leave the tool-version rows blank; those come in [0.2](Chapter_00.02_GodotAndDotNet.md)–[0.4](Chapter_00.04_AndroidToolchain.md).
 2. [`docs/meta/Doubts.md`](../meta/Doubts.md) — move **[D-003](../meta/Doubts.md#d-003)** from *Open* to *Resolved* and write the answer **in your own words**, linking to `Machines.md`.
 
 > 🚨 **This is not paperwork.** D-003 is an open blocker in this repository right now, and it gates real decisions in Modules 5, 6 and 11. You are the only person who can close it, and you are closing it today.

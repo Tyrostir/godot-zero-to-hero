@@ -69,7 +69,7 @@ Some entries below have a **"In my own words"** line. That is yours to fill in, 
 
 | ID | Date | Category | Question (short) | Status |
 |----|------|----------|------------------|--------|
-| [D-001](#d-001) | 2026-09-01 | Setup/Install | Which desktop machine will I build on? | ✅ |
+| [D-001](#d-001) | 2026-09-01 | Setup/Install | Which desktop machine will I build on? | ✅ (revised) |
 | [D-002](#d-002) | 2026-09-01 | Setup/Install | Which exact Godot .NET version, and does it have known Android C# issues? | ⬜ |
 | [D-003](#d-003) | 2026-09-01 | Performance | What are my test phone's GPU, RAM, Android version and Vulkan support? | ⬜ |
 | [D-004](#d-004) | 2026-09-01 | Course logistics | One learning path, or three? | ✅ |
@@ -81,6 +81,7 @@ Some entries below have a **"In my own words"** line. That is yours to fill in, 
 | [D-010](#d-010) | 2026-09-02 | Course logistics | Which points from the external review are worth adopting? | ✅ |
 | [D-011](#d-011) | 2026-09-02 | Course logistics | What is a "vertical slice", and where should the capstone finish line be? | ✅ |
 | [D-012](#d-012) | 2026-09-02 | Design/Narrative | Ship after Level 1 — but Levels 2–4 stay mandatory. How does that restructure the capstone? | ✅ |
+| [D-013](#d-013) | 2026-09-02 | Setup/Install | My workshop is Windows 11 **or** Ubuntu/WSL. Can the course support both? | ✅ |
 
 ---
 
@@ -93,7 +94,7 @@ Some entries below have a **"In my own words"** line. That is yours to fill in, 
 > Which desktop machine will you actually use for Godot + Blender, and does it meet the requirements?
 
 ### Short answer
-**A Linux desktop.** That settles the entire setup route and unblocked Module 0.
+**Originally: a Linux desktop.** ⚠️ **Revised 2026-09-02 → Windows 11 *or* Linux, both supported.** See [D-013](#d-013).
 
 ### Full answer
 This was the hardest blocker in the project, because Godot's Android editor build has **no C#/.NET support** — C# needs a desktop .NET SDK and MSBuild — so no chapter of Module 0 could be written concretely until the machine was known.
@@ -646,6 +647,62 @@ This is a **staged release** model, and it is a better answer than either option
 
 ---
 
+## D-013
+
+**Date:** 2026-09-02 · **Context:** After chapters 0.1–0.4 were published Linux-first · **Category:** Setup/Install · **Status:** ✅ Answered
+
+### Question *(verbatim)*
+> I want to have one correction. My Workshop setup will be either windows 11 or Ubuntu/WSL. I should be able to proceed this course on both kind of machines as my workshop system. Possible for you to think and make necessary changes accordingly in this course?
+
+### Short answer
+**Yes for Windows 11 and native Linux — both are now fully supported, and chapters 0.1–0.4 give commands for each.** But **not for WSL2 as the workshop**, and that is a technical blocker rather than a preference: **WSL2 has no USB passthrough, so `adb` cannot see your phone from inside it.** Since deploying to a device is this course's core loop, that is disqualifying. Use **Windows natively for the tools, WSL as a companion shell** — the recommended split is in [`../reference/Platforms.md`](../reference/Platforms.md).
+
+### Full answer
+
+**The three configurations, and the verdict on each.**
+
+| | A — Windows 11 native | B — Linux native | C — inside WSL2 |
+|---|---|---|---|
+| Godot editor | ✅ | ✅ | ⚠️ WSLg; Vulkan via a translation layer |
+| Blender | ✅ | ✅ | ⚠️ GPU rendering unreliable |
+| .NET SDK · Android SDK | ✅ | ✅ | ✅ |
+| **`adb` over USB** | ✅ (OEM driver) | ✅ (`udev` rule) | ❌ **no USB passthrough** |
+| **Verdict** | ✅ **Supported** | ✅ **Supported** | ❌ **Not a workshop** |
+
+**Why WSL2 fails, in order of severity.**
+
+1. **No USB passthrough — the fatal one.** WSL2 is a virtual machine with no direct access to USB devices. There is no setting to change; it is architectural. `usbipd-win` forwards USB over IP and needs an elevated `usbipd attach` after every replug and reboot; alternatively you run `adb` on Windows and point WSL's `ADB_SERVER_SOCKET` at it, and now you maintain two `adb` installations that must stay version-matched. Both work. Both are real solutions to a problem you can avoid by not creating it — and you will deploy to the device *thousands* of times ([ADR-005](Decisions.md#adr-005), [ADR-034](Decisions.md#adr-034)).
+2. **Graphics go through a translation layer.** Godot 4 wants Vulkan; WSLg provides it through a Direct3D shim rather than your vendor's driver. Blender's GPU rendering is unreliable there, and you need it for bakes from Module 4. **You will spend 500+ hours in those two editors** — neither should be running through a compatibility layer.
+3. **The filesystem boundary is slow** in the direction that matters — fine for git and text, not fine for an engine importing a thousand assets.
+
+**The recommended Windows setup is a hybrid, and it is genuinely good:**
+
+```text
+🪟 Windows 11 (workshop)            🐧 WSL2 (companion shell)
+   Godot · Blender · .NET SDK          git · ffmpeg · ImageMagick
+   JDK · Android SDK · adb             shell scripts · docs
+   project files  ───────────────────► reachable at /mnt/c/...
+```
+
+Four rules keep it clean: the project lives on the **Windows** filesystem · WSL reaches it at `/mnt/c/...` · **`adb` runs on Windows only** · **never run the Godot or Blender editor inside WSL**.
+
+Keeping WSL is worth it — `ffmpeg`, `ImageMagick`, `sed` and a real shell are genuinely nicer than the PowerShell equivalents, and this course uses all of them (chapters **B12b**, **6.18b**).
+
+**One new hazard this creates, and it is a real one.** Windows filesystems are **case-insensitive**; Android's are **not**. A project that happily loads `res://Textures/rock.png` when the file is actually `res://textures/Rock.png` will run perfectly on your Windows desktop and fail on device with missing textures. **A game that works on desktop and has missing textures on the phone is almost always this.** Be strict about case from chapter one.
+
+**What changed in the repository.** New [`../reference/Platforms.md`](../reference/Platforms.md) (the configuration matrix, the WSL analysis, the recommended hybrid, and a per-chapter gotcha table). New [ADR-036](Decisions.md#adr-036); [ADR-004](Decisions.md#adr-004) revised. Chapters **0.1–0.4 all now carry paired 🪟/🐧 command blocks** — PowerShell alongside bash for every step, plus the Windows-specific traps: `Unblock-File` on downloaded archives before Defender quarantines `GodotSharp/`, `setx` needing a new terminal, and `%APPDATA%\Godot\export_templates`. Setup guides 01–04 updated to match.
+
+### Related
+[ADR-036](Decisions.md#adr-036) · [ADR-004](Decisions.md#adr-004) · [D-001](#d-001) · [`../reference/Platforms.md`](../reference/Platforms.md)
+
+### Action taken
+`Platforms.md` created. ADR-036 added, ADR-004 and D-001 revised. Chapters 0.1–0.4 made dual-platform. `Machines.md` gained a workshop-config row.
+
+### In my own words
+*(yours to fill in)*
+
+---
+
 ## ⏸️ Parked
 
 *Questions consciously postponed, with a named chapter to revisit them at.*
@@ -671,6 +728,7 @@ Every ~20 doubts, come back and look for patterns. If four of your questions wer
 | Version | Date | Change |
 |---------|------|--------|
 | 1.0 | 2026-09-01 | Created at course inception. Table format. |
+| 2.7 | 2026-09-02 | D-013 added — Windows 11 + Linux both supported; WSL2 excluded as a workshop. D-001 revised. |
 | 2.6 | 2026-09-02 | D-012 added — staged release model. |
 | 2.5 | 2026-09-02 | D-011 added — vertical slice explained; capstone reaffirmed at four levels. |
 | 2.4 | 2026-09-02 | D-010 added — external review triaged. |

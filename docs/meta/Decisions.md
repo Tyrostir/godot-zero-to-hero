@@ -58,6 +58,7 @@ update_trigger: "Whenever a decision is made, changed, or superseded"
 | [ADR-033](#adr-033) | **The scaffolding gradient** — help is removed on a declared schedule, 90/10 → 10/90 | Pedagogy | ✅ |
 | [ADR-034](#adr-034) | **Android runtime engineering is a first-class block**, not a release-week concern | Product | ✅ |
 | [ADR-035](#adr-035) | **Thirteen modules** — Module 1 split; Android runtime becomes Module 2 | Structure | ✅ |
+| [ADR-036](#adr-036) | **Windows 11 and Linux are both supported workshops. WSL2 is a companion shell, not a workshop** | Environment | ✅ |
 
 ---
 
@@ -140,9 +141,9 @@ The 42-chapter Blender track (`B1`–`B42`, see [`../BlenderTrack.md`](../Blende
 ### Desktop = workshop · phone = target · Termux = notebook
 **Status:** ✅ Active · **Category:** Environment
 
-All authoring happens on a desktop or laptop — **confirmed 2026-09-01 as a Linux machine** ([D-001](Doubts.md)). The Android phone is the deployment target. The Termux session is for planning, documentation, git and conversation only.
+All authoring happens on a desktop or laptop. The Android phone is the deployment target. The Termux session is for planning, documentation, git and conversation only.
 
-**Consequence of the Linux choice.** Setup guides lead with the Linux route: the command-line Android SDK (~1 GB, no Android Studio), a `udev` rule for `adb`, and the distribution's OpenJDK. Windows and macOS steps stay in the guides for other readers but are secondary.
+**Revised 2026-09-02.** The workshop is **Windows 11 *or* Linux**, and every chapter gives commands for both ([ADR-036](#adr-036)). The earlier "Linux only" reading of [D-001](Doubts.md#d-001) was too narrow.
 
 **Why.** Godot's Android editor build has **no C#/.NET support** — C# requires a desktop .NET SDK and MSBuild. This is a hard constraint of the toolchain, not a preference.
 
@@ -677,6 +678,7 @@ Everything after shifted: old Modules 2–11 became **3–12**. The course is no
 
 | Version | Date | Change |
 |---------|------|--------|
+| 1.8 | 2026-09-02 | ADR-036 — Windows 11 **and** Linux supported; WSL2 explicitly excluded as a workshop. ADR-004 revised. Chapters 0.1–0.4 made dual-platform; new `Platforms.md`. |
 | 1.7 | 2026-09-02 | ADR-019 revised to a **staged release** model — v1.0 after Level 1, then v1.1–v1.3. All four levels stay mandatory. Module 11 restructured; new live-operations block. 348 → 359 chapters. Prompted by [D-012](Doubts.md#d-012). |
 | 1.0 | 2026-09-01 | Created at course inception (Session 001). ADR-001 to ADR-025. |
 | 1.1 | 2026-09-01 | ADR-024 decided: three paths, all authored in full. ADR-004 amended: build machine is **Linux**. |

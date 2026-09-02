@@ -14,6 +14,7 @@ update_trigger: "When a reference document is added"
 
 | File | What it is |
 |------|-----------|
+| [`Platforms.md`](Platforms.md) | **Which workshop configurations are supported** — Windows 11, Linux, and why WSL2 is a companion shell rather than a workshop |
 | [`Glossary.md`](Glossary.md) | Every term the course uses, defined. First use of a term in a chapter is marked 📖 |
 | [`ReferenceLinks.md`](ReferenceLinks.md) | The link dump — official docs, specs, tools, communities |
 | [`ResourcesMeta.md`](ResourcesMeta.md) | **Critical review** of free asset, audio, VFX and tool sources — with licences |

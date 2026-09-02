@@ -6,6 +6,7 @@ module: 0
 block: "0A — Toolchain and first deploy"
 track: A
 paths: "🐣🚶🏃"
+platforms: "🪟 Windows 11 · 🐧 Linux (native)"
 scaffolding: "90 / 10 — guided / independent"
 time: "60–90 min"
 prerequisites: "0.2 — Godot installed. 0.1 — you confirmed a working data cable"
@@ -29,17 +30,39 @@ By the end, `adb version` works, Godot knows where every Android tool lives, and
 
 ## 🏃 Fast-Track Summary
 
+> 🐧 **Linux**
+
 ```bash
 sudo apt install -y openjdk-17-jdk && java -version
 mkdir -p ~/android-sdk/cmdline-tools
 unzip ~/Downloads/commandlinetools-linux-*.zip -d ~/android-sdk/cmdline-tools
-mv ~/android-sdk/cmdline-tools/cmdline-tools ~/android-sdk/cmdline-tools/latest   # ⚠️ the step everyone misses
+mv ~/android-sdk/cmdline-tools/cmdline-tools ~/android-sdk/cmdline-tools/latest   # ⚠️ everyone misses this
 export ANDROID_HOME=~/android-sdk
 export PATH="$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools:$PATH"
 sdkmanager "platform-tools" "build-tools;34.0.0" "platforms;android-34"
 sdkmanager --licenses
 keytool -keyalg RSA -genkeypair -alias androiddebugkey -keypass android \
   -keystore ~/android-sdk/debug.keystore -storepass android \
+  -dname "CN=Android Debug,O=Android,C=US" -validity 9999 -deststoretype pkcs12
+adb version
+```
+
+> 🪟 **Windows (PowerShell)**
+
+```powershell
+winget install EclipseAdoptium.Temurin.17.JDK
+# reopen PowerShell, then:
+$sdk = "$env:USERPROFILE\android-sdk"
+New-Item -ItemType Directory -Force "$sdk\cmdline-tools" | Out-Null
+Expand-Archive "$env:USERPROFILE\Downloads\commandlinetools-win-*.zip" -DestinationPath "$sdk\cmdline-tools"
+Rename-Item "$sdk\cmdline-tools\cmdline-tools" "latest"      # ⚠️ everyone misses this
+setx ANDROID_HOME "$sdk"
+setx PATH "$env:PATH;$sdk\cmdline-tools\latest\bin;$sdk\platform-tools"
+# reopen PowerShell again, then:
+sdkmanager "platform-tools" "build-tools;34.0.0" "platforms;android-34"
+sdkmanager --licenses
+keytool -keyalg RSA -genkeypair -alias androiddebugkey -keypass android `
+  -keystore "$env:USERPROFILE\android-sdk\debug.keystore" -storepass android `
   -dname "CN=Android Debug,O=Android,C=US" -validity 9999 -deststoretype pkcs12
 adb version
 ```
@@ -68,9 +91,22 @@ adb version
 
 ### Step 1 — Install the JDK
 
+> 🐧 **Linux**
+
 ```bash
-sudo apt update
-sudo apt install -y openjdk-17-jdk
+sudo apt update && sudo apt install -y openjdk-17-jdk
+```
+
+> 🪟 **Windows (PowerShell)**
+
+```powershell
+winget install EclipseAdoptium.Temurin.17.JDK
+# ⚠️ reopen PowerShell before continuing — PATH changes need a new window
+```
+
+Then, on both:
+
+```bash
 java -version
 javac -version
 ```
@@ -79,21 +115,19 @@ You want **17.x** from both. `[UNVERIFIED]` — exact output format.
 
 > 🐣 **Why Java at all, for a C# game?** Android's build tooling is written in Java. Godot compiles *your* code with .NET, then hands the result to Android's packaging tools, which need a JVM to run. You will never write a line of Java.
 
-If you have several JDKs installed, check which one is active:
-
-```bash
-sudo update-alternatives --config java
-```
+If several JDKs are installed, check which is active — 🐧 `sudo update-alternatives --config java` · 🪟 `Get-Command java | Select-Object Source`.
 
 ### Step 2 — Download the command-line tools
 
-Go to <https://developer.android.com/studio>, scroll past the big Android Studio button, and find **"Command line tools only"** near the bottom. Take the Linux `.zip`.
+Go to <https://developer.android.com/studio>, scroll past the big Android Studio button, and find **"Command line tools only"** near the bottom. Take the `.zip` for your platform.
 
-> ✅ **You are on Linux ([D-001](../meta/Doubts.md#d-001)), so this is your route.** Android Studio is ~8 GB and you would open it exactly once, to click through a wizard. The command-line tools are ~100 MB and do the same job.
+> ✅ **Command-line tools on both platforms.** Android Studio is ~8 GB and you would open it exactly once, to click through a wizard. The command-line tools are ~100 MB and do the same job. (Windows users may prefer Android Studio's SDK Manager GUI — it works, it is just far larger.)
 
 ### Step 3 — Extract it into the right shape ⚠️
 
 This is the step that costs people an hour.
+
+> 🐧 **Linux**
 
 ```bash
 mkdir -p ~/android-sdk/cmdline-tools
@@ -101,11 +135,22 @@ unzip ~/Downloads/commandlinetools-linux-*.zip -d ~/android-sdk/cmdline-tools
 ls ~/android-sdk/cmdline-tools
 ```
 
-You now have `~/android-sdk/cmdline-tools/cmdline-tools/`. That is **wrong** — `sdkmanager` refuses to run from it. Rename:
+> 🪟 **Windows (PowerShell)**
+
+```powershell
+$sdk = "$env:USERPROFILE\android-sdk"
+New-Item -ItemType Directory -Force "$sdk\cmdline-tools" | Out-Null
+Expand-Archive "$env:USERPROFILE\Downloads\commandlinetools-win-*.zip" -DestinationPath "$sdk\cmdline-tools"
+Get-ChildItem "$sdk\cmdline-tools"
+```
+
+Either way you now have `.../cmdline-tools/cmdline-tools/`. That is **wrong** — `sdkmanager` refuses to run from it. Rename:
 
 ```bash
-mv ~/android-sdk/cmdline-tools/cmdline-tools ~/android-sdk/cmdline-tools/latest
-ls ~/android-sdk/cmdline-tools/latest/bin
+mv ~/android-sdk/cmdline-tools/cmdline-tools ~/android-sdk/cmdline-tools/latest    # 🐧
+```
+```powershell
+Rename-Item "$sdk\cmdline-tools\cmdline-tools" "latest"                            # 🪟
 ```
 
 You should see `sdkmanager`, `avdmanager` and friends. The final, required layout is:
@@ -122,6 +167,8 @@ You should see `sdkmanager`, `avdmanager` and friends. The final, required layou
 
 ### Step 4 — Put the tools on your PATH
 
+> 🐧 **Linux**
+
 ```bash
 cat >> ~/.bashrc <<'EOF'
 
@@ -129,10 +176,23 @@ cat >> ~/.bashrc <<'EOF'
 export ANDROID_HOME="$HOME/android-sdk"
 export PATH="$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools:$PATH"
 EOF
-
 source ~/.bashrc
-echo "$ANDROID_HOME"
-which sdkmanager
+echo "$ANDROID_HOME"; which sdkmanager
+```
+
+> 🪟 **Windows (PowerShell)**
+
+```powershell
+$sdk = "$env:USERPROFILE\android-sdk"
+setx ANDROID_HOME "$sdk"
+setx PATH "$env:PATH;$sdk\cmdline-tools\latest\bin;$sdk\platform-tools"
+```
+
+⚠️ 🪟 **`setx` writes the variable but does not update the window you ran it in. Close PowerShell and open a new one**, then:
+
+```powershell
+$env:ANDROID_HOME
+Get-Command sdkmanager.bat | Select-Object Source
 ```
 
 ### Step 5 — Install the SDK packages
@@ -154,8 +214,12 @@ Press `y` for each. Verify:
 
 ```bash
 adb version
-ls "$ANDROID_HOME/platforms"
-ls "$ANDROID_HOME/build-tools"
+ls "$ANDROID_HOME/platforms"      # 🐧
+ls "$ANDROID_HOME/build-tools"    # 🐧
+```
+```powershell
+Get-ChildItem "$env:ANDROID_HOME\platforms"     # 🪟
+Get-ChildItem "$env:ANDROID_HOME\build-tools"   # 🪟
 ```
 
 ### Step 6 — Create the debug keystore
@@ -181,16 +245,19 @@ Launch Godot, open your `Scratch` project, and go to `Editor → Editor Settings
 
 | Setting | Value |
 |---|---|
-| **Java SDK Path** | `/usr/lib/jvm/java-17-openjdk-amd64` |
-| **Android SDK Path** | `/home/<you>/android-sdk` |
-| **Debug Keystore** | `/home/<you>/android-sdk/debug.keystore` |
+| **Java SDK Path** | 🐧 `/usr/lib/jvm/java-17-openjdk-amd64` · 🪟 `C:\Program Files\Eclipse Adoptium\jdk-17...` |
+| **Android SDK Path** | 🐧 `/home/<you>/android-sdk` · 🪟 `C:\Users\<you>\android-sdk` |
+| **Debug Keystore** | the `debug.keystore` you just created |
 | **Debug Keystore User** | `androiddebugkey` |
 | **Debug Keystore Pass** | `android` |
 
 Find your real JDK path with:
 
 ```bash
-readlink -f "$(which javac)" | sed 's|/bin/javac||'
+readlink -f "$(which javac)" | sed 's|/bin/javac||'          # 🐧
+```
+```powershell
+Split-Path -Parent (Split-Path -Parent (Get-Command javac).Source)   # 🪟
 ```
 
 `[UNVERIFIED]` — the exact JVM path on your distribution.
@@ -325,6 +392,7 @@ Three failures in this chapter share that shape:
 |---|---|
 | `sdkmanager` throws a Java class error | `cmdline-tools/latest/` is misnamed |
 | `adb: command not found` | `platform-tools` not on `PATH`, or not installed |
+| 🪟 A variable you just `setx` is empty | You did not reopen the terminal |
 | Export fails mentioning licences | `sdkmanager --licenses` never accepted |
 
 </details>
@@ -372,11 +440,12 @@ Three failures in this chapter share that shape:
 | `sdkmanager --licenses` | **Required** — builds fail silently without it |
 | `adb version` | platform-tools installed and on PATH |
 | `keytool -list -keystore <file> -storepass android` | Inspect a keystore |
-| `readlink -f "$(which javac)" \| sed 's\|/bin/javac\|\|'` | Find the JDK path for Godot |
+| `readlink -f "$(which javac)" \| sed 's\|/bin/javac\|\|'` 🐧 | Find the JDK path for Godot |
+| `Split-Path -Parent (Split-Path -Parent (Get-Command javac).Source)` 🪟 | Same, on Windows |
 
 | Path | Must be |
 |---|---|
-| `$ANDROID_HOME` | `~/android-sdk` |
+| `$ANDROID_HOME` | 🐧 `~/android-sdk` · 🪟 `%USERPROFILE%\android-sdk` |
 | Command-line tools | `$ANDROID_HOME/cmdline-tools/**latest**/bin` |
 | adb | `$ANDROID_HOME/platform-tools/adb` |
 
