@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://d2mb51jx5p7mp"]
+
+[ext_resource type="Script" uid="uid://oydavo1aljvq" path="res://Spinner.cs" id="1_glv2v"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_lavtg"]
+
+[node name="root" type="Node" unique_id=321190737]
+
+[node name="Cube" type="MeshInstance3D" parent="." unique_id=566172648]
+mesh = SubResource("BoxMesh_lavtg")
+script = ExtResource("1_glv2v")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=462808072]
+transform = Transform3D(1, 0, 0, 0, 0.90630776, 0.42261827, 0, -0.42261827, 0.90630776, 0, 2, 4)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1915004240]
+transform = Transform3D(0.81915206, 0.43938506, -0.36868784, 0, 0.64278764, 0.76604444, 0.57357645, -0.62750685, 0.5265408, 0, 0, 0)
