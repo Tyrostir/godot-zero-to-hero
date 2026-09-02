@@ -26,7 +26,7 @@ update_trigger: "End of every working session, and after every chapter is publis
 | **Learner** | Tyrostir — path 🚶 **B, Self-Learner** (A and C authored in full, [ADR-024](Decisions.md#adr-024)) |
 | **Current phase** | **Phase 3 — writing chapters** |
 | **Plan status** | ✅ **Approved** — chapter writing began 2026-09-02 |
-| **Chapters published** | **5 / 359** — [0.1](../chapters/Chapter_00.01_MachinesAndTheirRoles.md) · [0.2](../chapters/Chapter_00.02_GodotAndDotNet.md) · [0.3](../chapters/Chapter_00.03_Blender.md) · [0.4](../chapters/Chapter_00.04_AndroidToolchain.md) · [0.5](../chapters/Chapter_00.05_ConnectingYourPhone.md) |
+| **Chapters published** | **6 / 359** — [0.1](../chapters/Chapter_00.01_MachinesAndTheirRoles.md) · [0.2](../chapters/Chapter_00.02_GodotAndDotNet.md) · [0.3](../chapters/Chapter_00.03_Blender.md) · [0.4](../chapters/Chapter_00.04_AndroidToolchain.md) · [0.5](../chapters/Chapter_00.05_ConnectingYourPhone.md) · [0.6](../chapters/Chapter_00.06_TheGodotEditor.md) |
 | **Setup guides published** | **5 / 5** — all carry `[UNVERIFIED]` markers, none run yet |
 | **Projects shipped** | **0 / 11** · public releases **0 / 4** |
 | **Blender chapters published** | **0 / 64** |
@@ -64,7 +64,7 @@ OVERALL                                  [                    ]   0 %   (0/359)
 | Who | Action |
 |-----|--------|
 | 👤 **You — do next** | ⭐ **Work chapters [0.1](../chapters/Chapter_00.01_MachinesAndTheirRoles.md) → [0.4](../chapters/Chapter_00.04_AndroidToolchain.md)** — roughly 4–5 hours. At the end: Godot compiles C#, Blender round-trips a cube at the right scale, `adb version` works, and [`Machines.md`](Machines.md) is filled. Then paste output into [`../../toAgent/`](../../toAgent/) to clear **V-07** to **V-10**. |
-| 🤖 **Me — next turn** | **Chapter 0.6 — The Godot editor.** |
+| 🤖 **Me — next turn** | **Chapter 0.7 — Git for game projects.** |
 
 ---
 
