@@ -10,6 +10,10 @@ public partial class Spinner : MeshInstance3D
 	{
 		GD.Print($"Hello Phone - running on {OS.GetName()}, {Engine.GetVersionInfo()["string"]}");
 		GD.Print($"Spinning at {DegreesPerSecond}°/s.");
+		
+		var mesh = GetNode<MeshInstance3D>(".");
+		//var mesh = GetNode<MeshInstance3D>("Cube");
+		//GD.Print($"mesh: {mesh}");
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

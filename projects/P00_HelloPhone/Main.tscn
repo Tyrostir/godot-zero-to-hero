@@ -1,13 +1,26 @@
 [gd_scene format=3 uid="uid://d2mb51jx5p7mp"]
 
+[ext_resource type="Script" uid="uid://ins4mdf4xies" path="res://Main.cs" id="1_cm0pq"]
 [ext_resource type="Script" uid="uid://oydavo1aljvq" path="res://Spinner.cs" id="1_glv2v"]
 [ext_resource type="Script" uid="uid://b8hf3tp2ww31e" path="res://cube_2.gd" id="2_uu6xs"]
+[ext_resource type="Shader" uid="uid://c5c8lxf7kixdu" path="res://CubeShader.gdshader" id="3_r0du0"]
+[ext_resource type="Script" uid="uid://dimhyhp6qoikk" path="res://CubeGdShader.cs" id="5_fos0i"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_lavtg"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_71tfo"]
 
+[sub_resource type="BoxMesh" id="BoxMesh_q6c6o"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0u86m"]
+render_priority = 0
+shader = ExtResource("3_r0du0")
+shader_parameter/tint = Color(0.3930866, 0.71208185, 0.2337043, 1)
+shader_parameter/pulse_speed = 4.518000214605
+shader_parameter/metallic_amount = 0.154000007315
+
 [node name="root" type="Node" unique_id=321190737]
+script = ExtResource("1_cm0pq")
 
 [node name="Cube" type="MeshInstance3D" parent="." unique_id=566172648]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0)
@@ -24,3 +37,8 @@ transform = Transform3D(0.81915206, 0.43938506, -0.36868784, 0, 0.64278764, 0.76
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0)
 mesh = SubResource("BoxMesh_71tfo")
 script = ExtResource("2_uu6xs")
+
+[node name="CubeGDShader" type="MeshInstance3D" parent="." unique_id=1270985172]
+mesh = SubResource("BoxMesh_q6c6o")
+surface_material_override/0 = SubResource("ShaderMaterial_0u86m")
+script = ExtResource("5_fos0i")
