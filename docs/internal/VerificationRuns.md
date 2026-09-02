@@ -79,6 +79,7 @@ Each block is small, numbered `V-NN`, and asks for **exact, pasteable output** �
 | **V-12** | desktop | **Chapter 0.6** — every dock and panel name in Godot 4.7.2 (Node dock tab position, MSBuild panel presence, Remote/Local button wording, Attach Script icon), and the exact text of the three deliberate failures | ⬜ Open |
 | **V-13** | desktop | **Chapter 0.7** — file counts before and after the `.gitignore`; `git check-ignore -v` output format; `git count-objects -vH` figures; whether Git for Windows set `core.autocrlf` to `true` on your install | ⬜ Open |
 | **V-14** | desktop + phone | ⭐ **Chapter 0.8** — the export-dialog layout in 4.7.2; **whether a C#/.NET Android export needs any extra option** (highest-value item in this module); the one-click deploy button's presence; APK size with one vs two architectures; and the exact text of all three C0.1 failures | ⬜ Open |
+| **V-15** | desktop + phone | **Chapter 0.9** — whether the editor Debugger shows a **C#** stack trace or an engine-level one for a device-side exception; logcat line formats for `E godot` and `F DEBUG`; and whether the debug link survives a Wi-Fi deploy | ⬜ Open |
 | **V-07** | desktop + phone | **Chapter 0.1** — output of `uname -a`, `lscpu`, `free -h`, `df -h ~`, `lspci`, `vulkaninfo --summary`, `lsusb` (plugged and unplugged); the Termux `dotnet --version` failure text verbatim; and the phone's Settings → About phone fields | ⬜ Open |
 
 ---

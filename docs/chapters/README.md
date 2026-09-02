@@ -24,8 +24,11 @@ The course itself. Chapters are published in order and appear here as they are w
 | **0.6** | [The Godot Editor](Chapter_00.06_TheGodotEditor.md) | A | 🐣🚶🏃 | 60–75 m | ✅ Published |
 | **0.7** | [Git for Game Projects](Chapter_00.07_GitForGameProjects.md) | A | 🐣🚶🏃 | 60–75 m | ✅ Published |
 | **0.8** ⭐ | [**Project 00: Hello Phone**](Chapter_00.08_P00HelloPhone.md) | **P** | 🐣🚶🏃 | 60–90 m | ✅ Published |
+| **0.9** | [Reading Errors](Chapter_00.09_ReadingErrors.md) | A | 🐣🚶🏃 | 60–75 m | ✅ Published |
 
-**8 / 359.** Next: **0.9 — Reading errors**.
+**9 / 359.** 🎉 **Block 0A complete** — toolchain installed, an app on the phone, and the ability to read it when it breaks.
+
+Next: **0.10 — GDScript first contact**, opening block **0B: the four languages you will write**.
 
 > 📏 **ADR-002 compliance** — measured against the instructional body ([ADR-002](../meta/Decisions.md#adr-002)):
 >
@@ -39,6 +42,7 @@ The course itself. Chapters are published in order and appear here as they are w
 > | 0.6 | 66.2% | 20.0% |
 > | 0.7 | 64.2% | 20.8% |
 > | 0.8 | 66.4% | 18.7% |
+> | 0.9 | 62.7% | 21.4% |
 
 > 📑 Full chapter list: **[`../TableOfContents.md`](../TableOfContents.md)**
 > 📍 Current progress: **[`../meta/CourseState.md`](../meta/CourseState.md)**
