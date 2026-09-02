@@ -108,10 +108,10 @@ Where a step is identical on both, it appears once with no marker. Where a step 
 
 | Chapter | 🪟 Windows | 🐧 Linux |
 |---|---|---|
-| [0.2](../chapters/Chapter_00.02_GodotAndDotNet.md) | Unblock the downloaded zip (`Properties → Unblock`) or Defender may quarantine `GodotSharp` | `chmod +x` the binary |
-| [0.2](../chapters/Chapter_00.02_GodotAndDotNet.md) | Templates at `%APPDATA%\Godot\export_templates\` | `~/.local/share/godot/export_templates/` |
-| [0.3](../chapters/Chapter_00.03_Blender.md) | Installer or `winget`; both fine | Tarball, **not snap** — sandbox restricts file access |
-| [0.4](../chapters/Chapter_00.04_AndroidToolchain.md) | `setx` for environment variables; **reopen the terminal** for them to apply | `~/.bashrc` and `source` |
+| [0.2](../chapters/module0/0A/0.2_GodotAndDotNet.md) | Unblock the downloaded zip (`Properties → Unblock`) or Defender may quarantine `GodotSharp` | `chmod +x` the binary |
+| [0.2](../chapters/module0/0A/0.2_GodotAndDotNet.md) | Templates at `%APPDATA%\Godot\export_templates\` | `~/.local/share/godot/export_templates/` |
+| [0.3](../chapters/module0/0A/0.3_Blender.md) | Installer or `winget`; both fine | Tarball, **not snap** — sandbox restricts file access |
+| [0.4](../chapters/module0/0A/0.4_AndroidToolchain.md) | `setx` for environment variables; **reopen the terminal** for them to apply | `~/.bashrc` and `source` |
 | [0.5](../TableOfContents.md) | **OEM USB driver required** — the commonest reason `adb devices` is empty | **`udev` rule required** — the commonest reason it says `no permissions` |
 | Everywhere | Long-path limits can bite deep asset trees; keep the project near the drive root | Case-sensitive filesystem — `Player.tscn` ≠ `player.tscn`, and Android is case-sensitive too |
 

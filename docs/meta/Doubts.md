@@ -57,7 +57,7 @@ Prefix any aside with **`/btw`** and it becomes a `D-NNN` entry here — no matt
 
 **Why have a marker at all?** Questions asked in passing are exactly the ones that get answered in conversation and then lost. The marker makes the intent unambiguous: *this is a question, and I want it in the record.*
 
-You do not have to use it — **any question gets logged** ([ADR-011](Decisions.md#adr-011)). The prefix just guarantees nothing is read as a rhetorical aside. Questions may also arrive inside a file dropped in [`../../toAgent/`](../../toAgent/); put `/btw` on its own line there too.
+You do not have to use it — **any question gets logged** ([ADR-011](Decisions.md#adr-011)). The prefix just guarantees nothing is read as a rhetorical aside. Questions may also arrive inside a file dropped in [`../../toAgent/`](../../toAgent); put `/btw` on its own line there too.
 
 ### When *you* want to write the answer
 
@@ -142,7 +142,7 @@ What I can tell you with confidence:
 [ADR-016](Decisions.md#adr-016) · [ADR-022](Decisions.md#adr-022) · [Setup 02](../guides/Setup_02_Godot_And_DotNet.md) · [V-01](../internal/VerificationRuns.md)
 
 ### Action taken
-Recorded as verification block [V-01](../internal/VerificationRuns.md) and [T-006](ToDos.md). Clears when you paste `dotnet --list-sdks`, the `<TargetFramework>` line and Godot's `Help → About` into [`../../toAgent/`](../../toAgent/).
+Recorded as verification block [V-01](../internal/VerificationRuns.md) and [T-006](ToDos.md). Clears when you paste `dotnet --list-sdks`, the `<TargetFramework>` line and Godot's `Help → About` into [`../../toAgent/`](../../toAgent).
 
 ---
 
@@ -750,7 +750,7 @@ The chapter now gives two working methods: **Method A**, a short C# script using
 **Why this is the protocol working rather than failing.** [ADR-016](Decisions.md#adr-016) exists because I cannot run Blender or Godot. Two of these three errors were marked `[UNVERIFIED]`; the third — the grid-counting instruction — was **not marked, and should have been.** I stated a measurement technique as fact without being able to check it. That is the more useful lesson: the marker discipline is only as good as my honesty about what I actually know.
 
 ### Related
-[ADR-016](Decisions.md#adr-016) · [ADR-028](Decisions.md#adr-028) · [chapter 0.3](../chapters/Chapter_00.03_Blender.md) · [Setup 03](../guides/Setup_03_Blender.md) · [VerificationRuns](../internal/VerificationRuns.md)
+[ADR-016](Decisions.md#adr-016) · [ADR-028](Decisions.md#adr-028) · [chapter 0.3](../chapters/module0/0A/0.3_Blender.md) · [Setup 03](../guides/Setup_03_Blender.md) · [VerificationRuns](../internal/VerificationRuns.md)
 
 ### Action taken
 Chapter 0.3: Clip Start moved to a new Step 2b; add-on list rewritten for Blender 4.2+; Step 6 verification replaced with the `GetAabb()` script and the BoxMesh comparison. Setup 03 corrected to match. Chapter 0.2's `mono` marker cleared. Three V-08/V-09 items cleared in `VerificationRuns.md`. `Machines.md` pre-filled with the confirmed Godot version, GPU and renderer.
@@ -788,7 +788,7 @@ Chapter 0.3: Clip Start moved to a new Step 2b; add-on list rewritten for Blende
 **The pattern across D-014 and D-015.** Both are the same failure in different clothes: **I wrote the reference material and the fast path separately, and the fast path silently lost a prerequisite.** The mandatory template ([`../chapters/README.md`](../chapters/README.md)) requires a 🏃 Fast-Track Summary that stands alone, and neither 0.4's summary nor 0.3's Step 2 was checked against that requirement. Going forward, the summary gets read as if it were the only thing on the page — because for one of the three paths, it is.
 
 ### Related
-[ADR-024](Decisions.md#adr-024) · [ADR-036](Decisions.md#adr-036) · [D-014](#d-014) · [chapter 0.4](../chapters/Chapter_00.04_AndroidToolchain.md) · [Setup 04](../guides/Setup_04_Android_And_Device.md)
+[ADR-024](Decisions.md#adr-024) · [ADR-036](Decisions.md#adr-036) · [D-014](#d-014) · [chapter 0.4](../chapters/module0/0A/0.4_AndroidToolchain.md) · [Setup 04](../guides/Setup_04_Android_And_Device.md)
 
 ### Action taken
 Chapter 0.4: download step added to the Fast-Track Summary; Step 2 rewritten with numbered navigation, filename pattern, expected size, wrong-file warning, direct-URL form and an archive verification; the stale Linux-only bullet and the 1 GB/100 MB contradiction fixed; *Before you start* and the cheat sheet both gained the download. Setup 04 corrected to match.
@@ -885,7 +885,7 @@ So this was not ignorance of the right method — it was **inconsistency between
 ⚠️ **This is also the first defect in this course capable of damaging your machine rather than merely wasting your time.** Commands that modify system state deserve a different standard of care from commands that print things — and `[UNVERIFIED]` does not cover it, because I was not uncertain here. **I was wrong.**
 
 ### Related
-[D-014](#d-014) · [D-015](#d-015) · [chapter 0.4](../chapters/Chapter_00.04_AndroidToolchain.md) · [chapter 0.2](../chapters/Chapter_00.02_GodotAndDotNet.md) *(which had it right)* · [Setup 04](../guides/Setup_04_Android_And_Device.md) · [T-027](ToDos.md)
+[D-014](#d-014) · [D-015](#d-015) · [chapter 0.4](../chapters/module0/0A/0.4_AndroidToolchain.md) · [chapter 0.2](../chapters/module0/0A/0.2_GodotAndDotNet.md) *(which had it right)* · [Setup 04](../guides/Setup_04_Android_And_Device.md) · [T-027](ToDos.md)
 
 ### Action taken
 Chapter 0.4: Fast-Track and Step 4 rewritten to use `[Environment]::SetEnvironmentVariable` with an idempotent User-path append; `JAVA_HOME` and `$jdk\bin` added; a 🚨 box explaining both `setx` defects; a collapsed check-and-repair procedure; Step 6 gained a full-path `keytool` fallback and the *"sdkmanager working does not prove keytool is reachable"* note; two troubleshooting rows. Setup 04 gained a matching §2b. [T-027](ToDos.md) opened for shared snippets.
@@ -944,7 +944,7 @@ if (shaderMat is null)
 
 **Two things you did better than the chapter, worth keeping.**
 
-1. You declared `public partial class CubeGdShader : MeshInstance3D`, so `this` **is** the mesh — `GetNode<MeshInstance3D>(".")` was never needed. My chapters used that idiom in both [0.11](../chapters/Chapter_00.11_CSharpFirstContact.md) and 0.13; both are now corrected to match what you did.
+1. You declared `public partial class CubeGdShader : MeshInstance3D`, so `this` **is** the mesh — `GetNode<MeshInstance3D>(".")` was never needed. My chapters used that idiom in both [0.11](../chapters/module0/0B/0.11_CSharpFirstContact.md) and 0.13; both are now corrected to match what you did.
 2. You added an `else` that printed `mesh.MaterialOverride`. **That is why this was diagnosable at all.** The chapter's version had no failure path, so a wrong slot produced silence — no error, no tint, no clue.
 
 **The lesson I have written into the chapter**, because it generalises well beyond materials:
@@ -958,7 +958,7 @@ An `if` with no `else` around a lookup converts a five-second diagnosis into an 
 **Why `[UNVERIFIED]` did not catch this.** The Inspector path carried no marker, because I did not think of it as an uncertain claim — I thought of it as a menu path I knew. That is precisely the failure [D-014](#d-014) already identified and I repeated it: **GUI navigation is exactly as unverifiable from my environment as an error string.** Recorded again in [`DecisionsLog.md`](DecisionsLog.md), because twice is a pattern rather than an accident.
 
 ### Related
-[D-014](#d-014) · [chapter 0.13](../chapters/Chapter_00.13_GDShaderFirstContact.md) · [chapter 0.11](../chapters/Chapter_00.11_CSharpFirstContact.md) · [ADR-016](Decisions.md#adr-016)
+[D-014](#d-014) · [chapter 0.13](../chapters/module0/0B/0.13_GDShaderFirstContact.md) · [chapter 0.11](../chapters/module0/0B/0.11_CSharpFirstContact.md) · [ADR-016](Decisions.md#adr-016)
 
 ### Action taken
 Chapter 0.13 Step 1 rewritten with both slots named and a comparison table; Step 5 rewritten with the three-fallback lookup and a mandatory `PushError` failure path. Chapter 0.11 corrected to declare `: MeshInstance3D` and drop `GetNode(".")`. Run-it checklist updated.

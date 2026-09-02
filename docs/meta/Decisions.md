@@ -42,7 +42,7 @@ update_trigger: "Whenever a decision is made, changed, or superseded"
 | [ADR-017](#adr-017) | **One chapter per turn**, committed and pushed | Process | ✅ |
 | [ADR-018](#adr-018) | Course content CC BY-SA 4.0; project code MIT | Legal | ✅ |
 | [ADR-019](#adr-019) | Capstone: **four levels, four public releases** — ship after Level 1, then keep shipping | Product | ✅ (revised) |
-| [ADR-020](#adr-020) | Chapter files are `ChapterNN_PascalCaseTitle.md` | Docs | ✅ |
+| [ADR-020](#adr-020) | Chapters live in `module<n>/<n><BLOCK>/` folders, named by chapter ID | Docs | ✅ (revised) |
 | [ADR-021](#adr-021) | No GitHub-only Markdown syntax | Docs | ✅ |
 | [ADR-022](#adr-022) | C# on Android is knowingly the less-travelled path | Product | ✅ |
 | [ADR-023](#adr-023) | Capstone working title is *Ember Hollow* | Product | 🔄 |
@@ -175,7 +175,7 @@ P00–P10, each playable, each deployed to the phone, each feeding the next. Plu
 ### Every chapter ends with exercises and answered self-check questions
 **Status:** ✅ Active · **Category:** Pedagogy
 
-Practicals are inline per chapter. Standalone drills live in [`../Exercises.md`](../Exercises.md). Self-check questions live inline (collapsed answers) and are aggregated in [`../reference/QuestionBank.md`](../reference/QuestionBank.md) with answers in [`../reference/answers/`](../reference/answers/).
+Practicals are inline per chapter. Standalone drills live in [`../Exercises.md`](../Exercises.md). Self-check questions live inline (collapsed answers) and are aggregated in [`../reference/QuestionBank.md`](../reference/QuestionBank.md) with answers in [`../reference/answers/`](../reference/answers).
 
 **Why.** Requested: *"questions (with answers)."* Answers are kept in a separate file so that retrieval practice is possible — recognising a correct answer is not the same as producing one.
 
@@ -296,7 +296,7 @@ Verbatim prompt, complete response, standing instructions extracted, artefacts c
 
 The authoring environment is Termux on Android with no Godot, no Blender, no .NET and no Android SDK — and the learner has instructed that nothing be installed or run there. Therefore **every claim about what a tool actually prints or does is marked `[UNVERIFIED]` until the learner runs it and reports back**.
 
-**Clearance path:** learner runs the step → pastes output into [`../../toAgent/`](../../toAgent/) → marker removed and the observed output written into the chapter. Protocol: [`../internal/VerificationRuns.md`](../internal/VerificationRuns.md).
+**Clearance path:** learner runs the step → pastes output into [`../../toAgent/`](../../toAgent) → marker removed and the observed output written into the chapter. Protocol: [`../internal/VerificationRuns.md`](../internal/VerificationRuns.md).
 
 **Why.** The alternative is confidently-worded fiction about error messages and menu paths, which is worse than an honest marker.
 
@@ -351,14 +351,19 @@ Prose, diagrams and course structure: **CC BY-SA 4.0**. Code in `projects/`: **M
 ### Chapter files are `ChapterNN_PascalCaseTitle.md`
 **Status:** ✅ Active · **Category:** Docs
 
-Chapter files are named **`Chapter_MM.NN_PascalCaseTitle.md`** — module, then chapter — so filenames sort in reading order and carry the ID everyone actually cites:
+Chapters live in **module and block folders**, named by their chapter ID:
 
 ```text
-docs/chapters/Chapter_00.01_MachinesAndTheirRoles.md
-docs/chapters/Chapter_01.34b_GitBeyondCommit.md
+docs/chapters/module<n>/<n><BLOCK>/<module>.<chapter>_PascalCaseTitle.md
+
+docs/chapters/module0/0A/0.1_MachinesAndTheirRoles.md
+docs/chapters/module0/0C/0.19_Module0SelfCheck.md
+docs/chapters/module1/1H/1.34b_GitBeyondCommit.md
 ```
 
-*(Revised 2026-09-02.* A flat `ChapterNN` counter was specified originally. With 359 chapters across 13 modules and hierarchical IDs like `1.34b`, it would have required a lookup table to find any chapter. **The ID is the address.**)
+*(Revised 2026-09-02: a flat `ChapterNN` counter was replaced by `Chapter_MM.NN_Title.md`, because with 359 chapters and IDs like `1.34b` a counter needs a lookup table. **The ID is the address.**)*
+
+*(Revised 2026-09-03: flat files became **module/block folders**. A flat module directory sorts `0.1`, `0.10`, `0.11`, `0.2` — lexical ordering breaks past nine chapters, and Module 1 has 44. Block folders keep each directory in reading order and make the module's structure visible in the tree. The block letter is read from each chapter's `block:` front matter, so the file tree cannot drift from the Table of Contents.)*
 
 ---
 
@@ -678,6 +683,7 @@ Everything after shifted: old Modules 2–11 became **3–12**. The course is no
 
 | Version | Date | Change |
 |---------|------|--------|
+| 1.9 | 2026-09-03 | ADR-020 revised again: chapters moved into `module<n>/<block>/` folders. Flat directories sort wrongly past nine chapters, and Module 1 has 44. |
 | 1.8 | 2026-09-02 | ADR-036 — Windows 11 **and** Linux supported; WSL2 explicitly excluded as a workshop. ADR-004 revised. Chapters 0.1–0.4 made dual-platform; new `Platforms.md`. |
 | 1.7 | 2026-09-02 | ADR-019 revised to a **staged release** model — v1.0 after Level 1, then v1.1–v1.3. All four levels stay mandatory. Module 11 restructured; new live-operations block. 348 → 359 chapters. Prompted by [D-012](Doubts.md#d-012). |
 | 1.0 | 2026-09-01 | Created at course inception (Session 001). ADR-001 to ADR-025. |

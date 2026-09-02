@@ -121,8 +121,8 @@ P10 Ember Hollow     M11  4 levels + boss, released FOUR TIMES: v1.0 after Level
 | The four languages and which job goes to which | [`../Languages.md`](../Languages.md) |
 | Project briefs + done-criteria | [`../../projects/README.md`](../../projects/README.md) |
 | Standalone drills | [`../Exercises.md`](../Exercises.md) |
-| Self-check Q&A | [`../reference/QuestionBank.md`](../reference/QuestionBank.md) → [`answers/`](../reference/answers/) |
-| Install everything | [`../guides/`](../guides/) |
+| Self-check Q&A | [`../reference/QuestionBank.md`](../reference/QuestionBank.md) → [`answers/`](../reference/answers) |
+| Install everything | [`../guides/`](../guides) |
 | Free assets + licences | [`../reference/ResourcesMeta.md`](../reference/ResourcesMeta.md) |
 | Attribution ledger | [`../reference/AssetLicenses.md`](../reference/AssetLicenses.md) |
 | Progress | [`CourseState.md`](CourseState.md) |

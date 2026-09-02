@@ -27,7 +27,7 @@ update_trigger: "Continuously"
 | T-003 | — | ~~Decide the build machine~~ | ✅ | — | Done 2026-09-01: **Linux**. Guides now lead with the Linux route. [D-001](Doubts.md) resolved. |
 | T-004 | 🟠 | **Record your phone's specs** — model, Android version, chipset/GPU, RAM, Vulkan support, notch? | ⬜ | — | Answers [D-003](Doubts.md). Decides Mobile vs Compatibility renderer in ch 5.13, and your whole performance budget. |
 | T-005 | — | ~~Decide ADR-024 — learning paths~~ | ✅ | — | Done 2026-09-01: **yes, all three authored in full.** Chapter template and PLAN §1b updated. |
-| T-006 | 🟠 | Run **Setup 02** — install Godot .NET + .NET SDK, and paste the `<TargetFramework>` line from a generated `.csproj` into [`toAgent/`](../../toAgent/) | ⬜ | T-003 | Clears the `[UNVERIFIED]` in [Setup 02 §2](../guides/Setup_02_Godot_And_DotNet.md). |
+| T-006 | 🟠 | Run **Setup 02** — install Godot .NET + .NET SDK, and paste the `<TargetFramework>` line from a generated `.csproj` into [`toAgent/`](../../toAgent) | ⬜ | T-003 | Clears the `[UNVERIFIED]` in [Setup 02 §2](../guides/Setup_02_Godot_And_DotNet.md). |
 | T-007 | 🟠 | Run **Setup 03** — install Blender, do the 2 m cube round-trip test | ⬜ | T-003 | If the cube isn't exactly 2 units in Godot, stop and fix before Module 3. |
 | T-008 | 🟠 | Run **Setup 04** — JDK + Android SDK + keystore, paste `adb devices` output into `toAgent/` | ⬜ | T-003 | Also paste the API level / build-tools version the official export page currently names. |
 | T-009 | 🔴 | ⭐ **Run Setup 05 — ship P00 to your phone** | ⬜ | T-006, T-008 | **Milestone M1.** The single most important 45 minutes in the course. |
@@ -43,7 +43,7 @@ update_trigger: "Continuously"
 |----|-----|------|--------|-----------|-------|
 | T-001 | — | ~~Create the GitHub repo~~ | ✅ | — | Done 2026-09-01. First attempt was denied by the auto-mode permission classifier; the retry succeeded. Repo is live and the scaffold is pushed (commit `6219e4b`). |
 | T-013 | — | ~~Write Chapter 0.1~~ | ✅ | — | Published 2026-09-02. Doing 62.2%, theory 21.2% against the instructional body — passes [ADR-002](Decisions.md#adr-002). |
-| T-026 | 🟠 | **Do chapter 0.1** — audit both machines, create `Machines.md`, close [D-003](Doubts.md) | ⬜ | — | ~45–60 min. Then paste output into [`../../toAgent/`](../../toAgent/) to clear V-07. |
+| T-026 | 🟠 | **Do chapter 0.1** — audit both machines, create `Machines.md`, close [D-003](Doubts.md) | ⬜ | — | ~45–60 min. Then paste output into [`../../toAgent/`](../../toAgent) to clear V-07. |
 | T-014 | 🟡 | Write a **sample chapter (1.4)** if you want to see the format in the flesh | ⬜ | — | Optional. 1.4 is the most representative of the Build→Why→Break→Practical→Check shape, and would show how the three paths sit in one document. |
 | T-015 | 🟡 | Populate `docs/reference/cheatsheets/` — Blender hotkeys, GDShader built-ins, Godot C# API, `adb` | ⬜ | — | One page each. Best written alongside the chapters that introduce them. |
 | T-016 | 🟡 | Fill `docs/reference/answers/module-03.md` … `module-10.md` | ⬜ | module progress | Written as each module is reached ([ADR-007](Decisions.md#adr-007)). |

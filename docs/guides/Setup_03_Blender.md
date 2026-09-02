@@ -84,7 +84,7 @@ Set up a file the way you want it (units correct, default cube deleted, a camera
 5. Drag the `.glb` into a Godot project's folder, then into a 3D scene.
 6. **It should be exactly 2 units across in Godot.**
 
-⚠️ **You cannot read this from the Inspector.** A `.glb` imports as a scene whose root is a `Node3D`; the mesh is a hidden child, so the Inspector shows the root's transform, not the mesh's size. Godot's grid also subdivides with zoom, so counting squares is not a measurement. Measure it with a script — see [chapter 0.3, Step 6, Method A](../chapters/Chapter_00.03_Blender.md).
+⚠️ **You cannot read this from the Inspector.** A `.glb` imports as a scene whose root is a `Node3D`; the mesh is a hidden child, so the Inspector shows the root's transform, not the mesh's size. Godot's grid also subdivides with zoom, so counting squares is not a measurement. Measure it with a script — see [chapter 0.3, Step 6, Method A](../chapters/module0/0A/0.3_Blender.md).
 
 If it isn't, stop and fix it now — every asset you make for the rest of the course depends on this being right. The diagnostic order is in [../reference/answers/module-02.md](../reference/answers/module-02.md), answer 15.
 

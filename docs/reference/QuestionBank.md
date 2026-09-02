@@ -10,7 +10,7 @@ update_trigger: "When a module's questions are written or revised"
 
 # Q&A Bank — Check Yourself
 
-Questions for every module. **Answers live in [answers/](answers/), one file per module.**
+Questions for every module. **Answers live in [answers/](answers), one file per module.**
 
 ## How to use this properly
 

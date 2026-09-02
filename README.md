@@ -32,7 +32,7 @@ By the end you will own:
 
 1. **[docs/PLAN.md](docs/PLAN.md)** — the philosophy, the shape of the course, and the honest constraints. **Read §5 before anything else.**
 2. **[docs/TableOfContents.md](docs/TableOfContents.md)** — every chapter, practical and project, numbered.
-3. **[docs/guides/](docs/guides/)** — install everything, in five ordered guides, ending with ⭐ **your first APK on your phone**.
+3. **[docs/guides/](docs/guides)** — install everything, in five ordered guides, ending with ⭐ **your first APK on your phone**.
 4. **[docs/meta/CourseState.md](docs/meta/CourseState.md)** — your progress tracker. Keep it open.
 5. **[docs/meta/Doubts.md](docs/meta/Doubts.md)** — your question log. Every confusion goes here *before* you try to solve it.
 

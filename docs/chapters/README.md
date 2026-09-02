@@ -16,25 +16,25 @@ The course itself. Chapters are published in order and appear here as they are w
 
 | # | Chapter | Track | Paths | Time | Status |
 |---|---------|-------|-------|------|--------|
-| **0.1** | [Machines and Their Roles](Chapter_00.01_MachinesAndTheirRoles.md) | A | 🐣🚶🏃 | 45–60 m | ✅ Published |
-| **0.2** | [Installing Godot 4 (.NET) and the .NET SDK](Chapter_00.02_GodotAndDotNet.md) | A | 🐣🚶🏃 | 60–90 m | ✅ Published |
-| **0.3** | [Installing Blender, and Configuring It Once](Chapter_00.03_Blender.md) | A | 🐣🚶🏃 | 45–60 m | ✅ Published |
-| **0.4** | [JDK, Android SDK, and the Debug Keystore](Chapter_00.04_AndroidToolchain.md) | A | 🐣🚶🏃 | 60–90 m | ✅ Published |
-| **0.5** | [Connecting Your Phone](Chapter_00.05_ConnectingYourPhone.md) | A | 🐣🚶🏃 | 45–60 m | ✅ Published |
-| **0.6** | [The Godot Editor](Chapter_00.06_TheGodotEditor.md) | A | 🐣🚶🏃 | 60–75 m | ✅ Published |
-| **0.7** | [Git for Game Projects](Chapter_00.07_GitForGameProjects.md) | A | 🐣🚶🏃 | 60–75 m | ✅ Published |
-| **0.8** ⭐ | [**Project 00: Hello Phone**](Chapter_00.08_P00HelloPhone.md) | **P** | 🐣🚶🏃 | 60–90 m | ✅ Published |
-| **0.9** | [Reading Errors](Chapter_00.09_ReadingErrors.md) | A | 🐣🚶🏃 | 60–75 m | ✅ Published |
-| **0.10** | [GDScript First Contact](Chapter_00.10_GDScriptFirstContact.md) | A | 🐣🚶🏃 | 45–60 m | ✅ Published |
-| **0.11** | [C# First Contact](Chapter_00.11_CSharpFirstContact.md) | A | 🐣🚶🏃 | 60–75 m | ✅ Published |
-| **0.12** ⭐ | [Measured: Two Languages, One Cube](Chapter_00.12_MeasuredTwoLanguages.md) | A | 🐣🚶🏃 | 60–75 m | ✅ Published |
-| **0.13** | [GDShader: The Fourth Language](Chapter_00.13_GDShaderFirstContact.md) | A | 🐣🚶🏃 | 45–60 m | ✅ Published |
-| **0.14** | [The Language Decision Table](Chapter_00.14_LanguageDecisionTable.md) | A | 🐣🚶🏃 | 45–60 m | ✅ Published |
-| **0.15** | [Evaluating a Dependency](Chapter_00.15_EvaluatingADependency.md) | A | 🐣🚶🏃 | 60–75 m | ✅ Published |
-| **0.16** | [NuGet](Chapter_00.16_NuGet.md) | A | 🐣🚶🏃 | 45–60 m | ✅ Published |
-| **0.17** 🧰 | [Dev-Loop Tools](Chapter_00.17_DevLoopTools.md) | A | 🐣🚶🏃 | 45–60 m | ✅ Published |
-| **0.18** ⭐ | [The Version Matrix](Chapter_00.18_TheVersionMatrix.md) | A | 🐣🚶🏃 | 45–60 m | ✅ Published |
-| **0.19** | [Module 0 Self-Check](Chapter_00.19_Module0SelfCheck.md) | **Q** | 🐣🚶🏃 | 60–90 m | ✅ Published |
+| **0.1** | [Machines and Their Roles](module0/0A/0.1_MachinesAndTheirRoles.md) | A | 🐣🚶🏃 | 45–60 m | ✅ Published |
+| **0.2** | [Installing Godot 4 (.NET) and the .NET SDK](module0/0A/0.2_GodotAndDotNet.md) | A | 🐣🚶🏃 | 60–90 m | ✅ Published |
+| **0.3** | [Installing Blender, and Configuring It Once](module0/0A/0.3_Blender.md) | A | 🐣🚶🏃 | 45–60 m | ✅ Published |
+| **0.4** | [JDK, Android SDK, and the Debug Keystore](module0/0A/0.4_AndroidToolchain.md) | A | 🐣🚶🏃 | 60–90 m | ✅ Published |
+| **0.5** | [Connecting Your Phone](module0/0A/0.5_ConnectingYourPhone.md) | A | 🐣🚶🏃 | 45–60 m | ✅ Published |
+| **0.6** | [The Godot Editor](module0/0A/0.6_TheGodotEditor.md) | A | 🐣🚶🏃 | 60–75 m | ✅ Published |
+| **0.7** | [Git for Game Projects](module0/0A/0.7_GitForGameProjects.md) | A | 🐣🚶🏃 | 60–75 m | ✅ Published |
+| **0.8** ⭐ | [**Project 00: Hello Phone**](module0/0A/0.8_P00HelloPhone.md) | **P** | 🐣🚶🏃 | 60–90 m | ✅ Published |
+| **0.9** | [Reading Errors](module0/0A/0.9_ReadingErrors.md) | A | 🐣🚶🏃 | 60–75 m | ✅ Published |
+| **0.10** | [GDScript First Contact](module0/0B/0.10_GDScriptFirstContact.md) | A | 🐣🚶🏃 | 45–60 m | ✅ Published |
+| **0.11** | [C# First Contact](module0/0B/0.11_CSharpFirstContact.md) | A | 🐣🚶🏃 | 60–75 m | ✅ Published |
+| **0.12** ⭐ | [Measured: Two Languages, One Cube](module0/0B/0.12_MeasuredTwoLanguages.md) | A | 🐣🚶🏃 | 60–75 m | ✅ Published |
+| **0.13** | [GDShader: The Fourth Language](module0/0B/0.13_GDShaderFirstContact.md) | A | 🐣🚶🏃 | 45–60 m | ✅ Published |
+| **0.14** | [The Language Decision Table](module0/0B/0.14_LanguageDecisionTable.md) | A | 🐣🚶🏃 | 45–60 m | ✅ Published |
+| **0.15** | [Evaluating a Dependency](module0/0C/0.15_EvaluatingADependency.md) | A | 🐣🚶🏃 | 60–75 m | ✅ Published |
+| **0.16** | [NuGet](module0/0C/0.16_NuGet.md) | A | 🐣🚶🏃 | 45–60 m | ✅ Published |
+| **0.17** 🧰 | [Dev-Loop Tools](module0/0C/0.17_DevLoopTools.md) | A | 🐣🚶🏃 | 45–60 m | ✅ Published |
+| **0.18** ⭐ | [The Version Matrix](module0/0C/0.18_TheVersionMatrix.md) | A | 🐣🚶🏃 | 45–60 m | ✅ Published |
+| **0.19** | [Module 0 Self-Check](module0/0C/0.19_Module0SelfCheck.md) | **Q** | 🐣🚶🏃 | 60–90 m | ✅ Published |
 
 **19 / 359.** 🎉 **MODULE 0 COMPLETE** — toolchain, first APK, four languages, dependencies and a pinned build.
  🎉 **Block 0B complete** — all four languages written, and a decision table built from your own measurements.
@@ -72,18 +72,26 @@ Next: **Module 1 — Godot Foundations**, and Project 01 *Marble Runner*.
 
 ---
 
-## Naming ([ADR-020](../meta/Decisions.md#adr-020))
+## Layout and naming ([ADR-020](../meta/Decisions.md#adr-020))
 
 ```text
-Chapter_MM.NN_PascalCaseTitle.md
+docs/chapters/module<n>/<n><BLOCK>/<module>.<chapter>_PascalCaseTitle.md
 ```
-
-`MM` is the module, `NN` the chapter, so **filenames sort in reading order** and carry the ID everyone cites. Variant chapters keep their suffix (`Chapter_01.34b_...`). Blender chapters carry their `B`-number in the title:
 
 ```text
-Chapter_00.01_MachinesAndTheirRoles.md
-Chapter_03.B05_BoxModellingTheCrate.md
+docs/chapters/
+├── README.md                     ← this index
+└── module0/
+    ├── 0A/   0.1_MachinesAndTheirRoles.md … 0.9_ReadingErrors.md
+    ├── 0B/   0.10_GDScriptFirstContact.md … 0.14_LanguageDecisionTable.md
+    └── 0C/   0.15_EvaluatingADependency.md … 0.19_Module0SelfCheck.md
 ```
+
+**Why blocks are folders, not just headings.** A flat `module0/` would sort `0.1`, `0.10`, `0.11`, `0.2` — lexical ordering breaks the moment a module passes nine chapters. Splitting by block keeps each folder's contents in reading order *and* makes the module's structure visible in the file tree. Module 1 has 44 chapters across blocks 1A–1I; without the split it would be unnavigable.
+
+**Variant chapters keep their suffix**: `1.34b_GitBeyondCommit.md`. **Blender chapters carry their `B`-number in the title**, not the filename: `3.B05_BoxModellingTheCrate.md`.
+
+The block letter comes from each chapter's `block:` front matter, so the file tree and the [Table of Contents](../TableOfContents.md) cannot drift apart.
 
 ---
 
@@ -191,6 +199,6 @@ I write these chapters from an Ubuntu/Termux session on a phone with **no Godot,
 [UNVERIFIED] The export dialog reports "No export template found for the selected platform".
 ```
 
-You run it → paste the real output into [`../../toAgent/`](../../toAgent/) → I replace the marker with the observed text. Protocol: [`../internal/VerificationRuns.md`](../internal/VerificationRuns.md).
+You run it → paste the real output into [`../../toAgent/`](../../toAgent) → I replace the marker with the observed text. Protocol: [`../internal/VerificationRuns.md`](../internal/VerificationRuns.md).
 
 This is deliberate. The alternative is confidently-worded fiction about error messages, which is worse than an honest marker.

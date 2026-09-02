@@ -52,7 +52,7 @@ Each block is small, numbered `V-NN`, and asks for **exact, pasteable output** �
 
 1. Run the commands exactly as given.
 2. Copy the **entire** output, including anything that looks like noise — warnings and stray lines are frequently the interesting part.
-3. Create a file in [`../../toAgent/`](../../toAgent/) named `NN.BlockV-NN-ShortDescription.md`.
+3. Create a file in [`../../toAgent/`](../../toAgent) named `NN.BlockV-NN-ShortDescription.md`.
 4. Say in one line whether it looked like it worked.
 5. Tell me it's there.
 
@@ -88,8 +88,8 @@ Each block is small, numbered `V-NN`, and asks for **exact, pasteable output** �
 
 | ID | Cleared on | Source | What changed |
 |----|-----------|--------|--------------|
-| Part of **V-08** | 2026-09-02 | `toAgent/3.png` | **Godot version confirmed: `v4.7.2.stable.mono.official`.** Settles that the .NET build reports itself as `mono` — the `[UNVERIFIED]` in [0.2 Step 1](../chapters/Chapter_00.02_GodotAndDotNet.md) is now a verified fact |
-| Part of **V-08** | 2026-09-02 | `toAgent/3.png` | **Renderer confirmed working: `D3D12 12_0 — Forward Mobile`** on an NVIDIA T600 Laptop GPU. Validates [ADR-010](../meta/Decisions.md#adr-010)'s Mobile-first choice and the [0.2](../chapters/Chapter_00.02_GodotAndDotNet.md) instruction to create the project on **Mobile** |
+| Part of **V-08** | 2026-09-02 | `toAgent/3.png` | **Godot version confirmed: `v4.7.2.stable.mono.official`.** Settles that the .NET build reports itself as `mono` — the `[UNVERIFIED]` in [0.2 Step 1](../chapters/module0/0A/0.2_GodotAndDotNet.md) is now a verified fact |
+| Part of **V-08** | 2026-09-02 | `toAgent/3.png` | **Renderer confirmed working: `D3D12 12_0 — Forward Mobile`** on an NVIDIA T600 Laptop GPU. Validates [ADR-010](../meta/Decisions.md#adr-010)'s Mobile-first choice and the [0.2](../chapters/module0/0A/0.2_GodotAndDotNet.md) instruction to create the project on **Mobile** |
 | Part of **V-08** | 2026-09-02 | `toAgent/3.png` | **Workshop confirmed as Config A (Windows 11 native)** — D3D12 in the banner. Matches [ADR-036](../meta/Decisions.md#adr-036) |
 | Part of **V-09** | 2026-09-02 | `toAgent/1.png`, `toAgent/2.png` | **Blender 4.2+ ships seven built-in add-ons only**; Extra Objects and Copy Attributes Menu are Extensions now. **Preferences → Viewport has no Clip Start.** Both chapter 0.3 and Setup 03 corrected |
 

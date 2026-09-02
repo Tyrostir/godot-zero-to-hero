@@ -10,7 +10,7 @@ update_trigger: "Chapter 0.1, then whenever a machine changes or a tool version 
 
 # 🖥️📱🐧 Machines
 
-> **This file is yours to fill in.** Chapter [0.1](../chapters/Chapter_00.01_MachinesAndTheirRoles.md) populates the hardware; [0.2](../chapters/Chapter_00.02_GodotAndDotNet.md)–[0.4](../chapters/Chapter_00.04_AndroidToolchain.md) add the tool versions.
+> **This file is yours to fill in.** Chapter [0.1](../chapters/module0/0A/0.1_MachinesAndTheirRoles.md) populates the hardware; [0.2](../chapters/module0/0A/0.2_GodotAndDotNet.md)–[0.4](../chapters/module0/0A/0.4_AndroidToolchain.md) add the tool versions.
 >
 > Mark a field `?` if you genuinely could not find it. **Never guess** — a wrong number here is worse than a missing one, because you will trust it later.
 

@@ -21,7 +21,7 @@ update_trigger: "When a reference document is added"
 | [`AssetLicenses.md`](AssetLicenses.md) | ⚠️ **Your attribution ledger.** Every asset you download gets a row, immediately |
 | [`Conventions.md`](Conventions.md) | Code style, naming, folder layout, git workflow |
 | [`Troubleshooting.md`](Troubleshooting.md) | Errors you will hit, and their fixes |
-| [`QuestionBank.md`](QuestionBank.md) | Self-check questions per module → answers in [`answers/`](answers/) |
-| [`cheatsheets/`](cheatsheets/) | One-page references: Blender hotkeys, GDShader, Godot C# API, `adb` |
+| [`QuestionBank.md`](QuestionBank.md) | Self-check questions per module → answers in [`answers/`](answers) |
+| [`cheatsheets/`](cheatsheets) | One-page references: Blender hotkeys, GDShader, Godot C# API, `adb` |
 
 > 💡 `ReferenceLinks.md` is the *what exists*. `ResourcesMeta.md` is the *is it any good, and may I use it*. Look in the second one first.

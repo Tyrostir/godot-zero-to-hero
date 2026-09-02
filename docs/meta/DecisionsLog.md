@@ -600,6 +600,6 @@ That is a different failure mode from [D-014](Doubts.md#d-014) and [D-015](Doubt
 1. Declaring `class CubeGdShader : MeshInstance3D` so `this` *is* the mesh, rather than the chapter's clumsy `GetNode<MeshInstance3D>(".")`. That idiom appeared in 0.11 and 0.13 and is removed from both.
 2. Adding an `else` that printed what was actually found. **The chapter's version had no failure path**, so a wrong slot produced total silence.
 
-**The generalised lesson written into 0.13:** *any code that looks something up should say what it found when it fails.* An `if` with no `else` around a lookup turns a five-second diagnosis into an open-ended hunt — and this is the same family as [0.11](../chapters/Chapter_00.11_CSharpFirstContact.md)'s "failures that are absences are the hardest to notice".
+**The generalised lesson written into 0.13:** *any code that looks something up should say what it found when it fails.* An `if` with no `else` around a lookup turns a five-second diagnosis into an open-ended hunt — and this is the same family as [0.11](../chapters/module0/0B/0.11_CSharpFirstContact.md)'s "failures that are absences are the hardest to notice".
 
 ---

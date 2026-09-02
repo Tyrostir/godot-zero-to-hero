@@ -22,4 +22,4 @@ Everything you install, in the order you install it. Do them in sequence — eac
 
 > ⚠️ **Version numbers rot.** Every version in these guides is a *known-good starting point*, and every section links the official page that is always current. When they disagree, the official page wins — and you log the difference in [Setup_01's version table](Setup_01_Prerequisites.md#3-your-version-log).
 
-> 🔍 **`[UNVERIFIED]` markers.** I write these guides but I cannot run Godot, Blender or `adb` — see [../internal/VerificationRuns.md](../internal/VerificationRuns.md). Any claim I could not verify carries an `[UNVERIFIED]` marker. When you run it on your desktop and paste the result into [`toAgent/`](../../toAgent/), the marker gets cleared and the guide becomes fact.
+> 🔍 **`[UNVERIFIED]` markers.** I write these guides but I cannot run Godot, Blender or `adb` — see [../internal/VerificationRuns.md](../internal/VerificationRuns.md). Any claim I could not verify carries an `[UNVERIFIED]` marker. When you run it on your desktop and paste the result into [`toAgent/`](../../toAgent), the marker gets cleared and the guide becomes fact.

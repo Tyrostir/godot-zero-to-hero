@@ -34,7 +34,7 @@ update_trigger: "When an internal document is added or the tier rules change"
 | [`NewAgentOnboardingGuide.md`](NewAgentOnboardingGuide.md) | How a brand-new agent takes over: what to read, in what order, what it may and may not do. | You are a new agent |
 | [`NewAgentOnboardingPrompts.md`](NewAgentOnboardingPrompts.md) | Copy-paste prompts **the learner** sends to bootstrap a new agent in one message. | You are the learner, starting a fresh session |
 | [`VerificationRuns.md`](VerificationRuns.md) | The `[UNVERIFIED]` clearance protocol: what the learner runs on the desktop, and where results get pasted. | Clearing `[UNVERIFIED]` markers |
-| [`../../toAgent/`](../../toAgent/) | Raw output the learner captures on the desktop or phone and drops in for the author. | Reading reported results |
+| [`../../toAgent/`](../../toAgent) | Raw output the learner captures on the desktop or phone and drops in for the author. | Reading reported results |
 
 ---
 

@@ -575,14 +575,14 @@ Every chapter ends with `[X]` and `[Q]`; they are only listed separately below w
 
 ## Appendices
 
-- **A1** [docs/guides/](guides/) — installation, in five ordered guides, plus the version log
+- **A1** [docs/guides/](guides) — installation, in five ordered guides, plus the version log
 - **A2** [reference/ResourcesMeta.md](reference/ResourcesMeta.md) — free asset, audio, VFX and tool directory
 - **A3** [reference/AssetLicenses.md](reference/AssetLicenses.md) — your attribution ledger
 - **A4** [reference/Conventions.md](reference/Conventions.md) — code, naming, folders, git
 - **A5** [reference/Glossary.md](reference/Glossary.md) — terminology
 - **A6** [reference/Troubleshooting.md](reference/Troubleshooting.md) — known errors and fixes
-- **A7** [reference/cheatsheets/](reference/cheatsheets/) — Blender keys, GDShader, Godot C# API, adb
-- **A8** [reference/QuestionBank.md](reference/QuestionBank.md) — all self-check questions · answers in [reference/answers/](reference/answers/)
+- **A7** [reference/cheatsheets/](reference/cheatsheets) — Blender keys, GDShader, Godot C# API, adb
+- **A8** [reference/QuestionBank.md](reference/QuestionBank.md) — all self-check questions · answers in [reference/answers/](reference/answers)
 - **A9** [Practicals.md](Practicals.md) — every hands-on unit in the course, counted
 - **A10** [Toolchain.md](Toolchain.md) — every free library and addon, and the chapter that adopts it
 - **A11** [PresentationSpine.md](PresentationSpine.md) — story, screens, music and narration, per project

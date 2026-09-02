@@ -60,7 +60,7 @@ $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --sdk_root=$ANDROID_HOME \
 $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses
 ```
 
-`[UNVERIFIED]` — the exact API level and build-tools version your Godot release expects. The official export page above states it; paste what it says into [`toAgent/`](../../toAgent/) and this marker clears.
+`[UNVERIFIED]` — the exact API level and build-tools version your Godot release expects. The official export page above states it; paste what it says into [`toAgent/`](../../toAgent) and this marker clears.
 
 ---
 
@@ -165,7 +165,7 @@ sudo usermod -aG plugdev "$USER"
 
 Replace `18d1` with your vendor ID. Log out and back in for the group change to apply, then replug the phone.
 
-`[UNVERIFIED]` — your phone's actual vendor ID. Paste `lsusb` output into [`toAgent/`](../../toAgent/) and this becomes concrete.
+`[UNVERIFIED]` — your phone's actual vendor ID. Paste `lsusb` output into [`toAgent/`](../../toAgent) and this becomes concrete.
 
 ### Wireless debugging (Android 11+) — set this up now
 

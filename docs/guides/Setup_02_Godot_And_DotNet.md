@@ -46,7 +46,7 @@ dotnet --version
 dotnet --list-sdks
 ```
 
-`[UNVERIFIED]` — the exact TFM your Godot version emits. Paste the `<TargetFramework>` line from your generated `.csproj` into [`toAgent/`](../../toAgent/) and this marker clears.
+`[UNVERIFIED]` — the exact TFM your Godot version emits. Paste the `<TargetFramework>` line from your generated `.csproj` into [`toAgent/`](../../toAgent) and this marker clears.
 
 ---
 
