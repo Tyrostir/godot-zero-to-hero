@@ -30,6 +30,10 @@ By the end, `adb version` works, Godot knows where every Android tool lives, and
 
 ## 🏃 Fast-Track Summary
 
+> ⬇️ **First, download the command-line tools** — the commands below assume the zip is already in your `Downloads` folder.
+> **<https://developer.android.com/studio>** → scroll to the very bottom → **"Command line tools only"** → take the row for your OS.
+> You want a file named `commandlinetools-linux-<build>_latest.zip` or `commandlinetools-win-<build>_latest.zip`, **about 100–150 MB**. If your download is measured in gigabytes, you have Android Studio — go back. Details in [Step 2](#step-2--download-the-command-line-tools).
+
 > 🐧 **Linux**
 
 ```bash
@@ -68,7 +72,7 @@ adb version
 ```
 
 - ⚠️ **The `latest` rename is the failure everyone hits.** The zip extracts to `cmdline-tools/`; `sdkmanager` requires `cmdline-tools/latest/`.
-- Command-line tools only (~1 GB). **Not** Android Studio (~8 GB) — you are on Linux and will never open the IDE ([D-001](../meta/Doubts.md#d-001)).
+- Command-line tools only (**~100–150 MB** zip). **Not** Android Studio (~8 GB installed) — you would open the IDE exactly once, to click a wizard. Works the same on Windows and Linux ([ADR-036](../meta/Decisions.md#adr-036)).
 - Point Godot at all four paths in `Editor → Editor Settings → Export → Android`.
 - Debug keystore credentials are deliberately public: `androiddebugkey` / `android`. **The release keystore in [11.13](../TableOfContents.md) is not, and losing it is unrecoverable.**
 - Commit: `ch 0.4: android toolchain + debug keystore`
@@ -81,7 +85,8 @@ adb version
 |---|---|
 | [0.2](Chapter_00.02_GodotAndDotNet.md) done | Godot must exist to configure |
 | A **data** cable, verified in [0.1](Chapter_00.01_MachinesAndTheirRoles.md) | Not needed today; needed in [0.5](../TableOfContents.md) |
-| ~2 GB disk | JDK ~300 MB, SDK ~1 GB |
+| ~2 GB disk | JDK ~300 MB · command-line tools ~150 MB · SDK packages ~1 GB once `sdkmanager` runs |
+| The command-line tools zip **already downloaded** | [Step 2](#step-2--download-the-command-line-tools) tells you exactly where on the page to find it — it is not the big green button |
 
 > 📎 **The always-current reference:** <https://docs.godotengine.org/en/stable/tutorials/export/exporting_for_android.html>. Where it and this chapter disagree, **it wins** — and log the difference in [`Machines.md`](../meta/Machines.md).
 
@@ -119,9 +124,42 @@ If several JDKs are installed, check which is active — 🐧 `sudo update-alter
 
 ### Step 2 — Download the command-line tools
 
-Go to <https://developer.android.com/studio>, scroll past the big Android Studio button, and find **"Command line tools only"** near the bottom. Take the `.zip` for your platform.
+**Download page: <https://developer.android.com/studio>**
 
-> ✅ **Command-line tools on both platforms.** Android Studio is ~8 GB and you would open it exactly once, to click through a wizard. The command-line tools are ~100 MB and do the same job. (Windows users may prefer Android Studio's SDK Manager GUI — it works, it is just far larger.)
+The link you want is **not** the big green button at the top. That is Android Studio (~1 GB installer, ~8 GB installed).
+
+**How to find it:**
+
+1. Open <https://developer.android.com/studio>.
+2. **Scroll to the very bottom of the page** — past Android Studio, past the release-notes links, past the system-requirements tables. It is a long page.
+3. Find the heading **"Command line tools only"**.
+4. Take the row matching your OS. There is one each for Windows, Mac and Linux.
+5. Accept the terms checkbox, and the download starts.
+
+**Confirm you got the right file before continuing:**
+
+| | Expected |
+|---|---|
+| Filename | `commandlinetools-linux-<build>_latest.zip` 🐧 · `commandlinetools-win-<build>_latest.zip` 🪟 |
+| Size | **~100–150 MB** |
+| ❌ Wrong file | Anything named `android-studio-*` — that is the IDE |
+
+`[UNVERIFIED]` — the exact `<build>` number, which changes with every release, and the page's current layout. Paste the filename you actually got into [`toAgent/`](../../toAgent/) and this marker clears.
+
+> 💡 **Direct-download form.** The files live at `https://dl.google.com/android/repository/commandlinetools-<os>-<build>_latest.zip`, where `<os>` is `linux`, `win` or `mac`. Useful for scripting a CI machine later (chapter 11.16), but **use the page today** — you must accept the licence terms, and the build number changes. `[UNVERIFIED]`
+
+**Verify the archive before extracting** — it should contain a `cmdline-tools/bin/sdkmanager`:
+
+```bash
+unzip -l ~/Downloads/commandlinetools-linux-*.zip | grep -m3 sdkmanager        # 🐧
+```
+```powershell
+(Get-ChildItem "$env:USERPROFILE\Downloads\commandlinetools-win-*.zip" |
+  ForEach-Object { [IO.Compression.ZipFile]::OpenRead($_.FullName).Entries } |
+  Where-Object Name -like "sdkmanager*" | Select-Object -First 3 FullName)     # 🪟
+```
+
+> ✅ **Command-line tools on both platforms.** Android Studio is ~8 GB installed and you would open it exactly once, to click through a wizard. The command-line tools are ~100–150 MB and do the same job. (Windows users who prefer a GUI can use Android Studio's SDK Manager instead — it works, it is just far larger.)
 
 ### Step 3 — Extract it into the right shape ⚠️
 
@@ -431,6 +469,10 @@ Three failures in this chapter share that shape:
 ---
 
 ## 📎 Cheat sheet
+
+| Where | What |
+|---|---|
+| <https://developer.android.com/studio> → **bottom of the page** → "Command line tools only" | The ~100–150 MB zip. **Not** the big green button |
 
 | Command | Purpose |
 |---|---|

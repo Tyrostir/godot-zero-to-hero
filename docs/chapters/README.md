@@ -63,7 +63,7 @@ Enforced by [**ADR-002 — the Practical-First Mandate**](../meta/Decisions.md#a
 | 1 | `# Chapter NN — Title` | one H1 | — |
 | 1b | 🪜 **Scaffolding** | Front matter declares this chapter's guided/independent split, per [ADR-033](../meta/Decisions.md#adr-033) | 1 line |
 | 2 | 🎯 **Goal** | **One sentence**: what will exist at the end that does not exist now | 1 line |
-| 2b | 🏃 **Fast-Track Summary** | The whole chapter in ~10 bullets plus the finished code. **Path C reads only this and the cheat sheet.** | short |
+| 2b | 🏃 **Fast-Track Summary** | The whole chapter in ~10 bullets plus the finished code. **Path C reads only this and the cheat sheet — so it must stand alone.** Every download, prerequisite and gotcha the build depends on appears here too, or the chapter is broken for that reader. See [D-015](../meta/Doubts.md#d-015). | short |
 | 3 | 🧭 **Before you start** | Prerequisites, and what you should already have running | short |
 | 4 | 🔨 **Build** | **Step-by-step doing. Must be the first substantive section.** Every step is a click, a keystroke or a line of code. | **≥ 50%** |
 | 5 | ▶️ **Run it** | What you should see. Screenshot or expected output. **The chapter must end in something runnable.** | short |
@@ -113,6 +113,8 @@ Every chapter declares its guided/independent split, and the ratio shifts across
 **⬜ Blank-page builds** end every major subsystem: *requirements only — no steps, no reference implementation, no code*. The progression is **guided build → variation → ⬜ blank-page → jam → autopsy**.
 
 > ⚠️ **Under pressure the instinct is always to give more help.** The declared percentage exists so that drift is visible, exactly as [ADR-002](../meta/Decisions.md#adr-002)'s thresholds do for theory creep.
+
+> 🚨 **Before publishing, read the Fast-Track Summary as if it were the only thing on the page.** For 🏃 Path C it *is*. A summary written by condensing a finished chapter reliably drops prerequisites that lived in prose — which is exactly how chapter 0.4 shipped telling the reader to unzip a file it never told them to download ([D-015](../meta/Doubts.md#d-015)).
 
 ### The four hard rules
 

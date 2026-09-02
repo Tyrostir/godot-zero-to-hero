@@ -539,3 +539,20 @@ Design notes worth keeping:
 **Three markers cleared as a side effect**, from the same screenshots: Godot reports itself as `v4.7.2.stable.mono.official` (settling that the .NET build is named `mono`); `D3D12 12_0 — Forward Mobile` runs on an NVIDIA T600 Laptop GPU (validating [ADR-010](Decisions.md#adr-010)); and the workshop is Config A, Windows 11 native ([ADR-036](Decisions.md#adr-036)).
 
 ---
+
+### 🔍 VERIFIED — the 🏃 Fast-Track Summary must stand alone, and 0.4's did not
+
+**Context.** The learner reported that chapter 0.4 gave `unzip`/`Expand-Archive` commands for the Android command-line tools without ever saying where to download the zip. See [D-015](Doubts.md#d-015).
+
+**Finding, and it is worse than reported.** Step 2 *did* name the page, too vaguely to follow. But the **🏃 Fast-Track Summary had no download step at all** — it went from installing the JDK straight to unzipping a file that was assumed to exist. [ADR-024](Decisions.md#adr-024) states that Path C reads **only the summary and the cheat sheet**. For that reader the chapter was broken outright.
+
+**The rule this establishes for every future chapter:** *the Fast-Track Summary must be read as if it were the only thing on the page, because for one of the three paths it is.* A summary that omits a prerequisite is not a summary; it is a trap. Writing it as a condensation of a chapter that is already finished is what caused this — the prerequisite lived in prose that the summary never quoted.
+
+**Two stale errors found while fixing it, neither reported.**
+
+- The Fast-Track bullet still read *"you are on Linux and will never open the IDE"* — contradicting [ADR-036](Decisions.md#adr-036), decided earlier the same day. **A policy change needs a grep for prose that merely *assumed* the old policy**, not only for text that references it explicitly. The dual-platform pass updated every command block and missed a sentence of justification.
+- The same bullet said the command-line tools were ~1 GB while Step 2 said ~100 MB. The zip is ~100–150 MB; ~1 GB is what `sdkmanager` fetches afterwards. **Two numbers for one thing in one chapter is a defect regardless of which is correct.**
+
+**Pattern with [D-014](Doubts.md#d-014).** Both learner reports so far are the same failure: reference material and the fast path written separately, with the fast path silently losing a prerequisite or a caveat. Both were found by the learner doing the work, which is the protocol operating as intended — but both were avoidable by reading the summary as a standalone document before publishing.
+
+---

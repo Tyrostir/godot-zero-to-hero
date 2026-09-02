@@ -46,7 +46,11 @@ You never need to open Android Studio again after this.
 
 ### ⭐ Route B — command-line tools only (leaner, ~1 GB) — **your route**
 
-Download *"Command line tools only"* from the bottom of <https://developer.android.com/studio>, unzip to `~/android-sdk/cmdline-tools/latest/`, then:
+**Download page:** <https://developer.android.com/studio> → **scroll to the very bottom** → heading **"Command line tools only"** → the row for your OS.
+
+⚠️ **Not the big green button** at the top — that is Android Studio. You want `commandlinetools-<os>-<build>_latest.zip`, **~100–150 MB**. Anything named `android-studio-*` is the wrong file.
+
+Unzip so the final path is `~/android-sdk/cmdline-tools/`**`latest`**`/bin/sdkmanager` — the archive extracts to `cmdline-tools/`, so you must rename that folder to `latest`. Then:
 
 ```bash
 export ANDROID_HOME=~/android-sdk

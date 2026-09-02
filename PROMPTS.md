@@ -649,3 +649,37 @@ Read all three screenshots. **All three reports were correct and all three were 
 ### Artefacts changed
 
 `docs/chapters/Chapter_00.03_Blender.md` (Step 2 rewritten, new Step 2b, Step 6 verification replaced) · `docs/guides/Setup_03_Blender.md` · `docs/chapters/Chapter_00.02_GodotAndDotNet.md` (`mono` marker cleared) · `docs/internal/VerificationRuns.md` (4 items cleared, V-09 partial) · `docs/meta/Machines.md` (confirmed Godot version, GPU, renderer, config) · `docs/meta/Doubts.md` (D-014) · `docs/meta/DecisionsLog.md`.
+
+---
+
+## PROMPT#16
+
+**Date:** 2026-09-02 · **Session:** 002
+
+### Prompt (verbatim)
+
+```text
+Thanks. In chapter 0.04, you asked me to execute the commands. "unzip
+~/Downloads/commandlinetools-linux-*.zip -d ~/android-sdk/cmdline-tools" and "Expand-Archive
+"$env:USERPROFILE\Downloads\commandlinetools-win-*.zip" -DestinationPath "$sdk\cmdline-tools"". But
+you didn't tell me from where to download the commandlinetools zip file.
+```
+
+### Response
+
+Correct — and worse than reported. Recorded as [D-015](docs/meta/Doubts.md#d-015).
+
+Step 2 *did* name the page, but too vaguely to follow. **The 🏃 Fast-Track Summary had no download step at all** — it went from installing the JDK straight to unzipping a file it assumed existed. Since [ADR-024](docs/meta/Decisions.md#adr-024) says Path C reads *only* the summary and the cheat sheet, the chapter was broken outright for that reader.
+
+**Fixed:** the summary now opens with the download; Step 2 gained numbered navigation, the expected filename pattern, the expected size, an explicit statement of what the *wrong* file looks like, the direct-URL form for later CI use, and an archive check that looks for `cmdline-tools/bin/sdkmanager` before extracting. *Before you start* and the cheat sheet both gained it too. Setup 04 corrected to match.
+
+**Two stale errors found while in there, neither reported:**
+
+- The Fast-Track bullet still read *"you are on Linux and will never open the IDE"* — contradicting [ADR-036](docs/meta/Decisions.md#adr-036), decided earlier the same day. The dual-platform pass updated every command block and missed a sentence of *justification*. **A policy change needs a grep for prose that merely assumed the old policy**, not just for text that references it.
+- The same bullet said ~1 GB while Step 2 said ~100 MB. The zip is ~100–150 MB; ~1 GB is what `sdkmanager` fetches afterwards. Two numbers for one thing in one chapter is a defect either way.
+
+**The rule this produced.** Both learner reports so far ([D-014](docs/meta/Doubts.md#d-014), [D-015](docs/meta/Doubts.md#d-015)) are the same failure in different clothes: reference material and the fast path written separately, with the fast path silently losing a prerequisite. The chapter template now carries a hard rule — **read the Fast-Track Summary as if it were the only thing on the page before publishing, because for one of the three paths it is.**
+
+### Artefacts changed
+
+`docs/chapters/Chapter_00.04_AndroidToolchain.md` · `docs/guides/Setup_04_Android_And_Device.md` · `docs/chapters/README.md` (standalone-summary rule) · `docs/meta/Doubts.md` (D-015) · `docs/meta/DecisionsLog.md`.

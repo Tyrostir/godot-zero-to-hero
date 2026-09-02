@@ -83,6 +83,7 @@ Some entries below have a **"In my own words"** line. That is yours to fill in, 
 | [D-012](#d-012) | 2026-09-02 | Design/Narrative | Ship after Level 1 — but Levels 2–4 stay mandatory. How does that restructure the capstone? | ✅ |
 | [D-013](#d-013) | 2026-09-02 | Setup/Install | My workshop is Windows 11 **or** Ubuntu/WSL. Can the course support both? | ✅ |
 | [D-014](#d-014) | 2026-09-02 | Blender | Chapter 0.3: no Clip Start, no Extra Objects/Copy Attributes, and the cube is not 3 grid squares | ✅ |
+| [D-015](#d-015) | 2026-09-02 | Setup/Install | Chapter 0.4 gives commands for the command-line tools zip but never says where to download it | ✅ |
 
 ---
 
@@ -757,6 +758,44 @@ Chapter 0.3: Clip Start moved to a new Step 2b; add-on list rewritten for Blende
 
 ---
 
+## D-015
+
+**Date:** 2026-09-02 · **Context:** Working chapter 0.4, Step 3 · **Category:** Setup/Install · **Status:** ✅ Answered — **authoring gap, fixed**
+
+### Question *(verbatim)*
+> Thanks. In chapter 0.04, you asked me to execute the commands. "unzip ~/Downloads/commandlinetools-linux-*.zip -d ~/android-sdk/cmdline-tools" and "Expand-Archive "$env:USERPROFILE\Downloads\commandlinetools-win-*.zip" -DestinationPath "$sdk\cmdline-tools"". But you didn't tell me from where to download the commandlinetools zip file.
+
+### Short answer
+**Correct, and worse than you found.** Step 2 *did* name the page, but far too vaguely to follow — and the **Fast-Track Summary had no download step at all**, so a 🏃 Path C reader hits your wall with no recourse. Both fixed, plus two stale errors I found while in there.
+
+**Where to get it:** <https://developer.android.com/studio> → **scroll to the very bottom** → heading **"Command line tools only"** → the row for your OS. Not the big green button at the top; that is Android Studio.
+
+### Full answer
+
+**What was actually wrong — three things, in order of severity.**
+
+1. **The Fast-Track Summary had no download step whatsoever.** It opened with `sudo apt install openjdk-17-jdk` and went straight to `unzip ~/Downloads/commandlinetools-linux-*.zip`, silently assuming the file already existed. [ADR-024](Decisions.md#adr-024) says 🏃 Path C reads *only* the summary and the cheat sheet — so for that reader the chapter was simply broken. **The summary now opens with the download.**
+2. **Step 2 named the page but not how to find the link on it.** *"Scroll past the big Android Studio button and find 'Command line tools only' near the bottom"* is not a procedure. That page is long, is redesigned periodically, and the section sits below release notes and system-requirement tables. It now has numbered navigation, the expected filename pattern, the expected size, and an explicit statement of what the **wrong** file looks like.
+3. **No way to confirm you got the right file.** Added a check that reads the archive listing and looks for `cmdline-tools/bin/sdkmanager` before you extract anything.
+
+**Two stale errors found while fixing it** — worth recording because neither was reported:
+
+- The Fast-Track bullet said *"you are on Linux and will never open the IDE"*, which contradicted [ADR-036](Decisions.md#adr-036) — Windows became a first-class workshop earlier the same day, and this line was not updated with the rest. **A renumber or a policy change needs a grep for prose that assumed the old policy**, not just for the things that obviously reference it.
+- It also said the command-line tools were **~1 GB**, while Step 2 said ~100 MB. The zip is **~100–150 MB**; the ~1 GB figure is what `sdkmanager` downloads *afterwards*. Two numbers for the same thing in one chapter is a defect regardless of which is right.
+
+**The pattern across D-014 and D-015.** Both are the same failure in different clothes: **I wrote the reference material and the fast path separately, and the fast path silently lost a prerequisite.** The mandatory template ([`../chapters/README.md`](../chapters/README.md)) requires a 🏃 Fast-Track Summary that stands alone, and neither 0.4's summary nor 0.3's Step 2 was checked against that requirement. Going forward, the summary gets read as if it were the only thing on the page — because for one of the three paths, it is.
+
+### Related
+[ADR-024](Decisions.md#adr-024) · [ADR-036](Decisions.md#adr-036) · [D-014](#d-014) · [chapter 0.4](../chapters/Chapter_00.04_AndroidToolchain.md) · [Setup 04](../guides/Setup_04_Android_And_Device.md)
+
+### Action taken
+Chapter 0.4: download step added to the Fast-Track Summary; Step 2 rewritten with numbered navigation, filename pattern, expected size, wrong-file warning, direct-URL form and an archive verification; the stale Linux-only bullet and the 1 GB/100 MB contradiction fixed; *Before you start* and the cheat sheet both gained the download. Setup 04 corrected to match.
+
+### In my own words
+*(yours to fill in)*
+
+---
+
 ## ⏸️ Parked
 
 *Questions consciously postponed, with a named chapter to revisit them at.*
@@ -782,6 +821,7 @@ Every ~20 doubts, come back and look for patterns. If four of your questions wer
 | Version | Date | Change |
 |---------|------|--------|
 | 1.0 | 2026-09-01 | Created at course inception. Table format. |
+| 2.9 | 2026-09-02 | D-015 — chapter 0.4 never said where to download the command-line tools; Fast-Track had no download step at all. |
 | 2.8 | 2026-09-02 | D-014 — three authoring errors in chapter 0.3 found by the learner and fixed. |
 | 2.7 | 2026-09-02 | D-013 added — Windows 11 + Linux both supported; WSL2 excluded as a workshop. D-001 revised. |
 | 2.6 | 2026-09-02 | D-012 added — staged release model. |
