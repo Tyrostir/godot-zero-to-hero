@@ -60,8 +60,14 @@ $sdk = "$env:USERPROFILE\android-sdk"
 New-Item -ItemType Directory -Force "$sdk\cmdline-tools" | Out-Null
 Expand-Archive "$env:USERPROFILE\Downloads\commandlinetools-win-*.zip" -DestinationPath "$sdk\cmdline-tools"
 Rename-Item "$sdk\cmdline-tools\cmdline-tools" "latest"      # ⚠️ everyone misses this
-setx ANDROID_HOME "$sdk"
-setx PATH "$env:PATH;$sdk\cmdline-tools\latest\bin;$sdk\platform-tools"
+# ⚠️ NEVER use `setx PATH "$env:PATH;..."` — see Step 4. Use this instead:
+[Environment]::SetEnvironmentVariable("ANDROID_HOME", $sdk, "User")
+$jdk  = (Get-Item "C:\Program Files\Eclipse Adoptium\jdk-17*").FullName
+$user = [Environment]::GetEnvironmentVariable("Path","User")
+foreach ($p in @("$sdk\cmdline-tools\latest\bin", "$sdk\platform-tools", "$jdk\bin")) {
+    if ($user -notlike "*$p*") { $user = "$user;$p" }
+}
+[Environment]::SetEnvironmentVariable("Path", $user, "User")
 # reopen PowerShell again, then:
 sdkmanager "platform-tools" "build-tools;34.0.0" "platforms;android-34"
 sdkmanager --licenses
@@ -220,18 +226,65 @@ echo "$ANDROID_HOME"; which sdkmanager
 
 > 🪟 **Windows (PowerShell)**
 
+> 🚨 **Do not use `setx PATH "$env:PATH;..."`.** *(Corrected 2026-09-02 — an earlier version of this chapter told you to, and it was wrong. See [D-016](../meta/Doubts.md#d-016).)* Two independent problems:
+>
+> 1. **`setx` truncates at 1024 characters.** A typical Windows `PATH` is longer than that, so the write silently loses entries off the end.
+> 2. **`$env:PATH` is the *merged* Machine + User path, but `setx` writes only to *User*.** You end up copying the entire system path into your user path — duplicating everything, and pushing the length over that 1024 limit even if it was not before.
+>
+> Together these can leave you with a `PATH` that has lost real entries. The method below reads **only** the User path, appends idempotently, and has no length limit.
+
 ```powershell
-$sdk = "$env:USERPROFILE\android-sdk"
-setx ANDROID_HOME "$sdk"
-setx PATH "$env:PATH;$sdk\cmdline-tools\latest\bin;$sdk\platform-tools"
+$sdk = "$env:USERPROFILE\android-sdk"      # or wherever you put it
+$jdk  = (Get-Item "C:\Program Files\Eclipse Adoptium\jdk-17*").FullName
+
+[Environment]::SetEnvironmentVariable("ANDROID_HOME", $sdk,  "User")
+[Environment]::SetEnvironmentVariable("JAVA_HOME",    $jdk,  "User")
+
+$user = [Environment]::GetEnvironmentVariable("Path","User")
+foreach ($p in @("$sdk\cmdline-tools\latest\bin", "$sdk\platform-tools", "$jdk\bin")) {
+    if ($user -notlike "*$p*") { $user = "$user;$p" }
+}
+[Environment]::SetEnvironmentVariable("Path", $user, "User")
 ```
 
-⚠️ 🪟 **`setx` writes the variable but does not update the window you ran it in. Close PowerShell and open a new one**, then:
+> 🐣 **Why `$jdk\bin` is in that list.** `keytool` (Step 6) and `java` both live in the JDK's `bin` directory. Temurin's installer does not always add it to `PATH`, so we do it explicitly. Miss this and Step 6 fails with *"The term 'keytool' is not recognized"*.
+
+⚠️ 🪟 **Environment changes do not affect the window you ran them in. Close PowerShell and open a new one**, then:
 
 ```powershell
 $env:ANDROID_HOME
+$env:JAVA_HOME
 Get-Command sdkmanager.bat | Select-Object Source
+Get-Command keytool        | Select-Object Source
 ```
+
+**All four must return something.** If `keytool` does not, see the repair box below.
+
+<details>
+<summary>🚨 If you already ran the old <code>setx PATH</code> command — check and repair your PATH</summary>
+
+```powershell
+# How long is your User PATH? If this is at or near 1024, it was truncated.
+$u = [Environment]::GetEnvironmentVariable("Path","User"); $u.Length
+
+# Look at it
+$u -split ';'
+```
+
+**Signs of damage:** a length of exactly 1024 or a final entry cut off mid-word; or system directories such as `C:\Windows\system32` appearing in your **User** path, which is where the merged copy landed.
+
+**Repair** — remove the duplicated system entries and keep only your own:
+
+```powershell
+$machine = [Environment]::GetEnvironmentVariable("Path","Machine") -split ';'
+$clean = ([Environment]::GetEnvironmentVariable("Path","User") -split ';' |
+          Where-Object { $_ -and ($machine -notcontains $_) } | Select-Object -Unique) -join ';'
+[Environment]::SetEnvironmentVariable("Path", $clean, "User")
+```
+
+Then re-run the block above to add the three directories back. Your **Machine** path is untouched throughout — `setx` without `/M` cannot write to it — so nothing system-wide was harmed.
+
+</details>
 
 ### Step 5 — Install the SDK packages
 
@@ -272,6 +325,17 @@ keytool -keyalg RSA -genkeypair -alias androiddebugkey -keypass android \
 ls -l "$ANDROID_HOME/debug.keystore"
 keytool -list -keystore "$ANDROID_HOME/debug.keystore" -storepass android
 ```
+
+> 🚨 **If you get `The term 'keytool' is not recognized`:** the JDK's `bin` is not on your `PATH`. Either redo Step 4, or call it by full path — which always works:
+>
+> ```powershell
+> $jdk = (Get-Item "C:\Program Files\Eclipse Adoptium\jdk-17*").FullName
+> & "$jdk\bin\keytool.exe" -keyalg RSA -genkeypair -alias androiddebugkey -keypass android `
+>     -keystore "$env:ANDROID_HOME\debug.keystore" -storepass android `
+>     -dname "CN=Android Debug,O=Android,C=US" -validity 9999 -deststoretype pkcs12
+> ```
+>
+> If `$jdk` comes back empty, **no JDK is installed** — go back to Step 1. Note that `sdkmanager` can succeed without `keytool` being on `PATH`, because it finds Java through `JAVA_HOME`; so a working `sdkmanager` does *not* prove `keytool` is reachable.
 
 > 🐣 **Reading that command:** `-alias` names the key inside the file · `-keystore` is the file · `-storepass`/`-keypass` are its passwords · `-dname` is the certificate's identity (nobody checks it for a debug key) · `-validity 9999` is days · `-deststoretype pkcs12` is the modern container format.
 
@@ -430,7 +494,9 @@ Three failures in this chapter share that shape:
 |---|---|
 | `sdkmanager` throws a Java class error | `cmdline-tools/latest/` is misnamed |
 | `adb: command not found` | `platform-tools` not on `PATH`, or not installed |
-| 🪟 A variable you just `setx` is empty | You did not reopen the terminal |
+| 🪟 A variable you just set is empty | You did not reopen the terminal |
+| 🪟 `keytool` not recognized, but `sdkmanager` works | The JDK's `bin` is not on `PATH`. `sdkmanager` finds Java via `JAVA_HOME`; `keytool` needs `PATH`. Step 4, or call it by full path |
+| 🪟 `PATH` entries have vanished | `setx PATH` truncated at 1024 chars. See the repair box in Step 4 |
 | Export fails mentioning licences | `sdkmanager --licenses` never accepted |
 
 </details>

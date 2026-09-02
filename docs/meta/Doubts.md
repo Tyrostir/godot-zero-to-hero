@@ -84,6 +84,7 @@ Some entries below have a **"In my own words"** line. That is yours to fill in, 
 | [D-013](#d-013) | 2026-09-02 | Setup/Install | My workshop is Windows 11 **or** Ubuntu/WSL. Can the course support both? | ✅ |
 | [D-014](#d-014) | 2026-09-02 | Blender | Chapter 0.3: no Clip Start, no Extra Objects/Copy Attributes, and the cube is not 3 grid squares | ✅ |
 | [D-015](#d-015) | 2026-09-02 | Setup/Install | Chapter 0.4 gives commands for the command-line tools zip but never says where to download it | ✅ |
+| [D-016](#d-016) | 2026-09-02 | Setup/Install | `keytool` not recognised on Windows — and the `setx PATH` command I gave was harmful | ✅ |
 
 ---
 
@@ -796,6 +797,103 @@ Chapter 0.4: download step added to the Fast-Track Summary; Step 2 rewritten wit
 
 ---
 
+## D-016
+
+**Date:** 2026-09-02 · **Context:** Chapter 0.4, Step 6, on Windows · **Category:** Setup/Install · **Status:** ✅ Answered — **one setup issue, and one harmful command of mine**
+
+### Question *(verbatim)*
+> I have performed all these steps in curly braces {$sdk = "C:\D\ProgramFiles\android\sdk" … sdkmanager --licenses} and then I am getting below error {… keytool : The term 'keytool' is not recognized as the name of a cmdlet, function, script file, or operable program …}. I even tried reopening powershell
+
+### Short answer
+`keytool` lives in the **JDK's `bin` directory**, and nothing put that directory on your `PATH` — Temurin's installer does not reliably do it, and **my Step 4 never added it**. Immediate fix: call it by full path. But there is a second, worse problem: **the `setx PATH "$env:PATH;..."` command I gave you is harmful** and may have truncated your user `PATH`. Check and repair it.
+
+### Full answer
+
+**Part 1 — why `keytool` was not found.**
+
+`keytool` ships with the JDK at `<JDK>\bin\keytool.exe`. Two things had to be true and neither was guaranteed: Temurin's *"Add to PATH"* feature does not reliably apply when installed via `winget` `[UNVERIFIED]`, and **my Step 4 added only the Android SDK's two directories** — the JDK was simply omitted.
+
+**The diagnostic detail worth keeping:** `sdkmanager` worked and `keytool` did not, from the same shell. Not a contradiction — `sdkmanager.bat` finds Java through **`JAVA_HOME`** (or a bundled JRE); `keytool` is only ever found through **`PATH`**. **A working `sdkmanager` does not prove `keytool` is reachable.**
+
+**Immediate unblock** — full path never depends on `PATH`:
+
+```powershell
+$jdk = (Get-Item "C:\Program Files\Eclipse Adoptium\jdk-17*").FullName
+$jdk    # if empty, no JDK is installed — go back to Step 1
+
+& "$jdk\bin\keytool.exe" -keyalg RSA -genkeypair -alias androiddebugkey -keypass android `
+    -keystore "C:\D\ProgramFiles\android\debug.keystore" -storepass android `
+    -dname "CN=Android Debug,O=Android,C=US" -validity 9999 -deststoretype pkcs12
+```
+
+**Part 2 — 🚨 my `setx PATH` command was harmful, and you ran it.**
+
+```powershell
+setx PATH "$env:PATH;$sdk\cmdline-tools\latest\bin;$sdk\platform-tools"    # ← what I told you to run
+```
+
+Two defects that compound:
+
+1. **`setx` truncates at 1024 characters.** A typical Windows `PATH` exceeds that, so the write silently drops whatever falls off the end.
+2. **`$env:PATH` is the *merged* Machine + User path, but `setx` writes only to *User*.** It copies the entire system path into your user path — duplicating everything and pushing the length past 1024 even if it was not before.
+
+Together, your **User** `PATH` may now hold a truncated copy of the system path. **Your Machine `PATH` is untouched** — `setx` without `/M` cannot write to it — which is the one piece of good news.
+
+**Check:**
+
+```powershell
+$u = [Environment]::GetEnvironmentVariable("Path","User"); $u.Length
+$u -split ';'
+```
+
+Length at or near **1024**, a last entry cut off mid-word, or `C:\Windows\system32` appearing in your *User* path all indicate damage.
+
+**Repair** — drop anything already present in the Machine path, then re-add your own:
+
+```powershell
+$machine = [Environment]::GetEnvironmentVariable("Path","Machine") -split ';'
+$clean = ([Environment]::GetEnvironmentVariable("Path","User") -split ';' |
+          Where-Object { $_ -and ($machine -notcontains $_) } | Select-Object -Unique) -join ';'
+[Environment]::SetEnvironmentVariable("Path", $clean, "User")
+```
+
+**The correct method, now in the chapter** — User path only, idempotent, no length limit, JDK included:
+
+```powershell
+$sdk = "C:\D\ProgramFiles\android\sdk"
+$jdk = (Get-Item "C:\Program Files\Eclipse Adoptium\jdk-17*").FullName
+
+[Environment]::SetEnvironmentVariable("ANDROID_HOME", $sdk, "User")
+[Environment]::SetEnvironmentVariable("JAVA_HOME",    $jdk, "User")
+
+$user = [Environment]::GetEnvironmentVariable("Path","User")
+foreach ($p in @("$sdk\cmdline-tools\latest\bin", "$sdk\platform-tools", "$jdk\bin")) {
+    if ($user -notlike "*$p*") { $user = "$user;$p" }
+}
+[Environment]::SetEnvironmentVariable("Path", $user, "User")
+```
+
+Reopen PowerShell; all four must return something: `$env:ANDROID_HOME`, `$env:JAVA_HOME`, `Get-Command sdkmanager.bat`, `Get-Command keytool`.
+
+**Part 3 — the finding that matters beyond this chapter.**
+
+**Chapter 0.2 already did this correctly.** Its Godot PATH step reads `[Environment]::GetEnvironmentVariable('Path','User')` and writes back with `SetEnvironmentVariable`. Chapter 0.4, written in the same session, used `setx` with the merged path instead.
+
+So this was not ignorance of the right method — it was **inconsistency between two chapters written hours apart**. A different failure from [D-014](#d-014) and [D-015](#d-015), and it argues for something neither of those did: **a shared snippet for any operation appearing in more than one chapter.** Environment variables, archive extraction and version checks now appear in three or four chapters each, and every duplicate is a chance to diverge. Recorded as [T-027](ToDos.md).
+
+⚠️ **This is also the first defect in this course capable of damaging your machine rather than merely wasting your time.** Commands that modify system state deserve a different standard of care from commands that print things — and `[UNVERIFIED]` does not cover it, because I was not uncertain here. **I was wrong.**
+
+### Related
+[D-014](#d-014) · [D-015](#d-015) · [chapter 0.4](../chapters/Chapter_00.04_AndroidToolchain.md) · [chapter 0.2](../chapters/Chapter_00.02_GodotAndDotNet.md) *(which had it right)* · [Setup 04](../guides/Setup_04_Android_And_Device.md) · [T-027](ToDos.md)
+
+### Action taken
+Chapter 0.4: Fast-Track and Step 4 rewritten to use `[Environment]::SetEnvironmentVariable` with an idempotent User-path append; `JAVA_HOME` and `$jdk\bin` added; a 🚨 box explaining both `setx` defects; a collapsed check-and-repair procedure; Step 6 gained a full-path `keytool` fallback and the *"sdkmanager working does not prove keytool is reachable"* note; two troubleshooting rows. Setup 04 gained a matching §2b. [T-027](ToDos.md) opened for shared snippets.
+
+### In my own words
+*(yours to fill in)*
+
+---
+
 ## ⏸️ Parked
 
 *Questions consciously postponed, with a named chapter to revisit them at.*
@@ -821,6 +919,7 @@ Every ~20 doubts, come back and look for patterns. If four of your questions wer
 | Version | Date | Change |
 |---------|------|--------|
 | 1.0 | 2026-09-01 | Created at course inception. Table format. |
+| 3.0 | 2026-09-02 | D-016 — `keytool` not on PATH, and the `setx PATH` command in 0.4 was harmful. First defect capable of damaging the learner\'s machine. |
 | 2.9 | 2026-09-02 | D-015 — chapter 0.4 never said where to download the command-line tools; Fast-Track had no download step at all. |
 | 2.8 | 2026-09-02 | D-014 — three authoring errors in chapter 0.3 found by the learner and fixed. |
 | 2.7 | 2026-09-02 | D-013 added — Windows 11 + Linux both supported; WSL2 excluded as a workshop. D-001 revised. |

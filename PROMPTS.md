@@ -683,3 +683,35 @@ Step 2 *did* name the page, but too vaguely to follow. **The 🏃 Fast-Track Sum
 ### Artefacts changed
 
 `docs/chapters/Chapter_00.04_AndroidToolchain.md` · `docs/guides/Setup_04_Android_And_Device.md` · `docs/chapters/README.md` (standalone-summary rule) · `docs/meta/Doubts.md` (D-015) · `docs/meta/DecisionsLog.md`.
+
+---
+
+## PROMPT#17
+
+**Date:** 2026-09-02 · **Session:** 002
+
+### Prompt (verbatim)
+
+```text
+I have performed all these steps in curly braces {$sdk = "C:\D\ProgramFiles\android\sdk" … sdkmanager
+--licenses} and then I am getting below error {… keytool : The term 'keytool' is not recognized as the
+name of a cmdlet, function, script file, or operable program …}. I even tried reopening powershell
+```
+
+### Response
+
+Diagnosed the reported error and, in doing so, found a worse one of mine. [D-016](docs/meta/Doubts.md#d-016).
+
+**The reported bug:** `keytool` lives in the JDK's `bin`, and my Step 4 added the Android SDK's directories and **never the JDK's**. Temurin's *"Add to PATH"* does not reliably apply via `winget`. Gave the immediate unblock (call it by full path), then fixed Step 4 to set `JAVA_HOME` and include `$jdk\bin`.
+
+Useful diagnostic recorded: `sdkmanager` worked while `keytool` did not, in the same shell. Not a contradiction — `sdkmanager.bat` finds Java via **`JAVA_HOME`**, `keytool` only via **`PATH`**. **A working `sdkmanager` does not prove `keytool` is reachable.**
+
+**🚨 The worse problem — the command I gave was harmful and they had already run it.** `setx PATH "$env:PATH;..."` has two compounding defects: `setx` **truncates at 1024 characters**, and `$env:PATH` is the **merged Machine + User** path while `setx` writes only to **User** — so it copies the entire system path into the user path and then truncates it. Entries can vanish. Their Machine path is safe (`setx` without `/M` cannot reach it), which I told them explicitly. Supplied a check-and-repair procedure and rewrote the chapter to use `[Environment]::SetEnvironmentVariable` with an idempotent User-path append.
+
+**The cause is the interesting part. Chapter 0.2 already did this correctly** — same session, hours earlier, using exactly the right API. 0.4 diverged. **Not ignorance of the method; divergence between two copies of one operation.** That is a distinct failure from D-014 and D-015, and it produced [T-027](docs/meta/ToDos.md): shared snippets for any operation appearing in more than one chapter.
+
+**Category line drawn in `DecisionsLog.md`:** this is the first defect that could damage the learner's machine rather than waste their time. `[UNVERIFIED]` does not cover it — there was no uncertainty to flag, the command was simply wrong. **Commands that modify system state need a different standard of care than commands that print things.**
+
+### Artefacts changed
+
+`docs/chapters/Chapter_00.04_AndroidToolchain.md` (Fast-Track and Step 4 rewritten · `JAVA_HOME` · `$jdk\bin` · `setx` warning box · check-and-repair procedure · full-path `keytool` fallback · two troubleshooting rows) · `docs/guides/Setup_04_Android_And_Device.md` (new §2b) · `docs/meta/Doubts.md` (D-016) · `docs/meta/DecisionsLog.md` · `docs/meta/ToDos.md` (T-027).

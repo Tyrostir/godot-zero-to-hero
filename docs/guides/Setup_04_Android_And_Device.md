@@ -44,7 +44,7 @@ Install <https://developer.android.com/studio>. Open **SDK Manager** and install
 
 You never need to open Android Studio again after this.
 
-### ⭐ Route B — command-line tools only (leaner, ~1 GB) — **your route**
+### ⭐ Route B — command-line tools only (~100–150 MB zip) — **recommended on both platforms**
 
 **Download page:** <https://developer.android.com/studio> → **scroll to the very bottom** → heading **"Command line tools only"** → the row for your OS.
 
@@ -63,6 +63,34 @@ $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses
 `[UNVERIFIED]` — the exact API level and build-tools version your Godot release expects. The official export page above states it; paste what it says into [`toAgent/`](../../toAgent/) and this marker clears.
 
 ---
+
+## 2b. 🪟 Windows environment variables — do **not** use `setx PATH`
+
+```powershell
+$sdk = "$env:USERPROFILE\android-sdk"
+$jdk = (Get-Item "C:\Program Files\Eclipse Adoptium\jdk-17*").FullName
+
+[Environment]::SetEnvironmentVariable("ANDROID_HOME", $sdk, "User")
+[Environment]::SetEnvironmentVariable("JAVA_HOME",    $jdk, "User")
+
+$user = [Environment]::GetEnvironmentVariable("Path","User")
+foreach ($p in @("$sdk\cmdline-tools\latest\bin", "$sdk\platform-tools", "$jdk\bin")) {
+    if ($user -notlike "*$p*") { $user = "$user;$p" }
+}
+[Environment]::SetEnvironmentVariable("Path", $user, "User")
+```
+
+> 🚨 **Never `setx PATH "$env:PATH;..."`.** `setx` truncates at **1024 characters**, and `$env:PATH` is the *merged* Machine + User path while `setx` writes only to *User* — so it copies the whole system path into your user path and then truncates it, and entries disappear. The method above reads only the User path, appends idempotently, and has no length limit. Full analysis and a repair procedure: [D-016](../meta/Doubts.md#d-016).
+
+> ⚠️ **`$jdk\bin` matters.** `keytool` lives there, and Temurin does not reliably add it to `PATH`. Without it, the keystore step below fails with *"The term 'keytool' is not recognized"* — while `sdkmanager` keeps working, because it finds Java through `JAVA_HOME` rather than `PATH`.
+
+Reopen PowerShell, then confirm all four:
+
+```powershell
+$env:ANDROID_HOME; $env:JAVA_HOME
+Get-Command sdkmanager.bat | Select-Object Source
+Get-Command keytool        | Select-Object Source
+```
 
 ## 3. The debug keystore
 

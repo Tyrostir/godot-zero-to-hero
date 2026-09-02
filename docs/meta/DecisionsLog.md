@@ -556,3 +556,29 @@ Design notes worth keeping:
 **Pattern with [D-014](Doubts.md#d-014).** Both learner reports so far are the same failure: reference material and the fast path written separately, with the fast path silently losing a prerequisite or a caveat. Both were found by the learner doing the work, which is the protocol operating as intended — but both were avoidable by reading the summary as a standalone document before publishing.
 
 ---
+
+### 🔍 VERIFIED — a harmful command shipped in chapter 0.4; and the cause was inconsistency, not ignorance
+
+**Context.** The learner hit `keytool : The term 'keytool' is not recognized` at chapter 0.4 Step 6 on Windows. See [D-016](Doubts.md#d-016).
+
+**Two findings, the second more serious than the reported symptom.**
+
+**1 — The reported bug.** Step 4 added the Android SDK's directories to `PATH` and **never added the JDK's `bin`**, where `keytool` lives. Temurin's *"Add to PATH"* feature does not reliably apply via `winget`. Fixed, with a full-path fallback and `JAVA_HOME` now set explicitly.
+
+*Diagnostic worth keeping:* `sdkmanager` worked while `keytool` did not, from the same shell. `sdkmanager.bat` resolves Java through **`JAVA_HOME`**; `keytool` only through **`PATH`**. **A working `sdkmanager` does not prove `keytool` is reachable** — now a troubleshooting row.
+
+**2 — 🚨 The command I gave was actively harmful.**
+
+```powershell
+setx PATH "$env:PATH;$sdk\cmdline-tools\latest\bin;$sdk\platform-tools"
+```
+
+`setx` **truncates at 1024 characters**, and `$env:PATH` is the **merged Machine + User** path while `setx` writes only to **User**. So it copies the whole system path into the user path and then truncates it. Entries can disappear. (Machine `PATH` is safe — `setx` without `/M` cannot reach it.) The chapter now uses `[Environment]::SetEnvironmentVariable` with an idempotent User-path append, and carries a **check-and-repair procedure** for anyone who ran the old command.
+
+**The cause, and why it matters more than the bug.** **Chapter 0.2 already did this correctly** — it reads `GetEnvironmentVariable('Path','User')` and writes back with `SetEnvironmentVariable`. Chapter 0.4, written hours later in the same session, used `setx` on the merged path. **This was not ignorance of the right method; it was divergence between two copies of the same operation.**
+
+That is a different failure mode from [D-014](Doubts.md#d-014) and [D-015](Doubts.md#d-015), and it argues for something neither did: **shared snippets for any operation appearing in more than one chapter.** Environment-variable manipulation, archive extraction and version checks each now appear in three or four chapters. Every duplicate is a chance to diverge. Opened as [T-027](ToDos.md).
+
+**⚠️ A category line worth drawing.** This is the first defect in this course that could **damage the learner's machine** rather than waste their time. `[UNVERIFIED]` does not cover it, because there was no uncertainty to flag — the command was simply wrong. **Commands that modify system state need a different standard of care from commands that print things**, and that standard is: prefer the API over the convenience wrapper, make it idempotent, and never write a variable by reading a differently-scoped one.
+
+---
