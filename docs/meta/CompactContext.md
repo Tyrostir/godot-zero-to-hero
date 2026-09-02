@@ -27,7 +27,7 @@ update_trigger: "End of every session — regenerate from CourseState + Decision
 ## WHAT
 
 - **Course:** *Godot Zero to Hero* — 3D **Android** game development with **Godot 4 (.NET / C#)** and **Blender**.
-- **Shape:** **13 modules** · **348 chapters** (64 Blender · ~45 🧰 adoption · 8 ⬜ blank-page) · **11 projects** · 4 mini-jams · ~560–650 h.
+- **Shape:** **13 modules** · **359 chapters** (64 Blender · ~45 🧰 adoption · 8 ⬜ blank-page) · **11 projects** · 4 mini-jams · ~560–650 h.
 - **Languages:** **C# primary** (~180 ch) · GDScript (8) · C++/GDExtension (7) · GDShader (12). All four taught; see [`../Languages.md`](../Languages.md).
 - **Repo:** ✅ [`https://github.com/Tyrostir/godot-zero-to-hero`](https://github.com/Tyrostir/godot-zero-to-hero) — live, pushed 2026-09-01.
 - **Authoring path:** `/root/claude/godot-zero-to-hero` (Termux).
@@ -39,7 +39,7 @@ update_trigger: "End of every session — regenerate from CourseState + Decision
 |---|---|
 | Phase | **1 — planning** |
 | Plan | ⏳ **Awaiting approval** |
-| Chapters published | **0 / 348** |
+| Chapters published | **0 / 359** |
 | Setup guides | **5 / 5 drafted** — all `[UNVERIFIED]`, none run |
 | Projects shipped | **0 / 11** |
 | Toolchain installed | ❌ nothing yet |
@@ -92,7 +92,9 @@ P07 The Slice        M8   splash→narrated cold open→menu→level→dialogue�
                           guided walkthrough→narrated ending→credits, unbroken
 P08 Warden           M9   YOUR character: sculpt→retopo→UV→bake→texture→rig→animate
 P09 Refactor         M10   architecture, Resources, pooling, tiers, tests, profiling
-P10 Ember Hollow     M11  4 levels + boss, released to itch.io + Play internal testing
+P10 Ember Hollow     M11  4 levels + boss, released FOUR TIMES: v1.0 after Level 1,
+                          then v1.1-v1.3 as staged updates. Live-ops: save migration,
+                          staged rollout, crash triage, hotfixes (ADR-019)
 ```
 
 ## HARD TECHNICAL FACTS

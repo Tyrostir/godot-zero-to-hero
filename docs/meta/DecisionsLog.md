@@ -458,3 +458,23 @@ I under-counted the additions: Android block 10 · early engineering practice 8 
 **How the renumber was done safely.** Not by blind regex — a survey found **915 candidate tokens** with real false-positive risk (`Godot 4.2+`, `glTF 2.0`, `Apache-2.0`, `9.8f`, review scores like `9.5/10`). Instead: extract the exact set of chapter IDs present in the Table of Contents, replace only those, exclude tokens preceded by `Godot ` or followed by `+`, and skip the external review file entirely. 14 ambiguous matches were audited by hand first. 36 files changed; `answers/module-NN.md` renamed; **all 573 relative links verified afterwards**; version strings confirmed intact.
 
 ---
+
+### 🔄 REVISED — ADR-019: the capstone ships four times
+
+**Context.** The capstone question was re-asked after [D-011](Doubts.md#d-011) explained "vertical slice" properly.
+
+**The learner produced a third option neither the review nor the author had proposed.** Offered a scope reduction (ship Level 1, make 2–4 optional) or the status quo (build four, ship once), they took **the sequencing change without the scope reduction**: *"Ship after level 1. But Level 2 to 4 are mandatory, not optional. I do not compromize on the features, intermediate steps and quality."*
+
+**Decision.** The game goes public **four times** — v1.0 after Level 1, then v1.1, v1.2 and v1.3 as Levels 2, 3 and 4 ship as staged updates to a live app. All four levels mandatory; nothing cut; no quality bar moved.
+
+**Why this is better than what the author proposed, recorded plainly.**
+
+1. **It de-risks without giving anything up.** The author's version bought safety by making content optional. This buys the same safety by re-ordering. After v1.0 the "500 hours and nothing released" failure mode is gone, and every subsequent hour is additive rather than load-bearing.
+2. **It teaches a discipline the ship-once model structurally cannot** — patching live software: save migration across released versions, staged rollout and rollback, crash triage from devices whose logs you will never see, release notes, hotfix branches, triaging strangers' feedback. Now **Module 11D**, six chapters that would not have existed under either option originally offered.
+3. **Levels 3–4 get built with evidence** from v1.0 and v1.1 telemetry rather than guesswork.
+
+**The new critical dependency.** Chapter **11.8b — designing for content you have not built yet**: level format, spawn data, and above all the **save schema**, all correct *before* v1.0 ships. Under ship-once there is no "before" and the chapter would not need to exist; under this model the whole plan rests on it.
+
+**Consequences.** Module 11 restructured into 11A–11F. Module 11: 32 → 43 chapters. Course **348 → 359**. Pacing to ~580–670 h. New P10 done-criteria: a v1.0 save must load in v1.3, verified; and at least one hotfix shipped against a real crash report. `CourseState.md` milestones now track four public releases.
+
+---

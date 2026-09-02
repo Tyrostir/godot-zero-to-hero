@@ -257,11 +257,18 @@ Every project has a **Done when** list. Those are not suggestions. A project is 
 ## P10 — *Ember Hollow* — the capstone
 **After Module 11 · 60–120 hours · `projects/P10_EmberHollow/`**
 
-**Brief.** The full game. Four levels, one boss, complete narrative arc, released publicly.
+**Brief.** The full game. Four levels, one boss, complete narrative arc — **released publicly four times**: v1.0 after Level 1, then v1.1–v1.3 as staged updates to a live app.
+
+**Release model ([ADR-019](../docs/meta/Decisions.md#adr-019)).** The game goes public **four times**: **v1.0** = Level 1 at final quality, released. **v1.1–v1.3** = Levels 2, 3 and 4, each shipped as a staged update to a live app. **All four levels are mandatory** — nothing is cut and no quality bar moves; only the timing of the first public release changes. That buys you a real game after Level 1 *and* the one discipline shipping once cannot teach: patching live software.
 
 **Scope lock.** Four levels of ~6 minutes each. One enemy type with two variants. One boss with three phases. One core verb plus one traversal verb. No crafting, no inventory, no dialogue trees beyond what P07 built, no procedural generation. **Write this scope in the GDD and defend it.** The single most common cause of an unfinished game is a feature added in month four.
 
 **Done when**
+- [ ] 🚢 **v1.0 released** — Level 1 at final quality, public on itch.io and Play internal testing
+- [ ] Save schema, level format and spawn data designed so v1.1 is an **update, not a rewrite** *(11.8b)*
+- [ ] 🚢 **v1.1, v1.2, v1.3 released** — Levels 2, 3 and 4, each a staged rollout with saves migrated and the crash dashboard watched
+- [ ] A v1.0 save file loads correctly in v1.3, verified
+- [ ] At least one hotfix shipped in response to a real crash report
 - [ ] Four levels, built, lit, populated, and playtested
 - [ ] Enemy AI navigates, perceives, telegraphs and can be beaten fairly
 - [ ] Boss has three distinct phases and a readable difficulty curve

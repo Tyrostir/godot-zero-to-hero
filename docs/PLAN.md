@@ -101,9 +101,24 @@ Eleven projects. Each one is playable and each one is shipped to your phone. The
 | **P07** | **The Slice** — intro cinematic → menu → level → dialogue → ending | Module 8 | Story, GDD, dialogue system, cutscenes, camera direction, credits |
 | **P08** | **Warden** — your own sculpted, retopo'd, rigged, animated character | Module 9 | Full character pipeline, end to end, your hands only |
 | **P09** | **Systems Refactor** — the codebase you'd be happy to hand to a team | Module 10 | Architecture, Resources, settings tiers, profiling, tests |
-| **P10** | **Ember Hollow** — the capstone. 4 levels, boss, full narrative, released | Module 11 | Production, scope, polish, playtesting, Play Console, itch.io |
+| **P10** | **Ember Hollow** — the capstone. 4 levels, boss, full narrative, **released four times** | Module 11 | Production, polish, playtesting, Play Console, itch.io — and **live operations**: save migration, staged rollout, crash triage, hotfixes |
 
 Full briefs and done-criteria: **[projects/README.md](../projects/README.md)**.
+
+### 3a-2. The capstone ships four times
+
+*Ember Hollow* has **four mandatory levels** — nothing is cut and no quality bar moves ([ADR-019](meta/Decisions.md#adr-019)). What changes is when the public first sees it:
+
+| Release | Contains | Teaches |
+|---------|----------|---------|
+| **v1.0** | Level 1 at final quality, boss systems, narrative frame, settings, accessibility | Shipping |
+| **v1.1** | Level 2 | Save migration across shipped versions · staged rollout |
+| **v1.2** | Level 3 | Acting on real crash data and real feedback |
+| **v1.3** | Level 4 + boss, content lock | Finishing |
+
+**Why:** the commonest way a solo project fails is 500 hours of work and nothing released. After v1.0 that failure mode is gone and the remaining work is purely additive. It also teaches an entire discipline a ship-once model structurally cannot — **patching a live game**: save migration, staged rollout and rollback, crash triage from strangers' devices, hotfix branches, and acting on feedback from people who are not you (Module 11D). And Levels 3–4 get built with evidence instead of guesswork.
+
+⚠️ **The chapter this depends on is 11.8b** — *designing for content you have not built yet*. Get the level format, spawn data and save schema right before v1.0, or v1.1 is a rewrite rather than an update.
 
 ### 3b. The Presentation Spine — every project is a *game*, not a tech demo
 
@@ -216,7 +231,7 @@ Between modules there are also **Mini-Jams** — 2-to-4-hour constrained builds 
 
 **Module 10 — Architecture, Performance & Tooling (P09 Refactor).** C# in Godot: marshalling cost, allocations, the GC on mobile, `struct` vs `class`, object pooling. Composition over inheritance in a node tree. Custom `Resource` types for data-driven design. A versioned save system. A settings screen with real graphics tiers for low-end devices. Unit testing. Remote debugging and profiling on the device. `adb logcat`.
 
-**Module 11 — Capstone & Release (P10 Ember Hollow).** Pre-production and ruthless scope control. The vertical slice. A production schedule. Enemy AI with `NavigationAgent3D` and behaviour state machines. A boss fight. Playtesting protocol and what to actually record. The polish pass. Export templates, keystores, AAB vs APK, icons and adaptive icons, app size. GitHub Actions CI that builds your APK. itch.io page, trailer capture, Play Console internal testing, privacy policy.
+**Module 11 — Capstone: Ship, Then Keep Shipping (P10 Ember Hollow).** Pre-production and the release plan. Enemy AI with `NavigationAgent3D`, behaviour trees, combat, progression. **Designing for content you have not built yet** — the level format, spawn data and save schema that make v1.1 an update rather than a rewrite. Then **Level 1 to final quality and out the door as v1.0**: polish pass, playtesting, accessibility, keystores, AAB, icons, app size, CI, trailer, store listing, privacy policy. Then **live operations** — crash and ANR monitoring, **save migration across shipped versions**, staged rollout and rollback, release notes, triaging feedback from strangers, hotfix discipline. Then **Levels 2, 3 and 4 shipped as v1.1, v1.2 and v1.3**, each informed by real player data. Finally: upgrade discipline, the player-facing walkthrough, the post-mortem, and your portfolio reel.
 
 **Module 12 — Beyond (optional).** Multiplayer basics, procedural generation, Geometry Nodes at depth, editor plugins and custom tooling, GDExtension, porting to desktop.
 
@@ -263,7 +278,7 @@ There is no calendar here — you set the pace. But for calibration:
 | 9 | 42–60 h | 456 h |
 | 10 | 72–140 h | 596 h |
 
-Roughly **560–650 hours** to a released game. At 10 h/week that is a year; at 20 h/week, six months. Both are normal. Track your actual hours in `meta/Journal.md` — after Module 3 you will be able to estimate your own speed, which is itself a professional skill.
+Roughly **580–670 hours** to a game released four times. At 10 h/week that is a year; at 20 h/week, six months. Both are normal. Track your actual hours in `meta/Journal.md` — after Module 3 you will be able to estimate your own speed, which is itself a professional skill.
 
 **Rhythm that works:** one chapter per session, ending on a green build and a commit. Never stop mid-chapter on a broken build — future-you will not remember what you were mid-thought about.
 

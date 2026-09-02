@@ -542,3 +542,45 @@ Module 1 (63 chapters): Split it — renumber everything
 ### Artefacts changed
 
 `docs/TableOfContents.md` (split, renumber, block labels) · `docs/meta/CourseState.md` (regenerated, 13 modules) · `docs/meta/Decisions.md` (ADR-019 reaffirmed, ADR-035 added) · `docs/meta/DecisionsLog.md` · `docs/meta/Doubts.md` ([D-011](docs/meta/Doubts.md#d-011)) · `docs/reference/QuestionBank.md` (+ Module 2 questions) · `docs/reference/answers/` (renamed 02–10 → 03–11, new module-02) · `docs/PLAN.md` · `docs/chapters/README.md` · `docs/meta/CompactContext.md` · `docs/internal/CLAUDE-MEMORY.md` · plus 30 files touched by the renumber.
+
+---
+
+## PROMPT#13
+
+**Date:** 2026-09-02 · **Session:** 002
+
+### Prompt (verbatim)
+
+```text
+can you again ask me the very recent question you asked me?
+```
+
+*(and, on re-asking, the capstone answer:)*
+
+```text
+I choose option 2. Ship after level 1. But Level 2 to 4 are mandatory, not optional. I do not
+compromize on the features, intermediate steps and quality. Please restructure the course accoding to
+this.
+```
+
+### Response
+
+Re-asked both questions, noting which options had already been chosen and what changing each would now cost — the capstone was cheap (a decision record), the module split was one clean `git revert`.
+
+**The learner produced a third option that neither the external review nor I had proposed.** I offered a scope reduction (ship Level 1, make 2–4 optional) or the status quo (build four, ship once). They took the **sequencing** change and rejected the **scope** reduction.
+
+The result is a **staged release model**: v1.0 after Level 1, then v1.1–v1.3 as Levels 2, 3 and 4 ship as real updates to a live app. All four levels mandatory, nothing cut, no quality bar moved.
+
+**It is better than what I proposed, and I have recorded that plainly rather than just implementing it.** My version bought safety by making content optional; theirs buys the same safety by re-ordering. It also creates six chapters of **live operations** — save migration across shipped versions, staged rollout and rollback, crash triage from devices whose logs you will never see, release notes, hotfix discipline — which a ship-once model structurally cannot teach.
+
+**The new critical dependency I had to add:** chapter **11.8b — designing for content you have not built yet** (level format, spawn data, save schema). Under ship-once there is no "before v1.0" and this chapter would not need to exist. Under staged release the entire plan rests on it, because getting the save schema wrong makes v1.1 a rewrite instead of an update.
+
+**Module 11 restructured** into 11A pre-production · 11B systems · 11C 🚢 v1.0 · 11D live operations · 11E 🚢 v1.1–v1.3 · 11F post-mortem and portfolio. Module 11: 32 → 43 chapters. Course **348 → 359**.
+
+### Standing instructions extracted
+
+24. **Ship early and keep everything** — staged releases, no scope compromise → [ADR-019](docs/meta/Decisions.md#adr-019)
+
+### Artefacts changed
+
+`docs/TableOfContents.md` (Module 11 rebuilt, 11A–11F) · `docs/meta/Decisions.md` (ADR-019 rewritten) · `docs/meta/DecisionsLog.md` · `docs/meta/Doubts.md` ([D-012](docs/meta/Doubts.md#d-012)) · `docs/meta/CourseState.md` (regenerated; four release milestones) · `docs/PLAN.md` (§3a-2, Module 11 syllabus, spine row) · `projects/README.md` (P10 brief and done-criteria) · `README.md` · `docs/meta/CompactContext.md` · `docs/internal/CLAUDE-MEMORY.md`.

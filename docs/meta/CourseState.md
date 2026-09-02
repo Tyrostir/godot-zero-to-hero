@@ -26,9 +26,9 @@ update_trigger: "End of every working session, and after every chapter is publis
 | **Learner** | Tyrostir — path 🚶 **B, Self-Learner** (A and C authored in full, [ADR-024](Decisions.md#adr-024)) |
 | **Current phase** | **Phase 1 — planning and scaffolding** |
 | **Plan status** | ⏳ **Awaiting your approval** |
-| **Chapters published** | **0 / 348** |
+| **Chapters published** | **0 / 359** |
 | **Setup guides published** | **5 / 5** — all carry `[UNVERIFIED]` markers, none run yet |
-| **Projects shipped** | **0 / 11** |
+| **Projects shipped** | **0 / 11** · public releases **0 / 4** |
 | **Blender chapters published** | **0 / 64** |
 | **Godot installed?** | ❌ Not yet — [Setup 02](../guides/Setup_02_Godot_And_DotNet.md) |
 | **Blender installed?** | ❌ Not yet — [Setup 03](../guides/Setup_03_Blender.md) |
@@ -40,21 +40,21 @@ update_trigger: "End of every working session, and after every chapter is publis
 ### Progress bar
 
 ```text
-Module  0  Toolchain, APK & Languages [                    ]   0 %   (0/19)
-Module  1  Godot Foundations          [                    ]   0 %   (0/44)
-Module  2  Android Runtime & Practice [                    ]   0 %   (0/19)
-Module  3  Blender I: Pipeline        [                    ]   0 %   (0/35)
-Module  4  Characters I               [                    ]   0 %   (0/30)
-Module  5  Worlds & Performance       [                    ]   0 %   (0/29)
-Module  6  Shaders & VFX              [                    ]   0 %   (0/30)
-Module  7  Audio, Narration & Feel    [                    ]   0 %   (0/23)
-Module  8  Story & Cinematics         [                    ]   0 %   (0/32)
-Module  9  Characters II              [                    ]   0 %   (0/20)
-Module 10  Architecture, C++ & Perf   [                    ]   0 %   (0/28)
-Module 11  Capstone & Release         [                    ]   0 %   (0/32)
-Module 12  Beyond (optional)          [                    ]   0 %   (0/7)
-────────────────────────────────────────────────────────────────────────────
-OVERALL                               [                    ]   0 %   (0/348)
+Module  0  Toolchain, APK & Languages    [                    ]   0 %   (0/19)
+Module  1  Godot Foundations             [                    ]   0 %   (0/44)
+Module  2  Android Runtime & Practice    [                    ]   0 %   (0/19)
+Module  3  Blender I: Pipeline           [                    ]   0 %   (0/35)
+Module  4  Characters I                  [                    ]   0 %   (0/30)
+Module  5  Worlds & Performance          [                    ]   0 %   (0/29)
+Module  6  Shaders & VFX                 [                    ]   0 %   (0/30)
+Module  7  Audio, Narration & Feel       [                    ]   0 %   (0/23)
+Module  8  Story & Cinematics            [                    ]   0 %   (0/32)
+Module  9  Characters II                 [                    ]   0 %   (0/20)
+Module 10  Architecture, C++ & Perf      [                    ]   0 %   (0/28)
+Module 11  Capstone: Ship, Keep Shipping [                    ]   0 %   (0/43)
+Module 12  Beyond (optional)             [                    ]   0 %   (0/7)
+───────────────────────────────────────────────────────────────────────────────
+OVERALL                                  [                    ]   0 %   (0/359)
 ```
 
 ---
@@ -93,7 +93,10 @@ OVERALL                               [                    ]   0 %   (0/348)
 | M6 | P04 Level 1 at 60fps on device | | |
 | M7 | P07 Slice playable end-to-end | | |
 | M8 | P08 Warden — your own character, in-game | | |
-| M9 | 🏆 **P10 released** | | |
+| M9 | 🚢 **v1.0 released** — Level 1 public, on itch.io + Play | | |
+| M10 | 🚢 v1.1 — Level 2 live, saves migrated | | |
+| M11 | 🚢 v1.2 — Level 3 live | | |
+| M12 | 🏆 **v1.3 — *Ember Hollow* complete**, four levels + boss | | |
 
 ---
 
@@ -190,14 +193,16 @@ Tick as you go. `[ ]` not started · `[~]` in progress · `[x]` done · `[!]` do
 [ ] 10.7b 🧰 · [ ] 10.8 · [ ] 10.9 · [ ] 10.10 · [ ] 10.9b 🧰 · [ ] 10.10b 🧰
 [ ] 10.11 · [ ] 10.11c 🧰 (X) · [ ] 10.12 **ship** ⭐ · [ ] 10.13 self-check
 
-### Module 11 — Capstone & Release · P10
+### Module 11 — Capstone: Ship, Then Keep Shipping · P10
 
 [ ] 11.1 · [ ] 11.1b 🧰 · [ ] 11.2 · [ ] 11.3 · [ ] 11.4 · [ ] 11.5
-[ ] 11.6 · [ ] 11.6b 🧰 · [ ] 11.7 · [ ] 11.8 · [ ] 11.9 · [ ] 11.10
-[ ] 11.11 · [ ] 11.11b 🧰 · [ ] 11.12 · [ ] 11.13 · [ ] 11.14 · [ ] 11.14b 🧰
-[ ] 11.15 · [ ] 11.16 · [ ] 11.17 · [ ] 11.18 · [ ] 11.19 · [ ] 11.19b 🧰
-[ ] 11.19c 🧰 · [ ] 11.19d 🧰 · [ ] 11.20 · [ ] 11.21 · [ ] 11.22 · [ ] 11.20b 🧰
-[ ] 11.23 **RELEASED** 🏆 · [ ] 11.24 self-check
+[ ] 11.6 · [ ] 11.6b 🧰 · [ ] 11.7 · [ ] 11.8 · [ ] 11.8b 🧰 · [ ] 11.9
+[ ] 11.10 · [ ] 11.11 · [ ] 11.12 · [ ] 11.13 · [ ] 11.13b 🧰 · [ ] 11.14
+[ ] 11.15 · [ ] 11.16 · [ ] 11.17 · [ ] 11.18 · [ ] 11.19 · [ ] 11.20 🚢
+[ ] 11.21 · [ ] 11.22 · [ ] 11.23 · [ ] 11.24 · [ ] 11.25 · [ ] 11.26
+[ ] 11.27 · [ ] 11.28 🚢 · [ ] 11.29 · [ ] 11.30 🚢 · [ ] 11.31 · [ ] 11.32
+[ ] 11.33 🏆 · [ ] 11.34 · [ ] 11.35 · [ ] 11.36 · [ ] 11.37 · [ ] 11.38 (X)
+[ ] 11.39 self-check
 
 ### Module 12 — Beyond (optional)
 

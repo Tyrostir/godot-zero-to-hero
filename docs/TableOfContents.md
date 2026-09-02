@@ -496,47 +496,68 @@ Every chapter ends with `[X]` and `[Q]`; they are only listed separately below w
 
 ---
 
-## Module 11 — Capstone & Release
+## Module 11 — Capstone: Ship, Then Keep Shipping
 ### Project 10 — *Ember Hollow*
+*Goal: a released Android game with four levels and a boss — released **four times**, not once.*
 
-**11A — Production**
+> 🚢 **The release model ([ADR-019](meta/Decisions.md#adr-019)).** Level 1 goes public as **v1.0** the moment it reaches final quality. Levels 2, 3 and 4 then ship as **v1.1, v1.2 and v1.3** — real, staged updates to a live app with real players on it.
+>
+> **All four levels are mandatory.** Nothing is cut and no quality bar moves. What changes is *when the public first sees it* — and that difference teaches you an entire discipline the ship-once model cannot: **patching a live game.** Save migration across released versions, staged rollout, rollback, crash triage from strangers' devices, release notes, and acting on feedback from people who are not you.
+
+**11A — Pre-production**
 - **11.1 [A]** Pre-production: scope, the one-page pitch, and the feature guillotine
 - **11.1b [A]** **The milestones industry actually uses** — pre-production, first playable, vertical slice, alpha, beta, content lock, gold — and what each one *means*
-- **11.2 [A]** The vertical slice, and using it to re-estimate everything
+- **11.2 [A]** **The release plan** — v1.0 through v1.3, what is in each, and the quality bar that does not move between them
 - **11.3 [A]** A production schedule and a task board you'll actually maintain. 🔎 **Kitsu** and **Blender Kitsu** named as the open-source studio option
-- **11.4 [A]** Asset lists, naming, and a content pipeline that survives four levels
+- **11.4 [A]** Asset lists, naming, and a content pipeline that survives four levels **and three updates**
 
-**11B — Content**
+**11B — Systems, built once, used by every level**
 - **11.5 [A]** Enemy AI: `NavigationAgent3D`, navmesh baking, avoidance
 - **11.6 [A]** Behaviour: state machines, perception, and readable telegraphed attacks
 - **11.6b [A]** 🧰 **Beehave** and **LimboAI** — behaviour trees, and what they buy you over the state machine you just wrote
 - **11.7 [A]** Combat: hitboxes, damage, i-frames, knockback, death
-- **11.8 [A]** The boss: phases, arena design, and difficulty tuning
-- **11.9 [A]** Levels 2, 3 and 4 — build, light, populate
-- **11.10 [A]** Progression, pickups, and the economy of a short game
+- **11.8 [A]** Progression, pickups, and the economy of a short game
+- **11.8b [A]** ⭐ **Designing for content you have not built yet** — the level format, the spawn data, the save schema. **Getting this right now is what makes v1.1 an update instead of a rewrite**
 
-**11C — Polish & release**
+**11C — 🚢 v1.0: Level 1 to final quality, and out the door**
+- **11.9 [A]** Level 1 built, lit, populated and combat-tuned to **final** quality
+- **11.10 [A]** The polish pass checklist, applied top to bottom
 - **11.11 [A]** Playtesting: recruiting, protocol, what to record, what to ignore
-- **11.11b [A]** **The post-mortem** — the industry ritual: what went right, what went wrong, what changes next time. Written honestly, and published
-- **11.12 [A]** The polish pass checklist, applied top to bottom
-- **11.13 [A]** Accessibility: text size, colourblind safety, remappable controls, difficulty options
-- **11.14 [A]** Android export in depth: keystores, AAB vs APK, target SDK, permissions
-- **11.14b [A]** 🧰 **Android plugins** — Play Games Services and Play Billing: what they need, what they cost in size and permissions, and why we ship without them
-- **11.15 [A]** Icons, adaptive icons, splash screen, app name, versioning
-- **11.16 [A]** App size: what's in your PCK, and how to shrink it
-- **11.17 [A]** CI: a GitHub Actions workflow that builds a signed APK on every tag
-- **11.18 [A]** **Trailer craft**: a 60-second script, the narration, the cut, and the shot you open on
-- **11.19 [A]** Capturing footage and screenshots (Godot, `scrcpy`, OBS, Blender compositing)
-- **11.19b [A]** ⭐ **Crash and ANR monitoring in the wild** — your released players will never send you `adb logcat`. Crash reporting, ANR traces, symbolication, device distribution, and tracking a fix across releases
-- **11.19c [A]** **Release engineering in depth** — `versionCode` vs `versionName`, debug vs release signing, **staged rollout and rollback**, the Play data-safety form, and permissions you must justify
-- **11.19d [A]** **Version upgrade discipline** — upgrade Godot → run the test suite → find the breaking changes → fix → re-release. Maintaining `ENGINE_VERSION.md`, and **reproducing a build from six months ago**
-- **11.20 [A]** **The player-facing walkthrough** — writing a guide to your own game, and what doing so reveals about its design
-- **11.21 [A]** itch.io release; Play Console internal testing; store listing; privacy policy
-- **11.22 [A]** Post-launch: crash reports, patching, and reading feedback without being destroyed by it
-- **11.20b [A]** **Your portfolio and breakdown reel** — presenting this work to a studio: what to show, what to cut, and how to talk about the parts that went wrong
+- **11.12 [A]** Accessibility: text size, colourblind safety, remappable controls, difficulty options
+- **11.13 [A]** Android export in depth: keystores, AAB vs APK, target SDK, permissions
+- **11.13b [A]** 🧰 🔬 **Android plugins** — Play Games Services and Play Billing: what they need, what they cost in size and permissions, and why we ship without them
+- **11.14 [A]** Icons, adaptive icons, splash screen, app name, and **`versionCode` vs `versionName`**
+- **11.15 [A]** App size: what's in your PCK, and how to shrink it
+- **11.16 [A]** CI: a GitHub Actions workflow that builds a signed AAB on every tag
+- **11.17 [A]** **Trailer craft** — a 60-second script, the narration, the cut, and the shot you open on
+- **11.18 [A]** Capturing footage and screenshots (Godot, `scrcpy`, OBS, Blender compositing)
+- **11.19 [A]** itch.io page, Play Console listing, privacy policy and the data-safety form
+- **11.20 [P] 🚢 Release v1.0** — Level 1 public, on itch.io and Play internal testing. **You now have a released game**
 
-- **11.23 [P] Project 10 ship** — *Ember Hollow* released
-- **11.24 [Q]** Module 11 self-check
+**11D — Live operations: the discipline shipping once cannot teach** 🐣🚶🏃
+- **11.21 [A]** ⭐ **Crash and ANR monitoring in the wild** — your players will never send you `adb logcat`. Crash reporting, ANR traces, symbolication, device distribution, and tracking a fix across releases
+- **11.22 [A]** ⭐ **Save migration across shipped versions** — v1.0 saves must survive v1.1. Schema versioning, migration steps, and the test that proves it before you push
+- **11.23 [A]** **Staged rollout and rollback** — 5% → 20% → 100%, what to watch at each stage, and halting a bad release
+- **11.24 [A]** **Release notes and changelogs** that a player will actually read
+- **11.25 [A]** **Reading feedback from strangers** — triaging reviews and bug reports, separating signal from noise, and not being destroyed by it
+- **11.26 [A]** **Hotfix discipline** — the branch, the cherry-pick, the emergency build, and when *not* to hotfix
+
+**11E — 🚢 v1.1–v1.3: the remaining levels, shipped as updates**
+- **11.27 [A]** **Level 2** — built, lit, populated, tuned to the same bar as Level 1
+- **11.28 [P] 🚢 Release v1.1** — Level 2 live. Staged rollout, saves migrated, crash dashboard watched
+- **11.29 [A]** **Level 3** — and what the v1.0/v1.1 telemetry and feedback changed about how you built it
+- **11.30 [P] 🚢 Release v1.2** — Level 3 live
+- **11.31 [A]** **Level 4 and the boss** — three phases, arena design, difficulty tuning against real player data
+- **11.32 [A]** The final polish pass, and **content lock**
+- **11.33 [P] 🚢 Release v1.3 — *Ember Hollow* complete** 🏆 — four levels, a boss, four public releases
+
+**11F — Afterwards**
+- **11.34 [A]** **Version upgrade discipline** — upgrade Godot → run the test suite → find the breaking changes → fix → re-release. Maintaining `ENGINE_VERSION.md`, and **reproducing a build from six months ago**
+- **11.35 [A]** **The player-facing walkthrough** — writing a guide to your own game, and what doing so reveals about its design
+- **11.36 [A]** **The post-mortem** — the industry ritual: what went right, what went wrong, what changes next time. Written honestly, and published
+- **11.37 [A]** **Your portfolio and breakdown reel** — presenting this work to a studio: what to show, what to cut, and how to talk about the parts that went wrong
+- **11.38 [X]** ⬜ **Blank-page build** — take a written feature request from a player and ship it, end to end, unaided: design → implement → test → migrate → release
+- **11.39 [Q]** Module 11 self-check
 
 ---
 

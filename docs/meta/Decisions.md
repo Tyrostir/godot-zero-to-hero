@@ -41,7 +41,7 @@ update_trigger: "Whenever a decision is made, changed, or superseded"
 | [ADR-016](#adr-016) | The author does not execute Godot/Blender/adb; `[UNVERIFIED]` protocol | Process | ✅ |
 | [ADR-017](#adr-017) | **One chapter per turn**, committed and pushed | Process | ✅ |
 | [ADR-018](#adr-018) | Course content CC BY-SA 4.0; project code MIT | Legal | ✅ |
-| [ADR-019](#adr-019) | Capstone scope is **locked** at 4 levels + 1 boss | Product | ✅ |
+| [ADR-019](#adr-019) | Capstone: **four levels, four public releases** — ship after Level 1, then keep shipping | Product | ✅ (revised) |
 | [ADR-020](#adr-020) | Chapter files are `ChapterNN_PascalCaseTitle.md` | Docs | ✅ |
 | [ADR-021](#adr-021) | No GitHub-only Markdown syntax | Docs | ✅ |
 | [ADR-022](#adr-022) | C# on Android is knowingly the less-travelled path | Product | ✅ |
@@ -312,18 +312,31 @@ Prose, diagrams and course structure: **CC BY-SA 4.0**. Code in `projects/`: **M
 ---
 
 ## ADR-019
-### Capstone scope is locked at 4 levels + 1 boss
-**Status:** ✅ Active · **Category:** Product
+### Capstone: four levels, four public releases — ship early, then keep shipping
+**Status:** ✅ Active *(revised 2026-09-02)* · **Category:** Product
 
-*Ember Hollow*: four ~6-minute levels, one enemy type with two variants, one boss with three phases, one core verb plus one traversal verb. **No crafting, no inventory, no procedural generation.**
+*Ember Hollow*: **four ~6-minute levels, all mandatory**, one enemy type with two variants, one boss with three phases, one core verb plus one traversal verb. **No crafting, no inventory, no procedural generation.**
 
-**🔁 Reaffirmed 2026-09-02.** An external review recommended shrinking the ship target to a single finished level (a "vertical slice"), with levels 2–4 as optional post-release expansion. The author agreed with that recommendation. **The learner considered it and chose to keep all four levels as the release target.** That decision stands and is not to be revisited.
+**The release model — this is the part that changed.** The game goes public **four times**:
 
-*The risk, stated once and then dropped:* levels 2–4 teach almost no new skills — by the time level 1 is finished to final quality every technique in the course has been used — so they are roughly 60–90 hours of pure production, and production is where solo projects most often stall. **The mitigation is the vertical slice as a milestone rather than as the ship target:** level 1 must reach final quality and be validated on device before levels 2–4 begin, so that if appetite runs out there is still a complete, releasable game.
+| Release | Contains | Teaches |
+|---------|----------|---------|
+| **v1.0** | Level 1 at final quality, boss systems, full narrative frame, settings, accessibility | Shipping |
+| **v1.1** | Level 2 | Save migration across shipped versions · staged rollout |
+| **v1.2** | Level 3 | Acting on real crash data and real feedback |
+| **v1.3** | Level 4 + boss, content lock | Finishing |
 
-**Why.** Scope, not skill, is what kills projects. The lock is written down precisely so that a future enthusiasm has something to argue against. New ideas go in the GDD under *Post-launch*.
+**Nothing is cut and no quality bar moves.** All four levels are required; the course is not complete until v1.3 is public. What changes is *when the public first sees it*.
 
----
+**Why this is better than either alternative, and it was the learner's call.** An external review recommended shrinking to a single level with 2–4 optional; the author agreed. The learner rejected the *scope* reduction and accepted the *sequencing* change — **ship after Level 1, but keep Levels 2–4 mandatory.** That is a better answer than either option offered, for three reasons:
+
+1. **It de-risks without compromising.** The single most common way a solo project fails is 500 hours of work and nothing released. After v1.0 that failure mode is gone, and the remaining work is additive.
+2. **It teaches a discipline the ship-once model structurally cannot** — *patching a live game*. Save migration across released versions, staged rollout and rollback, crash triage from strangers' devices, release notes, hotfix branches, and acting on feedback from people who are not you. A game released once never exercises any of it. This is now **Module 11D** (6 chapters).
+3. **Levels 3 and 4 get built with evidence.** Real telemetry and real reviews from v1.0 and v1.1 inform them, instead of guesswork.
+
+**The one design consequence to get right early.** Chapter **11.8b** — *designing for content you have not built yet*: the level format, the spawn data, the save schema. Getting that right before v1.0 is what makes v1.1 an **update** rather than a rewrite. It is the chapter this whole model depends on.
+
+**Scope discipline is unchanged.** New feature ideas still go to the GDD under *Post-launch* ([`../GameDesignDocument.md` §9](../GameDesignDocument.md)). "Ship early" is not licence to add.
 
 ## ADR-020
 ### Chapter files are `ChapterNN_PascalCaseTitle.md`
@@ -649,6 +662,7 @@ Everything after shifted: old Modules 2–11 became **3–12**. The course is no
 
 | Version | Date | Change |
 |---------|------|--------|
+| 1.7 | 2026-09-02 | ADR-019 revised to a **staged release** model — v1.0 after Level 1, then v1.1–v1.3. All four levels stay mandatory. Module 11 restructured; new live-operations block. 348 → 359 chapters. Prompted by [D-012](Doubts.md#d-012). |
 | 1.0 | 2026-09-01 | Created at course inception (Session 001). ADR-001 to ADR-025. |
 | 1.1 | 2026-09-01 | ADR-024 decided: three paths, all authored in full. ADR-004 amended: build machine is **Linux**. |
 | 1.2 | 2026-09-02 | ADR-026 (Presentation Spine) and ADR-027 (narration, mandatory subtitles) added after a plan-review audit. Course grows 215 → 258 chapters. |

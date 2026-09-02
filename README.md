@@ -6,7 +6,7 @@
 
 This is not a book you read and then start. From Module 0 you have a `.apk` running on your own phone, and every chapter after that adds a real feature to a real game.
 
-> 🏋️ **348 chapter builds · ~690 chapter practicals · 44 standalone drills · 8 ⬜ blank-page builds · 11 projects · 4 mini-jams.**
+> 🏋️ **359 chapter builds · ~690 chapter practicals · 44 standalone drills · 8 ⬜ blank-page builds · 11 projects · 4 mini-jams.**
 > **Four languages** — C# (primary), GDScript, C++/GDExtension and GDShader — each taught where it earns its place.
 > **Chapters that begin with theory: 0.** That is enforced, not aspirational — see [ADR-002](docs/meta/Decisions.md#adr-002) and the audit in [docs/Practicals.md](docs/Practicals.md).
 
@@ -145,7 +145,7 @@ Nothing you build is throwaway. The capstone is assembled from the ten projects 
 | **P07** | The Slice | M8 | Splash → narrated cold open → menu → level → dialogue → guided walkthrough → narrated ending → credits |
 | **P08** | Warden | M9 | **Your own character** — sculpt to animation, all yours |
 | **P09** | Systems Refactor | M10 | Code you'd be happy to hand to a team |
-| **P10** | 🏆 Ember Hollow | M11 | **A released Android game** |
+| **P10** | 🏆 Ember Hollow | M11 | **A released Android game — released four times.** v1.0 after Level 1, then v1.1–v1.3 as staged updates to a live app |
 
 Plus four **mini-jams** — timeboxed, constrained, no help given. Those are where you find out what you can do alone.
 

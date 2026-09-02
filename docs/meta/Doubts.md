@@ -80,6 +80,7 @@ Some entries below have a **"In my own words"** line. That is yours to fill in, 
 | [D-009](#d-009) | 2026-09-02 | Course logistics | Restructure for all three languages and adopt **every** library we explored | ✅ |
 | [D-010](#d-010) | 2026-09-02 | Course logistics | Which points from the external review are worth adopting? | ✅ |
 | [D-011](#d-011) | 2026-09-02 | Course logistics | What is a "vertical slice", and where should the capstone finish line be? | ✅ |
+| [D-012](#d-012) | 2026-09-02 | Design/Narrative | Ship after Level 1 — but Levels 2–4 stay mandatory. How does that restructure the capstone? | ✅ |
 
 ---
 
@@ -599,6 +600,52 @@ Fair — **"vertical slice" is industry jargon and I used it without defining it
 
 ---
 
+## D-012
+
+**Date:** 2026-09-02 · **Context:** Re-asking the capstone question after [D-011](#d-011) explained "vertical slice" · **Category:** Design/Narrative · **Status:** ✅ Answered
+
+### Question *(verbatim)*
+> I choose option 2. Ship after level 1. But Level 2 to 4 are mandatory, not optional. I do not compromize on the features, intermediate steps and quality. Please restructure the course accoding to this.
+
+### Short answer
+This is a **staged release** model, and it is a better answer than either option I offered. You took the *sequencing* change and rejected the *scope* reduction: the game goes public **four times** — v1.0 after Level 1, then v1.1–v1.3 as Levels 2, 3 and 4 ship as real updates — with all four levels mandatory and no quality bar moved. Module 11 is restructured around it and gains a **live-operations block** that the ship-once model could not have taught.
+
+### Full answer
+
+**What you actually chose.** I offered a scope reduction (ship one level, make 2–4 optional) or the status quo (build all four, then ship once). You took neither and produced a third: **ship early *and* keep everything.**
+
+| Release | Contains | What it teaches |
+|---------|----------|-----------------|
+| **v1.0** | Level 1 at final quality, boss systems, narrative frame, settings, accessibility | Shipping |
+| **v1.1** | Level 2 | **Save migration across shipped versions** · staged rollout |
+| **v1.2** | Level 3 | Acting on real crash data and real feedback |
+| **v1.3** | Level 4 + boss, content lock | Finishing |
+
+**Why this is genuinely better than what I proposed** — three reasons, and I want to be clear that I did not think of it:
+
+1. **It de-risks without compromising anything.** The commonest way a solo project dies is 500 hours in with nothing released. After v1.0 that failure mode is simply gone, and every hour after it is additive rather than load-bearing. My "make 2–4 optional" version bought the same safety by *giving something up*. Yours does not.
+2. **It teaches a discipline the ship-once model structurally cannot.** A game released once never exercises **patching live software** — save migration across released versions, staged rollout and rollback, crash triage from strangers' devices whose logs you will never see, release notes, hotfix branches, and triaging feedback from people who are not you. That is now **Module 11D**, six chapters that would not have existed under either of my options.
+3. **Levels 3 and 4 get built with evidence.** Real telemetry and real reviews from v1.0 and v1.1 shape them, instead of guesswork.
+
+**The one thing this makes critical**, and it is new: **chapter 11.8b — *designing for content you have not built yet***. The level format, the spawn data, and above all the **save schema** must be right *before* v1.0 goes out, or v1.1 is a rewrite rather than an update. Under ship-once this chapter would not have needed to exist, because there is no "before". Under your model the whole plan rests on it.
+
+**Module 11 restructured** into six blocks: **11A** pre-production and the release plan · **11B** systems built once and used by every level · **11C** 🚢 v1.0 — Level 1 to final quality and out the door · **11D** live operations · **11E** 🚢 v1.1–v1.3, the remaining levels as staged updates · **11F** upgrade discipline, walkthrough, post-mortem, portfolio reel.
+
+**Cost:** Module 11 grows 32 → 43 chapters; the course goes **348 → 359**; pacing to roughly **580–670 hours**. Nothing was cut, exactly as you asked.
+
+**New done-criteria on P10:** a v1.0 save file must load correctly in v1.3, verified; and at least one hotfix shipped in response to a real crash report.
+
+### Related
+[ADR-019](Decisions.md#adr-019) *(rewritten)* · [D-011](#d-011) · [`../../projects/README.md`](../../projects/README.md) · [PLAN §3a-2](../PLAN.md)
+
+### Action taken
+[ADR-019](Decisions.md#adr-019) rewritten as a staged-release model. Module 11 restructured into 11A–11F with the new live-operations block (11.21–11.26) and 11.8b. `CourseState.md` regenerated with four release milestones. `PLAN.md` §3a-2 added; `projects/README.md`, `README.md`, `CompactContext.md`, `CLAUDE-MEMORY.md` updated.
+
+### In my own words
+*(yours to fill in)*
+
+---
+
 ## ⏸️ Parked
 
 *Questions consciously postponed, with a named chapter to revisit them at.*
@@ -624,6 +671,7 @@ Every ~20 doubts, come back and look for patterns. If four of your questions wer
 | Version | Date | Change |
 |---------|------|--------|
 | 1.0 | 2026-09-01 | Created at course inception. Table format. |
+| 2.6 | 2026-09-02 | D-012 added — staged release model. |
 | 2.5 | 2026-09-02 | D-011 added — vertical slice explained; capstone reaffirmed at four levels. |
 | 2.4 | 2026-09-02 | D-010 added — external review triaged. |
 | 2.3 | 2026-09-02 | D-009 added — four-language restructure and full library adoption. |
