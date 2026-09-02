@@ -28,10 +28,11 @@ The course itself. Chapters are published in order and appear here as they are w
 | **0.10** | [GDScript First Contact](Chapter_00.10_GDScriptFirstContact.md) | A | 🐣🚶🏃 | 45–60 m | ✅ Published |
 | **0.11** | [C# First Contact](Chapter_00.11_CSharpFirstContact.md) | A | 🐣🚶🏃 | 60–75 m | ✅ Published |
 | **0.12** ⭐ | [Measured: Two Languages, One Cube](Chapter_00.12_MeasuredTwoLanguages.md) | A | 🐣🚶🏃 | 60–75 m | ✅ Published |
+| **0.13** | [GDShader: The Fourth Language](Chapter_00.13_GDShaderFirstContact.md) | A | 🐣🚶🏃 | 45–60 m | ✅ Published |
 
-**12 / 359.** 🎉 **Block 0A complete** — toolchain installed, an app on the phone, and the ability to read it when it breaks.
+**13 / 359.** 🎉 **Block 0A complete** — toolchain installed, an app on the phone, and the ability to read it when it breaks.
 
-Next: **0.13 — GDShader, the fourth language**.
+Next: **0.14 — The language decision table**, closing block 0B.
 
 > 📏 **ADR-002 compliance** — measured against the instructional body ([ADR-002](../meta/Decisions.md#adr-002)):
 >
@@ -49,6 +50,7 @@ Next: **0.13 — GDShader, the fourth language**.
 > | 0.10 | 58.8% | 22.7% |
 > | 0.11 | 61.2% | 21.7% |
 > | 0.12 | 61.7% | 20.1% |
+> | 0.13 | 61.0% | 19.5% |
 
 > 📑 Full chapter list: **[`../TableOfContents.md`](../TableOfContents.md)**
 > 📍 Current progress: **[`../meta/CourseState.md`](../meta/CourseState.md)**
