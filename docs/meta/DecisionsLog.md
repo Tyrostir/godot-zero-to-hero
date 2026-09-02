@@ -523,3 +523,19 @@ Design notes worth keeping:
 - Verification block **V-07** issued for every `[UNVERIFIED]` marker in the chapter.
 
 ---
+
+### 🔍 VERIFIED — chapter 0.3 had three authoring errors; the learner's screenshots found all of them
+
+**Context.** Working chapter 0.3, the learner reported that Clip Start was absent from Preferences, that two named add-ons did not exist, and that the Godot cube could not be verified as 3 units. Screenshots supplied in `toAgent/`.
+
+**All three were author errors.** Details and fixes in [D-014](Doubts.md#d-014).
+
+1. **Clip Start is not a preference** — it is per-viewport (`N` → View). Chapter gained a Step 2b, and this also explains why it must be set *before* saving the startup file.
+2. **The add-on list was written for a pre-4.2 Blender.** Blender 4.2 introduced Extensions and cut the bundled list to seven; Extra Objects and Copy Attributes Menu are no longer among them. **Neither is needed by this course** — over-specified. Bonus finding: **Rigify ships built in**, which matters for B24b.
+3. **The measurement method was wrong twice.** Godot's grid subdivides with zoom, so counting squares is not measuring; and a `.glb` imports as a scene whose root is a `Node3D`, so the Inspector shows the root's transform rather than the mesh's size. Replaced with a `GetAabb()` script (which reuses the C# from 0.2) and a `BoxMesh` comparison.
+
+**The finding that matters most for future chapters.** Errors 1 and 2 carried `[UNVERIFIED]` markers and behaved exactly as [ADR-016](Decisions.md#adr-016) intends. **Error 3 did not carry a marker, and should have.** A measurement technique was asserted as fact without any means of checking it. **The marker discipline is only as good as the author's honesty about what they actually know** — "how to verify something in a GUI" is exactly as unverifiable from this environment as an error string, and must be marked as such.
+
+**Three markers cleared as a side effect**, from the same screenshots: Godot reports itself as `v4.7.2.stable.mono.official` (settling that the .NET build is named `mono`); `D3D12 12_0 — Forward Mobile` runs on an NVIDIA T600 Laptop GPU (validating [ADR-010](Decisions.md#adr-010)); and the workshop is Config A, Windows 11 native ([ADR-036](Decisions.md#adr-036)).
+
+---

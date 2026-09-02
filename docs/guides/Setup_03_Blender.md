@@ -27,7 +27,7 @@ update_trigger: "When Blender's preferences layout or recommended add-ons change
 | Input | **Emulate Numpad** | on *if you have no numpad* | View shortcuts move to the top-row number keys |
 | Input | **Emulate 3 Button Mouse** | on *if you use a trackpad* | `Alt`+LMB substitutes for the middle mouse button |
 | Navigation | Orbit Method | **Turntable** | Matches how you think about a ground plane; Trackball gets disorienting fast |
-| Viewport | **Clip Start** | `0.01 m` | Stops near-clipping when modelling small props |
+| *(see note)* | **Clip Start** | `0.01 m` | ⚠️ **Not in Preferences** — it is per-viewport: press `N` → **View** tab in the 3D viewport. Set it, then save the startup file |
 | System | Undo Steps | `64` | Sculpting eats undo steps |
 | Save & Load | **Auto Save** | on, every 2 min | Non-negotiable |
 | Save & Load | Save Versions | 2 | Keeps `.blend1` backups |
@@ -38,14 +38,16 @@ Then **Save Preferences** (bottom-left menu).
 
 ## 2. Add-ons to enable
 
-`Preferences → Add-ons`, search and tick:
+⚠️ **Blender 4.2+ ships only seven built-in add-ons** — Cycles, glTF 2.0, Hydra Storm, Manage UI translations, **Node Wrangler**, Pose Library, **Rigify**, VR Scene Inspection. Everything else moved to the **Extensions** system ([extensions.blender.org](https://extensions.blender.org), reachable from **Get Extensions** in the Preferences sidebar). ✅ Verified on Blender 4.x, 2026-09-02.
 
-| Add-on | Why |
-|---|---|
-| **Node Wrangler** | Shader-editor shortcuts you will use constantly from chapter B14. `Ctrl+Shift+T` alone justifies it. |
-| **Extra Objects** (Mesh) | Useful primitives beyond the default eight |
-| **Extra Objects** (Curve) | Same, for curves |
-| **Copy Attributes Menu** | Handy in rigging (Module 4) |
+`Preferences → Add-ons`:
+
+| Add-on | Status | Why |
+|---|---|---|
+| **Node Wrangler** | ⭐ **enable now** | Shader-editor shortcuts used constantly from chapter B14. `Ctrl+Shift+T` alone justifies it |
+| **glTF 2.0 format** | already on — confirm | Your export path ([ADR-009](../meta/Decisions.md#adr-009)) |
+| **Rigify** | leave off | Enabled in **B24b**, after you hand-build an armature ([ADR-028](../meta/Decisions.md#adr-028)) |
+| ~~Extra Objects~~ · ~~Copy Attributes Menu~~ | ⚠️ no longer bundled | Available as Extensions if you want them. **Nothing in this course requires them** |
 
 Optional but recommended once you reach Module 3:
 
@@ -80,7 +82,9 @@ Set up a file the way you want it (units correct, default cube deleted, a camera
 3. `Ctrl+A → All Transforms`.
 4. `File → Export → glTF 2.0 (.glb)`. Export it anywhere.
 5. Drag the `.glb` into a Godot project's folder, then into a 3D scene.
-6. **It should be exactly 2 units across in Godot.** Check in the inspector.
+6. **It should be exactly 2 units across in Godot.**
+
+⚠️ **You cannot read this from the Inspector.** A `.glb` imports as a scene whose root is a `Node3D`; the mesh is a hidden child, so the Inspector shows the root's transform, not the mesh's size. Godot's grid also subdivides with zoom, so counting squares is not a measurement. Measure it with a script — see [chapter 0.3, Step 6, Method A](../chapters/Chapter_00.03_Blender.md).
 
 If it isn't, stop and fix it now — every asset you make for the rest of the course depends on this being right. The diagnostic order is in [../reference/answers/module-02.md](../reference/answers/module-02.md), answer 15.
 

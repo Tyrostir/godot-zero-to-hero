@@ -90,18 +90,46 @@ Launch `blender`, then `Edit → Preferences`. These are not cosmetic — each r
 | Input | **Emulate Numpad** | on *if you have no numpad* | View shortcuts move to the top-row number keys |
 | Input | **Emulate 3 Button Mouse** | on *if you use a trackpad* | `Alt`+LMB substitutes for the middle button |
 | Navigation | Orbit Method | **Turntable** | Matches how you think about a ground plane. Trackball gets disorienting fast |
-| Viewport | **Clip Start** | `0.01 m` | Stops near-clipping when modelling small props |
 | System | Undo Steps | `64` | Sculpting eats undo steps |
 | Save & Load | **Auto Save** | on, **2 min** | Non-negotiable |
 | Save & Load | Save Versions | `2` | Keeps `.blend1` backups |
 
-Then, still in Preferences, go to **Add-ons** and enable:
+> ⚠️ **Clip Start is not in Preferences.** *(Corrected 2026-09-02 — thank you for the screenshot.)* Viewport clipping is a **per-viewport** setting, not a global preference. You will set it in Step 2b below. Preferences → Viewport contains only Display, Quality, Textures and Subdivision. ✅ **Verified on Blender 4.x.**
 
-- **Node Wrangler** — shader-editor shortcuts. `Ctrl+Shift+T` alone justifies it (chapter B14).
-- **Extra Objects** (Mesh) and (Curve) — more primitives than the default eight.
-- **Copy Attributes Menu** — useful in rigging (Module 4).
+Then, still in Preferences, go to **Add-ons**.
+
+⚠️ **Blender 4.2+ ships only seven built-in add-ons.** *(Corrected 2026-09-02.)* Everything else moved to the **Extensions** system. Your list is:
+
+```text
+Cycles Render Engine  ✅ on        Node Wrangler          ← enable this
+glTF 2.0 format       ✅ on        Pose Library
+Hydra Storm                        Rigify                 ← leave off for now
+Manage UI translations             VR Scene Inspection
+```
+
+**Enable exactly one thing today:**
+
+- ⭐ **Node Wrangler** — shader-editor shortcuts. `Ctrl+Shift+T` alone justifies it (chapter B14).
+
+**Note but do not enable:**
+
+- **Rigify** — the free industry-standard rig generator. You turn it on in **B24b**, *after* hand-building an armature ([ADR-028](../meta/Decisions.md#adr-028)). Good to know it is already there.
+- **glTF 2.0 format** is already on. That is your export path ([ADR-009](../meta/Decisions.md#adr-009)) — confirm the tick.
+
+> 📌 **What happened to Extra Objects and Copy Attributes Menu?** An earlier version of this chapter told you to enable them. **They are no longer bundled** — Blender 4.2 moved most legacy add-ons to [extensions.blender.org](https://extensions.blender.org), reachable from the **Get Extensions** entry in the Preferences sidebar. You can install them there if you want them, and **nothing in this course requires them.** Skip them. I over-specified.
 
 Finally: bottom-left hamburger → **Save Preferences**.
+
+### Step 2b — Set viewport clipping (the per-viewport setting)
+
+In the 3D viewport, press `N` to open the sidebar, then the **View** tab:
+
+| Field | Value | Why |
+|---|---|---|
+| **Clip Start** | `0.01 m` | Stops near-clipping when you zoom into small props |
+| Clip End | `1000 m` (default) | Fine |
+
+⚠️ **This is per-viewport and per-file.** It does not follow you to a new file — which is exactly why Step 3's *Save Startup File* matters: set it once, save the startup file, and every new file inherits it.
 
 ### Step 3 — Set units, then make them the default
 
@@ -160,10 +188,55 @@ Save as `~/scratch/testcube.glb` (🪟 `%USERPROFILE%\scratch\testcube.glb`).
 2. Copy the file into the Godot project folder — 🐧 `cp ~/scratch/testcube.glb ~/scratch/Scratch/` · 🪟 `Copy-Item $env:USERPROFILE\scratch\testcube.glb $env:USERPROFILE\scratch\Scratch\`
 3. Godot's FileSystem dock will notice it and import automatically.
 4. Open a 3D scene (or add a `Node3D` root), then **drag `testcube.glb` from the FileSystem dock into the scene**.
-5. Select the imported mesh. In the Inspector, expand **Transform**. Confirm **Scale** is `1, 1, 1`.
-6. Now measure it. In the 3D viewport, look at the grid — Godot's default grid squares are **1 unit**. Your cube should span exactly **3 squares**.
+5. Select the imported node. In the Inspector, confirm **Scale** is `1, 1, 1`.
 
-> 💡 **A more precise check:** select the `MeshInstance3D`, and in the Inspector open its `Mesh` resource. `[UNVERIFIED]` — Godot's exact readout for mesh AABB size in your version, but you are looking for a size of `3, 3, 3`.
+> ⚠️ **You cannot read the size from the Inspector, and counting grid squares does not work.** *(Corrected 2026-09-02 — thank you for the screenshot.)* Two reasons, both worth understanding:
+>
+> 1. **The imported node is a `Node3D`, not a `MeshInstance3D`.** A `.glb` imports as a whole *scene*: a `Node3D` root with the mesh as a **child**, and Godot hides an instanced scene's children in the Scene dock. The Inspector is showing you the root's transform — which tells you nothing about the mesh's size.
+> 2. **Godot's 3D grid subdivides with zoom.** It is a navigation aid, not a ruler. My "count 3 squares" instruction was wrong.
+
+Use one of these two instead.
+
+#### Method A — measure it, with the C# you already have ⭐
+
+This is the definitive answer, and it reuses [0.2](Chapter_00.02_GodotAndDotNet.md).
+
+Attach a new C# script to your **scene root** (the `Node3D` at the top, e.g. `Hello`), named `Measure.cs`:
+
+```csharp
+using Godot;
+
+public partial class Measure : Node3D
+{
+    public override void _Ready()
+    {
+        // owned:false is what lets us see inside an imported .glb scene
+        foreach (var node in FindChildren("*", "MeshInstance3D", true, false))
+        {
+            var mesh = (MeshInstance3D)node;
+            GD.Print($"{mesh.Name}: size = {mesh.GetAabb().Size}");
+        }
+    }
+}
+```
+
+Press **Build**, then **F5**. The Output panel prints the mesh's real size in units.
+
+**You want `(3, 3, 3)`.**
+
+`[UNVERIFIED]` — the exact print formatting in your Godot version.
+
+> 🐣 **What is an AABB?** An *axis-aligned bounding box* — the smallest non-rotated box that contains the mesh. Its `Size` is the mesh's dimensions in units, straight from the geometry rather than from any node's transform. That is precisely what you want to measure here.
+
+#### Method B — compare against a known 3 m box
+
+Faster, and good enough to spot a 100× error at a glance:
+
+1. Add a `MeshInstance3D` beside your import.
+2. Give it a new **BoxMesh**, and set its **Size** to `3, 3, 3`.
+3. Put both at the same position.
+
+They should be **identical**. If your import is a tenth the size or a hundred times bigger, you will see it instantly.
 
 ### Step 7 — Record and commit
 
@@ -188,7 +261,7 @@ git push
 - [ ] Preferences saved; Node Wrangler enabled
 - [ ] Startup file saved with Metric / 1.0 / Metres
 - [ ] A 3 m cube with Scale `1,1,1` in Blender
-- [ ] The same cube in Godot, spanning **exactly 3 grid squares**, Scale `1,1,1`
+- [ ] The same cube in Godot measuring **`(3, 3, 3)`** by Method A or B, with Scale `1,1,1`
 
 **If it is not 3 units in Godot, stop.** Do not continue to 0.4. Every asset you make for the rest of the course depends on this being right, and diagnosing it now takes ten minutes rather than three months.
 

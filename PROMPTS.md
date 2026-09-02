@@ -618,3 +618,34 @@ Also revised **[ADR-020](docs/meta/Decisions.md#adr-020)**: chapter filenames be
 
 **New:** `docs/chapters/Chapter_00.01_MachinesAndTheirRoles.md`.
 **Updated:** `docs/meta/Decisions.md` (ADR-002 measurement defined, ADR-020 revised) · `docs/meta/DecisionsLog.md` · `docs/chapters/README.md` (index, naming) · `docs/meta/CourseState.md` (Phase 3, 1/359) · `docs/meta/ToDos.md` (T-013 done, T-026) · `docs/internal/VerificationRuns.md` (V-07).
+
+---
+
+## PROMPT#15
+
+**Date:** 2026-09-02 · **Session:** 002
+
+### Prompt (verbatim)
+
+```text
+In Chapter 0.03, Step2, I couldnot find "Clip Start" in Viewport and I couldn't find "Extra Objects"
+and "Copy Attributes Menu" in Add-ons. And In GoDot, I don't see that the cube is taking exactly 3
+units in the 3d viewport, also I cannot verify from inspector window. Please refer toAgent/1.jpg and
+toAgent/2.jpg and toAgent/3.jpg
+```
+
+### Response
+
+Read all three screenshots. **All three reports were correct and all three were my errors.** Fixed in chapter 0.3 and Setup 03; recorded as [D-014](docs/meta/Doubts.md#d-014).
+
+1. **Clip Start is not in Preferences.** `toAgent/1.png` shows Preferences → Viewport containing only Display, Quality, Textures and Subdivision. It is a **per-viewport** setting (`N` → View tab). Chapter gained a Step 2b — and this also explains why it must be set *before* saving the startup file.
+2. **The add-on list was written for a pre-4.2 Blender.** `toAgent/2.png` shows the bundled list is now seven items; Extra Objects and Copy Attributes Menu moved to **Extensions** in Blender 4.2. **Neither is needed by this course** — I over-specified. The chapter now says: enable Node Wrangler, confirm glTF 2.0, leave Rigify off until B24b. The screenshot also confirms **Rigify ships built in**, which matters for that chapter.
+3. **The measurement method was wrong twice over.** `toAgent/3.png` shows the imported node is a **`Node3D`**, not a `MeshInstance3D` — a `.glb` imports as a scene with the mesh as a hidden child, so the Inspector was showing the root's transform. And Godot's grid **subdivides with zoom**, so counting squares is not measuring. Replaced with a `GetAabb()` script (reusing the C# from 0.2) and a `BoxMesh` comparison.
+
+**The finding worth keeping.** Errors 1 and 2 carried `[UNVERIFIED]` markers and behaved exactly as [ADR-016](docs/meta/Decisions.md#adr-016) intends. **Error 3 did not, and should have.** I asserted a measurement technique as fact with no way to check it. *"How to verify something in a GUI"* is exactly as unverifiable from this environment as an error string — the marker discipline is only as good as my honesty about what I actually know. Logged in `DecisionsLog.md` so a future session marks GUI procedures too.
+
+**Three markers cleared as a bonus**, from the same screenshots: Godot reports `v4.7.2.stable.mono.official` — settling that the .NET build is named `mono`; `D3D12 12_0 — Forward Mobile` runs on an NVIDIA T600 Laptop GPU, validating [ADR-010](docs/meta/Decisions.md#adr-010) and the Mobile-renderer instruction; and the workshop is **Config A, Windows 11 native**.
+
+### Artefacts changed
+
+`docs/chapters/Chapter_00.03_Blender.md` (Step 2 rewritten, new Step 2b, Step 6 verification replaced) · `docs/guides/Setup_03_Blender.md` · `docs/chapters/Chapter_00.02_GodotAndDotNet.md` (`mono` marker cleared) · `docs/internal/VerificationRuns.md` (4 items cleared, V-09 partial) · `docs/meta/Machines.md` (confirmed Godot version, GPU, renderer, config) · `docs/meta/Doubts.md` (D-014) · `docs/meta/DecisionsLog.md`.

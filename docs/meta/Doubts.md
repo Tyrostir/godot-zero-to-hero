@@ -82,6 +82,7 @@ Some entries below have a **"In my own words"** line. That is yours to fill in, 
 | [D-011](#d-011) | 2026-09-02 | Course logistics | What is a "vertical slice", and where should the capstone finish line be? | ✅ |
 | [D-012](#d-012) | 2026-09-02 | Design/Narrative | Ship after Level 1 — but Levels 2–4 stay mandatory. How does that restructure the capstone? | ✅ |
 | [D-013](#d-013) | 2026-09-02 | Setup/Install | My workshop is Windows 11 **or** Ubuntu/WSL. Can the course support both? | ✅ |
+| [D-014](#d-014) | 2026-09-02 | Blender | Chapter 0.3: no Clip Start, no Extra Objects/Copy Attributes, and the cube is not 3 grid squares | ✅ |
 
 ---
 
@@ -703,6 +704,59 @@ Keeping WSL is worth it — `ffmpeg`, `ImageMagick`, `sed` and a real shell are 
 
 ---
 
+## D-014
+
+**Date:** 2026-09-02 · **Context:** Working chapter 0.3, Step 2 and Step 6 · **Category:** Blender · **Status:** ✅ Answered — **three authoring errors found and fixed**
+
+### Question *(verbatim)*
+> In Chapter 0.03, Step2, I couldnot find "Clip Start" in Viewport and I couldn't find "Extra Objects" and "Copy Attributes Menu" in Add-ons. And In GoDot, I don't see that the cube is taking exactly 3 units in the 3d viewport, also I cannot verify from inspector window. Please refer toAgent/1.jpg and toAgent/2.jpg and toAgent/3.jpg
+
+### Short answer
+**All three were my errors, not yours.** Clip Start is not in Preferences at all — it is per-viewport, in the `N` sidebar's View tab. Extra Objects and Copy Attributes Menu are **no longer bundled** in Blender 4.2+; they moved to Extensions, and nothing in this course needs them. And the cube check was simply the wrong method — Godot's grid subdivides with zoom, and the Inspector shows the imported `Node3D` root's transform, not the mesh's size. Chapter 0.3 and Setup 03 are corrected; the verification now uses a `GetAabb()` script.
+
+### Full answer
+
+**Error 1 — Clip Start is not a preference.** *(`toAgent/1.png`)* Your screenshot shows Preferences → Viewport containing exactly four sections: Display, Quality, Textures, Subdivision. **No Clip Start.** It is a **per-viewport, per-file** setting, found at `N` → **View** tab in the 3D viewport. That also explains why it matters that you set it *before* saving the startup file — otherwise it does not follow you into new files. Chapter 0.3 gained a **Step 2b** for it.
+
+**Error 2 — the add-on list was three versions out of date.** *(`toAgent/2.png`)* Blender 4.2 introduced the **Extensions** system and cut the bundled add-on list to seven:
+
+```text
+Cycles Render Engine · glTF 2.0 format · Hydra Storm · Manage UI translations
+Node Wrangler · Pose Library · Rigify · VR Scene Inspection
+```
+
+**Extra Objects and Copy Attributes Menu are not among them** — they are now Extensions, installable from **Get Extensions** in the sidebar. **Nothing in this course requires either; I over-specified.** The corrected chapter tells you to enable exactly one thing (**Node Wrangler**), confirm **glTF 2.0** is on, and *leave Rigify off* until **B24b** — where you enable it only after hand-building an armature ([ADR-028](Decisions.md#adr-028)).
+
+Your screenshot is also a small bonus: it confirms **Rigify ships built in**, which is the free industry-standard rig generator and a load-bearing part of Module 4.
+
+**Error 3 — the measurement method was wrong, twice over.** *(`toAgent/3.png`)*
+
+1. **"Count 3 grid squares" does not work.** Godot's 3D grid **subdivides with zoom** — it is a navigation aid, not a ruler.
+2. **The Inspector cannot show you this.** Your screenshot shows the imported node is a **`Node3D`**, not a `MeshInstance3D`. A `.glb` imports as a whole *scene*: a `Node3D` root with the mesh as a **child**, and Godot hides an instanced scene's children in the Scene dock. The Inspector was showing the root's transform — Scale `1,1,1`, Position `1.5,0,0` — which says nothing about the mesh's size. **You were right that it could not be verified there.**
+
+The chapter now gives two working methods: **Method A**, a short C# script using `FindChildren(..., owned:false)` and `GetAabb().Size` to print the real dimensions — which reuses the C# you got working in 0.2; and **Method B**, adding a `BoxMesh` set to `3,3,3` and comparing visually.
+
+**What your screenshots also cleared, unprompted.** Three `[UNVERIFIED]` markers, now facts:
+
+| Fact | Evidence |
+|---|---|
+| **Godot `v4.7.2.stable.mono.official`** — the .NET build does report itself as `mono` | Output banner |
+| **`D3D12 12_0 — Forward Mobile`** works on an NVIDIA T600 Laptop GPU | Output banner — validates [ADR-010](Decisions.md#adr-010) and the Mobile-renderer instruction in 0.2 |
+| **Workshop is Config A, Windows 11 native** | D3D12 in the banner — matches [ADR-036](Decisions.md#adr-036) |
+
+**Why this is the protocol working rather than failing.** [ADR-016](Decisions.md#adr-016) exists because I cannot run Blender or Godot. Two of these three errors were marked `[UNVERIFIED]`; the third — the grid-counting instruction — was **not marked, and should have been.** I stated a measurement technique as fact without being able to check it. That is the more useful lesson: the marker discipline is only as good as my honesty about what I actually know.
+
+### Related
+[ADR-016](Decisions.md#adr-016) · [ADR-028](Decisions.md#adr-028) · [chapter 0.3](../chapters/Chapter_00.03_Blender.md) · [Setup 03](../guides/Setup_03_Blender.md) · [VerificationRuns](../internal/VerificationRuns.md)
+
+### Action taken
+Chapter 0.3: Clip Start moved to a new Step 2b; add-on list rewritten for Blender 4.2+; Step 6 verification replaced with the `GetAabb()` script and the BoxMesh comparison. Setup 03 corrected to match. Chapter 0.2's `mono` marker cleared. Three V-08/V-09 items cleared in `VerificationRuns.md`. `Machines.md` pre-filled with the confirmed Godot version, GPU and renderer.
+
+### In my own words
+*(yours to fill in)*
+
+---
+
 ## ⏸️ Parked
 
 *Questions consciously postponed, with a named chapter to revisit them at.*
@@ -728,6 +782,7 @@ Every ~20 doubts, come back and look for patterns. If four of your questions wer
 | Version | Date | Change |
 |---------|------|--------|
 | 1.0 | 2026-09-01 | Created at course inception. Table format. |
+| 2.8 | 2026-09-02 | D-014 — three authoring errors in chapter 0.3 found by the learner and fixed. |
 | 2.7 | 2026-09-02 | D-013 added — Windows 11 + Linux both supported; WSL2 excluded as a workshop. D-001 revised. |
 | 2.6 | 2026-09-02 | D-012 added — staged release model. |
 | 2.5 | 2026-09-02 | D-011 added — vertical slice explained; capstone reaffirmed at four levels. |

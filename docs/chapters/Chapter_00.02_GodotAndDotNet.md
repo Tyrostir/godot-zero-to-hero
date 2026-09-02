@@ -30,7 +30,7 @@ By the end, a **Godot editor that compiles and runs your C#** exists on your des
 
 ## 🏃 Fast-Track Summary
 
-- Download the **.NET build** from <https://godotengine.org/download/>. The filename contains **`mono`** — that is the same thing. `[UNVERIFIED]`
+- Download the **.NET build** from <https://godotengine.org/download/>. The filename and version string contain **`mono`** — that is the same thing. ✅ **Verified 2026-09-02:** `Godot Engine v4.7.2.stable.mono.official`.
 - **Do not** move the binary out of its folder. The .NET build ships a `GodotSharp/` directory beside it and breaks without it.
 - Install the .NET **SDK** (not just the runtime): 🪟 `winget install Microsoft.DotNet.SDK.8` · 🐧 `sudo apt install dotnet-sdk-8.0`. Verify with `dotnet --list-sdks`.
 - Verify Godot is the right build: **Help → About** must mention .NET/Mono. No Build button = wrong download.
@@ -65,7 +65,7 @@ You will see **two** downloads for Linux. This is the single most consequential 
 | **Godot Engine** | GDScript only | ❌ **No** |
 | **Godot Engine – .NET** | GDScript **and C#** | ✅ **This one** |
 
-> ⚠️ **The filename may say `mono`, not `dotnet`.** Godot's C# support grew out of the Mono runtime and the file naming has lagged the branding. A file called `Godot_v4.x-stable_mono_linux_x86_64.zip` **is** the .NET build. `[UNVERIFIED]` — the exact filename for your version.
+> ⚠️ **The filename says `mono`, not `dotnet`.** Godot's C# support grew out of the Mono runtime and the naming has lagged the branding. A file called `Godot_v4.x-stable_mono_win64.zip` **is** the .NET build, and the editor reports itself as e.g. `v4.7.2.stable.mono.official`. ✅ **Verified 2026-09-02.**
 
 > 🐣 **Why two builds at all?** The .NET build is bigger and carries a whole language runtime that GDScript users would never touch. Rather than make everyone download it, Godot ships two. You need the bigger one.
 

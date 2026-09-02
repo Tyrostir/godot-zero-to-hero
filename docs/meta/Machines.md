@@ -31,12 +31,14 @@ update_trigger: "Chapter 0.1, then whenever a machine changes or a tool version 
 | Field | Value |
 |-------|-------|
 | OS / version | |
+| Workshop config (A: Windows 11 native · B: Linux native) | **A — Windows 11** ✅ |
 | Kernel | |
 | CPU model | |
 | Cores / threads | |
 | RAM | |
 | Free disk (home) | |
-| GPU | |
+| GPU | `NVIDIA T600 Laptop GPU` ✅ | 
+| Renderer in use | `Forward Mobile` on D3D12 ✅ |
 | Vulkan working? | |
 | Data cable verified? | |
 
@@ -87,7 +89,7 @@ update_trigger: "Chapter 0.1, then whenever a machine changes or a tool version 
 
 | Tool | Version | Chapter | Notes |
 |------|---------|---------|-------|
-| Godot (**.NET** build) | | 0.2 | must be the .NET/mono download |
+| Godot (**.NET** build) | `4.7.2.stable.mono.official` ✅ | 0.2 | confirmed from the editor banner, 2026-09-02 |
 | Godot export templates | | 0.2 | must match the editor exactly |
 | .NET SDK | | 0.2 | `dotnet --list-sdks` |
 | `<TargetFramework>` in `.csproj` | | 0.2 | the authoritative SDK requirement |
