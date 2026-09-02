@@ -75,6 +75,7 @@ Each block is small, numbered `V-NN`, and asks for **exact, pasteable output** �
 | **V-08** | desktop | **Chapter 0.2** — `godot --version`, `dotnet --list-sdks`, the `.csproj` `<TargetFramework>` line, Help→About wording, export-template path, and the three deliberate build failures' exact text | ⬜ Open |
 | **V-09** | desktop | **Chapter 0.3** — `blender --version`; whether the 3 m cube measures `(3,3,3)` via the new `GetAabb()` script | 🔄 **Partly cleared 2026-09-02** — Preferences layout and the add-on list confirmed by screenshot; the cube measurement still outstanding, and the verification *method* was rewritten because the original was wrong |
 | **V-10** | desktop | **Chapter 0.4** — `java -version`, `sdkmanager --version`, `adb version`, the JVM path, **the API level and build-tools version the official Godot export page currently requires**, and the `sdkmanager` failure text when `latest/` is renamed | ⬜ Open |
+| **V-11** | desktop + phone | **Chapter 0.5** — the Developer-options menu path on your phone; `adb devices` output and serial format; whether a USB driver was needed on Windows; the exact `unauthorized` and `offline` wording; the two wireless ports | ⬜ Open |
 | **V-07** | desktop + phone | **Chapter 0.1** — output of `uname -a`, `lscpu`, `free -h`, `df -h ~`, `lspci`, `vulkaninfo --summary`, `lsusb` (plugged and unplugged); the Termux `dotnet --version` failure text verbatim; and the phone's Settings → About phone fields | ⬜ Open |
 
 ---

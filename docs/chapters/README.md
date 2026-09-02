@@ -20,8 +20,9 @@ The course itself. Chapters are published in order and appear here as they are w
 | **0.2** | [Installing Godot 4 (.NET) and the .NET SDK](Chapter_00.02_GodotAndDotNet.md) | A | 🐣🚶🏃 | 60–90 m | ✅ Published |
 | **0.3** | [Installing Blender, and Configuring It Once](Chapter_00.03_Blender.md) | A | 🐣🚶🏃 | 45–60 m | ✅ Published |
 | **0.4** | [JDK, Android SDK, and the Debug Keystore](Chapter_00.04_AndroidToolchain.md) | A | 🐣🚶🏃 | 60–90 m | ✅ Published |
+| **0.5** | [Connecting Your Phone](Chapter_00.05_ConnectingYourPhone.md) | A | 🐣🚶🏃 | 45–60 m | ✅ Published |
 
-**4 / 359.** Next: **0.5 — Connecting your phone: USB debugging, `adb devices`, wireless debugging**.
+**5 / 359.** Next: **0.6 — The Godot editor**.
 
 > 📏 **ADR-002 compliance** — measured against the instructional body ([ADR-002](../meta/Decisions.md#adr-002)):
 >
@@ -30,7 +31,8 @@ The course itself. Chapters are published in order and appear here as they are w
 > | 0.1 | 70.9% | 16.3% |
 > | 0.2 | 68.9% | 17.0% |
 > | 0.3 | 65.1% | 19.3% |
-> | 0.4 | 63.3% | 19.9% |
+> | 0.4 | 71.3% | 15.4% |
+> | 0.5 | 67.0% | 19.6% |
 
 > 📑 Full chapter list: **[`../TableOfContents.md`](../TableOfContents.md)**
 > 📍 Current progress: **[`../meta/CourseState.md`](../meta/CourseState.md)**
