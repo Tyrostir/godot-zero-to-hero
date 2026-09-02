@@ -32,11 +32,12 @@ The course itself. Chapters are published in order and appear here as they are w
 | **0.14** | [The Language Decision Table](Chapter_00.14_LanguageDecisionTable.md) | A | 🐣🚶🏃 | 45–60 m | ✅ Published |
 | **0.15** | [Evaluating a Dependency](Chapter_00.15_EvaluatingADependency.md) | A | 🐣🚶🏃 | 60–75 m | ✅ Published |
 | **0.16** | [NuGet](Chapter_00.16_NuGet.md) | A | 🐣🚶🏃 | 45–60 m | ✅ Published |
+| **0.17** 🧰 | [Dev-Loop Tools](Chapter_00.17_DevLoopTools.md) | A | 🐣🚶🏃 | 45–60 m | ✅ Published |
 
-**16 / 359.** 🎉 **Block 0B complete** — all four languages written, and a decision table built from your own measurements.
+**17 / 359.** 🎉 **Block 0B complete** — all four languages written, and a decision table built from your own measurements.
  🎉 **Block 0A complete** — toolchain installed, an app on the phone, and the ability to read it when it breaks.
 
-Next: **0.17 — Dev-loop tools**.
+Next: ⭐ **0.18 — The version matrix**.
 
 > 📏 **ADR-002 compliance** — measured against the instructional body ([ADR-002](../meta/Decisions.md#adr-002)):
 >
@@ -58,6 +59,7 @@ Next: **0.17 — Dev-loop tools**.
 > | 0.14 | 64.2% | 18.5% |
 > | 0.15 | 59.7% | 22.5% |
 > | 0.16 | 59.3% | 20.6% |
+> | 0.17 | 53.8% | 23.1% |
 
 > 📑 Full chapter list: **[`../TableOfContents.md`](../TableOfContents.md)**
 > 📍 Current progress: **[`../meta/CourseState.md`](../meta/CourseState.md)**
