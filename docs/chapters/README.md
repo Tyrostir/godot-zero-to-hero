@@ -44,12 +44,13 @@ The course itself. Chapters are published in order and appear here as they are w
 |---|---------|-------|-------|------|--------|
 | **1.1** | [Nodes: The One Idea Godot Is Built On](module1/1A/1.1_Nodes.md) | A | 🐣🚶🏃 | 45–60 m | ✅ Published |
 | **1.2** | [Scenes, Instancing, and Scene Inheritance](module1/1A/1.2_ScenesAndInstancing.md) | A | 🐣🚶🏃 | 45–60 m | ✅ Published |
+| **1.3** | [The Scene Tree and the Main Loop](module1/1A/1.3_TheSceneTree.md) | A | 🐣🚶🏃 | 45–60 m | ✅ Published |
 
-**21 / 359.** 🎉 **MODULE 0 COMPLETE** — toolchain, first APK, four languages, dependencies and a pinned build.
+**22 / 359.** 🎉 **MODULE 0 COMPLETE** — toolchain, first APK, four languages, dependencies and a pinned build.
  🎉 **Block 0B complete** — all four languages written, and a decision table built from your own measurements.
  🎉 **Block 0A complete** — toolchain installed, an app on the phone, and the ability to read it when it breaks.
 
-Next: **1.3 — The scene tree, the main loop, and the order things happen in**.
+Next: **1.4 — Your first real C# script**.
 
 > 📏 **ADR-002 compliance** — measured against the instructional body ([ADR-002](../meta/Decisions.md#adr-002)):
 >
@@ -76,6 +77,7 @@ Next: **1.3 — The scene tree, the main loop, and the order things happen in**.
 > | 0.19 | *(assessment chapter — exempt)* | |
 > | 1.1 | 56.5% | 26.8% |
 > | 1.2 | 60.8% | 22.1% |
+> | 1.3 | 62.9% | 23.6% |
 
 > 📑 Full chapter list: **[`../TableOfContents.md`](../TableOfContents.md)**
 > 📍 Current progress: **[`../meta/CourseState.md`](../meta/CourseState.md)**
