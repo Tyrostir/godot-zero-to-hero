@@ -31,11 +31,12 @@ The course itself. Chapters are published in order and appear here as they are w
 | **0.13** | [GDShader: The Fourth Language](Chapter_00.13_GDShaderFirstContact.md) | A | 🐣🚶🏃 | 45–60 m | ✅ Published |
 | **0.14** | [The Language Decision Table](Chapter_00.14_LanguageDecisionTable.md) | A | 🐣🚶🏃 | 45–60 m | ✅ Published |
 | **0.15** | [Evaluating a Dependency](Chapter_00.15_EvaluatingADependency.md) | A | 🐣🚶🏃 | 60–75 m | ✅ Published |
+| **0.16** | [NuGet](Chapter_00.16_NuGet.md) | A | 🐣🚶🏃 | 45–60 m | ✅ Published |
 
-**15 / 359.** 🎉 **Block 0B complete** — all four languages written, and a decision table built from your own measurements.
+**16 / 359.** 🎉 **Block 0B complete** — all four languages written, and a decision table built from your own measurements.
  🎉 **Block 0A complete** — toolchain installed, an app on the phone, and the ability to read it when it breaks.
 
-Next: **0.16 — NuGet**.
+Next: **0.17 — Dev-loop tools**.
 
 > 📏 **ADR-002 compliance** — measured against the instructional body ([ADR-002](../meta/Decisions.md#adr-002)):
 >
@@ -56,6 +57,7 @@ Next: **0.16 — NuGet**.
 > | 0.13 | 61.0% | 19.5% |
 > | 0.14 | 64.2% | 18.5% |
 > | 0.15 | 59.7% | 22.5% |
+> | 0.16 | 59.3% | 20.6% |
 
 > 📑 Full chapter list: **[`../TableOfContents.md`](../TableOfContents.md)**
 > 📍 Current progress: **[`../meta/CourseState.md`](../meta/CourseState.md)**
