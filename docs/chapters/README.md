@@ -29,10 +29,12 @@ The course itself. Chapters are published in order and appear here as they are w
 | **0.11** | [C# First Contact](Chapter_00.11_CSharpFirstContact.md) | A | 🐣🚶🏃 | 60–75 m | ✅ Published |
 | **0.12** ⭐ | [Measured: Two Languages, One Cube](Chapter_00.12_MeasuredTwoLanguages.md) | A | 🐣🚶🏃 | 60–75 m | ✅ Published |
 | **0.13** | [GDShader: The Fourth Language](Chapter_00.13_GDShaderFirstContact.md) | A | 🐣🚶🏃 | 45–60 m | ✅ Published |
+| **0.14** | [The Language Decision Table](Chapter_00.14_LanguageDecisionTable.md) | A | 🐣🚶🏃 | 45–60 m | ✅ Published |
 
-**13 / 359.** 🎉 **Block 0A complete** — toolchain installed, an app on the phone, and the ability to read it when it breaks.
+**14 / 359.** 🎉 **Block 0B complete** — all four languages written, and a decision table built from your own measurements.
+ 🎉 **Block 0A complete** — toolchain installed, an app on the phone, and the ability to read it when it breaks.
 
-Next: **0.14 — The language decision table**, closing block 0B.
+Next: **0.15 — The Asset Library, and how to evaluate a dependency**, opening block **0C**.
 
 > 📏 **ADR-002 compliance** — measured against the instructional body ([ADR-002](../meta/Decisions.md#adr-002)):
 >
@@ -51,6 +53,7 @@ Next: **0.14 — The language decision table**, closing block 0B.
 > | 0.11 | 61.2% | 21.7% |
 > | 0.12 | 61.7% | 20.1% |
 > | 0.13 | 61.0% | 19.5% |
+> | 0.14 | 64.2% | 18.5% |
 
 > 📑 Full chapter list: **[`../TableOfContents.md`](../TableOfContents.md)**
 > 📍 Current progress: **[`../meta/CourseState.md`](../meta/CourseState.md)**
