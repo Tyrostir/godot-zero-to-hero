@@ -129,6 +129,7 @@ Godot needs the **SDK**, not just the runtime, because it invokes MSBuild to com
 > 🐧 **Linux**
 
 ```bash
+sudo add-apt-repository ppa:dotnet/backports
 sudo apt update && sudo apt install -y dotnet-sdk-8.0
 ```
 
