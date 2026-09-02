@@ -25,10 +25,11 @@ The course itself. Chapters are published in order and appear here as they are w
 | **0.7** | [Git for Game Projects](Chapter_00.07_GitForGameProjects.md) | A | 🐣🚶🏃 | 60–75 m | ✅ Published |
 | **0.8** ⭐ | [**Project 00: Hello Phone**](Chapter_00.08_P00HelloPhone.md) | **P** | 🐣🚶🏃 | 60–90 m | ✅ Published |
 | **0.9** | [Reading Errors](Chapter_00.09_ReadingErrors.md) | A | 🐣🚶🏃 | 60–75 m | ✅ Published |
+| **0.10** | [GDScript First Contact](Chapter_00.10_GDScriptFirstContact.md) | A | 🐣🚶🏃 | 45–60 m | ✅ Published |
 
-**9 / 359.** 🎉 **Block 0A complete** — toolchain installed, an app on the phone, and the ability to read it when it breaks.
+**10 / 359.** 🎉 **Block 0A complete** — toolchain installed, an app on the phone, and the ability to read it when it breaks.
 
-Next: **0.10 — GDScript first contact**, opening block **0B: the four languages you will write**.
+Next: **0.11 — C# first contact**. Block **0B** is under way.
 
 > 📏 **ADR-002 compliance** — measured against the instructional body ([ADR-002](../meta/Decisions.md#adr-002)):
 >
@@ -43,6 +44,7 @@ Next: **0.10 — GDScript first contact**, opening block **0B: the four language
 > | 0.7 | 64.2% | 20.8% |
 > | 0.8 | 66.4% | 18.7% |
 > | 0.9 | 62.7% | 21.4% |
+> | 0.10 | 65.4% | 20.4% |
 
 > 📑 Full chapter list: **[`../TableOfContents.md`](../TableOfContents.md)**
 > 📍 Current progress: **[`../meta/CourseState.md`](../meta/CourseState.md)**

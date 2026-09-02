@@ -40,7 +40,7 @@ Every chapter ends with `[X]` and `[Q]`; they are only listed separately below w
 **0B — The four languages you will write** 🐣🚶🏃
 > You will write **GDScript**, **C#**, **C++** and **GDShader** in this course ([ADR-001](meta/Decisions.md#adr-001), [ADR-031](meta/Decisions.md#adr-031)). Here you meet the two you will use immediately, by building the *same cube* in each and **measuring the difference yourself**, plus a first taste of GDShader.
 >
-> 📌 **C++/GDExtension deliberately does not appear here.** Setting up `godot-cpp` and per-ABI Android builds is an afternoon of toolchain work with no motivation behind it yet, and putting it at chapter 13 of 340 is a good way to stall. It arrives in **Module 10** ([10.1c–9.1g](#module-9--architecture-c-performance--tooling)) at the moment a profiler gives you a reason. Full curriculum: [Languages.md](Languages.md).
+> 📌 **C++/GDExtension deliberately does not appear here.** Setting up `godot-cpp` and per-ABI Android builds is an afternoon of toolchain work with no motivation behind it yet, and putting it at chapter 13 of 340 is a good way to stall. It arrives in **Module 10** (chapters 10.1c–10.1f) at the moment a profiler gives you a reason. Full curriculum: [Languages.md](Languages.md).
 
 - **0.10 [A]** **GDScript first contact** — the same spinning cube, in six lines, with no build step. Why it exists and what it is genuinely best at
 - **0.11 [A]** **C# first contact** — the same cube again, and the build step it costs you. `partial`, the class-name rule, and `[Export]`
