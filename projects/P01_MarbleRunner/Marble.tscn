@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://boy7tmdktfnd8"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_cm0pq"]
+radius = 0.35
+height = 0.7
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_lavtg"]
+radius = 0.35
+
+[node name="Marble" type="RigidBody3D" unique_id=63945780]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=719876606]
+mesh = SubResource("SphereMesh_cm0pq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1191294486]
+shape = SubResource("SphereShape3D_lavtg")

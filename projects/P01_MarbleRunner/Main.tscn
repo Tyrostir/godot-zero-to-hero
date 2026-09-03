@@ -1,12 +1,11 @@
 [gd_scene format=3 uid="uid://jblcj8emxxm3"]
 
+[ext_resource type="PackedScene" uid="uid://boy7tmdktfnd8" path="res://Marble.tscn" id="1_glv2v"]
+[ext_resource type="PackedScene" uid="uid://cnoclfq5vywrj" path="res://Coin.tscn" id="2_uu6xs"]
+
 [sub_resource type="BoxMesh" id="BoxMesh_71tfo"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_q6c6o"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_lavtg"]
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_lavtg"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_q6c6o"]
 
@@ -24,14 +23,14 @@ mesh = SubResource("BoxMesh_71tfo")
 transform = Transform3D(10, 0, 0, 0, 0.5, 0, 0, 0, 10, 0, 0, 0)
 shape = SubResource("BoxShape3D_q6c6o")
 
-[node name="Marble" type="RigidBody3D" parent="." unique_id=967614055]
+[node name="Marble" parent="." unique_id=63945780 instance=ExtResource("1_glv2v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -6)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Marble" unique_id=1184240951]
-mesh = SubResource("SphereMesh_lavtg")
+[node name="Marble2" parent="." unique_id=707872310 instance=ExtResource("1_glv2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 5, -6)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Marble" unique_id=1200540363]
-shape = SubResource("SphereShape3D_lavtg")
+[node name="Marble3" parent="." unique_id=437453660 instance=ExtResource("1_glv2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 5, -6)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1051801085]
 transform = Transform3D(1, 0, 0, 0, 0.9659258, 0.25881904, 0, -0.25881904, 0.9659258, 0, 4, 9)
@@ -40,7 +39,7 @@ transform = Transform3D(1, 0, 0, 0, 0.9659258, 0.25881904, 0, -0.25881904, 0.965
 transform = Transform3D(0.81915206, 0.43938506, -0.36868784, 0, 0.64278764, 0.76604444, 0.57357645, -0.62750685, 0.5265408, 0, 0, 0)
 
 [node name="Ramp" type="StaticBody3D" parent="." unique_id=2078883741]
-transform = Transform3D(1, 0, 0, 0, 0.9396926, -0.34202012, 0, 0.34202012, 0.9396926, 0, 1.5, -3)
+transform = Transform3D(1, 0, 0, 0, 0.98480767, -0.17364816, 0, 0.17364816, 0.98480767, 0, 0.8, -3)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ramp" unique_id=2113926159]
 transform = Transform3D(4, 0, 0, 0, 0.3, 0, 0, 0, 8, 0, 0, 0)
@@ -49,3 +48,12 @@ mesh = SubResource("BoxMesh_q6c6o")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ramp" unique_id=1019600105]
 transform = Transform3D(4, 0, 0, 0, 0.3, 0, 0, 0, 8, 0, 0, 0)
 shape = SubResource("BoxShape3D_0u86m")
+
+[node name="Coin" parent="." unique_id=1907377479 instance=ExtResource("2_uu6xs")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.09828806, 0.5334963, 0.8069122)
+
+[node name="Coin2" parent="." unique_id=542236898 instance=ExtResource("2_uu6xs")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -3.7682612, 0, -1.8258234)
+
+[node name="Coin3" parent="." unique_id=511205272 instance=ExtResource("2_uu6xs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0547485, 0.5334963, -1.5067568)
