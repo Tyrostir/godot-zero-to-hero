@@ -1,10 +1,14 @@
 [gd_scene format=3 uid="uid://jblcj8emxxm3"]
 
-[ext_resource type="Script" uid="uid://b3m13pnnl5uuf" path="res://scripts/ProbeA.cs" id="1_fos0i"]
 [ext_resource type="PackedScene" uid="uid://boy7tmdktfnd8" path="res://Marble.tscn" id="1_glv2v"]
+[ext_resource type="Script" uid="uid://syx5n04okp3g" path="res://scripts/FpsSwitcher.cs" id="1_trn2v"]
 [ext_resource type="Script" uid="uid://5rh2k2fra263" path="res://scripts/ProbeC.cs" id="2_3dxm6"]
 [ext_resource type="PackedScene" uid="uid://cnoclfq5vywrj" path="res://Coin.tscn" id="2_uu6xs"]
 [ext_resource type="Script" uid="uid://4rp7gyxbdtg2" path="res://scripts/ProbeB.cs" id="4_lgr22"]
+[ext_resource type="Script" uid="uid://dpg2v18ro3676" path="res://scripts/Marble.cs" id="5_03owx"]
+[ext_resource type="PackedScene" uid="uid://bvm1prawwu0mw" path="res://Spinner.tscn" id="6_3dxm6"]
+[ext_resource type="Script" uid="uid://dqlapfbqmu841" path="res://scripts/spinGood.cs" id="7_trn2v"]
+[ext_resource type="Script" uid="uid://dbx1w4y1fkuao" path="res://scripts/spinBad.cs" id="8_03owx"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_71tfo"]
 
@@ -15,7 +19,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_0u86m"]
 
 [node name="Main" type="Node3D" unique_id=644215326]
-script = ExtResource("1_fos0i")
+script = ExtResource("1_trn2v")
 
 [node name="Floor" type="StaticBody3D" parent="." unique_id=1109388611]
 script = ExtResource("2_3dxm6")
@@ -34,6 +38,7 @@ script = ExtResource("4_lgr22")
 
 [node name="Marble2" parent="." unique_id=707872310 instance=ExtResource("1_glv2v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 5, -6)
+script = ExtResource("5_03owx")
 
 [node name="Marble3" parent="." unique_id=437453660 instance=ExtResource("1_glv2v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 5, -6)
@@ -57,9 +62,20 @@ shape = SubResource("BoxShape3D_0u86m")
 
 [node name="Coin" parent="." unique_id=1907377479 instance=ExtResource("2_uu6xs")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.09828806, 0.5334963, 0.8069122)
+visible = false
 
 [node name="Coin2" parent="." unique_id=542236898 instance=ExtResource("2_uu6xs")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -3.7682612, 0, -1.8258234)
+visible = false
 
 [node name="Coin3" parent="." unique_id=511205272 instance=ExtResource("2_uu6xs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0547485, 0.5334963, -1.5067568)
+visible = false
+
+[node name="SpinnerGood" parent="." unique_id=1862207184 instance=ExtResource("6_3dxm6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.75, 1)
+script = ExtResource("7_trn2v")
+
+[node name="SpinnerBad" parent="." unique_id=1701613659 instance=ExtResource("6_3dxm6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.75, 1)
+script = ExtResource("8_03owx")
