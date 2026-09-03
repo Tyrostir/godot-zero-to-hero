@@ -58,12 +58,13 @@ The course itself. Chapters are published in order and appear here as they are w
 |---|---|---|---|---|---|
 | **1.7** | [3D Space in Godot](module1/1B/1.7_3DSpaceInGodot.md) | A | 🐣🚶🏃 | 45–60 m | ✅ Published |
 | **1.8** | [Transform3D, Basis, Local vs Global](module1/1B/1.8_Transform3D.md) | A | 🐣🚶🏃 | 60–75 m | ✅ Published |
+| **1.9** | [Rotations: Euler, Gimbal Lock, Quaternions](module1/1B/1.9_Rotations.md) | A | 🐣🚶🏃 | 60–75 m | ✅ Published |
 
-**28 / 359.** 🎉 **MODULE 0 COMPLETE** — toolchain, first APK, four languages, dependencies and a pinned build.
+**29 / 359.** 🎉 **MODULE 0 COMPLETE** — toolchain, first APK, four languages, dependencies and a pinned build.
  🎉 **Block 0B complete** — all four languages written, and a decision table built from your own measurements.
  🎉 **Block 0A complete** — toolchain installed, an app on the phone, and the ability to read it when it breaks.
 
-Next: **1.9 — Rotations: Euler, gimbal lock, quaternions**.
+Next: **1.10 — Drill: move, orbit and align three ways**, closing block 1B.
 
 > 📏 **ADR-002 compliance** — measured against the instructional body ([ADR-002](../meta/Decisions.md#adr-002)):
 >
@@ -97,6 +98,7 @@ Next: **1.9 — Rotations: Euler, gimbal lock, quaternions**.
 > | 1.6 | 57.1% | 24.3% |
 > | 1.7 | 64.2% | 21.4% |
 > | 1.8 | 61.3% | 23.0% |
+> | 1.9 | 64.7% | 18.9% |
 
 > 📑 Full chapter list: **[`../TableOfContents.md`](../TableOfContents.md)**
 > 📍 Current progress: **[`../meta/CourseState.md`](../meta/CourseState.md)**
