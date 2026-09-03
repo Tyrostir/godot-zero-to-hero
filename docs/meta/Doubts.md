@@ -895,6 +895,65 @@ Chapter 0.4: Fast-Track and Step 4 rewritten to use `[Environment]::SetEnvironme
 
 ---
 
+## D-018
+
+**Date:** 2026-09-03 · **Context:** Chapter 1.5 Step 5, found by me reading the learner's committed `projects/P01_MarbleRunner` · **Category:** Godot/C# · **Status:** ✅ **Authoring error, fixed** — not reported; found by reading pushed code
+
+### Question *(none — this one was not asked)*
+> The learner pushed their P01 work (commits `ch 1.2` … `ch 1.5`) without reporting a problem. Reading `scripts/Marble.cs` showed chapter 1.5 Step 5's spinner code merged into the marble.
+
+### Short answer
+**My chapter's fault, twice.** Step 5 said *"same discipline applied to `SpinPlatform.cs`"* and then showed a **headerless code fragment** — no `using`, no class declaration — immediately after Step 2 had shown a **complete** `Marble.cs`. The reasonable reading is "add these members to the file we are working in", so the spinner's `DegreesPerSecond`, `Clockwise` and `RotateY` went into `Marble.cs`. Separately, Step 2's own example exported **`RespawnDelay` and never read it** — the exact defect the chapter's Break-it #1 warns about.
+
+### Full answer
+
+**The evidence, from the learner's committed `Marble.cs`:**
+
+```csharp
+public partial class Marble : RigidBody3D
+{
+    ...
+    [ExportGroup("Motion")]                                     // ← 1.5 Step 5, wrong file
+    [Export(PropertyHint.Range, "-360,360,5")] public float DegreesPerSecond { get; set; } = 60f;
+    [Export] public bool Clockwise { get; set; } = true;
+
+    public override void _PhysicsProcess(double delta)
+    {
+        float dir = Clockwise ? 1f : -1f;
+        RotateY(Mathf.DegToRad(DegreesPerSecond) * dir * (float)delta);   // ← the marble spins itself
+        if (GlobalPosition.Y < KillY) Respawn();
+    }
+```
+
+No `SpinPlatform.cs` exists in the project; the spinner scripts are `spinGood.cs` / `spinBad.cs` (their own naming, which is fine and self-consistent).
+
+**Why the fragment misled.** Every other code block in 1A is either a whole file or clearly marked as an addition to a named one. Step 5's was neither, and it followed the chapter's only other full-file listing. The learner then had to *merge* two `_PhysicsProcess` overrides to make it compile — which they did correctly. **They resolved the ambiguity thoughtfully and still got a wrong result, which is the signature of an instruction defect rather than a reading error.**
+
+**Why it is worse than a cosmetic bug.** `RotateY` writes the transform directly. Writing a **`RigidBody3D`'s** transform every physics frame **fights the solver** — teleporting a body the physics engine is concurrently simulating. On a `StaticBody3D` (what `SpinPlatform` is) that is fine and normal. So the mis-paste did not just spin the wrong object; it taught the wrong habit about rigid bodies, three chapters before [1.13](../../../TableOfContents.md) teaches forces and [1.11](../../../TableOfContents.md) explains why the body type decides which is legal.
+
+**The second defect, which nobody had to hit.** Step 2's `Marble.cs` exported:
+
+```csharp
+[Export(PropertyHint.Range, "0,3,0.1")] public float RespawnDelay { get; set; } = 0f;
+```
+
+…and no code ever read it. The chapter's own Diagnose section says *"Every export must be read somewhere. If you delete the code that uses a value, delete the export."* **I shipped the defect in the example that warns about it.** It is in the learner's `Marble.cs` too, because they copied it faithfully.
+
+### Action taken
+
+1. **Step 5 now shows the whole file**, names `res://scripts/SpinPlatform.cs`, and opens with a 🚨 "different file" warning.
+2. Added a ⚠️ recovery note: *"If your marble has started spinning, this code is in `Marble.cs`"* — with the deletion instruction and the `RigidBody3D`-vs-solver explanation.
+3. **Removed `RespawnDelay`** from Step 2, and added **P5**, which has the learner implement the delay *first* and export it *second* — the rule stated as an ordering rather than a warning.
+4. Chapter 1.5 bumped to v1.1.
+
+### The pattern this makes four of
+
+[D-014](#d-014), [D-015](#d-015), [D-017](#d-017) and now D-018 are all the same shape: **an instruction with one reasonable-but-wrong reading**, where the learner chose it and the code failed somewhere else. Three were caught by the learner; this one only by reading their repository.
+
+**That is the lesson worth keeping.** A defect nobody reports is not a defect nobody hit — the learner had a spinning marble and carried on. **Reading the learner's committed code is a verification channel of its own**, and it caught something the review of my own prose did not. Added to [ToDos](ToDos.md) as a standing check at each block boundary.
+
+---
+
 ## D-017
 
 **Date:** 2026-09-03 · **Context:** Chapter 0.13 Step 5, in the committed `projects/P00_HelloPhone` · **Category:** Godot/C# · **Status:** ✅ Answered — **authoring error, fixed**
@@ -993,6 +1052,7 @@ Every ~20 doubts, come back and look for patterns. If four of your questions wer
 | Version | Date | Change |
 |---------|------|--------|
 | 1.0 | 2026-09-01 | Created at course inception. Table format. |
+| 3.2 | 2026-09-03 | D-018 — chapter 1.5 Step 5's headerless fragment merged into `Marble.cs`; `RespawnDelay` exported and never read. Found by reading the learner's pushed code, not reported. |
 | 3.1 | 2026-09-03 | D-017 — `MaterialOverride` vs `surface_material_override/0`; chapter 0.13 named the wrong Inspector section. |
 | 3.0 | 2026-09-02 | D-016 — `keytool` not on PATH, and the `setx PATH` command in 0.4 was harmful. First defect capable of damaging the learner\'s machine. |
 | 2.9 | 2026-09-02 | D-015 — chapter 0.4 never said where to download the command-line tools; Fast-Track had no download step at all. |
