@@ -52,11 +52,17 @@ The course itself. Chapters are published in order and appear here as they are w
 
 🎉 **Block 1A complete** — 7 chapters.
 
-**26 / 359.** 🎉 **MODULE 0 COMPLETE** — toolchain, first APK, four languages, dependencies and a pinned build.
+**1B — Space and motion**
+
+| # | Chapter | Track | Paths | Time | Status |
+|---|---|---|---|---|---|
+| **1.7** | [3D Space in Godot](module1/1B/1.7_3DSpaceInGodot.md) | A | 🐣🚶🏃 | 45–60 m | ✅ Published |
+
+**27 / 359.** 🎉 **MODULE 0 COMPLETE** — toolchain, first APK, four languages, dependencies and a pinned build.
  🎉 **Block 0B complete** — all four languages written, and a decision table built from your own measurements.
  🎉 **Block 0A complete** — toolchain installed, an app on the phone, and the ability to read it when it breaks.
 
-Next: **1.7 — 3D space in Godot**, opening block **1B — Space and motion**.
+Next: **1.8 — `Transform3D`, `Basis`, local vs global**.
 
 > 📏 **ADR-002 compliance** — measured against the instructional body ([ADR-002](../meta/Decisions.md#adr-002)):
 >
@@ -88,6 +94,7 @@ Next: **1.7 — 3D space in Godot**, opening block **1B — Space and motion**.
 > | 1.4b | 63.9% | 16.8% |
 > | 1.5 | 67.5% | 16.9% |
 > | 1.6 | 57.1% | 24.3% |
+> | 1.7 | 64.2% | 21.4% |
 
 > 📑 Full chapter list: **[`../TableOfContents.md`](../TableOfContents.md)**
 > 📍 Current progress: **[`../meta/CourseState.md`](../meta/CourseState.md)**

@@ -26,7 +26,7 @@ update_trigger: "End of every working session, and after every chapter is publis
 | **Learner** | Tyrostir — path 🚶 **B, Self-Learner** (A and C authored in full, [ADR-024](Decisions.md#adr-024)) |
 | **Current phase** | **Phase 3 — writing chapters** |
 | **Plan status** | ✅ **Approved** — chapter writing began 2026-09-02 |
-| **Chapters published** | **26 / 359** — Module 0 complete; **block 1A complete** — Module 0 complete; Module 1 begun — 🎉 blocks 0A **and** 0B complete — 🎉 **block 0A complete** — [0.1](../chapters/module0/0A/0.1_MachinesAndTheirRoles.md) · [0.2](../chapters/module0/0A/0.2_GodotAndDotNet.md) · [0.3](../chapters/module0/0A/0.3_Blender.md) · [0.4](../chapters/module0/0A/0.4_AndroidToolchain.md) · [0.5](../chapters/module0/0A/0.5_ConnectingYourPhone.md) · [0.6](../chapters/module0/0A/0.6_TheGodotEditor.md) · [0.7](../chapters/module0/0A/0.7_GitForGameProjects.md) · ⭐ [0.8](../chapters/module0/0A/0.8_P00HelloPhone.md) · [0.9](../chapters/module0/0A/0.9_ReadingErrors.md) · [0.10](../chapters/module0/0B/0.10_GDScriptFirstContact.md) · [0.11](../chapters/module0/0B/0.11_CSharpFirstContact.md) · ⭐ [0.12](../chapters/module0/0B/0.12_MeasuredTwoLanguages.md) · [0.13](../chapters/module0/0B/0.13_GDShaderFirstContact.md) · [0.14](../chapters/module0/0B/0.14_LanguageDecisionTable.md) · [0.15](../chapters/module0/0C/0.15_EvaluatingADependency.md) · [0.16](../chapters/module0/0C/0.16_NuGet.md) · [0.17](../chapters/module0/0C/0.17_DevLoopTools.md) · ⭐ [0.18](../chapters/module0/0C/0.18_TheVersionMatrix.md) · [0.19](../chapters/module0/0C/0.19_Module0SelfCheck.md) |
+| **Chapters published** | **27 / 359** — 🎉 **Module 0 complete** (19) · 🎉 **block 1A complete** (7) · block 1B in progress (1/4). Index: [docs/chapters/README.md](../chapters/README.md) |
 | **Setup guides published** | **5 / 5** — all carry `[UNVERIFIED]` markers, none run yet |
 | **Projects shipped** | **0 / 11** · public releases **0 / 4** |
 | **Blender chapters published** | **0 / 64** |
@@ -64,7 +64,7 @@ OVERALL                                  [                    ]   0 %   (0/359)
 | Who | Action |
 |-----|--------|
 | 👤 **You — do next** | ⭐ **Work chapters [0.1](../chapters/module0/0A/0.1_MachinesAndTheirRoles.md) → [0.4](../chapters/module0/0A/0.4_AndroidToolchain.md)** — roughly 4–5 hours. At the end: Godot compiles C#, Blender round-trips a cube at the right scale, `adb version` works, and [`Machines.md`](Machines.md) is filled. Then paste output into [`../../toAgent/`](../../toAgent) to clear **V-07** to **V-10**. |
-| 🤖 **Me — next turn** | **Block 1B — Space and motion**, starting with 1.7. |
+| 🤖 **Me — next turn** | **Chapter 1.8 — `Transform3D`, `Basis`, local vs global.** |
 
 ---
 
@@ -102,19 +102,18 @@ OVERALL                                  [                    ]   0 %   (0/359)
 
 ## 5. Chapter-by-chapter tracker
 
-Tick as you go. `[ ]` not started · `[~]` in progress · `[x]` done · `[!]` done but shaky (revisit) · `[-]` skipped deliberately
+**This tracker mirrors what is *published*.** Your own reading position is yours to keep; the ticks here say what exists to read.
+
+`[ ]` not started · `[~]` in progress · `[x]` done · `[!]` done but shaky (revisit) · `[-]` skipped deliberately
 
 ### Module 0 — Toolchain, First APK & The Four Languages
 
 [x] 0.1 · [x] 0.2 · [x] 0.3 · [x] 0.4 · [x] 0.5 · [x] 0.6 · [x] 0.7 · [x] 0.8 **ship** ⭐ · [x] 0.9 · [x] 0.10 · [x] 0.11 · [x] 0.12 · [x] 0.13 · [x] 0.14 · [x] 0.15 · [x] 0.16 · [x] 0.17 🧰 · [x] 0.18 · [x] 0.19 self-check
-[ ] 0.7 · [ ] 0.8 **ship** ⭐ · [ ] 0.9 · [ ] 0.10 · [ ] 0.11 · [ ] 0.12
-[ ] 0.13 · [ ] 0.14 · [ ] 0.15 · [ ] 0.16 · [ ] 0.17 · [ ] 0.18
-[ ] 0.19 self-check
 
 ### Module 1 — Godot Foundations · P01
 
-[x] 1.1 · [x] 1.2 · [x] 1.3 · [x] 1.4 · [x] 1.4b 🧰 🧰 · [ ] 1.5
-[ ] 1.6 · [ ] 1.7 · [ ] 1.8 · [ ] 1.9 · [ ] 1.10 (X) · [ ] 1.11
+[x] 1.1 · [x] 1.2 · [x] 1.3 · [x] 1.4 · [x] 1.4b · [x] 1.5
+[x] 1.6 · [x] 1.7 · [ ] 1.8 · [ ] 1.9 · [ ] 1.10 (X) · [ ] 1.11
 [ ] 1.11b 🧰 · [ ] 1.12 · [ ] 1.13 · [ ] 1.13b 🧰 · [ ] 1.14 · [ ] 1.15
 [ ] 1.16 · [ ] 1.16b 🧰 · [ ] 1.17 · [ ] 1.18 · [ ] 1.19 · [ ] 1.20
 [ ] 1.21 (X) · [ ] 1.22 · [ ] 1.23 · [ ] 1.24 · [ ] 1.24b 🧰 · [ ] 1.25
