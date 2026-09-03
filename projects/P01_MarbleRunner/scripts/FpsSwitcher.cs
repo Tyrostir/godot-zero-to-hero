@@ -1,4 +1,5 @@
 using Godot;
+using System.Collections.Generic;
 
 public partial class FpsSwitcher : Node3D
 {
@@ -8,5 +9,11 @@ public partial class FpsSwitcher : Node3D
 	{
 		Engine.MaxFps = MaxFps;
 		GD.Print($"MaxFps = {MaxFps} (0 means uncapped)");
+	}
+	public override void _Process(double delta)
+	{
+		// ⚠️ allocates a new object EVERY FRAME
+		//var wasteful = new List<int>(1000);
+		//wasteful.Add(1);
 	}
 }
