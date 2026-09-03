@@ -1,0 +1,6 @@
+[gd_resource type="PhysicsMaterial" format=3 uid="uid://dgfm6gq7pg5i5"]
+
+[resource]
+resource_local_to_scene = true
+friction = 0.6
+bounce = 0.9

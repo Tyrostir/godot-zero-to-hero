@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://boy7tmdktfnd8"]
 
+[ext_resource type="PhysicsMaterial" uid="uid://dgfm6gq7pg5i5" path="res://resources/Marble.physmat.tres.tres" id="1_8jjmq"]
+
 [sub_resource type="SphereMesh" id="SphereMesh_cm0pq"]
 radius = 0.35
 height = 0.7
@@ -8,6 +10,7 @@ height = 0.7
 radius = 0.35
 
 [node name="Marble" type="RigidBody3D" unique_id=63945780]
+physics_material_override = ExtResource("1_8jjmq")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=719876606]
 mesh = SubResource("SphereMesh_cm0pq")

@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://syx5n04okp3g" path="res://scripts/FpsSwitcher.cs" id="1_trn2v"]
 [ext_resource type="Script" uid="uid://5rh2k2fra263" path="res://scripts/ProbeC.cs" id="2_3dxm6"]
 [ext_resource type="PackedScene" uid="uid://cnoclfq5vywrj" path="res://Coin.tscn" id="2_uu6xs"]
+[ext_resource type="PhysicsMaterial" uid="uid://dgfm6gq7pg5i5" path="res://resources/Marble.physmat.tres.tres" id="2_wkp8b"]
 [ext_resource type="Script" uid="uid://4rp7gyxbdtg2" path="res://scripts/ProbeB.cs" id="4_lgr22"]
 [ext_resource type="Script" uid="uid://dpg2v18ro3676" path="res://scripts/Marble.cs" id="5_03owx"]
 [ext_resource type="PackedScene" uid="uid://bvm1prawwu0mw" path="res://Spinner.tscn" id="6_3dxm6"]
@@ -14,6 +15,21 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_q6c6o"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_wkp8b"]
+resource_local_to_scene = true
+friction = 0.6
+bounce = 0.9
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_20pc6"]
+resource_local_to_scene = true
+friction = 0.6
+bounce = 0.9
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5vvyt"]
+resource_local_to_scene = true
+friction = 0.6
+bounce = 0.9
+
 [sub_resource type="BoxMesh" id="BoxMesh_q6c6o"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0u86m"]
@@ -22,6 +38,7 @@
 script = ExtResource("1_trn2v")
 
 [node name="Floor" type="StaticBody3D" parent="." unique_id=1109388611]
+physics_material_override = ExtResource("2_wkp8b")
 script = ExtResource("2_3dxm6")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=778061907]
@@ -34,14 +51,18 @@ shape = SubResource("BoxShape3D_q6c6o")
 
 [node name="Marble" parent="." unique_id=63945780 instance=ExtResource("1_glv2v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -6)
+physics_material_override = SubResource("PhysicsMaterial_wkp8b")
 script = ExtResource("4_lgr22")
 
 [node name="Marble2" parent="." unique_id=707872310 instance=ExtResource("1_glv2v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 5, -6)
+physics_material_override = SubResource("PhysicsMaterial_20pc6")
 script = ExtResource("5_03owx")
+Tint = Color(0.34172007, 0.8004681, 0.47643888, 1)
 
 [node name="Marble3" parent="." unique_id=437453660 instance=ExtResource("1_glv2v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 5, -6)
+physics_material_override = SubResource("PhysicsMaterial_5vvyt")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1051801085]
 transform = Transform3D(1, 0, 0, 0, 0.9659258, 0.25881904, 0, -0.25881904, 0.9659258, 0, 4, 9)
