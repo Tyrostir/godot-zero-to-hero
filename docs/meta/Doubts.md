@@ -929,7 +929,7 @@ No `SpinPlatform.cs` exists in the project; the spinner scripts are `spinGood.cs
 
 **Why the fragment misled.** Every other code block in 1A is either a whole file or clearly marked as an addition to a named one. Step 5's was neither, and it followed the chapter's only other full-file listing. The learner then had to *merge* two `_PhysicsProcess` overrides to make it compile — which they did correctly. **They resolved the ambiguity thoughtfully and still got a wrong result, which is the signature of an instruction defect rather than a reading error.**
 
-**Why it is worse than a cosmetic bug.** `RotateY` writes the transform directly. Writing a **`RigidBody3D`'s** transform every physics frame **fights the solver** — teleporting a body the physics engine is concurrently simulating. On a `StaticBody3D` (what `SpinPlatform` is) that is fine and normal. So the mis-paste did not just spin the wrong object; it taught the wrong habit about rigid bodies, three chapters before [1.13](../../../TableOfContents.md) teaches forces and [1.11](../../../TableOfContents.md) explains why the body type decides which is legal.
+**Why it is worse than a cosmetic bug.** `RotateY` writes the transform directly. Writing a **`RigidBody3D`'s** transform every physics frame **fights the solver** — teleporting a body the physics engine is concurrently simulating. On a `StaticBody3D` (what `SpinPlatform` is) that is fine and normal. So the mis-paste did not just spin the wrong object; it taught the wrong habit about rigid bodies, three chapters before [1.13](../TableOfContents.md) teaches forces and [1.11](../TableOfContents.md) explains why the body type decides which is legal.
 
 **The second defect, which nobody had to hit.** Step 2's `Marble.cs` exported:
 
