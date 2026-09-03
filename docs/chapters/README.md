@@ -59,12 +59,15 @@ The course itself. Chapters are published in order and appear here as they are w
 | **1.7** | [3D Space in Godot](module1/1B/1.7_3DSpaceInGodot.md) | A | 🐣🚶🏃 | 45–60 m | ✅ Published |
 | **1.8** | [Transform3D, Basis, Local vs Global](module1/1B/1.8_Transform3D.md) | A | 🐣🚶🏃 | 60–75 m | ✅ Published |
 | **1.9** | [Rotations: Euler, Gimbal Lock, Quaternions](module1/1B/1.9_Rotations.md) | A | 🐣🚶🏃 | 60–75 m | ✅ Published |
+| **1.10** | [Drill: Move, Orbit and Align Three Ways](module1/1B/1.10_TransformDrill.md) | **X** | 🐣🚶🏃 | 75–90 m | ✅ Published |
 
-**29 / 359.** 🎉 **MODULE 0 COMPLETE** — toolchain, first APK, four languages, dependencies and a pinned build.
+🎉 **Block 1B complete** — 4 chapters.
+
+**30 / 359.** 🎉 **MODULE 0 COMPLETE** — toolchain, first APK, four languages, dependencies and a pinned build.
  🎉 **Block 0B complete** — all four languages written, and a decision table built from your own measurements.
  🎉 **Block 0A complete** — toolchain installed, an app on the phone, and the ability to read it when it breaks.
 
-Next: **1.10 — Drill: move, orbit and align three ways**, closing block 1B.
+Next: **block 1C — Physics**, starting with 1.11.
 
 > 📏 **ADR-002 compliance** — measured against the instructional body ([ADR-002](../meta/Decisions.md#adr-002)):
 >
@@ -99,6 +102,7 @@ Next: **1.10 — Drill: move, orbit and align three ways**, closing block 1B.
 > | 1.7 | 64.2% | 21.4% |
 > | 1.8 | 61.3% | 23.0% |
 > | 1.9 | 64.7% | 18.9% |
+> | 1.10 | 70.0% | 15.2% |
 
 > 📑 Full chapter list: **[`../TableOfContents.md`](../TableOfContents.md)**
 > 📍 Current progress: **[`../meta/CourseState.md`](../meta/CourseState.md)**

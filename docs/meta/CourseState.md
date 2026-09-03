@@ -26,7 +26,7 @@ update_trigger: "End of every working session, and after every chapter is publis
 | **Learner** | Tyrostir — path 🚶 **B, Self-Learner** (A and C authored in full, [ADR-024](Decisions.md#adr-024)) |
 | **Current phase** | **Phase 3 — writing chapters** |
 | **Plan status** | ✅ **Approved** — chapter writing began 2026-09-02 |
-| **Chapters published** | **29 / 359** — 🎉 **Module 0 complete** (19) · 🎉 **block 1A complete** (7) · block 1B in progress (3/4). Index: [docs/chapters/README.md](../chapters/README.md) |
+| **Chapters published** | **30 / 359** — 🎉 **Module 0 complete** (19) · 🎉 **block 1A complete** (7) · 🎉 **block 1B complete** (4). Index: [docs/chapters/README.md](../chapters/README.md) |
 | **Setup guides published** | **5 / 5** — all carry `[UNVERIFIED]` markers, none run yet |
 | **Projects shipped** | **0 / 11** · public releases **0 / 4** |
 | **Blender chapters published** | **0 / 64** |
@@ -64,7 +64,7 @@ OVERALL                                  [                    ]   0 %   (0/359)
 | Who | Action |
 |-----|--------|
 | 👤 **You — do next** | ⭐ **Work chapters [0.1](../chapters/module0/0A/0.1_MachinesAndTheirRoles.md) → [0.4](../chapters/module0/0A/0.4_AndroidToolchain.md)** — roughly 4–5 hours. At the end: Godot compiles C#, Blender round-trips a cube at the right scale, `adb version` works, and [`Machines.md`](Machines.md) is filled. Then paste output into [`../../toAgent/`](../../toAgent) to clear **V-07** to **V-10**. |
-| 🤖 **Me — next turn** | **Chapter 1.10 — the transform drill**, closing block 1B. |
+| 🤖 **Me — next turn** | **Block 1C — Physics**, starting with 1.11 (four body types). |
 
 ---
 
@@ -113,7 +113,7 @@ OVERALL                                  [                    ]   0 %   (0/359)
 ### Module 1 — Godot Foundations · P01
 
 [x] 1.1 · [x] 1.2 · [x] 1.3 · [x] 1.4 · [x] 1.4b · [x] 1.5
-[x] 1.6 · [x] 1.7 · [x] 1.8 · [x] 1.9 · [ ] 1.10 (X) · [ ] 1.11
+[x] 1.6 · [x] 1.7 · [x] 1.8 · [x] 1.9 · [x] 1.10 (X) · [ ] 1.11
 [ ] 1.11b 🧰 · [ ] 1.12 · [ ] 1.13 · [ ] 1.13b 🧰 · [ ] 1.14 · [ ] 1.15
 [ ] 1.16 · [ ] 1.16b 🧰 · [ ] 1.17 · [ ] 1.18 · [ ] 1.19 · [ ] 1.20
 [ ] 1.21 (X) · [ ] 1.22 · [ ] 1.23 · [ ] 1.24 · [ ] 1.24b 🧰 · [ ] 1.25
