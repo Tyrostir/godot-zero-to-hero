@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://boh04l1fejsa3"]
+
+[ext_resource type="Script" uid="uid://ch0rdnkp7pg2b" path="res://AxisGizmo.cs" id="1_glv2v"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_lavtg"]
+
+[node name="Main" type="Node3D" unique_id=741601658]
+transform = Transform3D(-1.3113416e-07, 0, 1, 0, 1, 0, -3, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="AxisGizmo" type="Node3D" parent="." unique_id=730828676]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 3, 0, 0)
+script = ExtResource("1_glv2v")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="AxisGizmo" unique_id=276030441]
+mesh = SubResource("BoxMesh_lavtg")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1888312439]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -10, 0, 0)

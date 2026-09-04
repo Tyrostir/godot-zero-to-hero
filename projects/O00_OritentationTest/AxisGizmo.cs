@@ -16,6 +16,10 @@ public partial class AxisGizmo : Node3D
 		GD.Print($"--- {Name} ---");
 		GD.Print($"  position     = {GlobalPosition}");
 		GD.Print($"  transform    = {GlobalTransform}");
+		GD.Print($"  transform.basis    = {GlobalTransform.Basis}");
+		GD.Print($"  transform.origin    = {GlobalTransform.Origin}");
+		GD.Print($"  basis        = {GlobalBasis}");
+		GD.Print($"  rotation     = {Mathf.RadToDeg(GlobalRotation.X)}");
 		GD.Print($"  right   (+X) = {b.X}");
 		GD.Print($"  up      (+Y) = {b.Y}");
 		GD.Print($"  back    (+Z) = {b.Z}");

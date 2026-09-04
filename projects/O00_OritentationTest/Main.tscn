@@ -5,7 +5,7 @@
 [sub_resource type="BoxMesh" id="BoxMesh_lavtg"]
 
 [node name="root" type="Node3D" unique_id=1560903047]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+transform = Transform3D(-4.371139e-08, 0.17364818, 0.9848077, 0, 0.9848077, -0.17364818, -1, -7.590403e-09, -4.304731e-08, 10, 0, 0)
 script = ExtResource("1_glv2v")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1198564712]
