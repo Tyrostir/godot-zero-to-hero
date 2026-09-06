@@ -1,0 +1,19 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "O1.9_AnglesQuaternion", "O1.9_AnglesQuaternion.csproj", "{27D20C0A-B7C2-4883-8F7E-F375A219361F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+	Debug|Any CPU = Debug|Any CPU
+	ExportDebug|Any CPU = ExportDebug|Any CPU
+	ExportRelease|Any CPU = ExportRelease|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{27D20C0A-B7C2-4883-8F7E-F375A219361F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27D20C0A-B7C2-4883-8F7E-F375A219361F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27D20C0A-B7C2-4883-8F7E-F375A219361F}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
+		{27D20C0A-B7C2-4883-8F7E-F375A219361F}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
+		{27D20C0A-B7C2-4883-8F7E-F375A219361F}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
+		{27D20C0A-B7C2-4883-8F7E-F375A219361F}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://bjrot3i64rc0p"]
+
+[ext_resource type="Script" uid="uid://b2opqho1ewf65" path="res://AxisGizmo.cs" id="1_glv2v"]
+[ext_resource type="Script" uid="uid://bhw2afu7fmijl" path="res://MeshInstance3d.cs" id="2_uu6xs"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_rxg2q"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_lavtg"]
+height = 1.5
+
+[node name="root" type="Node3D" unique_id=1605626170]
+
+[node name="AxisGizmo" type="Node3D" parent="." unique_id=1262717797]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 2.728811, 0, 0.4620509)
+script = ExtResource("1_glv2v")
+LerpEuler = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="AxisGizmo" unique_id=1981237045]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.34, 0.857, 0.947)
+mesh = SubResource("CylinderMesh_rxg2q")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=93974962]
+transform = Transform3D(1, 0, 0, 0, 0.9396926, 0.34202012, 0, -0.34202012, 0.9396926, 0, 2, 5)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1261307927]
+transform = Transform3D(0.90630776, 0.1786062, -0.38302222, 0, 0.90630776, 0.42261827, 0.42261827, -0.38302222, 0.8213937, 0, 0, 0)
+
+[node name="Turret" type="Node3D" parent="." unique_id=726078307]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Turret" unique_id=737543967 node_paths=PackedStringArray("Target")]
+mesh = SubResource("CylinderMesh_lavtg")
+script = ExtResource("2_uu6xs")
+Target = NodePath("../../AxisGizmo/MeshInstance3D")
