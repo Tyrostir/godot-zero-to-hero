@@ -63,11 +63,17 @@ The course itself. Chapters are published in order and appear here as they are w
 
 🎉 **Block 1B complete** — 4 chapters.
 
-**30 / 359.** 🎉 **MODULE 0 COMPLETE** — toolchain, first APK, four languages, dependencies and a pinned build.
+**1C — Physics**
+
+| # | Chapter | Track | Paths | Time | Status |
+|---|---|---|---|---|---|
+| **1.11** | [The Four Body Types](module1/1C/1.11_TheFourBodyTypes.md) | A | 🐣🚶🏃 | 60–75 m | ✅ Published |
+
+**31 / 359.** 🎉 **MODULE 0 COMPLETE** — toolchain, first APK, four languages, dependencies and a pinned build.
  🎉 **Block 0B complete** — all four languages written, and a decision table built from your own measurements.
  🎉 **Block 0A complete** — toolchain installed, an app on the phone, and the ability to read it when it breaks.
 
-Next: **block 1C — Physics**, starting with 1.11.
+Next: **1.11b — Debug Draw 3D and Panku Console** 🧰.
 
 > 📏 **ADR-002 compliance** — measured against the instructional body ([ADR-002](../meta/Decisions.md#adr-002)):
 >
@@ -103,6 +109,7 @@ Next: **block 1C — Physics**, starting with 1.11.
 > | 1.8 | 61.3% | 23.0% |
 > | 1.9 | 64.7% | 18.9% |
 > | 1.10 | 70.0% | 15.2% |
+> | 1.11 | 69.4% | 17.6% |
 
 > 📑 Full chapter list: **[`../TableOfContents.md`](../TableOfContents.md)**
 > 📍 Current progress: **[`../meta/CourseState.md`](../meta/CourseState.md)**
