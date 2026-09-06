@@ -68,12 +68,13 @@ The course itself. Chapters are published in order and appear here as they are w
 | # | Chapter | Track | Paths | Time | Status |
 |---|---|---|---|---|---|
 | **1.11** | [The Four Body Types](module1/1C/1.11_TheFourBodyTypes.md) | A | 🐣🚶🏃 | 60–75 m | ✅ Published |
+| **1.11b** | 🧰 [Debug Draw 3D and Panku Console](module1/1C/1.11b_DebugDrawAndConsole.md) | A | 🐣🚶🏃 | 60–75 m | ✅ Published |
 
-**31 / 359.** 🎉 **MODULE 0 COMPLETE** — toolchain, first APK, four languages, dependencies and a pinned build.
+**32 / 359.** 🎉 **MODULE 0 COMPLETE** — toolchain, first APK, four languages, dependencies and a pinned build.
  🎉 **Block 0B complete** — all four languages written, and a decision table built from your own measurements.
  🎉 **Block 0A complete** — toolchain installed, an app on the phone, and the ability to read it when it breaks.
 
-Next: **1.11b — Debug Draw 3D and Panku Console** 🧰.
+Next: **1.12 — Collision shapes, layers and masks**.
 
 > 📏 **ADR-002 compliance** — measured against the instructional body ([ADR-002](../meta/Decisions.md#adr-002)):
 >
@@ -110,6 +111,7 @@ Next: **1.11b — Debug Draw 3D and Panku Console** 🧰.
 > | 1.9 | 64.7% | 18.9% |
 > | 1.10 | 70.0% | 15.2% |
 > | 1.11 | 69.4% | 17.6% |
+> | 1.11b | 73.6% | 15.9% |
 
 > 📑 Full chapter list: **[`../TableOfContents.md`](../TableOfContents.md)**
 > 📍 Current progress: **[`../meta/CourseState.md`](../meta/CourseState.md)**
