@@ -176,6 +176,7 @@ Enforced by [**ADR-002 — the Practical-First Mandate**](../meta/Decisions.md#a
 | 11 | 📎 **Cheat sheet** | Everything introduced, in one table | short |
 | 12 | 🔗 **Further reading** | Into [`../reference/ReferenceLinks.md`](../reference/ReferenceLinks.md) | short |
 | 13 | 💾 **Commit** | The exact commit message to use | 1 line |
+| 13b | 🔑 **Complete Solutions** | **Mandatory wherever the chapter asks the learner to build or solve something** ([ADR-038](../meta/Decisions.md#adr-038)). Every task, fully worked: scene setup, complete files, *why this and not that*, and how to verify. One collapsed `<details>` per task. Sits here — after the attempt, not before it. **Excluded from ADR-002's ratio** (see [`../../tools/check_chapter.py`](../../tools/check_chapter.py)). | as long as it needs |
 | 14 | ➡️ **What's next** | | 1 line |
 | 14b | 🪞 **Reflection** | Explain the concept back in your own words. If you cannot, the chapter is not finished | 2 lines |
 | 15 | 📝 **Chapter changelog** | | table |
@@ -194,6 +195,8 @@ Every chapter serves three paths from one document:
 - **🐣 boxes** sit inline, at the point of confusion — collapsed, so B and C read past them.
 - **🔬 deep dives** are optional depth; Path A skips them.
 - **⭐ practicals** are done by every path.
+
+> 🔑 **Never withhold an answer.** No "left as an exercise", no fragments, no "you should be able to work out the rest" ([ADR-038](../meta/Decisions.md#adr-038)). Being stuck should cost minutes, not an evening. Run [`tools/check_chapter.py`](../../tools/check_chapter.py) on every chapter before publishing.
 
 > ⚠️ **The ratios in ADR-002 are measured on the Path B reading** — the full chapter minus 🐣 boxes and the 🏃 summary. Path material *adds*; it never displaces the build.
 

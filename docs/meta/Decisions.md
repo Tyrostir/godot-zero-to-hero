@@ -658,6 +658,30 @@ The progression for every subsystem is: **guided build → variation → ⬜ bla
 
 ---
 
+## ADR-038
+### Every exercise ships its complete solution
+**Status:** ✅ Active *(decided 2026-09-07, learner's instruction)* · **Category:** Pedagogy
+
+**The learner's words:** *"you should give me the complete answer with each and every instructions as step by step... Yes, I do expect you to spoon-feed every details. I don't want to waste time while you can remove the obstacles on the go."*
+
+**Every chapter that asks the learner to build or solve something now ships the complete, runnable answer** — full files, exact node trees, every property value, and the reasoning for each choice. No "left as an exercise", no fragments, no "you should be able to work out the rest".
+
+**Where it goes.** A new section, **🔑 Complete Solutions**, placed **after** 💾 Commit and before ➡️ What's next — the far end of the chapter, so that reading order still puts the attempt before the answer. Collapsed per task in `<details>` blocks, so a reader can open exactly the one that has them stuck without seeing the other eight.
+
+**What it must contain**, per task:
+1. The **scene setup** — node names, types, parents, and the properties that matter
+2. The **complete file**, not a fragment ([ADR-037](#adr-037))
+3. **Why this and not something else** — a solution that only works is half an answer
+4. The **verification** — what the learner should see that proves it right
+
+**This does not soften the drills.** The reading order is still attempt → struggle → check, and chapters keep saying so. What changes is that being stuck now costs minutes instead of an evening, and that a wrong turn is recoverable without the learner having to guess whether the chapter or their code is at fault. Given that four instruction defects in this course's first two blocks ([D-014](Doubts.md#d-014) through [D-019](Doubts.md#d-019)) were only ever discoverable *because* a reference answer eventually existed, this is a correctness measure as much as a pedagogical one.
+
+**Interaction with [ADR-002](#adr-002).** 🔑 Complete Solutions is **excluded from the ratio denominator**, alongside the other framing sections. Counting it as "doing" would let a long solutions appendix inflate the doing percentage and quietly make ADR-002 unfalsifiable — the metric would start measuring the answer key rather than the build. The rule is enforced in [`tools/check_chapter.py`](../../tools/check_chapter.py) rather than restated in prose, because [D-016](Doubts.md#d-016) is what happens when one operation lives in two places.
+
+**Retro-fit.** [1.10](../chapters/module1/1B/1.10_TransformDrill.md) is done, being the chapter that prompted this. Other published chapters are swept alongside [T-029](ToDos.md) — most already give complete builds; the gap is in ⬜ blank-page builds, `[X]` drills and 🔬 practicals, which are exactly the places the old convention deliberately withheld an answer.
+
+---
+
 ## ADR-037
 ### Every code block declares what to do with it
 **Status:** ✅ Active *(decided 2026-09-07)* · **Category:** Authoring
@@ -717,6 +741,7 @@ Everything after shifted: old Modules 2–11 became **3–12**. The course is no
 
 | Version | Date | Change |
 |---------|------|--------|
+| 2.1 | 2026-09-07 | ADR-038 — every exercise ships its complete solution, in a 🔑 Complete Solutions section excluded from ADR-002's denominator. Learner's instruction. |
 | 2.0 | 2026-09-07 | ADR-037 — every code block declares NEW FILE / ADD / REPLACE / EDIT, after three defects of that one shape (D-018, D-019). |
 | 1.9 | 2026-09-03 | ADR-020 revised again: chapters moved into `module<n>/<block>/` folders. Flat directories sort wrongly past nine chapters, and Module 1 has 44. |
 | 1.8 | 2026-09-02 | ADR-036 — Windows 11 **and** Linux supported; WSL2 explicitly excluded as a workshop. ADR-004 revised. Chapters 0.1–0.4 made dual-platform; new `Platforms.md`. |
