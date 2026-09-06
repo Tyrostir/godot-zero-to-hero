@@ -70,12 +70,13 @@ The course itself. Chapters are published in order and appear here as they are w
 | **1.11** | [The Four Body Types](module1/1C/1.11_TheFourBodyTypes.md) | A | 🐣🚶🏃 | 60–75 m | ✅ Published |
 | **1.11b** | 🧰 [Debug Draw 3D and Panku Console](module1/1C/1.11b_DebugDrawAndConsole.md) | A | 🐣🚶🏃 | 60–75 m | ✅ Published |
 | **1.12** | [Collision Shapes, Layers and Masks](module1/1C/1.12_ShapesLayersMasks.md) | A | 🐣🚶🏃 | 60–75 m | ✅ Published |
+| **1.13** | [Making the Marble Roll](module1/1C/1.13_MakingTheMarbleRoll.md) | A | 🐣🚶🏃 | 75–90 m | ✅ Published |
 
-**33 / 359.** 🎉 **MODULE 0 COMPLETE** — toolchain, first APK, four languages, dependencies and a pinned build.
+**34 / 359.** 🎉 **MODULE 0 COMPLETE** — toolchain, first APK, four languages, dependencies and a pinned build.
  🎉 **Block 0B complete** — all four languages written, and a decision table built from your own measurements.
  🎉 **Block 0A complete** — toolchain installed, an app on the phone, and the ability to read it when it breaks.
 
-Next: **1.13 — Making the marble roll**.
+Next: **1.13b — Jolt physics** 🧰.
 
 > 📏 **ADR-002 compliance** — measured against the instructional body ([ADR-002](../meta/Decisions.md#adr-002)):
 >
@@ -114,6 +115,7 @@ Next: **1.13 — Making the marble roll**.
 > | 1.11 | 69.4% | 17.6% |
 > | 1.11b | 73.6% | 15.9% |
 > | 1.12 | 65.9% | 20.1% |
+> | 1.13 | 70.7% | 16.4% |
 
 > 📑 Full chapter list: **[`../TableOfContents.md`](../TableOfContents.md)**
 > 📍 Current progress: **[`../meta/CourseState.md`](../meta/CourseState.md)**
