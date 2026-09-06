@@ -72,12 +72,15 @@ The course itself. Chapters are published in order and appear here as they are w
 | **1.12** | [Collision Shapes, Layers and Masks](module1/1C/1.12_ShapesLayersMasks.md) | A | 🐣🚶🏃 | 60–75 m | ✅ Published |
 | **1.13** | [Making the Marble Roll](module1/1C/1.13_MakingTheMarbleRoll.md) | A | 🐣🚶🏃 | 75–90 m | ✅ Published |
 | **1.13b** | 🧰 [Jolt Physics: Choosing a Solver](module1/1C/1.13b_JoltPhysics.md) | A | 🚶🏃 | 75–90 m | ✅ Published |
+| **1.14** | [Area3D Triggers](module1/1C/1.14_AreaTriggers.md) | A | 🐣🚶🏃 | 60–75 m | ✅ Published |
 
-**35 / 359.** 🎉 **MODULE 0 COMPLETE** — toolchain, first APK, four languages, dependencies and a pinned build.
+🎉 **Block 1C complete** — 6 chapters.
+
+**36 / 359.** 🎉 **MODULE 0 COMPLETE** — toolchain, first APK, four languages, dependencies and a pinned build.
  🎉 **Block 0B complete** — all four languages written, and a decision table built from your own measurements.
  🎉 **Block 0A complete** — toolchain installed, an app on the phone, and the ability to read it when it breaks.
 
-Next: **1.14 — Area3D triggers**, closing block 1C.
+Next: **block 1D — Input, on a phone**, starting with 1.16.
 
 > 📏 **ADR-002 compliance** — measured against the instructional body ([ADR-002](../meta/Decisions.md#adr-002)):
 >
@@ -118,6 +121,7 @@ Next: **1.14 — Area3D triggers**, closing block 1C.
 > | 1.12 | 65.9% | 20.1% |
 > | 1.13 | 70.7% | 16.4% |
 > | 1.13b | 67.5% | 20.1% |
+> | 1.14 | 72.5% | 15.4% |
 
 > 📑 Full chapter list: **[`../TableOfContents.md`](../TableOfContents.md)**
 > 📍 Current progress: **[`../meta/CourseState.md`](../meta/CourseState.md)**
