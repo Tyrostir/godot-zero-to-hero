@@ -658,6 +658,40 @@ The progression for every subsystem is: **guided build → variation → ⬜ bla
 
 ---
 
+## ADR-037
+### Every code block declares what to do with it
+**Status:** ✅ Active *(decided 2026-09-07)* · **Category:** Authoring
+
+Three defects in this course's first two blocks — [D-018](Doubts.md#d-018) (twice) and [D-019](Doubts.md#d-019) — were the same mistake: **a code block whose relationship to the previous one was ambiguous.** The learner had to guess *add or replace?* and *which file?*, guessed reasonably, and got wrong behaviour.
+
+The pattern is worth stating precisely, because it does not look like an authoring failure while you are writing:
+
+| Chapter | The block | Read as | Result |
+|---|---|---|---|
+| [1.5](../chapters/module1/1A/1.5_TuningWithoutRecompiling.md) Step 5 | headerless members for `SpinPlatform.cs` | add to `Marble.cs` | marble spun itself; a `RigidBody3D` transform written every physics frame |
+| [1.6](../chapters/module1/1A/1.6_NodesVsResources.md) Step 4 | Fix A's `if` block | add beside Step 3's | shared resource still mutated, **symptom invisible** |
+| [1.6](../chapters/module1/1A/1.6_NodesVsResources.md) Step 1 | `Save As… → Marble.physmat.tres` | type that literal name | `Marble.physmat.tres.tres` |
+
+**Every code block from now on carries one of four markers**, in the prose immediately above it and, where it is not obvious, repeated as a comment on the first line:
+
+| Marker | Means |
+|---|---|
+| **📄 NEW FILE `path`** | Create this file. The block is its complete contents. |
+| **➕ ADD to `File.cs`** | Append these members. Nothing existing is removed. |
+| **🔁 REPLACE** *(name what)* | This supersedes a named earlier block. **Say what must be deleted.** |
+| **✏️ EDIT** *(one line)* | Change these lines in place. |
+
+Two supporting rules:
+
+1. **A block that shows class members without a class header must name its file in the same sentence.** Ambiguity about *which file* caused the worst of the three, and it is the cheapest to prevent.
+2. **A 🔁 REPLACE must state what disappears**, not only what appears. "Give each instance its own copy" did not say *the line that writes the shared material must go* — and keeping both produced correct-looking output with the bug intact, which is worse than the original bug.
+
+**Retro-fit is partial and deliberate.** The three known offenders are fixed. The remaining 30 published chapters are swept opportunistically ([T-029](ToDos.md)) rather than in one pass, because a mechanical edit across every code block in the course is itself a change likely to introduce exactly the class of error it is meant to prevent.
+
+**Why this ranks as an ADR rather than a style note.** Two of the three were found only by reading the learner's committed repository ([T-028](ToDos.md)); none was reported. **A defect nobody reports is not a defect nobody hit** — the learner had a spinning marble for four days and carried on. Instruction ambiguity is therefore near-invisible to the usual feedback channel, which is what makes it worth a structural rule instead of care.
+
+---
+
 ## ADR-035
 ### Thirteen modules — Module 1 split, Android runtime becomes Module 2
 **Status:** ✅ Active *(decided 2026-09-02)* · **Category:** Structure
@@ -683,6 +717,7 @@ Everything after shifted: old Modules 2–11 became **3–12**. The course is no
 
 | Version | Date | Change |
 |---------|------|--------|
+| 2.0 | 2026-09-07 | ADR-037 — every code block declares NEW FILE / ADD / REPLACE / EDIT, after three defects of that one shape (D-018, D-019). |
 | 1.9 | 2026-09-03 | ADR-020 revised again: chapters moved into `module<n>/<block>/` folders. Flat directories sort wrongly past nine chapters, and Module 1 has 44. |
 | 1.8 | 2026-09-02 | ADR-036 — Windows 11 **and** Linux supported; WSL2 explicitly excluded as a workshop. ADR-004 revised. Chapters 0.1–0.4 made dual-platform; new `Platforms.md`. |
 | 1.7 | 2026-09-02 | ADR-019 revised to a **staged release** model — v1.0 after Level 1, then v1.1–v1.3. All four levels stay mandatory. Module 11 restructured; new live-operations block. 348 → 359 chapters. Prompted by [D-012](Doubts.md#d-012). |

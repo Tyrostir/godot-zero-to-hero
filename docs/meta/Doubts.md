@@ -895,6 +895,58 @@ Chapter 0.4: Fast-Track and Step 4 rewritten to use `[Environment]::SetEnvironme
 
 ---
 
+## D-019
+
+**Date:** 2026-09-07 · **Context:** Chapter 1.6, found by reading the learner's committed `projects/P01_MarbleRunner` at the block-1B boundary ([T-028](ToDos.md)) · **Category:** Godot/C# · **Status:** ✅ **Two authoring errors, fixed** — neither reported
+
+### Question *(none — again not asked)*
+> The learner pushed chapters 1.6–1.9 of work. Reading it showed a resource file named `Marble.physmat.tres.tres` and a `Marble.cs` that both mutates a shared material *and* duplicates it.
+
+### Short answer
+**Two more instruction defects, both mine.** Step 1 told the learner to type `Marble.physmat.tres` into a Save dialog that appends `.tres` itself. Step 4's Fix A showed a replacement `if` block without saying it **replaced** Step 3's, so both survived — and the result *looks* correct while still writing to the shared resource every frame a marble spawns.
+
+### Full answer
+
+**Defect 1 — the doubled extension.**
+
+```
+projects/P01_MarbleRunner/resources/Marble.physmat.tres.tres
+```
+
+The chapter said: *"Save As… → `res://resources/Marble.physmat.tres`"*. Typing that literal string into Godot's save dialog produces the doubled name, because the dialog supplies the extension. Harmless to run, wrong in every listing forever, and it is the kind of thing a learner assumes they did wrong. **The fix is to name the file without its extension and say why.**
+
+**Defect 2 — the merged fix, which is the interesting one.**
+
+```csharp
+if (mesh.GetSurfaceOverrideMaterial(0) is StandardMaterial3D shared) {
+    shared.AlbedoColor = Tint;                                  // ← Step 3's BUG, still here
+    var mine = (StandardMaterial3D) shared.Duplicate();         // ← Step 4's FIX
+    mine.AlbedoColor = Tint;
+    mesh.SetSurfaceOverrideMaterial(0, mine);
+}
+```
+
+Step 3 deliberately introduces the shared-resource bug. Step 4 says *"Fix A — duplicate at runtime. Give each instance its own copy:"* and shows a complete `if` block. **It never says the earlier line must go.** The learner added the fix without removing the bug — the reasonable reading, since the block was presented as a fix rather than as a replacement.
+
+**Why this is worse than the bug it was fixing.** The output is now *correct*: three marbles, three colours. The shared material is still mutated on every marble's `_Ready`, but nothing shows it, because each marble immediately switches to its own duplicate. **The symptom is gone and the defect is not** — and this is precisely the hazard the same chapter's Break-it #2 warns about, runtime code writing to a shared on-disk resource. The chapter created, then hid, the bug it was teaching.
+
+**Also outstanding: [D-018](#d-018) is not yet applied.** `Marble.cs` still carries the `Motion` export group and `RotateY` inside the marble's `_PhysicsProcess`. Not a new defect — reported to the learner, not yet actioned. Restated at the top of block 1C, since [1.11](../chapters/module1/1C/1.11_TheFourBodyTypes.md) is exactly the chapter that explains why writing a `RigidBody3D`'s transform is the wrong tool.
+
+### Action taken
+
+1. **Step 1** now says to type `Marble.physmat` **without** the extension, with a ⚠️ explaining the doubling and how to rename safely (FileSystem dock, so references update).
+2. **Step 4** is marked **🔁 REPLACE**, names what it supersedes, and carries a 🚨 saying explicitly that `shared.AlbedoColor = Tint;` must be deleted — and that keeping both looks fixed while leaving the mutation in place.
+3. Chapter 1.6 → v1.1.
+4. **[ADR-037](Decisions.md#adr-037) opened**, because this is the third defect of one shape.
+
+### The shape, now named
+
+[D-018](#d-018) (twice) and D-019 are all **code blocks whose relationship to the previous block was ambiguous** — add or replace? which file? — where the learner guessed reasonably and got wrong behaviour. That is not three careless chapters; it is a missing convention. [ADR-037](Decisions.md#adr-037) requires every block to declare 📄 NEW FILE / ➕ ADD / 🔁 REPLACE / ✏️ EDIT, and requires a REPLACE to say what disappears.
+
+**And note the detection channel.** All three were found by reading the repository, none by a report. The learner is working carefully — they built [1.7](../chapters/module1/1B/1.7_3DSpaceInGodot.md)–[1.9](../chapters/module1/1B/1.9_Rotations.md) in separate scratch projects, adopted Debug Draw 3D two chapters early, and used it to draw the turret's forward vector. **Careful learners route around ambiguous instructions rather than reporting them**, which is exactly why [T-028](ToDos.md) has to be a standing check rather than a good intention.
+
+---
+
 ## D-018
 
 **Date:** 2026-09-03 · **Context:** Chapter 1.5 Step 5, found by me reading the learner's committed `projects/P01_MarbleRunner` · **Category:** Godot/C# · **Status:** ✅ **Authoring error, fixed** — not reported; found by reading pushed code
@@ -1052,6 +1104,7 @@ Every ~20 doubts, come back and look for patterns. If four of your questions wer
 | Version | Date | Change |
 |---------|------|--------|
 | 1.0 | 2026-09-01 | Created at course inception. Table format. |
+| 3.3 | 2026-09-07 | D-019 — chapter 1.6's doubled `.tres.tres` filename, and Fix A merged with the bug it replaces. Third defect of one shape; [ADR-037](Decisions.md#adr-037) opened. |
 | 3.2 | 2026-09-03 | D-018 — chapter 1.5 Step 5's headerless fragment merged into `Marble.cs`; `RespawnDelay` exported and never read. Found by reading the learner's pushed code, not reported. |
 | 3.1 | 2026-09-03 | D-017 — `MaterialOverride` vs `surface_material_override/0`; chapter 0.13 named the wrong Inspector section. |
 | 3.0 | 2026-09-02 | D-016 — `keytool` not on PATH, and the `setx PATH` command in 0.4 was harmful. First defect capable of damaging the learner\'s machine. |
