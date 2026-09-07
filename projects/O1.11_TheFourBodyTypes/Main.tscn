@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://bv1mk8xrjrnf8"]
+
+[ext_resource type="Script" uid="uid://3vk7sgarm8to" path="res://SpinPlatform.cs" id="1_glv2v"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_rxg2q"]
+size = Vector3(20, 0.5, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_71tfo"]
+size = Vector3(20, 0.5, 20)
+
+[sub_resource type="SphereMesh" id="SphereMesh_lavtg"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_71tfo"]
+
+[node name="Node3D" type="Node3D" unique_id=1441949263]
+
+[node name="SpinPlatform" type="AnimatableBody3D" parent="." unique_id=317008801]
+script = ExtResource("1_glv2v")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SpinPlatform" unique_id=1216422443]
+mesh = SubResource("BoxMesh_rxg2q")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SpinPlatform" unique_id=1519376226]
+shape = SubResource("BoxShape3D_71tfo")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1561988622]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=148062389]
+mesh = SubResource("SphereMesh_lavtg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=726374035]
+shape = SubResource("SphereShape3D_71tfo")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1679178506]
+transform = Transform3D(1, 0, 0, 0, 0.9659258, 0.25881904, 0, -0.25881904, 0.9659258, 0, 3, 20)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2051374495]
+transform = Transform3D(0.90630776, 0.24240388, -0.34618863, 0, 0.81915206, 0.57357645, 0.42261827, -0.5198368, 0.74240386, 0, 0, 0)
