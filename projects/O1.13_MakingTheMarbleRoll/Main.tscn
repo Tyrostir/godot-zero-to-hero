@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://dilajqq3dk3ck"]
+
+[ext_resource type="Script" uid="uid://chlomkg5uuux4" path="res://Marble.cs" id="1_glv2v"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_glv2v"]
+friction = 0.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_lavtg"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_71tfo"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_lavtg"]
+size = Vector3(20, 0.5, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_71tfo"]
+size = Vector3(20, 0.5, 20)
+
+[node name="root" type="Node3D" unique_id=469970393]
+
+[node name="Marble" type="RigidBody3D" parent="." unique_id=242023659]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+physics_material_override = SubResource("PhysicsMaterial_glv2v")
+script = ExtResource("1_glv2v")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Marble" unique_id=1419214127]
+mesh = SubResource("SphereMesh_lavtg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Marble" unique_id=282674408]
+shape = SubResource("SphereShape3D_71tfo")
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=1631265543]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=1922546970]
+mesh = SubResource("BoxMesh_lavtg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=112744355]
+shape = SubResource("BoxShape3D_71tfo")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1311147905]
+transform = Transform3D(1, 0, 0, 0, 0.9659258, 0.25881904, 0, -0.25881904, 0.9659258, 0, 3, 10)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1920761591]
+transform = Transform3D(0.9659258, 0.1484525, -0.21201216, 0, 0.81915206, 0.57357645, 0.25881904, -0.5540323, 0.7912401, 0, 0, 0)
