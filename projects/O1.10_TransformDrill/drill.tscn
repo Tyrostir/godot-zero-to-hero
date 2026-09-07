@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://c0bxmjryctxha"]
+
+[ext_resource type="Script" uid="uid://nnu7e6atsp3x" path="res://Drill.cs" id="1_0n8n4"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_lavtg"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_71tfo"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_q6c6o"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="SphereMesh" id="SphereMesh_lavtg"]
+radius = 0.4
+
+[node name="Drill" type="Node3D" unique_id=1129934703]
+script = ExtResource("1_0n8n4")
+
+[node name="Pivot" type="Node3D" parent="." unique_id=998207846]
+transform = Transform3D(0.76604444, 0, 0.6427876, 0, 1, 0, -0.6427876, 0, 0.76604444, 0, 0, 0)
+
+[node name="Subject" type="MeshInstance3D" parent="Pivot" unique_id=357179501]
+mesh = SubResource("BoxMesh_lavtg")
+
+[node name="Orbiter" type="Node3D" parent="." unique_id=450815288]
+
+[node name="OrbitSubject" type="MeshInstance3D" parent="Orbiter" unique_id=1432321335]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+mesh = SubResource("BoxMesh_71tfo")
+
+[node name="FreeSubject" type="MeshInstance3D" parent="." unique_id=313138028]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+mesh = SubResource("BoxMesh_q6c6o")
+
+[node name="Marble" type="MeshInstance3D" parent="." unique_id=551946635]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1, 2)
+mesh = SubResource("SphereMesh_lavtg")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=338046090]
+transform = Transform3D(1, 0, 0, 0, 0.81915206, 0.57357645, 0, -0.57357645, 0.81915206, 0, 12, 14)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=197571041]
+transform = Transform3D(0.9396926, 0.1961747, -0.28016648, 0, 0.81915206, 0.57357645, 0.34202012, -0.53898555, 0.76975113, 0, 0, 0)
