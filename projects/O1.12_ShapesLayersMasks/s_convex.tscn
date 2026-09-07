@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cw60c5qcwh1p0"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_aei1s"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_cp05p"]
+
+[node name="S_Convex" type="RigidBody3D" unique_id=514195665]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1193014607]
+mesh = SubResource("BoxMesh_aei1s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=466119514]
+shape = SubResource("ConvexPolygonShape3D_cp05p")

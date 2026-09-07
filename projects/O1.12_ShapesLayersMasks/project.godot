@@ -10,9 +10,8 @@ config_version=5
 
 [application]
 
-config/name="O1.11_TheFourBodyTypes"
-run/main_scene="uid://de3nknjxnrn7r"
-config/features=PackedStringArray("4.7", "C#", "Mobile")
+config/name="O1.12_ShapesLayersMasks"
+config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
 
 [display]
@@ -22,7 +21,7 @@ window/stretch/aspect="expand"
 
 [dotnet]
 
-project/assembly_name="O1.11_TheFourBodyTypes"
+project/assembly_name="O1.12_ShapesLayersMasks"
 
 [physics]
 

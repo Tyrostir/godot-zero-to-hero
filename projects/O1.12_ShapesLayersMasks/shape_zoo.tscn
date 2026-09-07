@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://df06n66ivhupr"]
+
+[ext_resource type="Script" uid="uid://d13lkmkxlvuv0" path="res://ShapeStress.cs" id="1_v0mb7"]
+[ext_resource type="PackedScene" uid="uid://c3n580e7ygsbq" path="res://s_sphere.tscn" id="2_1bgk1"]
+[ext_resource type="PackedScene" uid="uid://b10aiojponk3c" path="res://s_box.tscn" id="2_utden"]
+[ext_resource type="PackedScene" uid="uid://c8uhdf6xb10se" path="res://s_capsule.tscn" id="4_jgsfo"]
+[ext_resource type="PackedScene" uid="uid://b0rnq6y0yggsq" path="res://s_cylinder.tscn" id="5_h8mw6"]
+[ext_resource type="PackedScene" uid="uid://cw60c5qcwh1p0" path="res://s_convex.tscn" id="6_h5mm4"]
+[ext_resource type="PackedScene" uid="uid://57x0h8gvu7o5" path="res://s_concave.tscn" id="7_f5nlx"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_71tfo"]
+size = Vector3(20, 0.5, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lavtg"]
+size = Vector3(20, 0.5, 20)
+
+[node name="ShapeZoo" type="Node3D" unique_id=916473221]
+script = ExtResource("1_v0mb7")
+BodyScene = ExtResource("4_jgsfo")
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=602101928]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=382656114]
+mesh = SubResource("BoxMesh_71tfo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=512246295]
+shape = SubResource("BoxShape3D_lavtg")
+
+[node name="S_Sphere" parent="." unique_id=939237545 instance=ExtResource("2_1bgk1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 5, 0)
+
+[node name="S_Box" parent="." unique_id=284619681 instance=ExtResource("2_utden")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 5, 0)
+
+[node name="S_Capsule" parent="." unique_id=1075146630 instance=ExtResource("4_jgsfo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 5, 0)
+
+[node name="S_Cylinder" parent="." unique_id=214357747 instance=ExtResource("5_h8mw6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+
+[node name="S_Convex" parent="." unique_id=514195665 instance=ExtResource("6_h5mm4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 5, 0)
+
+[node name="S_Concave" parent="." unique_id=854268873 instance=ExtResource("7_f5nlx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 5, 0)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1600048151]
+transform = Transform3D(1, 0, 0, 0, 0.9396926, 0.34202012, 0, -0.34202012, 0.9396926, 0, 5, 10)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=854886233]
+transform = Transform3D(0.9659258, 0.1484525, -0.21201216, 0, 0.81915206, 0.57357645, 0.25881904, -0.5540323, 0.7912401, 0, 0, 0)
